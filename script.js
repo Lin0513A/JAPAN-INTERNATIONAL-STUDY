@@ -2068,6 +2068,14 @@ document.querySelector("#clear-report-data")?.addEventListener("click", () => {
 
 const defaultAnnouncements = [
   {
+    id: "default-20260629-2346",
+    date: "2026-06-29 23:46 JST",
+    datetime: "2026-06-29T23:46:00+09:00",
+    category: "更新",
+    title: "站长留言文案调整",
+    body: "调整关于站长板块的祝福语，改为祝大家考上想去的学校，实现自己的梦想。",
+  },
+  {
     id: "default-20260629-2342",
     date: "2026-06-29 23:42 JST",
     datetime: "2026-06-29T23:42:00+09:00",
