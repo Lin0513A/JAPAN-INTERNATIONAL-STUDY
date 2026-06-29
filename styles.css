@@ -1498,10 +1498,7 @@ h3 {
 }
 
 .announcement-shell {
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
-  gap: 18px;
-  align-items: start;
+  display: block;
   min-width: 0;
 }
 
@@ -1511,10 +1508,9 @@ h3 {
   min-width: 0;
 }
 
-.announcement-card,
-.announcement-editor {
+.announcement-card {
   min-width: 0;
-  padding: 18px;
+  padding: 16px 18px;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 6px;
@@ -1549,77 +1545,10 @@ h3 {
   font-size: 18px;
 }
 
-.announcement-card p,
-.editor-locked p {
+.announcement-card p {
   margin: 0;
   color: #526062;
   overflow-wrap: anywhere;
-}
-
-.announcement-card button {
-  margin-top: 10px;
-  padding: 7px 10px;
-  background: #fff;
-  color: var(--red);
-  border: 1px solid #e3b4af;
-  border-radius: 4px;
-  font-weight: 900;
-}
-
-.announcement-editor {
-  display: grid;
-  gap: 14px;
-}
-
-.editor-locked {
-  display: grid;
-  gap: 10px;
-}
-
-.editor-locked.is-unlocked p,
-.editor-locked.is-unlocked input,
-.editor-locked.is-unlocked button {
-  display: none;
-}
-
-.editor-locked input,
-.editor-form input,
-.editor-form select,
-.editor-form textarea {
-  width: 100%;
-  min-height: 42px;
-  padding: 9px 10px;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  font: inherit;
-}
-
-.editor-form {
-  display: grid;
-  gap: 12px;
-}
-
-.editor-form label {
-  display: grid;
-  gap: 6px;
-  color: #4c585a;
-  font-size: 13px;
-  font-weight: 900;
-}
-
-.editor-form textarea {
-  resize: vertical;
-}
-
-.announcement-editor button,
-.editor-form button {
-  min-height: 42px;
-  color: #fff;
-  background: var(--teal);
-  border: 1px solid var(--teal);
-  border-radius: 4px;
-  font-weight: 900;
 }
 
 @keyframes spin {

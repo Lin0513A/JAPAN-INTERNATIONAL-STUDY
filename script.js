@@ -2068,54 +2068,17 @@ document.querySelector("#clear-report-data")?.addEventListener("click", () => {
 
 const defaultAnnouncements = [
   {
-    id: "default-20260629-meiji",
-    date: "2026-06-29",
-    category: "募集要項",
-    title: "明治大学2027要項を反映",
-    body: "2026-06-29確認。外国人留学生入試ページ https://www.meiji.ac.jp/cip/prospective/admission_exams/undergraduate.html と公式PDF https://www.meiji.ac.jp/cip/prospective/admission_exams/6t5h7p00000ivf38-att/yoko.pdf を基に、出願資格、EJU/英語条件、前期・後期の出願期間、I型試験日帯、合格発表帯を更新。",
-    pinned: true,
-  },
-  {
-    id: "default-20260629-meijigakuin",
-    date: "2026-06-29",
-    category: "募集要項",
-    title: "明治学院大学2027日程を更新",
-    body: "2026-06-29確認。A/B私費外国人留学生入試公式ページ https://www.meijigakuin.ac.jp/admission/information/foreigner/ と https://www.meijigakuin.ac.jp/admission/information/foreigner_b/ を基に、A/Bの出願期間・試験日・合格発表日とB渡日前の英語提出条件を追記。",
-    pinned: true,
-  },
-  {
-    id: "default-20260629-nanzan",
-    date: "2026-06-29",
-    category: "募集要項",
-    title: "南山大学2027要項を反映",
-    body: "2026-06-29確認。外国人留学生入学審査PDF https://www.nanzan-u.ac.jp/admission/nyushi/shubetsu/pdf/download_2027/2027ryugaku.pdf を基に、出願資格、EJU/英語条件、本学受験型・EJU利用型の出願期間、11/21試験、12/4合格発表を更新。",
-    pinned: true,
-  },
-  {
-    id: "default-20260628-search",
-    date: "2026-06-28",
+    id: "default-20260629-2342",
+    date: "2026-06-29 23:42 JST",
+    datetime: "2026-06-29T23:42:00+09:00",
     category: "更新",
-    title: "大学搜索逻辑调整",
-    body: "支持中文、日文、英文和简称检索；搜索结果移到搜索栏下方，先看到学校名和官方链接。",
-    pinned: true,
-  },
-  {
-    id: "default-20260628-requirements",
-    date: "2026-06-28",
-    category: "募集要項",
-    title: "募集要項抽取DB建设中",
-    body: "大学卡片会显示官方募集要項PDF/入试页面候选、出愿资格、时间节点与抽取状态。未抽取完成前，请以大学最新官方募集要項为准。",
-    pinned: false,
+    title: "公告栏改为只读更新记录",
+    body: "移除前台站长编辑表单；公告栏只显示站点发布记录。后续每次更新会在发布时追加日期、时间和简洁内容。",
   },
 ];
-let announcementsUnlocked = false;
 
 function getAnnouncements() {
-  return readJson("announcements", defaultAnnouncements);
-}
-
-function setAnnouncements(items) {
-  writeJson("announcements", items);
+  return defaultAnnouncements;
 }
 
 function renderAnnouncements() {
@@ -2132,78 +2095,15 @@ function renderAnnouncements() {
         <article class="announcement-card">
           <div>
             <span>${escapeHtml(item.category || "更新")}</span>
-            <time datetime="${escapeHtml(item.date)}">${escapeHtml(item.date)}</time>
+            <time datetime="${escapeHtml(item.datetime || item.date)}">${escapeHtml(item.date)}</time>
           </div>
           <h3>${escapeHtml(item.title)}</h3>
           <p>${escapeHtml(item.body)}</p>
-          ${
-            announcementsUnlocked && !String(item.id).startsWith("default-")
-              ? `<button type="button" data-delete-announcement="${escapeHtml(item.id)}">删除</button>`
-              : ""
-          }
         </article>
       `,
     )
     .join("");
 }
-
-function unlockAnnouncements() {
-  const input = document.querySelector("#announcement-passcode");
-  const form = document.querySelector("#announcement-form");
-  const lock = document.querySelector("#announcement-lock");
-  const value = input?.value.trim() ?? "";
-  if (value.length < 4) {
-    window.alert("编辑码至少4位。第一次输入会作为本浏览器的站长编辑码。");
-    return;
-  }
-
-  const savedCode = localStorage.getItem(storageKey("announcement-owner-code"));
-  if (!savedCode) {
-    localStorage.setItem(storageKey("announcement-owner-code"), value);
-  } else if (savedCode !== value) {
-    window.alert("编辑码不正确。");
-    return;
-  }
-
-  announcementsUnlocked = true;
-  if (form) form.hidden = false;
-  lock?.classList.add("is-unlocked");
-  renderAnnouncements();
-}
-
-function saveAnnouncementFromForm() {
-  if (!announcementsUnlocked) return;
-  const title = document.querySelector("#announcement-title")?.value.trim();
-  const body = document.querySelector("#announcement-body")?.value.trim();
-  const category = document.querySelector("#announcement-category")?.value ?? "更新";
-  if (!title || !body) return;
-  const next = {
-    id: `announcement-${Date.now()}`,
-    date: new Date().toISOString().slice(0, 10),
-    category,
-    title,
-    body,
-    pinned: false,
-  };
-  setAnnouncements([next, ...getAnnouncements()]);
-  document.querySelector("#announcement-form")?.reset();
-  renderAnnouncements();
-}
-
-document.querySelector("#unlock-announcements")?.addEventListener("click", unlockAnnouncements);
-
-document.querySelector("#announcement-form")?.addEventListener("submit", (event) => {
-  event.preventDefault();
-  saveAnnouncementFromForm();
-});
-
-document.querySelector("#announcement-list")?.addEventListener("click", (event) => {
-  const button = event.target.closest("[data-delete-announcement]");
-  if (!button || !announcementsUnlocked) return;
-  const id = button.dataset.deleteAnnouncement;
-  setAnnouncements(getAnnouncements().filter((item) => item.id !== id));
-  renderAnnouncements();
-});
 
 const staticSearchItems = [
   ["公告栏", "更新 募集要項 抽取进度 站长公告 notice news", "#announcements"],
