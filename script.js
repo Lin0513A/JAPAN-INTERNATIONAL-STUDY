@@ -994,6 +994,136 @@ function rankUniversity(input, university) {
   );
 }
 
+function getScoreGapSummary(input, university) {
+  const target = getUniversityTarget(university);
+  const gaps = {
+    japanese: target.japanese > 0 ? input.japanese - target.japanese : null,
+    writing: target.japanese > 0 ? input.writing - 40 : null,
+    subject: target.subject > 0 ? input.subject - target.subject : null,
+    math: target.math > 0 ? input.math - target.math : null,
+    english: target.english > 0 ? input.english - target.english : null,
+    essay: target.essay > 0 ? input.essay - target.essay : null,
+  };
+  const relevant = [gaps.japanese, gaps.subject, gaps.english, gaps.essay].filter((value) => value !== null);
+  if (input.field === "science") relevant.push(gaps.math);
+
+  const coreTarget =
+    (target.japanese || 0) +
+    (target.subject || 0) +
+    (input.field === "science" ? target.math || 0 : 0) +
+    (target.japanese > 0 ? 40 : 0);
+  const coreInput =
+    input.japanese + input.subject + (input.field === "science" ? input.math : 0) + (target.japanese > 0 ? input.writing : 0);
+
+  return {
+    gaps,
+    coreGap: coreTarget > 0 ? coreInput - coreTarget : null,
+    worstGap: relevant.length ? Math.min(...relevant) : 0,
+    target,
+  };
+}
+
+function hasReliableScoreProfile(university) {
+  const record = getAdmissionRequirementRecord(university);
+  return Boolean(
+    university.target ||
+      university.profiled ||
+      record?.officialMinimumScore ||
+      record?.ejuSubjects?.length ||
+      getCommunityStats(university).count >= 3,
+  );
+}
+
+function getRecommendationBand(input, university, score, rankScore) {
+  const difficulty = getUniversityDifficulty(university);
+  const strength = getInputStrength(input);
+  const focus = getUniversityFocus(university);
+  const { gaps, coreGap, worstGap } = getScoreGapSummary(input, university);
+  const reliableProfile = hasReliableScoreProfile(university);
+  const selectiveHumanities = input.field === "humanities" && isSelectivePrivateHumanities(university);
+  const wrongField = !university.fields?.includes(input.field) || (input.field === "humanities" && focus === "science");
+  const englishProgramMismatch = focus === "english" && input.field !== "english";
+  const hardShortfall =
+    (gaps.japanese !== null && gaps.japanese < -45) ||
+    (gaps.subject !== null && gaps.subject < -28) ||
+    (input.field === "science" && gaps.math !== null && gaps.math < -34) ||
+    (gaps.english !== null && gaps.english < -25) ||
+    (selectiveHumanities && ((gaps.japanese ?? 0) < -22 || (gaps.subject ?? 0) < -16)) ||
+    (difficulty >= 82 && strength < difficulty - 16);
+  const softShortfall =
+    (gaps.japanese !== null && gaps.japanese < -18) ||
+    (gaps.subject !== null && gaps.subject < -12) ||
+    (input.field === "science" && gaps.math !== null && gaps.math < -16) ||
+    (gaps.english !== null && gaps.english < -10) ||
+    (coreGap !== null && coreGap < -25) ||
+    difficulty > strength + 8;
+
+  if (wrongField || englishProgramMismatch || score < 48 || rankScore < 28 || hardShortfall) {
+    return "notRecommended";
+  }
+  if (softShortfall || score < 68 || rankScore < 52 || difficulty > strength + 4 || !reliableProfile) {
+    return "reach";
+  }
+  const safetyCore =
+    input.field === "humanities"
+      ? (gaps.japanese ?? 0) >= 18 && (gaps.subject ?? 0) >= 10 && (gaps.english ?? 0) >= 0
+      : input.field === "science"
+        ? (gaps.japanese ?? 0) >= 12 && (gaps.subject ?? 0) >= 10 && (gaps.math ?? 0) >= 10
+        : (gaps.english ?? 0) >= 8 && (gaps.essay ?? 0) >= 0;
+  if (
+    score >= 82 &&
+    rankScore >= 68 &&
+    difficulty <= strength - 6 &&
+    safetyCore &&
+    worstGap >= 0 &&
+    (coreGap === null || coreGap >= 18)
+  ) {
+    return "safety";
+  }
+  return "recommended";
+}
+
+const recommendationBandLabels = {
+  safety: "保底",
+  recommended: "推荐",
+  reach: "冲刺",
+  notRecommended: "暂不建议",
+};
+
+const recommendationBandNotes = {
+  safety: "当前成绩高于本站参考带，适合作为稳妥/保底候选，但仍需确认学部募集要项和校内考。",
+  recommended: "当前成绩与参考带较接近，适合作为主力候选。建议同时准备校内考、面试和志望理由书。",
+  reach: "存在分数差、难度差或数据未抽取，适合少量冲刺。不要只靠这些学校组成出愿池。",
+  notRecommended: "当前条件与方向或参考带差距较大，暂不放入主要候选。",
+};
+
+function getDisplayMatchScore(university) {
+  const blended = Math.round(university.score * 0.58 + Math.max(university.rankScore, 0) * 0.42);
+  if (university.recommendationBand === "safety") return Math.max(78, Math.min(96, blended));
+  if (university.recommendationBand === "recommended") return Math.max(68, Math.min(88, blended));
+  if (university.recommendationBand === "reach") return Math.max(52, Math.min(74, blended));
+  return Math.max(0, Math.min(48, blended));
+}
+
+function getRecommendationReason(input, university, band) {
+  const { gaps, coreGap } = getScoreGapSummary(input, university);
+  const stats = getCommunityStats(university, input.field);
+  const dataLevel = university.target || university.profiled
+    ? "个别参考带"
+    : stats.count >= 3
+      ? "本地投稿统计"
+      : university.source?.includes("JASSO")
+        ? "JASSO利用校确认"
+        : "官方链接确认";
+  const parts = [`判定: ${recommendationBandLabels[band]}`, `数据: ${dataLevel}`];
+  if (gaps.japanese !== null) parts.push(`日语差${gaps.japanese >= 0 ? "+" : ""}${gaps.japanese}`);
+  if (gaps.subject !== null) parts.push(`综合/理科差${gaps.subject >= 0 ? "+" : ""}${gaps.subject}`);
+  if (input.field === "science" && gaps.math !== null) parts.push(`数学差${gaps.math >= 0 ? "+" : ""}${gaps.math}`);
+  if (gaps.english !== null) parts.push(`英语差${gaps.english >= 0 ? "+" : ""}${gaps.english}`);
+  if (coreGap !== null) parts.push(`核心合计差${coreGap >= 0 ? "+" : ""}${coreGap}`);
+  return parts.join(" / ");
+}
+
 function getLevel(score, rankScore = score) {
   if (score >= 84 && rankScore >= 72) return "稳妥候选";
   if (score >= 72 && rankScore >= 54) return "可以挑战";
@@ -1361,30 +1491,51 @@ function renderMatchResultsNow() {
       rankScore: rankUniversity(input, university),
       deficitNotes: getDeficitNotes(input, university),
     }))
+    .map((university) => ({
+      ...university,
+      recommendationBand: getRecommendationBand(input, university, university.score, university.rankScore),
+    }))
+    .map((university) => ({
+      ...university,
+      displayScore: getDisplayMatchScore(university),
+    }))
     .sort((a, b) => b.rankScore - a.rankScore || b.score - a.score || b.difficulty - a.difficulty);
-  const visibleLimit = matchExpanded ? 18 : 6;
-  const displayCandidates = ranked.slice(0, visibleLimit);
-  const hiddenCount = Math.max(ranked.length - displayCandidates.length, 0);
+  const grouped = {
+    safety: ranked.filter((university) => university.recommendationBand === "safety"),
+    recommended: ranked.filter((university) => university.recommendationBand === "recommended"),
+    reach: ranked.filter((university) => university.recommendationBand === "reach"),
+    notRecommended: ranked.filter((university) => university.recommendationBand === "notRecommended"),
+  };
+  const baseLimits = matchExpanded
+    ? { safety: 8, recommended: 10, reach: 8 }
+    : { safety: 3, recommended: 4, reach: 3 };
+  const displayGroups = {
+    safety: grouped.safety.slice(0, baseLimits.safety),
+    recommended: grouped.recommended.slice(0, baseLimits.recommended),
+    reach: grouped.reach.slice(0, baseLimits.reach),
+  };
+  const displayCandidates = [...displayGroups.safety, ...displayGroups.recommended, ...displayGroups.reach];
+  const hiddenCount = ["safety", "recommended", "reach"].reduce(
+    (sum, band) => sum + Math.max(grouped[band].length - displayGroups[band].length, 0),
+    0,
+  );
   const topScore = displayCandidates.length
-    ? Math.max(...displayCandidates.map((university) => university.score))
+    ? Math.max(...displayCandidates.map((university) => university.displayScore))
     : 0;
 
   scoreNode.textContent = `${topScore}/100`;
   note.textContent =
-    topScore >= 80
-      ? "目前条件不错。これは出愿候补の目安です。必ず最新募集要项、科目、日期を確認してください。"
-      : topScore >= 60
-        ? "有可选方向，但需要补强短板。EJU科目、英语、志望理由书と公式募集要项を確認してください。"
-        : "建议先补语言与考试分数。候选结果は目安なので、公式条件と照合してください。";
+    displayCandidates.length
+      ? `保底${grouped.safety.length}校 / 推荐${grouped.recommended.length}校 / 冲刺${grouped.reach.length}校。分组按EJU核心分、英语、JLPT、大学难度和数据可信度计算。`
+      : "当前条件下没有进入主要候选的大学。建议先提高EJU日语、综合/理科、英语或放宽地区/学校类型。";
 
-  const cards = displayCandidates
-    .map(
-      (university) => `
+  const renderCandidateCard = (university) => `
         <article class="match-card">
-          <h3>${getDisplayUniversityName(university)}<span class="match-level">${getLevel(university.score, university.rankScore)} ${university.score}</span></h3>
+          <h3>${getDisplayUniversityName(university)}<span class="match-level band-${university.recommendationBand}">${recommendationBandLabels[university.recommendationBand]} ${university.displayScore}</span></h3>
           <div class="accuracy-tags">
             ${getAccuracyTags(university).map((tag) => `<span>${tag}</span>`).join("")}
           </div>
+          <div class="recommendation-reason">${escapeHtml(getRecommendationReason(input, university, university.recommendationBand))}</div>
           <p>${university.line}</p>
           ${
             university.deficitNotes.length
@@ -1403,17 +1554,48 @@ function renderMatchResultsNow() {
             </button>
           </div>
         </article>
-      `,
-    )
+      `;
+  const sections = ["safety", "recommended", "reach"]
+    .map((band) => {
+      const items = displayGroups[band];
+      const emptyText =
+        band === "safety"
+          ? "暂无明确保底校。可以降低学校难度、扩大地区，或把更多中位私立加入候选池。"
+          : band === "recommended"
+            ? "暂无主力推荐校。建议调整地区/学校类型，或优先补EJU日语和综合科目。"
+            : "暂无合理冲刺校。当前输入可能与目标方向不匹配，或分数差距过大。";
+      return `
+        <section class="match-band match-band-${band}">
+          <div class="match-band-head">
+            <div>
+              <span>${recommendationBandLabels[band]}</span>
+              <strong>${grouped[band].length}校</strong>
+            </div>
+            <p>${recommendationBandNotes[band]}</p>
+          </div>
+          <div class="match-band-grid">
+            ${
+              items.length
+                ? items.map(renderCandidateCard).join("")
+                : `<article class="match-card match-empty"><p>${emptyText}</p></article>`
+            }
+          </div>
+        </section>
+      `;
+    })
     .join("");
-  const expandCount = Math.min(hiddenCount, 12);
+  const expandCount = Math.min(hiddenCount, 15);
   const moreLabel = matchExpanded ? "候选を折りたたむ" : `さらに${expandCount}校を表示`;
   const moreText = hiddenCount > 0
-    ? `全${ranked.length}校中、上位${displayCandidates.length}校などを表示中。ほかにも条件に近い大学があります。`
-    : `条件に合う候选${displayCandidates.length}校を表示中。`;
+    ? `主要候选${grouped.safety.length + grouped.recommended.length + grouped.reach.length}校中、${displayCandidates.length}校を表示中。暂不建议${grouped.notRecommended.length}校は通常非表示です。`
+    : `主要候选${displayCandidates.length}校を表示中。暂不建议${grouped.notRecommended.length}校は通常非表示です。`;
 
   output.innerHTML = `
-    ${cards}
+    <div class="match-policy-note">
+      <strong>推荐逻辑</strong>
+      <span>保底=分数高于参考带且难度低于当前实力；推荐=最适合作为主力出愿；冲刺=有短板但仍可少量挑战。未抽取募集要項或分数差过大的大学不会强行排到前面。</span>
+    </div>
+    ${sections}
     <div class="match-more">
       <p>${moreText}</p>
       ${
@@ -1820,6 +2002,14 @@ document.querySelector("#clear-report-data")?.addEventListener("click", () => {
 });
 
 const defaultAnnouncements = [
+  {
+    id: "default-20260629-meiji",
+    date: "2026-06-29",
+    category: "募集要項",
+    title: "明治大学2027要項を反映",
+    body: "2026-06-29確認。外国人留学生入試ページ https://www.meiji.ac.jp/cip/prospective/admission_exams/undergraduate.html と公式PDF https://www.meiji.ac.jp/cip/prospective/admission_exams/6t5h7p00000ivf38-att/yoko.pdf を基に、出願資格、EJU/英語条件、前期・後期の出願期間、I型試験日帯、合格発表帯を更新。",
+    pinned: true,
+  },
   {
     id: "default-20260629-meijigakuin",
     date: "2026-06-29",

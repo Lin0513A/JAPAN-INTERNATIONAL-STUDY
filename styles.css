@@ -675,6 +675,72 @@ h3 {
   gap: 12px;
 }
 
+.match-policy-note {
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px;
+  color: #405052;
+  background: #f8fbfa;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--teal);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.match-policy-note strong {
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.match-band {
+  display: grid;
+  gap: 10px;
+}
+
+.match-band + .match-band {
+  margin-top: 4px;
+}
+
+.match-band-head {
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.match-band-head div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.match-band-head span {
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.match-band-head strong {
+  color: #526062;
+  font-size: 13px;
+}
+
+.match-band-head p {
+  margin: 0;
+  color: #526062;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.match-band-grid {
+  display: grid;
+  gap: 12px;
+}
+
 .match-stage {
   position: relative;
   min-height: 420px;
@@ -866,6 +932,37 @@ h3 {
   background: var(--teal);
   font-size: 12px;
   font-weight: 900;
+}
+
+.match-level.band-safety {
+  background: #0f766e;
+}
+
+.match-level.band-recommended {
+  background: #0b5cad;
+}
+
+.match-level.band-reach {
+  background: #b45309;
+}
+
+.recommendation-reason {
+  padding: 9px 10px;
+  color: #405052;
+  background: #f7fafc;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.match-empty {
+  background: #fbfcfd;
+  box-shadow: none;
+}
+
+.match-empty p {
+  margin: 0;
 }
 
 .accuracy-tags {

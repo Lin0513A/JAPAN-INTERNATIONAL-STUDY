@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-06-29T06:18:23.000Z",
+    "generatedAt": "2026-06-29T13:12:08.270Z",
     "purpose": "Official admissions requirement database. Each record should be replaced with data extracted from the university's latest official 募集要項.",
     "statuses": {
       "pending_official_extraction": "大学は登録済みだが、募集要項から未抽取",
@@ -9,9 +9,9 @@
       "unavailable": "募集要項ページを確認したが該当情報未公開"
     },
     "recordCount": 516,
-    "lastExtractionRunAt": "2026-06-29T06:18:23.000Z",
+    "lastExtractionRunAt": "2026-06-29T13:12:08.270Z",
     "partialCount": 2,
-    "extractedCount": 2
+    "extractedCount": 3
   },
   "records": {
     "Ikueikan University": {
@@ -2301,18 +2301,44 @@
     },
     "Meiji University": {
       "universityName": "Meiji University",
-      "status": "pending_official_extraction",
-      "officialUrl": "https://www.meiji.ac.jp/cip/english/",
-      "admissionPageUrl": "",
-      "sourceTitle": "",
-      "sourceCheckedAt": "",
-      "eligibility": "",
-      "officialMinimumScore": "",
-      "ejuSubjects": [],
-      "englishRequirement": "",
-      "jlptRequirement": "",
-      "timeline": [],
-      "notes": "已登记为募集要項抽取对象。抽取完成前，只能显示JASSO利用有無、大学公式链接和本站参考带。"
+      "status": "official_extracted",
+      "officialUrl": "https://www.meiji.ac.jp/cip/prospective/admission_exams/undergraduate.html",
+      "admissionPageUrl": "https://www.meiji.ac.jp/cip/prospective/admission_exams/6t5h7p00000ivf38-att/yoko.pdf",
+      "sourceTitle": "2027年度（2027年4月入学） 明治大学 外国人留学生 入学試験要項",
+      "sourceCheckedAt": "2026-06-29",
+      "eligibility": "全学部共通で、日本国以外の国籍を有し、外国における12年課程修了者または同等資格保有者で、2027年度入試で指定された日本留学試験受験者かつ学部指定の英語外部試験基準を満たす者。商学部II型は2026-04-01以降2026-12-17以前、国際日本学部II型は2026-08-25以降2026-12-11以前に日本国内で住民登録していないことが追加条件。",
+      "officialMinimumScore": "英語基準は学部別で、TOEFL iBT 44-48点以上（2026-01-21以降受験は新形式3以上）、TOEIC L&R 565-600点以上、IELTS 4.0以上のいずれか。EJUは全学部で日本語必須で、学部により総合科目・数学（コース1/2）・理科1科目の組み合わせを課す。",
+      "ejuSubjects": [
+        "日本語",
+        "総合科目",
+        "数学（コース1 / コース2）",
+        "理科（1科目）※学部別指定"
+      ],
+      "englishRequirement": "全学部共通で英語外部試験スコア提出が必要。利用試験は学部別にTOEFL iBT・TOEIC L&R・IELTSのいずれかで、基準はTOEFL iBT 44-48点、TOEIC L&R 565-600点、IELTS 4.0以上。",
+      "jlptRequirement": "2026-06-29確認時点で明示的なJLPT出願要件はなし。日本語能力はJLPTではなくEJU日本語で確認する方式。",
+      "timeline": [
+        {
+          "label": "前期 出願期間（法・商I・政経・文・理工・農・経営・情コミ・国際日本I/II・総合数理）",
+          "value": "2026-08-25 - 2026-09-01"
+        },
+        {
+          "label": "後期 出願期間（商学部II型）",
+          "value": "2026-10-20 - 2026-10-27"
+        },
+        {
+          "label": "I型 試験日（学部別）",
+          "value": "2026-11-22 - 2026-12-19"
+        },
+        {
+          "label": "最終合格発表（前期学部別）",
+          "value": "2026-12-02 - 2026-12-24"
+        },
+        {
+          "label": "商学部II型 合格発表",
+          "value": "2027-01-14 10:00"
+        }
+      ],
+      "notes": "2026-05-28公開の2027年度公式PDF要項で確認。学部ごとにEJU科目・英語外部試験の利用可否・第二次選考方法が異なるため、出願前に志望学部の試験科目一覧を必ず再確認すること。"
     },
     "Meiji Gakuin University": {
       "universityName": "Meiji Gakuin University",
