@@ -737,6 +737,25 @@ function applyPrivateUniversityProfile(university) {
 }
 
 function getInputStrength(input) {
+  if (input.field === "humanities") {
+    const japaneseStrength = (Math.min(input.japanese, 400) / 400) * 38;
+    const writingStrength = (Math.min(input.writing, 50) / 50) * 6;
+    const subjectStrength = (Math.min(input.subject, 200) / 200) * 22;
+    const mathStrength = (Math.min(input.math, 200) / 200) * 4;
+    const englishStrength = (Math.min(input.english, 120) / 120) * 18;
+    const jlptStrength = input.jlpt > 0 ? ((6 - input.jlpt) / 5) * 6 : 0;
+    const essayStrength = (Math.min(input.essay, 5) / 5) * 8;
+    return Math.round(
+      japaneseStrength +
+        writingStrength +
+        subjectStrength +
+        mathStrength +
+        englishStrength +
+        jlptStrength +
+        essayStrength,
+    );
+  }
+
   const ejuStrength =
     (Math.min(input.japanese, 400) / 400) * 34 +
     (Math.min(input.writing, 50) / 50) * 6 +
@@ -899,7 +918,7 @@ function getDeficitNotes(input, university) {
   if (focus === "english" && input.field !== "english") {
     notes.push("英语项目倾向，不能只按EJU判断");
   }
-  if (target.math >= 120 && input.math < target.math * 0.75) {
+  if (input.field !== "humanities" && target.math >= 120 && input.math < target.math * 0.75) {
     notes.push(`数学偏低：目标目安${target.math}，当前${input.math}`);
   }
   if (target.english >= 75 && input.english < target.english * 0.85) {
@@ -959,6 +978,22 @@ function getHumanitiesCorePenalty(input, university) {
   return penalty;
 }
 
+function getNearSelectivePrivateBonus(input, university, score) {
+  if (input.field !== "humanities" || !university.profiled || !isSelectivePrivateHumanities(university)) return 0;
+
+  const { gaps, coreGap } = getScoreGapSummary(input, university);
+  const nearCore =
+    (gaps.japanese ?? 0) >= -8 &&
+    (gaps.subject ?? 0) >= -8 &&
+    (gaps.english ?? 0) >= -12 &&
+    (coreGap ?? -99) >= -6;
+  if (!nearCore || score < 78) return 0;
+
+  const difficulty = getUniversityDifficulty(university);
+  if (difficulty >= 82 && (gaps.english ?? 0) < -8) return 6;
+  return difficulty >= 76 ? 18 : 10;
+}
+
 function rankUniversity(input, university) {
   const score = scoreUniversity(input, university);
   const studentStrength = getInputStrength(input);
@@ -977,6 +1012,7 @@ function rankUniversity(input, university) {
       ? 0
       : 12;
   const detailBonus = university.featured || university.target ? 3 : 0;
+  const selectivePrivateBonus = getNearSelectivePrivateBonus(input, university, score);
 
   return (
     score -
@@ -990,7 +1026,8 @@ function rankUniversity(input, university) {
     fieldPenalty -
     regionPenalty +
     difficulty * 0.03 +
-    detailBonus
+    detailBonus +
+    selectivePrivateBonus
   );
 }
 
@@ -1507,8 +1544,8 @@ function renderMatchResultsNow() {
     notRecommended: ranked.filter((university) => university.recommendationBand === "notRecommended"),
   };
   const baseLimits = matchExpanded
-    ? { safety: 8, recommended: 10, reach: 8 }
-    : { safety: 3, recommended: 4, reach: 3 };
+    ? { safety: 12, recommended: 14, reach: 12 }
+    : { safety: 6, recommended: 8, reach: 6 };
   const displayGroups = {
     safety: grouped.safety.slice(0, baseLimits.safety),
     recommended: grouped.recommended.slice(0, baseLimits.recommended),
