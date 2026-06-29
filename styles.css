@@ -741,6 +741,10 @@ h3 {
   gap: 12px;
 }
 
+.compact-match-grid {
+  gap: 8px;
+}
+
 .match-stage {
   position: relative;
   min-height: 420px;
@@ -915,6 +919,36 @@ h3 {
   box-shadow: 0 14px 36px rgba(35, 28, 18, 0.06);
 }
 
+.match-row {
+  padding: 0;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.match-row-main {
+  display: grid;
+  grid-template-columns: minmax(180px, 1.1fr) auto minmax(240px, 1.25fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+}
+
+.match-school {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.match-school h3 {
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.28;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .match-card h3,
 .university-card h3 {
   display: flex;
@@ -922,6 +956,14 @@ h3 {
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 8px;
+}
+
+.match-row .match-school h3 {
+  display: block;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .match-level {
@@ -956,6 +998,79 @@ h3 {
   font-weight: 900;
 }
 
+.match-row-reason {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 0;
+  color: #405052;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.45;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.match-row-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  min-width: max-content;
+}
+
+.match-row-actions a {
+  display: inline-grid;
+  min-height: 34px;
+  padding: 7px 10px;
+  place-items: center;
+  color: var(--teal);
+  background: #fff;
+  border: 1px solid #9bb9d6;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.match-row-detail {
+  border-top: 1px solid var(--line);
+  background: #fffdf9;
+}
+
+.match-row-detail summary {
+  display: block;
+  padding: 10px 14px;
+  color: #526062;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.match-row-detail summary::-webkit-details-marker {
+  display: none;
+}
+
+.match-row-detail summary::after {
+  content: "＋";
+  float: right;
+  color: var(--teal);
+}
+
+.match-row-detail[open] summary::after {
+  content: "－";
+}
+
+.match-row-detail > p,
+.match-row-detail .line-box,
+.match-row-detail .admission-data-box,
+.match-row-detail .risk-list {
+  margin-right: 14px;
+  margin-left: 14px;
+}
+
+.match-row-detail > p {
+  margin-top: 10px;
+}
+
 .match-empty {
   background: #fbfcfd;
   box-shadow: none;
@@ -972,6 +1087,12 @@ h3 {
   margin: 8px 0;
 }
 
+.compact-tags {
+  flex-wrap: nowrap;
+  overflow: hidden;
+  margin: 0;
+}
+
 .accuracy-tags span {
   padding: 4px 7px;
   color: #405052;
@@ -980,6 +1101,13 @@ h3 {
   border-radius: 999px;
   font-size: 11px;
   font-weight: 900;
+}
+
+.compact-tags span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .match-card p,
@@ -2584,6 +2712,24 @@ h3 {
 
   .match-stage {
     min-height: 360px;
+  }
+
+  .match-row-main {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+  }
+
+  .match-row-reason,
+  .match-row-actions {
+    grid-column: 1 / -1;
+  }
+
+  .match-row-actions {
+    justify-content: flex-start;
+  }
+
+  .compact-tags {
+    flex-wrap: wrap;
   }
 
   .video-screen {

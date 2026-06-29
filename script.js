@@ -1529,32 +1529,47 @@ function renderMatchResultsNow() {
       ? `保底${grouped.safety.length}校 / 推荐${grouped.recommended.length}校 / 冲刺${grouped.reach.length}校。分组按EJU核心分、英语、JLPT、大学难度和数据可信度计算。`
       : "当前条件下没有进入主要候选的大学。建议先提高EJU日语、综合/理科、英语或放宽地区/学校类型。";
 
-  const renderCandidateCard = (university) => `
-        <article class="match-card">
-          <h3>${getDisplayUniversityName(university)}<span class="match-level band-${university.recommendationBand}">${recommendationBandLabels[university.recommendationBand]} ${university.displayScore}</span></h3>
-          <div class="accuracy-tags">
-            ${getAccuracyTags(university).map((tag) => `<span>${tag}</span>`).join("")}
+  const renderCandidateCard = (university) => {
+    const accuracyTags = getAccuracyTags(university)
+      .slice(0, 3)
+      .map((tag) => `<span>${tag}</span>`)
+      .join("");
+    const deficitSummary = university.deficitNotes.length
+      ? university.deficitNotes[0]
+      : "当前输入与参考带没有明显硬性短板";
+    return `
+        <article class="match-card match-row">
+          <div class="match-row-main">
+            <div class="match-school">
+              <h3>${getDisplayUniversityName(university)}</h3>
+              <div class="accuracy-tags compact-tags">${accuracyTags}</div>
+            </div>
+            <span class="match-level band-${university.recommendationBand}">${recommendationBandLabels[university.recommendationBand]} ${university.displayScore}</span>
+            <p class="match-row-reason">${escapeHtml(getRecommendationReason(input, university, university.recommendationBand))}</p>
+            <div class="match-row-actions">
+              <a href="${getUniversityOfficialUrl(university)}" target="_blank" rel="noreferrer">公式</a>
+              <button type="button" class="favorite-button ${isFavoriteUniversity(university.name) ? "is-favorite" : ""}" data-favorite="${encodeURIComponent(university.name)}">
+                ${isFavoriteUniversity(university.name) ? "已收藏" : "收藏"}
+              </button>
+            </div>
           </div>
-          <div class="recommendation-reason">${escapeHtml(getRecommendationReason(input, university, university.recommendationBand))}</div>
-          <p>${university.line}</p>
-          ${
-            university.deficitNotes.length
-              ? `<ul class="risk-list">${university.deficitNotes.map((note) => `<li>${escapeHtml(note)}</li>`).join("")}</ul>`
-              : `<ul class="risk-list ok"><li>当前输入与该校参考带没有明显硬性短板，但仍需查募集要项。</li></ul>`
-          }
-          <div class="line-box">
-            <strong>确认重点</strong>
-            ${university.requirement}
-          </div>
-          ${renderAdmissionDataBlock(university, input.field)}
-          <div class="card-links">
-            <a href="${getUniversityOfficialUrl(university)}" target="_blank" rel="noreferrer">大学公式サイト</a>
-            <button type="button" class="favorite-button ${isFavoriteUniversity(university.name) ? "is-favorite" : ""}" data-favorite="${encodeURIComponent(university.name)}">
-              ${isFavoriteUniversity(university.name) ? "已收藏" : "收藏"}
-            </button>
-          </div>
+          <details class="match-row-detail">
+            <summary>${escapeHtml(deficitSummary)}・募集要項を見る</summary>
+            <p>${university.line}</p>
+            ${
+              university.deficitNotes.length
+                ? `<ul class="risk-list">${university.deficitNotes.map((note) => `<li>${escapeHtml(note)}</li>`).join("")}</ul>`
+                : `<ul class="risk-list ok"><li>当前输入与该校参考带没有明显硬性短板，但仍需查募集要项。</li></ul>`
+            }
+            <div class="line-box">
+              <strong>确认重点</strong>
+              ${university.requirement}
+            </div>
+            ${renderAdmissionDataBlock(university, input.field)}
+          </details>
         </article>
       `;
+  };
   const sections = ["safety", "recommended", "reach"]
     .map((band) => {
       const items = displayGroups[band];
@@ -1573,7 +1588,7 @@ function renderMatchResultsNow() {
             </div>
             <p>${recommendationBandNotes[band]}</p>
           </div>
-          <div class="match-band-grid">
+          <div class="match-band-grid compact-match-grid">
             ${
               items.length
                 ? items.map(renderCandidateCard).join("")
