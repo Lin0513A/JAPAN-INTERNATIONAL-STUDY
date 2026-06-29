@@ -1526,7 +1526,7 @@ function renderMatchResultsNow() {
   scoreNode.textContent = `${topScore}/100`;
   note.textContent =
     displayCandidates.length
-      ? `保底${grouped.safety.length}校 / 推荐${grouped.recommended.length}校 / 冲刺${grouped.reach.length}校。分组按EJU核心分、英语、JLPT、大学难度和数据可信度计算。`
+      ? `保底${grouped.safety.length} / 推荐${grouped.recommended.length} / 冲刺${grouped.reach.length}`
       : "当前条件下没有进入主要候选的大学。建议先提高EJU日语、综合/理科、英语或放宽地区/学校类型。";
 
   const renderCandidateCard = (university) => {
@@ -1580,7 +1580,7 @@ function renderMatchResultsNow() {
             ? "暂无主力推荐校。建议调整地区/学校类型，或优先补EJU日语和综合科目。"
             : "暂无合理冲刺校。当前输入可能与目标方向不匹配，或分数差距过大。";
       return `
-        <section class="match-band match-band-${band}">
+        <section class="match-band match-band-${band}" id="match-band-${band}">
           <div class="match-band-head">
             <div>
               <span>${recommendationBandLabels[band]}</span>
@@ -1606,9 +1606,22 @@ function renderMatchResultsNow() {
     : `主要候选${displayCandidates.length}校を表示中。暂不建议${grouped.notRecommended.length}校は通常非表示です。`;
 
   output.innerHTML = `
-    <div class="match-policy-note">
-      <strong>推荐逻辑</strong>
-      <span>保底=分数高于参考带且难度低于当前实力；推荐=最适合作为主力出愿；冲刺=有短板但仍可少量挑战。未抽取募集要項或分数差过大的大学不会强行排到前面。</span>
+    <div class="match-priority-nav">
+      <a class="priority-card priority-safety" href="#match-band-safety">
+        <span>保底</span>
+        <strong>${grouped.safety.length}</strong>
+        <em>优先确认出愿条件</em>
+      </a>
+      <a class="priority-card priority-recommended" href="#match-band-recommended">
+        <span>推荐</span>
+        <strong>${grouped.recommended.length}</strong>
+        <em>主力候选池</em>
+      </a>
+      <a class="priority-card priority-reach" href="#match-band-reach">
+        <span>冲刺</span>
+        <strong>${grouped.reach.length}</strong>
+        <em>少量挑战</em>
+      </a>
     </div>
     ${sections}
     <div class="match-more">

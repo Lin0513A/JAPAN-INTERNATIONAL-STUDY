@@ -638,36 +638,42 @@ h3 {
 
 .score-output {
   display: grid;
-  grid-template-columns: 230px minmax(0, 1fr);
-  gap: 18px;
-  padding: 22px;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  padding: 16px;
 }
 
 .score-summary {
-  display: grid;
-  align-content: start;
-  min-height: 220px;
-  padding: 20px;
-  color: #fff;
-  background: var(--ink);
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: auto;
+  padding: 12px 14px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
   border-radius: 8px;
 }
 
 .score-summary span {
-  color: #bddbd8;
+  color: #526062;
+  font-size: 12px;
   font-weight: 800;
 }
 
 .score-summary strong {
-  margin: 6px 0 12px;
-  font-size: 44px;
+  margin: 0;
+  font-size: 24px;
   line-height: 1;
 }
 
 .score-summary p {
-  margin-bottom: 0;
-  color: #d6dddd;
-  font-size: 14px;
+  margin: 0;
+  color: #526062;
+  font-size: 13px;
+  font-weight: 900;
+  text-align: right;
 }
 
 .match-results {
@@ -675,27 +681,55 @@ h3 {
   gap: 12px;
 }
 
-.match-policy-note {
+.match-priority-nav {
   display: grid;
-  gap: 4px;
-  padding: 14px 16px;
-  color: #405052;
-  background: #f8fbfa;
-  border: 1px solid var(--line);
-  border-left: 4px solid var(--teal);
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: 800;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
 }
 
-.match-policy-note strong {
-  color: var(--ink);
+.priority-card {
+  display: grid;
+  gap: 5px;
+  min-height: 96px;
+  padding: 14px;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 16px 34px rgba(35, 28, 18, 0.1);
+}
+
+.priority-card span {
   font-size: 15px;
+  font-weight: 900;
+}
+
+.priority-card strong {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.priority-card em {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 900;
+  opacity: 0.9;
+}
+
+.priority-safety {
+  background: #0f766e;
+}
+
+.priority-recommended {
+  background: #0b5cad;
+}
+
+.priority-reach {
+  background: #b45309;
 }
 
 .match-band {
   display: grid;
   gap: 10px;
+  scroll-margin-top: 96px;
 }
 
 .match-band + .match-band {
@@ -742,12 +776,13 @@ h3 {
 }
 
 .compact-match-grid {
-  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(172px, 1fr));
+  gap: 10px;
 }
 
 .match-stage {
   position: relative;
-  min-height: 420px;
+  min-height: 360px;
 }
 
 .result-video {
@@ -920,6 +955,10 @@ h3 {
 }
 
 .match-row {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 0;
+  aspect-ratio: 1 / 1;
   padding: 0;
   overflow: hidden;
   box-shadow: none;
@@ -927,10 +966,10 @@ h3 {
 
 .match-row-main {
   display: grid;
-  grid-template-columns: minmax(180px, 1.1fr) auto minmax(240px, 1.25fr) auto;
-  gap: 12px;
-  align-items: center;
-  padding: 12px 14px;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: start;
+  padding: 14px;
 }
 
 .match-school {
@@ -940,13 +979,13 @@ h3 {
 }
 
 .match-school h3 {
-  display: block;
+  display: -webkit-box;
   overflow: hidden;
   margin: 0;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.28;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .match-card h3,
@@ -959,11 +998,11 @@ h3 {
 }
 
 .match-row .match-school h3 {
-  display: block;
+  display: -webkit-box;
   margin: 0;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .match-level {
@@ -999,6 +1038,7 @@ h3 {
 }
 
 .match-row-reason {
+  grid-column: 1 / -1;
   display: -webkit-box;
   overflow: hidden;
   margin: 0;
@@ -1007,15 +1047,17 @@ h3 {
   font-weight: 900;
   line-height: 1.45;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
 }
 
 .match-row-actions {
+  grid-column: 1 / -1;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: 8px;
-  min-width: max-content;
+  align-self: end;
+  min-width: 0;
 }
 
 .match-row-actions a {
@@ -2714,6 +2756,27 @@ h3 {
     min-height: 360px;
   }
 
+  .score-summary {
+    display: grid;
+    text-align: left;
+  }
+
+  .score-summary p {
+    text-align: left;
+  }
+
+  .match-priority-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .compact-match-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .match-row {
+    aspect-ratio: auto;
+  }
+
   .match-row-main {
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 10px;
@@ -2725,7 +2788,7 @@ h3 {
   }
 
   .match-row-actions {
-    justify-content: flex-start;
+    justify-content: space-between;
   }
 
   .compact-tags {
