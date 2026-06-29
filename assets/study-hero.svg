@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 900" role="img" aria-labelledby="title desc">
+  <title id="title">Japan study abroad preparation desk</title>
+  <desc id="desc">A calm editorial illustration of a study desk, Tokyo skyline, application cards, notebooks and route markers for students planning study in Japan.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#dceef5"/>
+      <stop offset="0.48" stop-color="#fff7e8"/>
+      <stop offset="1" stop-color="#f0dfc0"/>
+    </linearGradient>
+    <linearGradient id="desk" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffaf1"/>
+      <stop offset="1" stop-color="#e8d7bd"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#1f2528" flood-opacity=".16"/>
+    </filter>
+  </defs>
+  <rect width="1280" height="900" fill="url(#sky)"/>
+  <path d="M0 220C170 170 330 196 490 168c180-31 318-108 510-72 117 22 201 81 280 142v662H0Z" fill="#edf7f7" opacity=".78"/>
+  <g opacity=".78">
+    <rect x="690" y="232" width="86" height="250" fill="#d7e7e7"/>
+    <rect x="804" y="190" width="118" height="292" fill="#ccdddd"/>
+    <rect x="958" y="260" width="94" height="222" fill="#dce7df"/>
+    <rect x="1094" y="206" width="72" height="276" fill="#c9dddd"/>
+    <path d="M616 482h602" stroke="#9eb9b8" stroke-width="6"/>
+    <path d="M651 350c120 33 212 35 330 0 72-21 132-27 207-8" fill="none" stroke="#b9432f" stroke-width="8" stroke-linecap="round"/>
+    <path d="M674 404c142 23 268 24 425-18" fill="none" stroke="#0f6f69" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <g opacity=".62" fill="#ffffff">
+    <rect x="712" y="260" width="14" height="20" rx="2"/>
+    <rect x="742" y="260" width="14" height="20" rx="2"/>
+    <rect x="712" y="306" width="14" height="20" rx="2"/>
+    <rect x="742" y="306" width="14" height="20" rx="2"/>
+    <rect x="834" y="226" width="18" height="26" rx="2"/>
+    <rect x="874" y="226" width="18" height="26" rx="2"/>
+    <rect x="834" y="286" width="18" height="26" rx="2"/>
+    <rect x="874" y="286" width="18" height="26" rx="2"/>
+    <rect x="984" y="294" width="18" height="24" rx="2"/>
+    <rect x="1020" y="294" width="18" height="24" rx="2"/>
+    <rect x="1116" y="244" width="16" height="24" rx="2"/>
+    <rect x="1144" y="244" width="16" height="24" rx="2"/>
+  </g>
+  <rect x="0" y="520" width="1280" height="380" fill="url(#desk)"/>
+  <ellipse cx="895" cy="748" rx="315" ry="70" fill="#1f2528" opacity=".12"/>
+  <g filter="url(#shadow)">
+    <rect x="598" y="460" width="474" height="308" rx="24" fill="#253033"/>
+    <rect x="622" y="486" width="426" height="244" rx="14" fill="#f8fbfa"/>
+    <rect x="662" y="528" width="126" height="22" rx="11" fill="#b9432f"/>
+    <rect x="662" y="572" width="326" height="14" rx="7" fill="#dce5e2"/>
+    <rect x="662" y="606" width="284" height="14" rx="7" fill="#dce5e2"/>
+    <rect x="662" y="640" width="172" height="14" rx="7" fill="#dce5e2"/>
+    <circle cx="955" cy="552" r="50" fill="#0f6f69"/>
+    <path d="M930 554h52M956 528v52" stroke="#fffaf1" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="160" y="555" width="260" height="178" rx="18" fill="#ffffff"/>
+    <path d="M184 600h210M184 635h154M184 670h184" stroke="#cdd8d5" stroke-width="10" stroke-linecap="round"/>
+    <rect x="184" y="578" width="78" height="12" rx="6" fill="#0f6f69"/>
+    <circle cx="371" cy="583" r="22" fill="#d4a23a"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="312" y="642" width="260" height="164" rx="18" fill="#fffdf8"/>
+    <rect x="342" y="674" width="92" height="18" rx="9" fill="#b9432f"/>
+    <path d="M342 716h180M342 746h128" stroke="#cdd8d5" stroke-width="10" stroke-linecap="round"/>
+    <path d="M512 658l28 28-76 76-40 12 12-40Z" fill="#0f6f69"/>
+    <path d="M512 658l28 28" stroke="#fffaf1" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="878" y="610" width="250" height="178" rx="18" fill="#ffffff"/>
+    <rect x="906" y="642" width="78" height="104" rx="12" fill="#f2e1c4"/>
+    <path d="M1020 654c34 18 54 42 60 74" fill="none" stroke="#b9432f" stroke-width="10" stroke-linecap="round"/>
+    <path d="M1008 724h84" stroke="#0f6f69" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="946" cy="698" r="22" fill="#d4a23a"/>
+  </g>
+  <g>
+    <path d="M96 772c112 38 252 50 394 38 172-15 292-76 428-66 86 6 159 40 229 80" fill="none" stroke="#0f6f69" stroke-width="9" stroke-linecap="round" stroke-dasharray="2 24"/>
+    <circle cx="132" cy="781" r="15" fill="#b9432f"/>
+    <circle cx="502" cy="807" r="15" fill="#b9432f"/>
+    <circle cx="932" cy="747" r="15" fill="#b9432f"/>
+  </g>
+  <g opacity=".85">
+    <rect x="66" y="92" width="292" height="126" rx="20" fill="#fffaf1"/>
+    <path d="M100 132h150M100 164h214M100 194h126" stroke="#8aa09d" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="310" cy="142" r="26" fill="#0f6f69"/>
+    <path d="M296 143h28M310 129v28" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+  </g>
+</svg>

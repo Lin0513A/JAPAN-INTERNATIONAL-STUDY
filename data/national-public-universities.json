@@ -1,0 +1,2027 @@
+[
+  {
+    "name": "旭川医科大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.asahikawa-med.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "小樽商科大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.otaru-uc.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "帯広畜産大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.obihiro.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "北見工業大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.kitami-it.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "北海道大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.hokudai.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "北海道教育大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.hokkyodai.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "室蘭工業大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://muroran-it.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "弘前大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.hirosaki-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "岩手大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.iwate-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "東北大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.tohoku.ac.jp/japanese/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "秋田大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.akita-u.ac.jp/honbu/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "山形大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.yamagata-u.ac.jp/jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "福島大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.fukushima-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "茨城大学",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.ibaraki.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "筑波大学",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.tsukuba.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "筑波技術大学",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.tsukuba-tech.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "宇都宮大学",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.utsunomiya-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "群馬大学",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.gunma-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "埼玉大学",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.saitama-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "千葉大学",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.chiba-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "お茶の水女子大学",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.ocha.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "電気通信大学",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.uec.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "東京大学",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.u-tokyo.ac.jp/ja/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "東京外国語大学",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.tufs.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "東京海洋大学",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.kaiyodai.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "東京科学大学 医歯学系（旧・東京医科歯科大学）",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.tmd.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "東京科学大学 理工学系（旧・東京工業大学）",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.titech.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "東京学芸大学",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.u-gakugei.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "東京芸術大学",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.geidai.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "東京農工大学",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.tuat.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "一橋大学",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.hit-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "横浜国立大学",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.ynu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "長岡技術科学大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.nagaokaut.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "新潟大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.niigata-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "富山大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.u-toyama.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "金沢大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.kanazawa-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "福井大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.u-fukui.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "山梨大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.yamanashi.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "信州大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.shinshu-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "岐阜大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.gifu-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "静岡大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.shizuoka.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "浜松医科大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.hama-med.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "愛知教育大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.aichi-edu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "豊橋技術科学大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.tut.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "名古屋大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.nagoya-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "名古屋工業大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.nitech.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "三重大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.mie-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "滋賀大学",
+    "prefecture": "近畿",
+    "region": "kansai",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.shiga-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "京都大学",
+    "prefecture": "近畿",
+    "region": "kansai",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.kyoto-u.ac.jp/ja",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "京都工芸繊維大学",
+    "prefecture": "近畿",
+    "region": "kansai",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.kit.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "大阪大学",
+    "prefecture": "近畿",
+    "region": "kansai",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.osaka-u.ac.jp/ja",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "大阪教育大学",
+    "prefecture": "近畿",
+    "region": "kansai",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://osaka-kyoiku.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "神戸大学",
+    "prefecture": "近畿",
+    "region": "kansai",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.kobe-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "兵庫教育大学",
+    "prefecture": "近畿",
+    "region": "kansai",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.hyogo-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "奈良女子大学",
+    "prefecture": "近畿",
+    "region": "kansai",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.nara-wu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "和歌山大学",
+    "prefecture": "近畿",
+    "region": "kansai",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.wakayama-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "鳥取大学",
+    "prefecture": "中国・四国",
+    "region": "chugoku_shikoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.tottori-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "島根大学",
+    "prefecture": "中国・四国",
+    "region": "chugoku_shikoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.shimane-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "岡山大学",
+    "prefecture": "中国・四国",
+    "region": "chugoku_shikoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.okayama-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "広島大学",
+    "prefecture": "中国・四国",
+    "region": "chugoku_shikoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.hiroshima-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "水産大学校",
+    "prefecture": "中国・四国",
+    "region": "chugoku_shikoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.fish-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "山口大学",
+    "prefecture": "中国・四国",
+    "region": "chugoku_shikoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.yamaguchi-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "徳島大学",
+    "prefecture": "中国・四国",
+    "region": "chugoku_shikoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.tokushima-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "香川大学",
+    "prefecture": "中国・四国",
+    "region": "chugoku_shikoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.kagawa-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "愛媛大学",
+    "prefecture": "中国・四国",
+    "region": "chugoku_shikoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.ehime-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "高知大学",
+    "prefecture": "中国・四国",
+    "region": "chugoku_shikoku",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.kochi-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "九州大学",
+    "prefecture": "九州・沖縄",
+    "region": "kyushu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.kyushu-u.ac.jp/ja/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "九州工業大学",
+    "prefecture": "九州・沖縄",
+    "region": "kyushu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.kyutech.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "福岡教育大学",
+    "prefecture": "九州・沖縄",
+    "region": "kyushu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.fukuoka-edu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "佐賀大学",
+    "prefecture": "九州・沖縄",
+    "region": "kyushu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.saga-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "長崎大学",
+    "prefecture": "九州・沖縄",
+    "region": "kyushu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.nagasaki-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "熊本大学",
+    "prefecture": "九州・沖縄",
+    "region": "kyushu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.kumamoto-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "大分大学",
+    "prefecture": "九州・沖縄",
+    "region": "kyushu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.oita-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "宮崎大学",
+    "prefecture": "九州・沖縄",
+    "region": "kyushu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.miyazaki-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "鹿児島大学",
+    "prefecture": "九州・沖縄",
+    "region": "kyushu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.kagoshima-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "鹿屋体育大学",
+    "prefecture": "九州・沖縄",
+    "region": "kyushu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.nifs-k.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "琉球大学",
+    "prefecture": "九州・沖縄",
+    "region": "kyushu",
+    "type": "national",
+    "route": "国立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.u-ryukyu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "旭川市立大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.asahikawa-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "公立はこだて未来大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.fun.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "札幌医科大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://web.sapmed.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "札幌市立大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.scu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "青森公立大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.nebuta.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "岩手県立大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.iwate-pu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "宮城大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.myu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "秋田県立大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.akita-pu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "国際教養大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://web.aiu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "会津大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.u-aizu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "福島県立医科大学",
+    "prefecture": "北海道・東北",
+    "region": "tohoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.fmu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "群馬県立女子大学",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.gpwu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "高崎経済大学",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.tcue.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "前橋工科大学",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.maebashi-it.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "東京都立大学",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.tmu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "横浜市立大学",
+    "prefecture": "関東",
+    "region": "kanto",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.yokohama-cu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "長岡造形大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.nagaoka-id.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "新潟県立大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.unii.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "富山県立大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.pu-toyama.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "石川県立大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.ishikawa-pu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "福井県立大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.fpu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "都留文科大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.tsuru.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "山梨県立大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.yamanashi-ken.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "公立諏訪東京理科大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.sus.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "長野大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.nagano.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "長野県立大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.u-nagano.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "静岡県立大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.u-shizuoka-ken.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "静岡文化芸術大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.suac.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "愛知県立大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.aichi-pu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "愛知県立芸術大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.aichi-fam-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "名古屋市立大学",
+    "prefecture": "中部",
+    "region": "chubu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.nagoya-cu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "滋賀県立大学",
+    "prefecture": "近畿",
+    "region": "kansai",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.usp.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "京都府立大学",
+    "prefecture": "近畿",
+    "region": "kansai",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.kpu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "福知山公立大学",
+    "prefecture": "近畿",
+    "region": "kansai",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.fukuchiyama.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "大阪公立大学",
+    "prefecture": "近畿",
+    "region": "kansai",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.omu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "神戸市看護大学",
+    "prefecture": "近畿",
+    "region": "kansai",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.kobe-ccn.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "兵庫県立大学",
+    "prefecture": "近畿",
+    "region": "kansai",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.u-hyogo.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "公立鳥取環境大学",
+    "prefecture": "中国・四国",
+    "region": "chugoku_shikoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.kankyo-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "島根県立大学",
+    "prefecture": "中国・四国",
+    "region": "chugoku_shikoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.u-shimane.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "岡山県立大学",
+    "prefecture": "中国・四国",
+    "region": "chugoku_shikoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.oka-pu.ac.jp/index.php",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "尾道市立大学",
+    "prefecture": "中国・四国",
+    "region": "chugoku_shikoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.onomichi-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "県立広島大学",
+    "prefecture": "中国・四国",
+    "region": "chugoku_shikoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.pu-hiroshima.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "広島市立大学",
+    "prefecture": "中国・四国",
+    "region": "chugoku_shikoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.hiroshima-cu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "福山市立大学",
+    "prefecture": "中国・四国",
+    "region": "chugoku_shikoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.fcu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "山陽小野田市立山口東京理科大学",
+    "prefecture": "中国・四国",
+    "region": "chugoku_shikoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.socu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "下関市立大学",
+    "prefecture": "中国・四国",
+    "region": "chugoku_shikoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.shimonoseki-cu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "山口県立大学",
+    "prefecture": "中国・四国",
+    "region": "chugoku_shikoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.yamaguchi-pu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "愛媛県立医療技術大学",
+    "prefecture": "中国・四国",
+    "region": "chugoku_shikoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.epu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "高知県立大学",
+    "prefecture": "中国・四国",
+    "region": "chugoku_shikoku",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.u-kochi.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "北九州市立大学",
+    "prefecture": "九州・沖縄",
+    "region": "kyushu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.kitakyu-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "九州歯科大学",
+    "prefecture": "九州・沖縄",
+    "region": "kyushu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.kyu-dent.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "福岡県立大学",
+    "prefecture": "九州・沖縄",
+    "region": "kyushu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.fukuoka-pu.ac.jp/index.html",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "長崎県立大学",
+    "prefecture": "九州・沖縄",
+    "region": "kyushu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://sun.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "熊本県立大学",
+    "prefecture": "九州・沖縄",
+    "region": "kyushu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.pu-kumamoto.ac.jp/index.php",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "大分県立看護科学大学",
+    "prefecture": "九州・沖縄",
+    "region": "kyushu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.oita-nhs.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "宮崎公立大学",
+    "prefecture": "九州・沖縄",
+    "region": "kyushu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.miyazaki-mu.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "沖縄県立芸術大学",
+    "prefecture": "九州・沖縄",
+    "region": "kyushu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.okigei.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  },
+  {
+    "name": "名桜大学",
+    "prefecture": "九州・沖縄",
+    "region": "kyushu",
+    "type": "public",
+    "route": "公立大学・EJU利用校",
+    "fields": [
+      "humanities",
+      "science"
+    ],
+    "line": "JASSO国公立大学EJU利用校リスト掲載。学部・研究科ごとの科目、出願資格、日程は大学公式募集要項で確認。",
+    "requirement": "EJU利用有無はJASSO公式リスト由来。正式な出願資格、科目、点数、提出書類は大学・学部別の最新募集要項を優先。",
+    "official": "https://www.meio-u.ac.jp/",
+    "source": "JASSO List of National/Public Universities using EJU (as of May 2026)"
+  }
+]

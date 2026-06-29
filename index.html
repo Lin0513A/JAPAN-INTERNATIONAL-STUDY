@@ -1,0 +1,1361 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="面向中国学生的日本留学信息导航，涵盖学校类型、申请流程、EJU、JLPT、签证、奖学金与来日生活准备。"
+    >
+    <title>日本留学导航 | 中国学生向け日本留学信息</title>
+    <link rel="stylesheet" href="styles.css?v=20260629-07">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="日本留学导航 首页">
+        <span class="brand-mark">日</span>
+        <span>日本留学导航</span>
+      </a>
+      <nav class="site-nav" aria-label="主要导航">
+        <a class="nav-direct" href="#top">首页</a>
+        <a class="nav-direct" href="#eju-planner">EJU日程</a>
+        <a class="nav-direct" href="#universities">查大学</a>
+        <a class="nav-direct" href="#score-tool">成绩诊断</a>
+        <a class="nav-direct" href="#life">来日生活</a>
+        <a class="nav-direct" href="#announcements">公告栏</a>
+        <a class="nav-direct" href="#about">关于本站</a>
+        <details class="nav-menu">
+          <summary>全部菜单</summary>
+          <div class="mega-menu">
+            <div class="mega-column">
+              <strong>先决定方向</strong>
+              <a href="#paths"><span>升学路径</span><em>本科、大学院、专门、语言学校</em></a>
+              <a href="#compare"><span>材料重点</span><em>各路线需要准备什么</em></a>
+              <a href="#timeline"><span>申请流程</span><em>12到18个月倒推路线</em></a>
+              <a href="#contact"><span>个人清单</span><em>按目标生成准备事项</em></a>
+            </div>
+            <div class="mega-column">
+              <strong>考试・出愿</strong>
+              <a href="#eju-planner"><span>EJU出願管理</span><em>官方入口、时间、自己的时间表</em></a>
+              <a href="#exam-guide"><span>EJU / JLPT备考</span><em>报名入口、过去问、参考书</em></a>
+              <a href="#score-tool"><span>成绩诊断</span><em>输入成绩看候选大学</em></a>
+              <a href="#universities"><span>EJU利用校</span><em>全国大学资料和募集要項</em></a>
+            </div>
+            <div class="mega-column">
+              <strong>大学・官方资料</strong>
+              <a href="#universities"><span>大学资料库</span><em>大学名、地区、类型、官方链接</em></a>
+              <a href="#sources"><span>官方来源</span><em>JASSO、JLPT、入管、外务省</em></a>
+              <a href="#announcements"><span>公告栏</span><em>更新记录、募集要項抽取进度</em></a>
+              <a href="#costs"><span>奖学金</span><em>MEXT、JASSO、学校减免</em></a>
+            </div>
+            <div class="mega-column">
+              <strong>来日后・本站</strong>
+              <a href="#visa"><span>签证在留</span><em>COE、签证、在留资格</em></a>
+              <a href="#life"><span>生活手续</span><em>住民票、国保、手机、银行、租房</em></a>
+              <a href="#about"><span>关于本站</span><em>本站说明、数据原则</em></a>
+              <a href="#about-contact"><span>联系微信</span><em>加群交流、反馈入口</em></a>
+            </div>
+          </div>
+        </details>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">For Chinese Students Planning Japan Study</p>
+          <h1 id="hero-title">日本留学信息导航</h1>
+          <p class="hero-lede">
+            EJU出願、候选大学、来日生活手续を一つの画面で確認。
+          </p>
+          <div class="hero-actions" aria-label="快速入口">
+            <a class="button primary" href="#eju-planner">EJU出願管理</a>
+            <a class="button secondary" href="#score-tool">成绩看候选校</a>
+            <a class="button secondary" href="#personal-toolbox">个人收藏网站</a>
+            <a class="button secondary" href="#life">来日生活工具</a>
+          </div>
+          <div class="site-search" role="search">
+            <label for="site-search-input">站内快速搜索</label>
+            <div class="site-search-box">
+              <input id="site-search-input" type="search" placeholder="例：JLPT报名 / 南山大学 / 银行开户 / 志望理由书">
+              <button type="button" id="site-search-clear" aria-label="清空搜索">清空</button>
+            </div>
+            <div class="site-search-results" id="site-search-results" aria-live="polite"></div>
+          </div>
+          <dl class="hero-stats" aria-label="核心提示">
+            <div>
+              <dt>EJU第2回</dt>
+              <dd>11/8試験</dd>
+            </div>
+            <div>
+              <dt>出願締切</dt>
+              <dd>7/30 17:00</dd>
+            </div>
+            <div>
+              <dt>成績公表</dt>
+              <dd>12/15</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="hero-media" aria-label="留学准备重点">
+          <div class="hero-panel">
+            <div class="panel-head">
+              <span>2026 EJU</span>
+              <strong>申请入口总览</strong>
+            </div>
+            <div class="route-strip" aria-label="准备顺序">
+              <span>考试</span>
+              <span>选校</span>
+              <span>出愿</span>
+              <span>来日</span>
+            </div>
+            <div class="hero-link-grid">
+              <a href="#eju-planner">
+                <span>公式出願</span>
+                <strong>EJU Online・日程・出願方法</strong>
+                <em>确认报名入口、考试时间、成绩发表和自己的备考时间表。</em>
+              </a>
+              <a href="#score-tool">
+                <span>学校筛选</span>
+                <strong>预测成绩から候选大学を探す</strong>
+                <em>输入EJU、英语、JLPT和志望理由书准备度，查看合适的候选校。</em>
+              </a>
+              <a href="#exam-guide">
+                <span>JLPT备考</span>
+                <strong>报名入口・问题例・N1/N2准备</strong>
+                <em>整理EJU、JLPT、文综和参考书/免费课程入口。</em>
+              </a>
+              <a href="#life">
+                <span>来日后</span>
+                <strong>电话・银行卡・租房の办理顺序</strong>
+                <em>来日后在留卡、住民票、国保、手机、银行和租房手续。</em>
+              </a>
+            </div>
+            <dl>
+              <div><dt>第2回出願</dt><dd>7/6-7/30</dd></div>
+              <div><dt>試験日</dt><dd>11/8</dd></div>
+              <div><dt>成績公表</dt><dd>12/15</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="section home-favorites-section" aria-labelledby="personal-toolbox-title">
+        <div class="personal-toolbox" id="personal-toolbox" aria-labelledby="personal-toolbox-title">
+          <div class="toolbox-head">
+            <div>
+              <p class="eyebrow">Personal Tools</p>
+              <h3 id="personal-toolbox-title">个人收藏网站</h3>
+              <p>把缴费、管理会社、学校系统、垃圾分类、手机和网络等自己最常用的网站收藏到这里。默认链接只是参考，自分の收藏才是主角。</p>
+            </div>
+            <button type="button" id="detect-life-region">根据IP推荐地区</button>
+          </div>
+          <div class="toolbox-controls">
+            <label>
+              搜索网站
+              <input id="life-tool-search" type="search" autocomplete="off" placeholder="例：東京電力 / ガス / ごみ / 支払い / docomo">
+            </label>
+            <label>
+              地区
+              <select id="life-tool-region">
+                <option value="all">全国</option>
+                <option value="hokkaido">北海道</option>
+                <option value="tohoku">東北</option>
+                <option value="kanto">関東</option>
+                <option value="chubu">中部</option>
+                <option value="kansai">関西</option>
+                <option value="chugoku">中国</option>
+                <option value="shikoku">四国</option>
+                <option value="kyushu">九州</option>
+                <option value="okinawa">沖縄</option>
+              </select>
+            </label>
+            <label>
+              类型
+              <select id="life-tool-category">
+                <option value="all">全部</option>
+                <option value="electricity">电力</option>
+                <option value="gas">ガス</option>
+                <option value="water">水道</option>
+                <option value="garbage">垃圾分类</option>
+                <option value="mobile">手机・网络</option>
+                <option value="moving">搬家・住所</option>
+                <option value="custom">自定义</option>
+              </select>
+            </label>
+          </div>
+          <div class="favorite-tool-panel">
+            <div>
+              <strong>我的收藏网站</strong>
+              <p id="favorite-tool-status" aria-live="polite"></p>
+            </div>
+            <div class="toolbox-grid favorite-tool-grid" id="favorite-tool-grid"></div>
+          </div>
+          <form class="toolbox-add-form" id="life-tool-add-form">
+            <strong>添加个人收藏网站</strong>
+            <label>
+              名称
+              <input id="life-tool-name" type="text" placeholder="例：我的公寓管理会社" required>
+            </label>
+            <label>
+              URL
+              <input id="life-tool-url" type="url" placeholder="https://..." required>
+            </label>
+            <label>
+              类型
+              <select id="life-tool-custom-category">
+                <option value="custom">自定义</option>
+                <option value="electricity">电力</option>
+                <option value="gas">ガス</option>
+                <option value="water">水道</option>
+                <option value="garbage">垃圾分类</option>
+                <option value="mobile">手机・网络</option>
+                <option value="moving">搬家・住所</option>
+              </select>
+            </label>
+            <label>
+              备注
+              <input id="life-tool-note" type="text" placeholder="例：每月缴费、粗大ごみ预约、网络MyPage">
+            </label>
+            <button type="submit">添加到收藏</button>
+          </form>
+          <details class="toolbox-defaults">
+            <summary>
+              <span>从官方常用入口添加</span>
+              <small>电力・ガス・水道・垃圾分类・手机网络・搬家</small>
+            </summary>
+            <p class="toolbox-status" id="life-tool-status" aria-live="polite"></p>
+            <div class="toolbox-grid" id="life-tool-grid"></div>
+          </details>
+        </div>
+      </section>
+
+      <section class="section intro-band" aria-labelledby="intro-title">
+        <div class="section-heading">
+          <p class="eyebrow">Start Here</p>
+          <h2 id="intro-title">快速入口</h2>
+        </div>
+        <div class="question-grid">
+          <a class="portal-card" href="#eju-planner">
+            <span class="number">01</span>
+            <h3>EJU出願管理</h3>
+            <p>出願入口、試験時間、重要日程、自分の時間割。</p>
+          </a>
+          <a class="portal-card" href="#score-tool">
+            <span class="number">02</span>
+            <h3>成绩看候选校</h3>
+            <p>EJU、英語、JLPT、志望理由書で候选大学を確認。</p>
+          </a>
+          <a class="portal-card" href="#exam-guide">
+            <span class="number">03</span>
+            <h3>EJU / JLPT备考指南</h3>
+            <p>過去問、参考書、报名入口、N1/N2准备路线。</p>
+          </a>
+          <a class="portal-card" href="#life">
+            <span class="number">04</span>
+            <h3>来日生活工具</h3>
+            <p>在留、住民票、手机、银行、租房、水电煤。</p>
+          </a>
+        </div>
+        <div class="home-exam-tools" aria-label="EJU JLPT重要节点倒计时">
+          <div class="countdown-panel">
+            <div class="tool-heading">
+              <p class="eyebrow">Countdown</p>
+              <h3>EJU / JLPT重要节点</h3>
+              <p>自动显示最近的出愿、报名、考试、成绩发表节点。正式日期以官方链接为准。</p>
+            </div>
+            <div class="countdown-list" id="exam-countdown-list" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section announcement-section" id="announcements" aria-labelledby="announcements-title">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Updates</p>
+          <h2 id="announcements-title">公告栏</h2>
+          <p>网站更新、募集要項抽取进度、重要考试节点会集中放在这里。</p>
+        </div>
+        <div class="announcement-shell">
+          <div class="announcement-list" id="announcement-list" aria-live="polite"></div>
+          <div class="announcement-editor" id="announcement-editor">
+            <div class="editor-locked" id="announcement-lock">
+              <strong>站长编辑</strong>
+              <p>本地站长模式。静态网页只能做浏览器内编辑，正式上线后需要接入后台权限。</p>
+              <input id="announcement-passcode" type="password" placeholder="输入站长编辑码">
+              <button type="button" id="unlock-announcements">进入编辑</button>
+            </div>
+            <form class="editor-form" id="announcement-form" hidden>
+              <label>
+                标题
+                <input id="announcement-title" type="text" placeholder="例：東洋大学募集要項链接已更新" required>
+              </label>
+              <label>
+                分类
+                <select id="announcement-category">
+                  <option value="更新">更新</option>
+                  <option value="考试">考试</option>
+                  <option value="募集要項">募集要項</option>
+                  <option value="提醒">提醒</option>
+                </select>
+              </label>
+              <label class="wide-field">
+                内容
+                <textarea id="announcement-body" rows="3" placeholder="写清楚变化、来源、需要确认的地方。" required></textarea>
+              </label>
+              <button type="submit">发布到公告栏</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section score-section detail-section" id="score-tool" aria-labelledby="score-title">
+        <div class="section-heading">
+          <p class="eyebrow">Score Matcher</p>
+          <h2 id="score-title">预测成绩から候选大学を探す</h2>
+          <p>
+            EJU、英语、JLPT、志望理由书の准备度を入力すると、大学の候选、风险等级、確認すべき公式ページを表示します。文科・社会科学は日语、综合科目、英语を核心に見て、数学高分だけで难关私大を补正しない設計です。
+          </p>
+        </div>
+        <div class="score-tool">
+          <form class="score-form" id="score-form">
+            <label>
+              目标方向
+              <select id="field">
+                <option value="humanities">文科 / 社会科学</option>
+                <option value="science">理科 / 工学</option>
+                <option value="english">英语项目 / SGU</option>
+              </select>
+            </label>
+            <label>
+              希望地区
+              <select id="region">
+                <option value="any">不限</option>
+                <option value="hokkaido">北海道</option>
+                <option value="tohoku">东北</option>
+                <option value="kanto">关东 / 东京圈</option>
+                <option value="chubu">中部</option>
+                <option value="kansai">关西</option>
+                <option value="chugoku_shikoku">中国・四国</option>
+                <option value="kyushu">九州・冲绳</option>
+              </select>
+            </label>
+            <label>
+              学校类型
+              <select id="candidate-type">
+                <option value="all">全部</option>
+                <option value="national">国公立大学</option>
+                <option value="private">私立大学</option>
+              </select>
+            </label>
+            <label>
+              EJU日语（0-400）
+              <input id="eju-japanese" type="number" min="0" max="400" value="280">
+            </label>
+            <label>
+              EJU记述（0-50）
+              <input id="eju-writing" type="number" min="0" max="50" value="35">
+            </label>
+            <label>
+              综合科目 / 理科（0-200）
+              <input id="eju-subject" type="number" min="0" max="200" value="135">
+            </label>
+            <label>
+              数学（0-200）
+              <input id="eju-math" type="number" min="0" max="200" value="130">
+            </label>
+            <label>
+              英语分数（TOEFL iBT换算）
+              <input id="english-score" type="number" min="0" max="120" value="70">
+            </label>
+            <label>
+              JLPT
+              <select id="jlpt">
+                <option value="0">未取得</option>
+                <option value="5">N5</option>
+                <option value="4">N4</option>
+                <option value="3">N3</option>
+                <option value="2" selected>N2</option>
+                <option value="1">N1</option>
+              </select>
+            </label>
+            <label class="wide-field">
+              志望理由书准备度
+              <input id="essay" type="range" min="1" max="5" value="3">
+            </label>
+            <button type="submit">候选大学を表示</button>
+            <button class="ghost-button" type="button" id="save-score-profile">保存当前成绩</button>
+          </form>
+          <div class="score-output" aria-live="polite">
+            <div class="score-summary">
+              <span>最高匹配度</span>
+              <strong id="match-score">--</strong>
+              <p id="match-note">输入成绩后，系统会按照EJU、英语、JLPT和志望理由书准备度做初步匹配。</p>
+            </div>
+            <div class="match-stage">
+              <div class="result-video" id="result-video" aria-hidden="true">
+                <div class="video-screen">
+                  <div class="route-map">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div class="scan-card card-a">EJU</div>
+                  <div class="scan-card card-b">JLPT</div>
+                  <div class="scan-card card-c">Essay</div>
+                  <div class="scan-card card-d">University</div>
+                  <div class="video-pulse"></div>
+                </div>
+                <p>成绩と大学データを照合中...</p>
+              </div>
+              <div class="match-results" id="match-results"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section detail-section" id="paths" aria-labelledby="paths-title">
+        <div class="section-heading">
+          <p class="eyebrow">Study Routes</p>
+          <h2 id="paths-title">常见升学路径</h2>
+        </div>
+        <div class="path-grid">
+          <article class="path-card">
+            <div class="card-topline">
+              <span class="tag">学部</span>
+              <span class="pill">4年制为主</span>
+            </div>
+            <h3>大学本科</h3>
+            <p>适合高中毕业后希望取得日本大学学士学位的学生。多数学校会综合EJU、英语成绩、校内考、面试和书类审查。</p>
+            <ul>
+              <li>EJU在很多学校用于评估日语与基础学力。</li>
+              <li>募集要项每年更新，科目组合差异很大。</li>
+              <li>可同时准备国公立与私立学校梯度。</li>
+            </ul>
+          </article>
+          <article class="path-card">
+            <div class="card-topline">
+              <span class="tag">研究生 / 修士</span>
+              <span class="pill">研究导向</span>
+            </div>
+            <h3>大学院</h3>
+            <p>适合本科毕业后继续修士或博士。重点是研究主题、导师匹配、研究计划书、语言成绩和专业基础。</p>
+            <ul>
+              <li>部分研究科需要先联系教授或提交事前审查。</li>
+              <li>英语项目和日语项目的材料重点不同。</li>
+              <li>研究计划书要避免只写兴趣，要落到方法和文献。</li>
+            </ul>
+          </article>
+          <article class="path-card">
+            <div class="card-topline">
+              <span class="tag">专门学校</span>
+              <span class="pill">职业技能</span>
+            </div>
+            <h3>专门学校</h3>
+            <p>适合希望学习设计、IT、动漫、护理、酒店、料理等职业技能的学生。学校会重视日语能力、出席态度和学习动机。</p>
+            <ul>
+              <li>确认是否为可接收留学生的正规学校。</li>
+              <li>毕业后的就业支持与签证路径要提前问清。</li>
+              <li>作品集或面试准备常常很关键。</li>
+            </ul>
+          </article>
+          <article class="path-card">
+            <div class="card-topline">
+              <span class="tag">日本语学校</span>
+              <span class="pill">过渡准备</span>
+            </div>
+            <h3>语言学校</h3>
+            <p>适合需要在日本集中提高日语、参加升学辅导或适应生活的学生。要关注课程质量、升学实绩、所在地和出席管理。</p>
+            <ul>
+              <li>不是所有学生都必须先读语言学校。</li>
+              <li>出席率会影响在留续签与后续升学。</li>
+              <li>入学期常见为1月、4月、7月、10月。</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section compare-section detail-section" id="compare" aria-labelledby="compare-title">
+        <div class="section-heading">
+          <p class="eyebrow">Compare</p>
+          <h2 id="compare-title">按目标快速比较</h2>
+        </div>
+        <div class="compare-shell">
+          <div class="tab-list" role="tablist" aria-label="升学目标">
+            <button class="tab is-active" type="button" role="tab" aria-selected="true" data-tab="undergrad">本科</button>
+            <button class="tab" type="button" role="tab" aria-selected="false" data-tab="grad">大学院</button>
+            <button class="tab" type="button" role="tab" aria-selected="false" data-tab="vocational">专门学校</button>
+            <button class="tab" type="button" role="tab" aria-selected="false" data-tab="language">语言学校</button>
+          </div>
+          <div class="tab-panel" id="tab-panel" tabindex="0">
+            <h3>本科申请重点</h3>
+            <p>优先确认目标学校是否要求EJU、JLPT或英语成绩，再倒排考试时间。校内考和面试通常决定最终录取质量。</p>
+            <dl>
+              <div><dt>核心材料</dt><dd>成绩证明、毕业证明、志望理由书、语言成绩、护照、照片</dd></div>
+              <div><dt>常见考试</dt><dd>EJU、校内考、面试、英语成绩</dd></div>
+              <div><dt>准备建议</dt><dd>先按专业锁定20所候选，再分为冲刺、稳妥、保底</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="section university-section detail-section" id="universities" aria-labelledby="universities-title">
+        <div class="section-heading">
+          <p class="eyebrow">University Finder</p>
+          <h2 id="universities-title">大学资料・出愿参考带・官方链接</h2>
+          <p>
+            大学名、EJU利用校情報、公式リンクはJASSOや大学公式ページを基準に整理します。多くの大学は合格最低点を正式公開していないため、点数は「出愿参考带」として保守的に表示します。
+          </p>
+        </div>
+        <div class="university-toolbar">
+          <label>
+            搜索大学・地区・项目
+            <input id="university-search" type="search" autocomplete="off" placeholder="例：明治学院 / GMARCH / 関関同立 / 东京 / EJU">
+          </label>
+          <label>
+            学校类型
+            <select id="university-type">
+              <option value="all">全部</option>
+              <option value="national">国公立大学</option>
+              <option value="private">私立大学</option>
+              <option value="featured">重点样例</option>
+            </select>
+          </label>
+          <a class="button secondary" href="https://www.jasso.go.jp/ryugaku/eju/examinee/use/uni_national.html" target="_blank" rel="noreferrer">JASSO国公立EJU利用校</a>
+          <a class="button secondary" href="https://www.jasso.go.jp/ryugaku/eju/examinee/use/uni_private.html" target="_blank" rel="noreferrer">JASSO私立EJU利用校</a>
+        </div>
+        <div class="favorite-panel" id="favorite-panel" aria-live="polite"></div>
+        <p class="data-note" id="university-data-note">
+          読み込み中。私立大学データはJASSO公式「EJU利用校」リストを基準にし、科目・出愿资格は必ず各大学の最新募集要項で確認してください。
+        </p>
+        <div class="university-search-status" id="university-search-status" aria-live="polite">
+          <span></span>
+          <strong>検索中...</strong>
+        </div>
+        <div class="university-grid" id="university-grid"></div>
+        <p class="data-note">
+          注意：页面内的“目安”用于规划，不等于录取保证。正式出愿前必须打开大学官网的最新募集要項确认科目、分数、提交材料、出愿期间和考试方式。
+        </p>
+        <div class="accuracy-panel" aria-label="データの正確性">
+          <div>
+            <span>A</span>
+            <strong>公式データ</strong>
+            <p>大学名、地域、EJU利用有無、公式リンクはJASSOと大学公式ページを基準に整理しています。</p>
+          </div>
+          <div>
+            <span>B</span>
+            <strong>公式リスト由来</strong>
+            <p>JASSOのEJU利用校リストに掲載された大学は、掲載時点の利用有無として扱います。</p>
+          </div>
+          <div>
+            <span>C</span>
+            <strong>サイト独自の目安</strong>
+            <p>候选順位、匹配スコア、難易度、出愿参考带は出愿校を絞るための参考値です。合格保証ではありません。</p>
+          </div>
+          <div>
+            <span>D</span>
+            <strong>ユーザー入力予測</strong>
+            <p>入力したEJU、英語、JLPT、志望理由書準備度から計算した候选で、公式判定ではありません。</p>
+          </div>
+          <div class="wide-accuracy">
+            <span>!</span>
+            <strong>最終確認</strong>
+            <p>正式出愿前に、必ず各大学・各学部の最新募集要項で科目、点数、日程、提出書類を確認してください。</p>
+          </div>
+        </div>
+        <div class="admission-report-panel" id="admission-report">
+          <div class="tool-heading">
+            <p class="eyebrow">Community Data</p>
+            <h3>合格数据投稿・本地统计</h3>
+            <p>先保存在你的浏览器里，不会自动上传到服务器。可以导出JSON，之后接入后端时用于全站统计。</p>
+          </div>
+          <form class="admission-report-form" id="admission-report-form">
+            <label>
+              合格 / 出愿大学
+              <input id="report-university" type="text" placeholder="例：南山大学 / Meiji University" required>
+            </label>
+            <label>
+              入试年度
+              <input id="report-year" type="number" min="2018" max="2030" value="2026">
+            </label>
+            <label>
+              方向
+              <select id="report-field">
+                <option value="humanities">文科 / 社会科学</option>
+                <option value="science">理科 / 工学</option>
+                <option value="english">英语项目 / SGU</option>
+              </select>
+            </label>
+            <label>
+              结果
+              <select id="report-result">
+                <option value="admitted">合格</option>
+                <option value="rejected">不合格</option>
+              </select>
+            </label>
+            <label>
+              EJU日语
+              <input id="report-japanese" type="number" min="0" max="400" value="280">
+            </label>
+            <label>
+              记述
+              <input id="report-writing" type="number" min="0" max="50" value="35">
+            </label>
+            <label>
+              综合 / 理科
+              <input id="report-subject" type="number" min="0" max="200" value="135">
+            </label>
+            <label>
+              数学
+              <input id="report-math" type="number" min="0" max="200" value="130">
+            </label>
+            <label>
+              英语TOEFL换算
+              <input id="report-english" type="number" min="0" max="120" value="70">
+            </label>
+            <label>
+              JLPT
+              <select id="report-jlpt">
+                <option value="0">未取得</option>
+                <option value="3">N3</option>
+                <option value="2" selected>N2</option>
+                <option value="1">N1</option>
+              </select>
+            </label>
+            <label class="wide-field">
+              备注 / 学部 / 入试方式
+              <input id="report-note" type="text" placeholder="例：经济学部、私费外国人留学生入试、面试有">
+            </label>
+            <button type="submit">保存到本地统计</button>
+          </form>
+          <div class="report-actions">
+            <button type="button" class="ghost-button" id="export-report-data">导出JSON</button>
+            <label class="import-report-button">
+              导入JSON
+              <input id="import-report-data" type="file" accept="application/json,.json">
+            </label>
+            <button type="button" class="ghost-button" id="clear-report-data">清空本地统计</button>
+          </div>
+          <div class="report-summary" id="report-summary" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="section timeline-section detail-section" id="timeline" aria-labelledby="timeline-title">
+        <div class="section-heading">
+          <p class="eyebrow">Roadmap</p>
+          <h2 id="timeline-title">12到18个月申请路线</h2>
+        </div>
+        <div class="timeline">
+          <article>
+            <span>18-12个月前</span>
+            <h3>确定目标与地区</h3>
+            <p>选择学历层次、专业方向和希望城市。同步开始日语或英语考试计划。</p>
+          </article>
+          <article>
+            <span>12-9个月前</span>
+            <h3>筛选学校与考试</h3>
+            <p>阅读募集要项，确认EJU科目、JLPT要求、英语成绩、作品集、研究计划书或面试形式。</p>
+          </article>
+          <article>
+            <span>9-6个月前</span>
+            <h3>准备材料与报名</h3>
+            <p>整理成绩证明、毕业证明、经费支付材料、志望理由书。报名考试并安排翻译、公证或认证。</p>
+          </article>
+          <article>
+            <span>6-3个月前</span>
+            <h3>出愿与校内考</h3>
+            <p>按学校期限提交材料。准备笔试、面试、研究发表或作品集说明。</p>
+          </article>
+          <article>
+            <span>3-1个月前</span>
+            <h3>COE与签证</h3>
+            <p>录取后由学校协助申请在留资格认定证明书。拿到COE后，在管辖使领馆或指定机构申请签证。</p>
+          </article>
+          <article>
+            <span>赴日前</span>
+            <h3>住宿与生活手续</h3>
+            <p>确认机票、住宿、保险、现金与银行卡、入境后住民登记、国民健康保险和学校报到日程。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section visa-section detail-section" id="visa" aria-labelledby="visa-title">
+        <div class="section-heading">
+          <p class="eyebrow">Visa & Residence</p>
+          <h2 id="visa-title">签证与在留要点</h2>
+          <p>以外务省、日本国驻华大使馆、出入国在留管理厅的公开信息为基准整理。地区、学校和年度会变，最终提交前必须看自己管辖使领馆和学校说明。</p>
+        </div>
+        <div class="visa-overview">
+          <div class="notice-panel">
+            <h3>“签证”和“在留资格”不是一回事</h3>
+            <p>
+              外务省说明，签证由日本驻外使领馆等在海外签发，入境时还需要上陆审查；长期留学通常先由学校等在日本申请在留资格认定证明书（COE），再在中国的指定代办机构申请签证。
+            </p>
+            <div class="resource-links compact-links">
+              <a href="https://www.mofa.go.jp/mofaj/toko/visa/index.html" target="_blank" rel="noreferrer">外務省 ビザ</a>
+              <a href="https://www.cn.emb-japan.go.jp/itpr_zh/consular.html" target="_blank" rel="noreferrer">驻华大使馆 签证</a>
+              <a href="https://www.cn.emb-japan.go.jp/itpr_zh/visa_shikaku.html" target="_blank" rel="noreferrer">就业・长期停留</a>
+              <a href="https://www.moj.go.jp/isa/applications/status/student.html" target="_blank" rel="noreferrer">入管 在留資格「留学」</a>
+            </div>
+          </div>
+          <div class="checklist" aria-label="签证准备清单">
+            <label><input type="checkbox" data-check-key="admission"> 录取通知或入学许可已确认</label>
+            <label><input type="checkbox" data-check-key="coe-docs"> 学校已说明COE申请材料</label>
+            <label><input type="checkbox" data-check-key="finance-docs"> 经费支付证明与存款材料已准备</label>
+            <label><input type="checkbox" data-check-key="passport-photo"> 护照有效期、照片规格已确认</label>
+            <label><input type="checkbox" data-check-key="embassy-rule"> 已确认所在地管辖的日本使领馆要求</label>
+          </div>
+        </div>
+        <div class="visa-flow-grid">
+          <article>
+            <span>01</span>
+            <h3>录取后：学校申请COE</h3>
+            <p>学校通常会收集入学许可、经费支付、学历、护照等材料，在日本向入管申请COE。COE自签发日起有有效期，收到后马上推进签证。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>中国：指定代办机构递签</h3>
+            <p>日本国驻华大使馆说明，原则上不接受个人直接申请，应通过指定代办机构办理。留学属于持COE的长期停留。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>入境后：在留卡与住址登记</h3>
+            <p>主要机场通常入境时发在留卡。决定住所后，到市区町村办理住址登记、住民票、国民健康保险，再处理银行和手机。</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>在留中：续签・资格外活动</h3>
+            <p>在留期限、出席率、成绩、打工时间会影响续签。打工前需要确认资格外活动许可，换学校或升学时提前确认在留手续。</p>
+          </article>
+        </div>
+        <div class="visa-table-card">
+          <h3>留学签证材料表：中国学生常见版本</h3>
+          <div class="table-wrap">
+            <table class="info-table">
+              <thead>
+                <tr>
+                  <th>阶段</th>
+                  <th>常见材料</th>
+                  <th>填写・确认重点</th>
+                  <th>官方入口</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>COE申请</td>
+                  <td>学校指定表格、护照、照片、学历证明、成绩证明、经费支付材料、入学许可等</td>
+                  <td>按学校要求提交；姓名、生日、护照号必须和护照一致；经费支付者关系要能用户口本或亲属关系材料说明。</td>
+                  <td><a href="https://www.moj.go.jp/isa/applications/procedures/16-1.html" target="_blank" rel="noreferrer">入管 COE申请</a></td>
+                </tr>
+                <tr>
+                  <td>签证申请</td>
+                  <td>签证申请表、护照、户口本复印件、居住证明、COE原件或复印件等</td>
+                  <td>驻华大使馆长期停留页列明所有申请人材料；留学还需留学调查表、学费支付者在职证明、毕业证明或毕业证书复印件。</td>
+                  <td><a href="https://www.cn.emb-japan.go.jp/itpr_zh/visa_shikaku.html" target="_blank" rel="noreferrer">驻华大使馆 长期停留</a></td>
+                </tr>
+                <tr>
+                  <td>代办递交</td>
+                  <td>代办机构要求的预约、服务费、补充材料</td>
+                  <td>中国申请通常走指定代办机构；不同领区不同，先确认自己户籍或居住地管辖。</td>
+                  <td><a href="https://www.cn.emb-japan.go.jp/itpr_zh/visa_daili.html" target="_blank" rel="noreferrer">代办机构一览</a></td>
+                </tr>
+                <tr>
+                  <td>入境后</td>
+                  <td>护照、在留卡、住所信息、学生证/入学材料、印章或签名</td>
+                  <td>先登记住址，再开住民票和国保；银行、手机、租房通常会看在留卡和住址。</td>
+                  <td><a href="https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00010.html" target="_blank" rel="noreferrer">入管 在留カード</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="visa-form-guide">
+          <div class="section-heading compact-heading">
+            <p class="eyebrow">Form Guide</p>
+            <h3>签证申请表填写方法</h3>
+          </div>
+          <div class="form-guide-grid">
+            <article>
+              <span>个人信息</span>
+              <p>姓名英文按护照；中文名照实写。出生日期用日/月/年格式。国籍写 China，护照类别普通护照选 Ordinary / 普通。</p>
+            </article>
+            <article>
+              <span>赴日目的</span>
+              <p>居住身份/赴日目的写 Student / 留学。在留资格认定证明书编号按COE填写，纸质或电子COE都要与学校给的信息一致。</p>
+            </article>
+            <article>
+              <span>在日住所</span>
+              <p>已确定宿舍或租房就写地址和电话；未确定时按学校或宿舍安排写，不要乱填酒店。之后入境后以实际住址去役所登记。</p>
+            </article>
+            <article>
+              <span>担保人・邀请人</span>
+              <p>留学通常可按学校、负责部门或COE/学校说明填写。邀请人与保证人相同可写同上；不确定时问学校或代办机构。</p>
+            </article>
+            <article>
+              <span>犯罪・拒签相关</span>
+              <p>所有是/否问题按事实填写。有被判刑、遣返、违法滞留等情况不要隐瞒，应准备说明材料并咨询代办机构。</p>
+            </article>
+            <article>
+              <span>签名・日期</span>
+              <p>打印后本人签名，日期填写提交申请日附近。照片按大使馆当前规格，驻华大使馆长期停留页写明白底、6个月内照片。</p>
+            </article>
+          </div>
+          <div class="resource-links compact-links">
+            <a href="https://www.cn.emb-japan.go.jp/files/100034897.pdf" target="_blank" rel="noreferrer">签证申请表PDF</a>
+            <a href="https://www.mofa.go.jp/mofaj/toko/visa/index.html" target="_blank" rel="noreferrer">外務省 申請書一覧</a>
+            <a href="https://www.cn.emb-japan.go.jp/itpr_zh/visa_shikaku.html" target="_blank" rel="noreferrer">留学调查表入口</a>
+          </div>
+        </div>
+        <p class="data-disclaimer">
+          注意：这里是填写辅助，不是法律意见。签证、COE、在留更新会因领区、学校、个人经历和年度政策变化而不同，提交前以官方网页、学校国际交流中心、指定代办机构的最新说明为准。
+        </p>
+      </section>
+
+      <section class="section life-section detail-section" id="life" aria-labelledby="life-title">
+        <div class="section-heading">
+          <p class="eyebrow">After Arrival</p>
+          <h2 id="life-title">来日生活工具：手续・金融・通信・住まい</h2>
+          <p>先处理在留卡、住民票、国民健康保险，再推进银行、手机、网络、水电煤和租房。自治体手续会因城市不同，最终以市区町村官网为准。</p>
+        </div>
+        <div class="life-tool">
+          <form class="life-choice" id="life-choice">
+            <label>
+              手机优先
+              <select id="phone-priority">
+                <option value="support">店铺支持・安心</option>
+                <option value="price">价格・线上办理</option>
+                <option value="coverage">信号覆盖</option>
+              </select>
+            </label>
+            <label>
+              银行优先
+              <select id="bank-priority">
+                <option value="student">留学生容易开始</option>
+                <option value="mega">大手银行</option>
+                <option value="online">线上管理</option>
+              </select>
+            </label>
+            <label>
+              租房优先
+              <select id="housing-priority">
+                <option value="foreigner">外国人友好</option>
+                <option value="choice">房源数量</option>
+                <option value="initial">初期费用</option>
+              </select>
+            </label>
+          </form>
+          <div class="life-steps" aria-label="来日后流程图">
+            <div><span>1</span><strong>住所确定</strong><p>寮・短租・正式租房</p></div>
+            <div><span>2</span><strong>役所手续</strong><p>住民票・国保・年金</p></div>
+            <div><span>3</span><strong>手机・银行</strong><p>本人确认和收款账户</p></div>
+            <div><span>4</span><strong>住まい设置</strong><p>网络・水电煤・垃圾</p></div>
+          </div>
+          <div class="life-result" id="life-result"></div>
+        </div>
+        <div class="life-admin-flow" aria-label="来日后重要手续顺序">
+          <article>
+            <span>DAY 0</span>
+            <h3>在留卡</h3>
+            <p>成田、羽田、中部、関西等机场通常入境时交付。在留卡背面地址栏为空时，先保管好，住址决定后去役所登记。</p>
+            <a class="text-link" href="https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00010.html" target="_blank" rel="noreferrer">出入国在留管理庁 在留カード</a>
+          </article>
+          <article>
+            <span>14日以内</span>
+            <h3>住民票・住所登记</h3>
+            <p>决定住址后，到市区町村役所办理転入届或住所登记。多数手续会需要在留卡、护照、学生证或入学许可。</p>
+            <a class="text-link" href="https://www.soumu.go.jp/main_sosiki/jichi_gyousei/c-gyousei/daityo/" target="_blank" rel="noreferrer">総務省 住民基本台帳</a>
+          </article>
+          <article>
+            <span>同日办理</span>
+            <h3>国民健康保险</h3>
+            <p>留学生长期在日通常需要加入国民健康保险。保费减免、缴费方式、所需材料由所在自治体确认。</p>
+            <a class="text-link" href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/kokuho/index.html" target="_blank" rel="noreferrer">厚生労働省 国民健康保険</a>
+          </article>
+          <article>
+            <span>1-3週間</span>
+            <h3>銀行・電話・生活契約</h3>
+            <p>有住址后更容易办理手机号、银行开户、网络和水电煤。申请失败时先补齐住民票、电话番号、学生证或印章。</p>
+            <a class="text-link" href="https://www.digital.go.jp/policies/moving_onestop_service/" target="_blank" rel="noreferrer">デジタル庁 引越し手続</a>
+          </article>
+        </div>
+        <div class="life-resource-grid">
+          <article>
+            <span class="number">STATUS</span>
+            <h3>在留卡・住民票・国保</h3>
+            <div class="resource-links">
+              <a href="https://www.moj.go.jp/isa/applications/status/student.html" target="_blank" rel="noreferrer">入管庁 留学</a>
+              <a href="https://www.moj.go.jp/isa/applications/procedures/nyuukokukanri10_00010.html" target="_blank" rel="noreferrer">在留カード</a>
+              <a href="https://www.soumu.go.jp/main_sosiki/jichi_gyousei/c-gyousei/daityo/" target="_blank" rel="noreferrer">住民基本台帳</a>
+              <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/kokuho/index.html" target="_blank" rel="noreferrer">国民健康保険</a>
+            </div>
+            <ol>
+              <li>住址确定后尽快去役所，不要拖过14日</li>
+              <li>同时确认国保、国民年金学生特例、マイナンバー通知</li>
+              <li>需要证明时申请住民票写し，提交前确认是否要マイナンバー记载</li>
+            </ol>
+          </article>
+          <article>
+            <span class="number">BANK</span>
+            <h3>银行开户・信用卡・证券账户</h3>
+            <div class="resource-links">
+              <a href="https://www.jp-bank.japanpost.jp/" target="_blank" rel="noreferrer">ゆうちょ銀行</a>
+              <a href="https://www.bk.mufg.jp/kojin/" target="_blank" rel="noreferrer">三菱UFJ銀行</a>
+              <a href="https://www.smbc.co.jp/kojin/" target="_blank" rel="noreferrer">三井住友銀行</a>
+              <a href="https://www.mizuhobank.co.jp/retail/index.html" target="_blank" rel="noreferrer">みずほ銀行</a>
+              <a href="https://www.rakuten-card.co.jp/" target="_blank" rel="noreferrer">楽天カード</a>
+              <a href="https://www.eposcard.co.jp/" target="_blank" rel="noreferrer">エポスカード</a>
+              <a href="https://www.sbisec.co.jp/" target="_blank" rel="noreferrer">SBI証券</a>
+              <a href="https://www.rakuten-sec.co.jp/" target="_blank" rel="noreferrer">楽天証券</a>
+            </div>
+            <ol>
+              <li>银行开户先准备在留卡、住民票或住址、学生证、手机号</li>
+              <li>信用卡有审查，刚来日可先用借记卡、预付卡或学校推荐方案</li>
+              <li>证券账户涉及税务、マイナンバー和投资风险，先确认在留资格和本人责任</li>
+            </ol>
+          </article>
+          <article>
+            <span class="number">MOBILE</span>
+            <h3>手机卡・网络</h3>
+            <div class="resource-links">
+              <a href="https://www.docomo.ne.jp/" target="_blank" rel="noreferrer">docomo</a>
+              <a href="https://www.softbank.jp/mobile/" target="_blank" rel="noreferrer">SoftBank</a>
+              <a href="https://www.au.com/mobile/" target="_blank" rel="noreferrer">au</a>
+              <a href="https://network.mobile.rakuten.co.jp/" target="_blank" rel="noreferrer">楽天モバイル</a>
+              <a href="https://ahamo.com/" target="_blank" rel="noreferrer">ahamo</a>
+              <a href="https://www.linemo.jp/" target="_blank" rel="noreferrer">LINEMO</a>
+              <a href="https://flets.com/" target="_blank" rel="noreferrer">フレッツ光 東日本</a>
+              <a href="https://flets-w.com/" target="_blank" rel="noreferrer">フレッツ光 西日本</a>
+            </div>
+            <ol>
+              <li>确认在留卡、住址、支付方式</li>
+              <li>比较覆盖、月费、解约条件</li>
+              <li>网络开通常需要工事预约，搬家前提前确认可用线路</li>
+            </ol>
+          </article>
+          <article>
+            <span class="number">UTILITY</span>
+            <h3>水电煤</h3>
+            <div class="resource-links">
+              <a href="https://www.tepco.co.jp/ep/" target="_blank" rel="noreferrer">東京電力</a>
+              <a href="https://www.kepco.co.jp/" target="_blank" rel="noreferrer">関西電力</a>
+              <a href="https://www.chuden.co.jp/" target="_blank" rel="noreferrer">中部電力</a>
+              <a href="https://www.tokyo-gas.co.jp/" target="_blank" rel="noreferrer">東京ガス</a>
+              <a href="https://www.osakagas.co.jp/" target="_blank" rel="noreferrer">大阪ガス</a>
+              <a href="https://www.waterworks.metro.tokyo.lg.jp/" target="_blank" rel="noreferrer">東京都水道局</a>
+            </div>
+            <ol>
+              <li>入住日之前确认电力、ガス、水道的开通申请</li>
+              <li>ガス开栓常需要本人立会，预约时间要留空</li>
+              <li>公司因地区不同，先看租赁合同或管理会社说明</li>
+            </ol>
+          </article>
+          <article>
+            <span class="number">ROOM</span>
+            <h3>租房・保证会社</h3>
+            <div class="resource-links">
+              <a href="https://suumo.jp/" target="_blank" rel="noreferrer">SUUMO</a>
+              <a href="https://www.homes.co.jp/" target="_blank" rel="noreferrer">LIFULL HOME'S</a>
+              <a href="https://www.ur-net.go.jp/chintai/" target="_blank" rel="noreferrer">UR賃貸</a>
+              <a href="https://wagaya-japan.com/jp/" target="_blank" rel="noreferrer">wagaya Japan</a>
+              <a href="https://www.gtn.co.jp/" target="_blank" rel="noreferrer">GTN</a>
+            </div>
+            <ol>
+              <li>先确认学校通学时间和初期费用</li>
+              <li>确认保证人、保证会社、外国籍可否</li>
+              <li>签约前确认退去费、网络、家具家电</li>
+            </ol>
+          </article>
+          <article>
+            <span class="number">MOVE</span>
+            <h3>垃圾分类・搬家</h3>
+            <div class="resource-links">
+              <a href="https://www.digital.go.jp/policies/moving_onestop_service/" target="_blank" rel="noreferrer">引越し手続オンラインサービス</a>
+              <a href="https://www.city.shinjuku.lg.jp/seikatsu/index09_01.html" target="_blank" rel="noreferrer">新宿区 ごみ分別例</a>
+              <a href="https://www.city.nagoya.jp/kurashi/category/5-6-0-0-0-0-0-0-0-0.html" target="_blank" rel="noreferrer">名古屋市 ごみ</a>
+              <a href="https://www.city.osaka.lg.jp/kankyo/page/0000009337.html" target="_blank" rel="noreferrer">大阪市 ごみ</a>
+            </div>
+            <ol>
+              <li>垃圾规则按市区町村和住居不同，搜索“城市名 + ごみ分別”</li>
+              <li>粗大ごみ多为预约制，不能随便放在垃圾站</li>
+              <li>搬家时办理転出届、転入届、邮局転送、水电煤网络解约或迁移</li>
+            </ol>
+          </article>
+        </div>
+      </section>
+
+      <section class="section costs-section detail-section" id="costs" aria-labelledby="costs-title">
+        <div class="section-heading">
+          <p class="eyebrow">Scholarships</p>
+          <h2 id="costs-title">奖学金・学费减免入口</h2>
+        </div>
+        <div class="scholarship-row">
+          <article>
+            <span class="scholarship-badge">01</span>
+            <h3>MEXT日本政府奖学金</h3>
+            <p>可通过大使馆推荐、大学推荐等方式申请。类型、年龄、专业和语言要求每年可能不同。</p>
+            <a class="text-link" href="https://www.studyinjapan.go.jp/ja/planning/scholarships/mext-scholarships/" target="_blank" rel="noreferrer">MEXT奖学金入口</a>
+          </article>
+          <article>
+            <span class="scholarship-badge">02</span>
+            <h3>JASSO相关奖学金</h3>
+            <p>JASSO列有私费外国人留学生学习奖励费、交换留学支援制度等信息，适合做奖学金入口检索。</p>
+            <a class="text-link" href="https://www.jasso.go.jp/ryugaku/scholarship_j/index.html" target="_blank" rel="noreferrer">JASSO奖学金入口</a>
+          </article>
+          <article>
+            <span class="scholarship-badge">03</span>
+            <h3>学校独自减免</h3>
+            <p>很多大学、专门学校和日本语学校有入学金减免、成绩优秀者减免或地方政府奖学金。</p>
+            <a class="text-link" href="#universities">先查目标大学</a>
+          </article>
+        </div>
+        <p class="scholarship-note">
+          奖学金条件每年变化很大，先用这里做入口，再以学校官网和官方募集要项为准。
+        </p>
+      </section>
+
+      <section class="section eju-section detail-section" id="exam-guide" aria-labelledby="eju-title">
+        <div class="section-heading">
+          <p class="eyebrow">Exam & Essay</p>
+          <h2 id="eju-title">EJU・JLPT・志望理由书の准备流程</h2>
+        </div>
+        <div class="exam-flow">
+          <article>
+            <span>EJU</span>
+            <h3>先看目标大学要求的科目</h3>
+            <p>文科常见为日语、综合科目、数学；理科常见为日语、理科、数学。JASSO提供出愿方法、考试日程、EJU Online和利用EJU的学校列表。</p>
+            <a class="text-link" href="https://www.jasso.go.jp/ryugaku/eju/examinee/procedure/application.html" target="_blank" rel="noreferrer">EJU出願方法</a>
+            <a class="text-link" href="https://eju-online.jasso.go.jp/" target="_blank" rel="noreferrer">EJU Online</a>
+          </article>
+          <article>
+            <span>JLPT</span>
+            <h3>N2是很多学校的起点，N1会更安心</h3>
+            <p>JLPT官方说明N1到N5的语言能力范围。日本国内受験はJEES/MyJLPT、海外受験は各都市の実施機関で申込方法が違います。</p>
+            <a class="text-link" href="https://info.jees-jlpt.jp/" target="_blank" rel="noreferrer">日本国内：JEES / MyJLPT</a>
+            <a class="text-link" href="https://www.jlpt.jp/application/overseas_index.html" target="_blank" rel="noreferrer">海外：実施都市・実施機関</a>
+            <a class="text-link" href="https://www.jlpt.jp/about/levelsummary.html" target="_blank" rel="noreferrer">JLPTレベル別認定の目安</a>
+          </article>
+          <article>
+            <span>Essay</span>
+            <h3>志望理由书不是自我介绍</h3>
+            <p>写清楚三件事：为什么这个专业、为什么这所大学、入学后如何学习。要把自己的经历和大学课程、研究领域、毕业目标连起来。</p>
+            <ul>
+              <li>避免只写“喜欢日本文化”。</li>
+              <li>引用大学官网课程名或教授研究领域。</li>
+              <li>最后一段写入学后的具体学习计划。</li>
+            </ul>
+          </article>
+        </div>
+        <div class="study-resource-panel">
+          <h3>EJU备考参考书・免费课程入口</h3>
+          <div class="study-resource-grid">
+            <article>
+              <span>公式</span>
+              <strong>JASSO過去問題</strong>
+              <p>先用官方过去问题确认题型、时间和难度。</p>
+              <a href="https://www.jasso.go.jp/ryugaku/eju/examinee/pastpaper_sample/index.html" target="_blank" rel="noreferrer">JASSO過去問題・サンプル</a>
+            </article>
+            <article>
+              <span>日本語</span>
+              <strong>EJU日本語参考书</strong>
+              <p>优先找「読解」「聴解・聴読解」「記述」分册或综合问题集。</p>
+              <a href="https://www.amazon.co.jp/s?k=EJU+%E6%97%A5%E6%9C%AC%E8%AA%9E+%E5%8F%82%E8%80%83%E6%9B%B8" target="_blank" rel="noreferrer">Amazonで探す</a>
+            </article>
+            <article>
+              <span>文综</span>
+              <strong>综合科目・分科课程</strong>
+              <p>文科生重点看经济、政治、历史、地理、现代社会和时事整理。先用官方过去问确认题型，再用视频补知识点。</p>
+              <div class="resource-link-list">
+                <a href="https://search.bilibili.com/all?keyword=EJU%20%E6%96%87%E7%BB%BC%20%E7%BB%8F%E6%B5%8E" target="_blank" rel="noreferrer">B站：经济</a>
+                <a href="https://search.bilibili.com/all?keyword=EJU%20%E6%96%87%E7%BB%BC%20%E6%94%BF%E6%B2%BB" target="_blank" rel="noreferrer">B站：政治</a>
+                <a href="https://search.bilibili.com/all?keyword=EJU%20%E6%96%87%E7%BB%BC%20%E5%8E%86%E5%8F%B2" target="_blank" rel="noreferrer">B站：历史</a>
+                <a href="https://search.bilibili.com/all?keyword=EJU%20%E6%96%87%E7%BB%BC%20%E5%9C%B0%E7%90%86" target="_blank" rel="noreferrer">B站：地理</a>
+                <a href="https://search.bilibili.com/all?keyword=EJU%20%E7%BB%BC%E5%90%88%E7%A7%91%E7%9B%AE%20%E7%8E%B0%E4%BB%A3%E7%A4%BE%E4%BC%9A%20%E6%97%B6%E4%BA%8B" target="_blank" rel="noreferrer">B站：现代社会・时事</a>
+                <a href="https://www.youtube.com/results?search_query=EJU+%E7%B7%8F%E5%90%88%E7%A7%91%E7%9B%AE+%E7%B5%8C%E6%B8%88+%E6%94%BF%E6%B2%BB+%E6%AD%B4%E5%8F%B2+%E5%9C%B0%E7%90%86" target="_blank" rel="noreferrer">YouTube：総合科目</a>
+              </div>
+            </article>
+            <article>
+              <span>视频</span>
+              <strong>免费课程搜索</strong>
+              <p>课程质量差异很大，建议配合官方过去问验证效果。</p>
+              <a href="https://search.bilibili.com/all?keyword=EJU%20%E6%97%A5%E8%AF%AD%20%E6%96%87%E7%BB%BC%20%E6%95%B0%E5%AD%A6" target="_blank" rel="noreferrer">B站综合搜索</a>
+              <a href="https://www.youtube.com/results?search_query=EJU+Japanese+Exam+%E7%B7%8F%E5%90%88%E7%A7%91%E7%9B%AE" target="_blank" rel="noreferrer">YouTube搜索</a>
+            </article>
+          </div>
+        </div>
+        <div class="study-resource-panel jlpt-resource-panel">
+          <h3>JLPT备考・报名・过去问入口</h3>
+          <div class="study-resource-grid">
+            <article>
+              <span>报名</span>
+              <strong>日本国内：JEES / MyJLPT</strong>
+              <p>在日本受験する場合はMyJLPT登録、申込、受験票、結果確認までJEESサイトで確認。</p>
+              <a href="https://info.jees-jlpt.jp/" target="_blank" rel="noreferrer">JEES 日本語能力試験</a>
+            </article>
+            <article>
+              <span>海外</span>
+              <strong>海外実施都市・機関</strong>
+              <p>中国など海外受験は都市によって7月・12月の実施有無、报名期間、支払方法が違います。</p>
+              <a href="https://www.jlpt.jp/application/overseas_index.html" target="_blank" rel="noreferrer">海外で受験する</a>
+            </article>
+            <article>
+              <span>问题例</span>
+              <strong>N1-N5公式サンプル</strong>
+              <p>まず公式问题例で题型、听力、阅读、文法の出方を確認。N2/N1前に必ず一回見る。</p>
+              <a href="https://www.jlpt.jp/samples/forlearners.html" target="_blank" rel="noreferrer">問題例に挑戦</a>
+            </article>
+            <article>
+              <span>過去問</span>
+              <strong>公式問題集</strong>
+              <p>JLPT公式サイトの問題例集・公式問題集ページ。真实考试形式に近い練習入口。</p>
+              <a href="https://www.jlpt.jp/samples/sampleindex.html" target="_blank" rel="noreferrer">公式問題集・問題例</a>
+            </article>
+            <article>
+              <span>等级</span>
+              <strong>N1-N5認定目安</strong>
+              <p>目标大学がN2以上を求める場合、N2合格だけでなく阅读速度と听力稳定性も確認。</p>
+              <a href="https://www.jlpt.jp/about/levelsummary.html" target="_blank" rel="noreferrer">認定の目安</a>
+            </article>
+            <article>
+              <span>结果</span>
+              <strong>試験結果発表</strong>
+              <p>オンライン結果確認と成績証明書は公式案内で確認。大学出願期限と重なるか要注意。</p>
+              <a href="https://www.jlpt.jp/guideline/results_online.html" target="_blank" rel="noreferrer">試験結果発表</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section eju-planner-section detail-section" id="eju-planner" aria-labelledby="eju-planner-title">
+        <div class="section-heading">
+          <p class="eyebrow">EJU Planner</p>
+          <h2 id="eju-planner-title">EJU出願入口・時間・流れマニュアル</h2>
+          <p>2026年度JASSO公式日程を基準に、自分用の準備タイムラインを作ります。日程は必ずJASSO公式で最終確認してください。</p>
+        </div>
+        <div class="eju-dashboard">
+          <div class="eju-official">
+            <p class="official-kicker">Official EJU Entry</p>
+            <h3>公式入口（まずここ）</h3>
+            <p class="official-lede">EJUの出願、日程確認、出願方法は必ずJASSO公式ページで確認してください。</p>
+            <div class="official-links">
+              <a class="official-link-card primary-official" href="https://eju-online.jasso.go.jp/" target="_blank" rel="noreferrer">
+                <span>出願・成績確認</span>
+                <strong>EJU Online</strong>
+              </a>
+              <a class="official-link-card" href="https://www.jasso.go.jp/ryugaku/eju/schedule.html" target="_blank" rel="noreferrer">
+                <span>試験日・成績発表日</span>
+                <strong>JASSO試験日程</strong>
+              </a>
+              <a class="official-link-card" href="https://www.jasso.go.jp/ryugaku/eju/examinee/procedure/application.html" target="_blank" rel="noreferrer">
+                <span>申込の流れ</span>
+                <strong>出願方法</strong>
+              </a>
+            </div>
+            <dl class="eju-date-list">
+              <div><dt>2026年第1回</dt><dd>試験 6/21・成績 7/28 0:00 JST</dd></div>
+              <div><dt>2026年第2回</dt><dd>出願 7/6-7/30・試験 11/8・成績 12/15</dd></div>
+            </dl>
+          </div>
+          <form class="eju-plan-form" id="eju-plan-form">
+            <label>
+              受験回
+              <select id="eju-session">
+                <option value="2026-2">2026年第2回（11月）</option>
+                <option value="2026-1">2026年第1回（6月）</option>
+              </select>
+            </label>
+            <label>
+              受験地
+              <select id="eju-location">
+                <option value="domestic">日本国内</option>
+                <option value="overseas">日本国外</option>
+              </select>
+            </label>
+            <label>
+              科目タイプ
+              <select id="eju-subject-plan">
+                <option value="humanities">文科：日本語＋総合科目＋数学</option>
+                <option value="science">理科：日本語＋理科＋数学</option>
+                <option value="japanese">日本語のみ</option>
+              </select>
+            </label>
+            <label>
+              週の勉強時間
+              <input id="eju-weekly-hours" type="number" min="1" max="80" value="18">
+            </label>
+            <label>
+              志望大学1
+              <input class="target-university" type="text" placeholder="例：南山大学">
+            </label>
+            <label>
+              出願締切1
+              <input class="target-deadline" type="date">
+            </label>
+            <label>
+              志望大学2
+              <input class="target-university" type="text" placeholder="例：早稲田大学">
+            </label>
+            <label>
+              出願締切2
+              <input class="target-deadline" type="date">
+            </label>
+            <label>
+              志望大学3
+              <input class="target-university" type="text" placeholder="例：明治大学">
+            </label>
+            <label>
+              出願締切3
+              <input class="target-deadline" type="date">
+            </label>
+          </form>
+        </div>
+        <div class="eju-plan-grid">
+          <div class="eju-flow">
+            <h3>流れマニュアル</h3>
+            <ol>
+              <li>大学の募集要項で必要科目を確認</li>
+              <li>EJU Onlineまたは海外実施機関で出願</li>
+              <li>受験料を支払い、写真・登録情報を確認</li>
+              <li>受験票・会場・持ち物を確認</li>
+              <li>試験後、成績公表日にスコアを確認</li>
+              <li>大学出願書類へ成績情報を反映</li>
+            </ol>
+          </div>
+          <div class="eju-personal-plan">
+            <h3>自分の時間割</h3>
+            <div id="eju-plan-output"></div>
+          </div>
+          <div class="eju-alerts">
+            <h3>重要なタイミング</h3>
+            <ul id="eju-alert-output"></ul>
+          </div>
+          <div class="eju-targets">
+            <h3>志望大学の締切メモ</h3>
+            <div id="eju-target-output"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section source-section detail-section" id="sources" aria-labelledby="sources-title">
+        <div class="section-heading">
+          <p class="eyebrow">Official Sources</p>
+          <h2 id="sources-title">建议收藏的官方来源</h2>
+        </div>
+        <div class="source-grid">
+          <a href="https://www.jasso.go.jp/ryugaku/study_j/index.html" target="_blank" rel="noreferrer">
+            <span>JASSO</span>
+            Study in Japan 基础信息
+          </a>
+          <a href="https://www.jasso.go.jp/ryugaku/eju/examinee/procedure/application.html" target="_blank" rel="noreferrer">
+            <span>JASSO</span>
+            EJU出愿方法
+          </a>
+          <a href="https://eju-online.jasso.go.jp/" target="_blank" rel="noreferrer">
+            <span>JASSO</span>
+            EJU Online申请与查分
+          </a>
+          <a href="https://www.jasso.go.jp/ryugaku/eju/index.html" target="_blank" rel="noreferrer">
+            <span>JASSO</span>
+            EJU考试与日程
+          </a>
+          <a href="https://www.jasso.go.jp/ryugaku/scholarship_j/index.html" target="_blank" rel="noreferrer">
+            <span>JASSO</span>
+            日本留学奖学金
+          </a>
+          <a href="https://www.jlpt.jp/application/overseas_index.html" target="_blank" rel="noreferrer">
+            <span>JLPT</span>
+            海外报名流程
+          </a>
+          <a href="https://www.jasso.go.jp/ryugaku/eju/examinee/prearrival/required_score.html" target="_blank" rel="noreferrer">
+            <span>JASSO</span>
+            渡日前入学最低必要点
+          </a>
+          <a href="https://www.mofa.go.jp/mofaj/toko/visa/index.html" target="_blank" rel="noreferrer">
+            <span>外务省</span>
+            签证申请说明
+          </a>
+          <a href="https://www.moj.go.jp/isa/applications/status/student.html" target="_blank" rel="noreferrer">
+            <span>入管厅</span>
+            在留资格「留学」
+          </a>
+        </div>
+      </section>
+
+      <section class="section contact-section detail-section" id="contact" aria-labelledby="contact-title">
+        <div class="contact-copy">
+          <p class="eyebrow">Next Step</p>
+          <h2 id="contact-title">整理你的个人申请路线</h2>
+          <p>输入目标学历、日语水平和希望入学时间，生成倒推准备清单。清单会保存在本机浏览器里，刷新后也能继续看。</p>
+        </div>
+        <form class="contact-form" id="application-plan-form">
+          <label>
+            目标
+            <select id="plan-target">
+              <option>大学本科</option>
+              <option>大学院</option>
+              <option>专门学校</option>
+              <option>日本语学校</option>
+            </select>
+          </label>
+          <label>
+            目前日语水平
+            <select id="plan-japanese">
+              <option>N5-N4</option>
+              <option>N3</option>
+              <option>N2</option>
+              <option>N1</option>
+              <option>未考试</option>
+            </select>
+          </label>
+          <label>
+            希望入学时间
+            <input id="plan-intake" type="month">
+          </label>
+          <button type="submit">生成准备清单</button>
+        </form>
+        <div class="application-plan-output" id="application-plan-output" aria-live="polite"></div>
+      </section>
+
+      <section class="section about-section detail-section" id="about" aria-labelledby="about-title">
+        <div class="section-heading">
+          <p class="eyebrow">About</p>
+          <h2 id="about-title">关于本站</h2>
+          <p>
+            这个网站面向想去日本留学的中文用户，整理EJU、JLPT、大学资料、出愿准备、来日生活和官方入口。页面内的候选大学、风险等级、出愿参考带用于规划，不等于录取保证。
+          </p>
+        </div>
+        <div class="about-grid">
+          <article>
+            <span>01</span>
+            <h3>信息原则</h3>
+            <p>优先使用JASSO、JLPT、大学官网、外务省、入管厅等官方信息。小红书、论坛等经验信息只能作为参考，不能代替募集要项。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>数据边界</h3>
+            <p>日本大学很多不公开合格最低点，所以本站用“出愿参考带”和“风险提示”帮助筛选，而不是宣称官方合格线。</p>
+          </article>
+          <article class="wechat-contact-card" id="about-contact">
+            <span>03</span>
+            <h3>联系与交流群</h3>
+            <p>发现链接失效、学校信息过期、分数参考不合理，或者想交流日本留学申请，可以直接加微信。</p>
+            <div class="wechat-id-box">
+              <small>Wechat ID</small>
+              <strong>RinGoui0513</strong>
+            </div>
+            <p class="wechat-note">加群交流日本留学申请、EJU备考、出愿和来日生活手续。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>日本留学导航 © 2026</p>
+      <p>信息会随制度与学校募集要项变化，申请前请以官方与学校最新公告为准。</p>
+    </footer>
+
+    <script src="data/private-universities-data.js?v=20260629-07"></script>
+    <script src="data/national-public-universities-data.js?v=20260629-07"></script>
+    <script src="data/admission-requirements-data.js?v=20260629-07"></script>
+    <script src="script.js?v=20260629-07"></script>
+  </body>
+</html>
