@@ -2218,7 +2218,7 @@ const staticSearchItems = [
   ],
   ["奖学金・学费减免", "MEXT JASSO 奖学金 学费减免 学校独自减免", "#costs"],
   ["签证与在留", "COE 签证 在留 外务省 入管 申请表 填写方法 留学调查表 代办机构 在留卡", "#visa"],
-  ["联系微信", "微信 WeChat RinGoui0513 反馈 加群 交流", "#about-contact"],
+  ["关于站长", "站长 微信 WeChat RinGoui0513 反馈 加群 交流 南山大学", "#about-contact"],
   ["申请路线", "本科 大学院 专门学校 日本语学校 申请流程", "#timeline"],
   ["官方来源", "JASSO JLPT 外务省 入管 文科省", "#sources"],
 ];
