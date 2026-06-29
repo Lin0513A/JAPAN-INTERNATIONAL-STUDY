@@ -3333,6 +3333,10 @@ h3 {
   border-radius: 6px;
 }
 
+.toolbox-add-form.is-collapsed {
+  display: none;
+}
+
 .toolbox-add-form strong {
   grid-column: 1 / -1;
 }
@@ -3419,10 +3423,11 @@ h3 {
   display: grid;
   gap: 12px;
   padding: 16px;
-  background: #eef8f6;
-  border: 1px solid #b9dcd6;
-  border-left: 5px solid var(--teal);
-  border-radius: 6px;
+  background:
+    linear-gradient(180deg, rgba(248, 251, 250, 0.92), rgba(255, 253, 250, 0.96)),
+    #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
 }
 
 .favorite-tool-panel strong {
@@ -3436,6 +3441,125 @@ h3 {
   color: #526062;
   font-size: 13px;
   font-weight: 800;
+}
+
+.shortcut-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+  gap: 14px;
+}
+
+.shortcut-card {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: 126px;
+  padding: 10px 8px;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.shortcut-card:hover,
+.shortcut-card:focus-within {
+  background: #f4f7f8;
+}
+
+.shortcut-link,
+.shortcut-add {
+  display: grid;
+  gap: 7px;
+  place-items: center;
+  color: inherit;
+  text-decoration: none;
+}
+
+.shortcut-add {
+  width: 100%;
+  cursor: pointer;
+  font: inherit;
+}
+
+.shortcut-avatar {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  color: #fff;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.32), transparent 34%),
+    linear-gradient(135deg, var(--teal), #0b5cad);
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(15, 36, 56, 0.12);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.shortcut-card:nth-child(3n + 2) .shortcut-avatar {
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.34), transparent 34%),
+    linear-gradient(135deg, #b45309, #d4a23a);
+}
+
+.shortcut-card:nth-child(3n) .shortcut-avatar {
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.3), transparent 34%),
+    linear-gradient(135deg, #0b5cad, #64748b);
+}
+
+.shortcut-card strong {
+  display: -webkit-box;
+  overflow: hidden;
+  max-width: 100%;
+  color: #0f2438;
+  font-size: 13px;
+  line-height: 1.28;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.shortcut-card em {
+  overflow: hidden;
+  max-width: 100%;
+  color: #526062;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.shortcut-delete {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  display: none;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  color: #7a2e23;
+  background: #fff;
+  border: 1px solid #e3b4af;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.shortcut-card:hover .shortcut-delete,
+.shortcut-card:focus-within .shortcut-delete {
+  display: grid;
+  place-items: center;
+}
+
+.shortcut-add .shortcut-avatar {
+  color: var(--teal);
+  background: #fff;
+  border: 1px dashed #9bb9d6;
+  box-shadow: none;
 }
 
 .toolbox-grid {

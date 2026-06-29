@@ -2068,6 +2068,14 @@ document.querySelector("#clear-report-data")?.addEventListener("click", () => {
 
 const defaultAnnouncements = [
   {
+    id: "default-20260629-2350",
+    date: "2026-06-29 23:50 JST",
+    datetime: "2026-06-29T23:50:00+09:00",
+    category: "更新",
+    title: "个人收藏网站改为快捷方式宫格",
+    body: "将个人收藏网站改成类似浏览器主页的固定网址入口，支持小头像、点击打开、快速添加和删除。",
+  },
+  {
     id: "default-20260629-2346",
     date: "2026-06-29 23:46 JST",
     datetime: "2026-06-29T23:46:00+09:00",
@@ -2808,6 +2816,36 @@ function renderLifeToolCard(tool) {
   `;
 }
 
+function getToolAvatarText(tool) {
+  const name = String(tool?.name ?? "").trim();
+  if (!name) return "+";
+  const visible = Array.from(name.replace(/\s+/g, ""));
+  return (visible[0] || "+").toUpperCase();
+}
+
+function renderFavoriteShortcut(tool) {
+  return `
+    <article class="shortcut-card">
+      <a class="shortcut-link" href="${escapeHtml(tool.url)}" target="_blank" rel="noreferrer" title="${escapeHtml(tool.note || tool.name)}">
+        <span class="shortcut-avatar">${escapeHtml(getToolAvatarText(tool))}</span>
+        <strong>${escapeHtml(tool.name)}</strong>
+        <em>${escapeHtml(lifeToolCategoryLabels[tool.category] ?? "收藏")}</em>
+      </a>
+      <button type="button" class="shortcut-delete" data-delete-life-tool="${escapeHtml(tool.id)}" aria-label="删除 ${escapeHtml(tool.name)}">×</button>
+    </article>
+  `;
+}
+
+function renderAddShortcutCard() {
+  return `
+    <button type="button" class="shortcut-card shortcut-add" id="open-life-tool-add">
+      <span class="shortcut-avatar">+</span>
+      <strong>添加快捷方式</strong>
+      <em>网址 / 缴费 / 学校系统</em>
+    </button>
+  `;
+}
+
 function addBuiltinLifeToolToFavorites(toolId) {
   const source = defaultLifeTools.find((tool) => tool.id === toolId);
   if (!source) return;
@@ -2848,18 +2886,13 @@ function renderFavoriteLifeTools(query, region, category) {
     .sort((a, b) => b.id.localeCompare(a.id));
 
   if (!favorites.length) {
-    status.textContent = "还没有符合当前筛选的个人收藏。";
-    grid.innerHTML = `
-      <article class="toolbox-empty favorite-empty">
-        <strong>先添加你自己的常用网站</strong>
-        <p>比如房租缴费、学校ポータル、管理会社、粗大ごみ预约、手机MyPage。添加后会保存在这台浏览器里。</p>
-      </article>
-    `;
+    status.textContent = "像浏览器主页一样，把最常用的网站固定在这里。";
+    grid.innerHTML = renderAddShortcutCard();
     return;
   }
 
-  status.textContent = `${favorites.length}件个人收藏を表示中。`;
-  grid.innerHTML = favorites.map(renderLifeToolCard).join("");
+  status.textContent = `${favorites.length}件快捷方式。点击图标即可打开网站。`;
+  grid.innerHTML = `${favorites.map(renderFavoriteShortcut).join("")}${renderAddShortcutCard()}`;
 }
 
 function renderLifeToolbox() {
@@ -2921,6 +2954,7 @@ function addCustomLifeTool(event) {
   };
   setCustomLifeTools([...getCustomLifeTools(), item]);
   event.target.reset();
+  event.target.classList.add("is-collapsed");
   const search = document.querySelector("#life-tool-search");
   if (search) search.value = "";
   document.querySelector("#life-tool-category").value = "all";
@@ -2974,6 +3008,14 @@ document.querySelector("#life-tool-grid")?.addEventListener("click", (event) => 
 });
 
 document.querySelector("#favorite-tool-grid")?.addEventListener("click", (event) => {
+  const openButton = event.target.closest("#open-life-tool-add");
+  if (openButton) {
+    const form = document.querySelector("#life-tool-add-form");
+    form?.classList.remove("is-collapsed");
+    document.querySelector("#life-tool-name")?.focus();
+    return;
+  }
+
   const button = event.target.closest("[data-delete-life-tool]");
   if (!button) return;
   setCustomLifeTools(getCustomLifeTools().filter((item) => item.id !== button.dataset.deleteLifeTool));
