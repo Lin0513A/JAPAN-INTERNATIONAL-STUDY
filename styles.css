@@ -1978,6 +1978,73 @@ h3 {
   font-weight: 900;
 }
 
+.planner-status {
+  display: inline-flex !important;
+  width: fit-content;
+  margin: 4px 0;
+  padding: 3px 8px;
+  color: #064e3b !important;
+  background: #dff7ec;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.planner-requirement {
+  margin-top: 8px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.planner-requirement summary {
+  color: var(--teal);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.planner-requirement p {
+  margin: 8px 0 0;
+  color: #526062;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.planner-timeline {
+  display: grid;
+  gap: 6px;
+  padding: 0;
+  margin: 10px 0 0;
+  list-style: none;
+}
+
+.planner-timeline li {
+  display: grid;
+  gap: 3px;
+  padding: 8px;
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+.planner-timeline span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.planner-timeline strong {
+  margin: 0;
+  font-size: 13px;
+}
+
+.planner-empty {
+  margin: 10px 0 0 !important;
+  color: #7c5f1d !important;
+  font-size: 13px;
+}
+
 .study-resource-panel {
   margin-top: 18px;
 }

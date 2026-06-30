@@ -2068,6 +2068,14 @@ document.querySelector("#clear-report-data")?.addEventListener("click", () => {
 
 const defaultAnnouncements = [
   {
+    id: "default-20260630-0945",
+    date: "2026-06-30 09:45 JST",
+    datetime: "2026-06-30T09:45:00+09:00",
+    category: "更新",
+    title: "志望大学メモに募集要項抽取情報を表示",
+    body: "EJU时间割の志望大学欄に大学名を入力すると、抽取済み大学は公式PDF/入試ページ、出願資格、必要科目、出願期間や試験日を表示するようにしました。",
+  },
+  {
     id: "default-20260630-0917",
     date: "2026-06-30 09:17 JST",
     datetime: "2026-06-30T09:17:00+09:00",
@@ -2477,6 +2485,58 @@ function normalizeUniversitySearch(text) {
     .replaceAll("of", "");
 }
 
+function findUniversityByInput(name) {
+  const needle = normalizeUniversitySearch(name);
+  if (!needle) return null;
+  return universityData.find((university) => {
+    const haystack = normalizeUniversitySearch(getUniversityAliasTerms(university).join(" "));
+    return haystack.includes(needle) || needle.includes(haystack);
+  });
+}
+
+function getPlannerRecordInfo(university) {
+  const record = university ? getAdmissionRequirementRecord(university) : null;
+  const extracted = record && ["official_extracted", "official_partial", "unavailable"].includes(record.status);
+  const recordUrl = record?.admissionPageUrl
+    ? safeUrl(getJapaneseOfficialUrl(record.admissionPageUrl))
+    : "";
+  const officialUrl = university
+    ? safeUrl(getUniversityOfficialUrl(university))
+    : safeUrl(getJapaneseOfficialUrl(record?.officialUrl));
+  const sourceUrl = recordUrl || officialUrl;
+  const timeline = extracted && record.timeline?.length ? record.timeline : [];
+  const subjectText = extracted && record.ejuSubjects?.length
+    ? record.ejuSubjects.join(" / ")
+    : "必要EJU回・科目は募集要項で確認";
+  const eligibility = extracted && record.eligibility
+    ? record.eligibility
+    : "出願資格は未抽取。大学公式募集要項で確認";
+
+  return {
+    record,
+    extracted,
+    sourceUrl,
+    sourceTitle: recordUrl ? "公式募集要項PDF / 入試ページ" : "大学公式リンク",
+    status: record ? getRequirementStatusText(record) : "募集要項DB未登録",
+    timeline,
+    subjectText,
+    eligibility,
+  };
+}
+
+function renderPlannerTimeline(recordInfo) {
+  if (!recordInfo.timeline.length) {
+    return `<p class="planner-empty">募集要項から開始・締切日を未抽取。公式ページを確認後、DBに入れるとここに自動表示されます。</p>`;
+  }
+  return `
+    <ul class="planner-timeline">
+      ${recordInfo.timeline
+        .map((item) => `<li><span>${escapeHtml(item.label)}</span><strong>${escapeHtml(item.value)}</strong></li>`)
+        .join("")}
+    </ul>
+  `;
+}
+
 function renderEjuPlanner() {
   const sessionNode = document.querySelector("#eju-session");
   const locationNode = document.querySelector("#eju-location");
@@ -2533,25 +2593,30 @@ function renderEjuPlanner() {
     const deadlines = [...document.querySelectorAll(".target-deadline")].map((input) => input.value);
     const targetCards = names
       .map((name, index) => {
-        const matched = universityData.find((university) => {
-          const haystack = normalizeUniversitySearch(getUniversityAliasTerms(university).join(" "));
-          const needle = normalizeUniversitySearch(name);
-          return name && (haystack.includes(needle) || needle.includes(haystack.split(" ")[0]));
-        });
+        const matched = findUniversityByInput(name);
+        const recordInfo = getPlannerRecordInfo(matched);
         const deadline = deadlines[index];
         const deadlineText = deadline
           ? `出願締切まで約${daysUntil(`${deadline}T23:59:00+09:00`)}日`
           : "締切未入力";
-        const official = matched?.official
-          ? `<a href="${getUniversityOfficialUrl(matched)}" target="_blank" rel="noreferrer">大学公式リンク</a>`
+        const official = recordInfo.sourceUrl
+          ? `<a href="${escapeHtml(recordInfo.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(recordInfo.sourceTitle)}</a>`
           : "<span>大学名を入力すると一致候補を探します</span>";
         const title = name || `志望大学${index + 1}`;
+        const matchedName = matched ? `<span>一致: ${escapeHtml(getDisplayUniversityName(matched))}</span>` : "";
 
         return `
           <article class="eju-plan-card">
             <strong>${title}</strong>
+            ${matchedName}
             <span>${deadlineText}</span>
-            <span>必要EJU回・科目は募集要項で確認</span>
+            <span class="planner-status">${escapeHtml(recordInfo.status)}</span>
+            <span><b>必要科目</b> ${escapeHtml(recordInfo.subjectText)}</span>
+            <details class="planner-requirement">
+              <summary>出願資格・締切を見る</summary>
+              <p>${escapeHtml(recordInfo.eligibility)}</p>
+              ${renderPlannerTimeline(recordInfo)}
+            </details>
             ${official}
           </article>
         `;
