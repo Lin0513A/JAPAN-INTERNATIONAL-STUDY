@@ -8,7 +8,7 @@
       content="ISJ - International Study in Japan。面向中国学生的日本留学信息导航，涵盖学校类型、申请流程、EJU、JLPT、签证、奖学金与来日生活准备。"
     >
     <title>ISJ | International Study in Japan</title>
-    <link rel="stylesheet" href="styles.css?v=20260629-18">
+    <link rel="stylesheet" href="styles.css?v=20260630-02">
   </head>
   <body>
     <header class="site-header">
@@ -51,6 +51,7 @@
               <strong>来日后・本站</strong>
               <a href="#visa"><span>签证在留</span><em>COE、签证、在留资格</em></a>
               <a href="#life"><span>生活手续</span><em>住民票、国保、手机、银行、租房</em></a>
+              <a href="#personal-toolbox"><span>个人收藏网站</span><em>缴费、垃圾分类、学校系统快捷方式</em></a>
               <a href="#about"><span>关于本站</span><em>本站说明、数据原则</em></a>
               <a href="#about-contact"><span>关于站长</span><em>微信、交流群、站长留言</em></a>
             </div>
@@ -70,7 +71,7 @@
           <div class="hero-actions" aria-label="快速入口">
             <a class="button primary" href="#eju-planner">EJU出願管理</a>
             <a class="button secondary" href="#score-tool">成绩看候选校</a>
-            <a class="button secondary" href="#personal-toolbox">个人收藏网站</a>
+            <a class="button secondary" href="#exam-guide">JLPT报名入口</a>
             <a class="button secondary" href="#life">来日生活工具</a>
           </div>
           <div class="site-search" role="search">
@@ -139,93 +140,46 @@
         </div>
       </section>
 
-      <section class="section home-favorites-section" aria-labelledby="personal-toolbox-title">
-        <div class="personal-toolbox" id="personal-toolbox" aria-labelledby="personal-toolbox-title">
-          <div class="toolbox-head">
-            <div>
-              <p class="eyebrow">Personal Tools</p>
-              <h3 id="personal-toolbox-title">个人收藏网站</h3>
-              <p>把缴费、管理会社、学校系统、垃圾分类、手机和网络等自己最常用的网站收藏到这里。默认链接只是参考，自分の收藏才是主角。</p>
+      <section class="section home-exam-section" aria-labelledby="home-exam-title">
+        <div class="home-exam-tools" aria-label="EJU JLPT重要节点倒计时">
+          <div class="countdown-panel">
+            <div class="tool-heading">
+              <p class="eyebrow">Exam Timeline</p>
+              <h2 id="home-exam-title">EJU / JLPT重要节点</h2>
+              <p>首页只放最近必须确认的时间点，点击即可进入官方日文入口。正式日期以官方公告为准。</p>
             </div>
-            <button type="button" id="detect-life-region">根据IP推荐地区</button>
+            <div class="countdown-list" id="exam-countdown-list" aria-live="polite"></div>
           </div>
-          <div class="toolbox-controls">
-            <label>
-              搜索网站
-              <input id="life-tool-search" type="search" autocomplete="off" placeholder="例：東京電力 / ガス / ごみ / 支払い / docomo">
-            </label>
-            <label>
-              地区
-              <select id="life-tool-region">
-                <option value="all">全国</option>
-                <option value="hokkaido">北海道</option>
-                <option value="tohoku">東北</option>
-                <option value="kanto">関東</option>
-                <option value="chubu">中部</option>
-                <option value="kansai">関西</option>
-                <option value="chugoku">中国</option>
-                <option value="shikoku">四国</option>
-                <option value="kyushu">九州</option>
-                <option value="okinawa">沖縄</option>
-              </select>
-            </label>
-            <label>
-              类型
-              <select id="life-tool-category">
-                <option value="all">全部</option>
-                <option value="electricity">电力</option>
-                <option value="gas">ガス</option>
-                <option value="water">水道</option>
-                <option value="garbage">垃圾分类</option>
-                <option value="mobile">手机・网络</option>
-                <option value="moving">搬家・住所</option>
-                <option value="custom">自定义</option>
-              </select>
-            </label>
-          </div>
-          <div class="favorite-tool-panel">
-            <div>
-              <strong>我的收藏网站</strong>
-              <p id="favorite-tool-status" aria-live="polite"></p>
+          <div class="exam-entry-panel" aria-labelledby="exam-entry-title">
+            <div class="tool-heading">
+              <p class="eyebrow">Official Entry</p>
+              <h3 id="exam-entry-title">报名入口</h3>
+              <p>EJU和JLPT分开确认。日本国内、海外报名入口不同，不要只看一个链接。</p>
             </div>
-            <div class="shortcut-grid favorite-tool-grid" id="favorite-tool-grid"></div>
+            <div class="exam-entry-grid">
+              <a href="https://eju-online.jasso.go.jp/" target="_blank" rel="noreferrer">
+                <span>EJU</span>
+                <strong>EJU Online</strong>
+                <em>出願・受験票・成績確認</em>
+              </a>
+              <a href="https://www.jasso.go.jp/ryugaku/eju/examinee/procedure/application.html" target="_blank" rel="noreferrer">
+                <span>EJU</span>
+                <strong>出願方法</strong>
+                <em>国内17:00締切に注意</em>
+              </a>
+              <a href="https://info.jees-jlpt.jp/" target="_blank" rel="noreferrer">
+                <span>JLPT 国内</span>
+                <strong>JEES / MyJLPT</strong>
+                <em>日本国内受験の申込</em>
+              </a>
+              <a href="https://www.jlpt.jp/application/overseas_index.html" target="_blank" rel="noreferrer">
+                <span>JLPT 海外</span>
+                <strong>海外実施機関</strong>
+                <em>中国等は各実施機関を確認</em>
+              </a>
+            </div>
+            <a class="exam-entry-more" href="#eju-planner">EJU时间割と流れマニュアルを見る</a>
           </div>
-          <form class="toolbox-add-form is-collapsed" id="life-tool-add-form">
-            <strong>添加快捷方式</strong>
-            <label>
-              名称
-              <input id="life-tool-name" type="text" placeholder="例：我的公寓管理会社" required>
-            </label>
-            <label>
-              URL
-              <input id="life-tool-url" type="url" placeholder="https://..." required>
-            </label>
-            <label>
-              类型
-              <select id="life-tool-custom-category">
-                <option value="custom">自定义</option>
-                <option value="electricity">电力</option>
-                <option value="gas">ガス</option>
-                <option value="water">水道</option>
-                <option value="garbage">垃圾分类</option>
-                <option value="mobile">手机・网络</option>
-                <option value="moving">搬家・住所</option>
-              </select>
-            </label>
-            <label>
-              备注
-              <input id="life-tool-note" type="text" placeholder="例：每月缴费、粗大ごみ预约、网络MyPage">
-            </label>
-            <button type="submit">添加快捷方式</button>
-          </form>
-          <details class="toolbox-defaults">
-            <summary>
-              <span>从官方常用入口添加</span>
-              <small>电力・ガス・水道・垃圾分类・手机网络・搬家</small>
-            </summary>
-            <p class="toolbox-status" id="life-tool-status" aria-live="polite"></p>
-            <div class="toolbox-grid" id="life-tool-grid"></div>
-          </details>
         </div>
       </section>
 
@@ -255,16 +209,6 @@
             <h3>来日生活工具</h3>
             <p>在留、住民票、手机、银行、租房、水电煤。</p>
           </a>
-        </div>
-        <div class="home-exam-tools" aria-label="EJU JLPT重要节点倒计时">
-          <div class="countdown-panel">
-            <div class="tool-heading">
-              <p class="eyebrow">Countdown</p>
-              <h3>EJU / JLPT重要节点</h3>
-              <p>自动显示最近的出愿、报名、考试、成绩发表节点。正式日期以官方链接为准。</p>
-            </div>
-            <div class="countdown-list" id="exam-countdown-list" aria-live="polite"></div>
-          </div>
         </div>
       </section>
 
@@ -823,6 +767,93 @@
           </div>
           <div class="life-result" id="life-result"></div>
         </div>
+        <div class="personal-toolbox life-personal-toolbox" id="personal-toolbox" aria-labelledby="personal-toolbox-title">
+          <div class="toolbox-head">
+            <div>
+              <p class="eyebrow">Personal Tools</p>
+              <h3 id="personal-toolbox-title">个人收藏网站</h3>
+              <p>像浏览器主页一样，把缴费、管理会社、学校系统、垃圾分类、手机和网络等最常用的网站固定在这里。</p>
+            </div>
+            <button type="button" id="detect-life-region">根据IP推荐地区</button>
+          </div>
+          <div class="favorite-tool-panel">
+            <div>
+              <strong>我的收藏网站</strong>
+              <p id="favorite-tool-status" aria-live="polite"></p>
+            </div>
+            <div class="shortcut-grid favorite-tool-grid" id="favorite-tool-grid"></div>
+          </div>
+          <div class="toolbox-controls">
+            <label>
+              搜索官方常用入口
+              <input id="life-tool-search" type="search" autocomplete="off" placeholder="例：東京電力 / ガス / ごみ / 支払い / docomo">
+            </label>
+            <label>
+              地区
+              <select id="life-tool-region">
+                <option value="all">全国</option>
+                <option value="hokkaido">北海道</option>
+                <option value="tohoku">東北</option>
+                <option value="kanto">関東</option>
+                <option value="chubu">中部</option>
+                <option value="kansai">関西</option>
+                <option value="chugoku">中国</option>
+                <option value="shikoku">四国</option>
+                <option value="kyushu">九州</option>
+                <option value="okinawa">沖縄</option>
+              </select>
+            </label>
+            <label>
+              类型
+              <select id="life-tool-category">
+                <option value="all">全部</option>
+                <option value="electricity">电力</option>
+                <option value="gas">ガス</option>
+                <option value="water">水道</option>
+                <option value="garbage">垃圾分类</option>
+                <option value="mobile">手机・网络</option>
+                <option value="moving">搬家・住所</option>
+                <option value="custom">自定义</option>
+              </select>
+            </label>
+          </div>
+          <form class="toolbox-add-form is-collapsed" id="life-tool-add-form">
+            <strong>添加快捷方式</strong>
+            <label>
+              名称
+              <input id="life-tool-name" type="text" placeholder="例：我的公寓管理会社" required>
+            </label>
+            <label>
+              URL
+              <input id="life-tool-url" type="url" placeholder="https://..." required>
+            </label>
+            <label>
+              类型
+              <select id="life-tool-custom-category">
+                <option value="custom">自定义</option>
+                <option value="electricity">电力</option>
+                <option value="gas">ガス</option>
+                <option value="water">水道</option>
+                <option value="garbage">垃圾分类</option>
+                <option value="mobile">手机・网络</option>
+                <option value="moving">搬家・住所</option>
+              </select>
+            </label>
+            <label>
+              备注
+              <input id="life-tool-note" type="text" placeholder="例：每月缴费、粗大ごみ预约、网络MyPage">
+            </label>
+            <button type="submit">添加快捷方式</button>
+          </form>
+          <details class="toolbox-defaults">
+            <summary>
+              <span>从官方常用入口添加</span>
+              <small>电力・ガス・水道・垃圾分类・手机网络・搬家</small>
+            </summary>
+            <p class="toolbox-status" id="life-tool-status" aria-live="polite"></p>
+            <div class="toolbox-grid" id="life-tool-grid"></div>
+          </details>
+        </div>
         <div class="life-admin-flow" aria-label="来日后重要手续顺序">
           <article>
             <span>DAY 0</span>
@@ -1125,6 +1156,15 @@
               <div><dt>2026年第1回</dt><dd>試験 6/21・成績 7/28 0:00 JST</dd></div>
               <div><dt>2026年第2回</dt><dd>出願 7/6-7/30・試験 11/8・成績 12/15</dd></div>
             </dl>
+            <div class="jlpt-entry-inline" aria-label="JLPT报名入口">
+              <div>
+                <span>JLPT入口</span>
+                <strong>国内はJEES/MyJLPT、海外は実施機関</strong>
+              </div>
+              <a href="https://info.jees-jlpt.jp/" target="_blank" rel="noreferrer">国内受験</a>
+              <a href="https://www.jlpt.jp/application/overseas_index.html" target="_blank" rel="noreferrer">海外受験</a>
+              <a href="https://www.jlpt.jp/application/domestic_index.html" target="_blank" rel="noreferrer">申込の流れ</a>
+            </div>
           </div>
           <form class="eju-plan-form" id="eju-plan-form">
             <label>
@@ -1329,9 +1369,9 @@
       <p>信息会随制度与学校募集要项变化，申请前请以官方与学校最新公告为准。</p>
     </footer>
 
-    <script src="data/private-universities-data.js?v=20260629-18"></script>
-    <script src="data/national-public-universities-data.js?v=20260629-18"></script>
-    <script src="data/admission-requirements-data.js?v=20260629-18"></script>
-    <script src="script.js?v=20260629-18"></script>
+    <script src="data/private-universities-data.js?v=20260630-02"></script>
+    <script src="data/national-public-universities-data.js?v=20260630-02"></script>
+    <script src="data/admission-requirements-data.js?v=20260630-02"></script>
+    <script src="script.js?v=20260630-02"></script>
   </body>
 </html>

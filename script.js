@@ -2068,6 +2068,22 @@ document.querySelector("#clear-report-data")?.addEventListener("click", () => {
 
 const defaultAnnouncements = [
   {
+    id: "default-20260630-0917",
+    date: "2026-06-30 09:17 JST",
+    datetime: "2026-06-30T09:17:00+09:00",
+    category: "更新",
+    title: "首页改为EJU/JLPT重要节点优先",
+    body: "将EJU/JLPT倒计时与官方报名入口移到首页上方，补充JLPT国内/海外报名入口；个人收藏网站移至来日生活工具区，并优化手机端的密度。",
+  },
+  {
+    id: "default-20260630-0848",
+    date: "2026-06-30 08:48 JST",
+    datetime: "2026-06-30T08:48:00+09:00",
+    category: "募集要項",
+    title: "北海道大学の2027私費外国人留学生入試を反映",
+    body: "2026-06-30确认北海道大学官方日文页与PDF，补充出愿资格、EJU/英语条件、9月出愿、11月15日试验、12月8日合格发表。官方链接：https://www.hokudai.ac.jp/admission/faculty/intl-private/",
+  },
+  {
     id: "default-20260629-2350",
     date: "2026-06-29 23:50 JST",
     datetime: "2026-06-29T23:50:00+09:00",
@@ -2124,13 +2140,15 @@ function renderAnnouncements() {
 const staticSearchItems = [
   ["公告栏", "更新 募集要項 抽取进度 站长公告 notice news", "#announcements"],
   ["EJU出願管理", "EJU Online 日程 出願方法 受験票 成績 発表 時間割", "#eju-planner"],
+  ["EJU / JLPT重要节点", "倒计时 报名 出愿 试验 成绩 公表 官方入口 JEES MyJLPT", "#home-exam-title"],
+  ["JLPT报名入口", "日本国内 JEES MyJLPT 海外 实施机构 受験 申込", "#exam-guide"],
   ["成绩看候选校", "EJU 英语 JLPT 志望理由书 出愿参考带 候选大学", "#score-tool"],
   ["EJU / JLPT备考指南", "過去問 問題例 参考书 报名 N1 N2 文综 日语", "#exam-guide"],
   ["大学资料", "全国 私立 国公立 公式链接 JASSO EJU利用校", "#universities"],
   [
     "来日生活工具・个人收藏网站",
     "在留卡 住民票 国民健康保险 银行开户 信用卡 证券账户 手机卡 网络 水电煤 租房 垃圾分类 搬家 个人收藏 常用网站 生活工具箱 电力 ガス 水道 softbank docomo ゆうちょ UFJ",
-    "#life",
+    "#personal-toolbox",
   ],
   ["奖学金・学费减免", "MEXT JASSO 奖学金 学费减免 学校独自减免", "#costs"],
   ["签证与在留", "COE 签证 在留 外务省 入管 申请表 填写方法 留学调查表 代办机构 在留卡", "#visa"],
@@ -2348,7 +2366,7 @@ function getExamCountdownEvents(year) {
       type: "JLPT",
       title: `${year}年第1回 JLPT試験`,
       date: jstDateString(year, 7, jlptJulyDay, 12, 30),
-      link: "https://www.jlpt.jp/",
+      link: "https://www.jlpt.jp/application/domestic_index.html",
       status: official2026 ? "公式確定" : "自動計算・要確認",
     },
     {
@@ -2362,7 +2380,7 @@ function getExamCountdownEvents(year) {
       type: "JLPT",
       title: `${year}年第2回 JLPT試験`,
       date: jstDateString(year, 12, jlptDecemberDay, 12, 30),
-      link: "https://www.jlpt.jp/",
+      link: "https://www.jlpt.jp/application/domestic_index.html",
       status: official2026 ? "公式確定" : "自動計算・要確認",
     },
   ];

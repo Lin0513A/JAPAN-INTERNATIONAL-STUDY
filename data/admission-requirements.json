@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-06-29T13:12:08.270Z",
+    "generatedAt": "2026-06-29T23:48:00.000Z",
     "purpose": "Official admissions requirement database. Each record should be replaced with data extracted from the university's latest official 募集要項.",
     "statuses": {
       "pending_official_extraction": "大学は登録済みだが、募集要項から未抽取",
@@ -9,9 +9,9 @@
       "unavailable": "募集要項ページを確認したが該当情報未公開"
     },
     "recordCount": 516,
-    "lastExtractionRunAt": "2026-06-29T13:12:08.270Z",
+    "lastExtractionRunAt": "2026-06-29T23:48:00.000Z",
     "partialCount": 2,
-    "extractedCount": 3
+    "extractedCount": 4
   },
   "records": {
     "Ikueikan University": {
@@ -5679,18 +5679,45 @@
     },
     "北海道大学": {
       "universityName": "北海道大学",
-      "status": "pending_official_extraction",
-      "officialUrl": "https://www.hokudai.ac.jp/",
-      "admissionPageUrl": "",
-      "sourceTitle": "",
-      "sourceCheckedAt": "",
-      "eligibility": "",
-      "officialMinimumScore": "",
-      "ejuSubjects": [],
-      "englishRequirement": "",
-      "jlptRequirement": "",
-      "timeline": [],
-      "notes": "已登记为募集要項抽取对象。抽取完成前，只能显示JASSO利用有無、大学公式链接和本站参考带。"
+      "status": "official_extracted",
+      "officialUrl": "https://www.hokudai.ac.jp/admission/faculty/intl-private/",
+      "admissionPageUrl": "https://www.hokudai.ac.jp/admission/shihi_admissionR09.pdf",
+      "sourceTitle": "令和9（2027）年度 学生募集要項（私費外国人留学生（学部）入試）",
+      "sourceCheckedAt": "2026-06-30",
+      "eligibility": "日本国籍を有しない者で、外国において学校教育における12年の課程を修了した者または同等資格保有者等が対象。加えて日本留学試験の指定科目を受験していることが必要で、医学部医学科志願者はTOEFL iBT 79点以上またはTOEIC L&R 750点以上が出願要件。",
+      "officialMinimumScore": "全学部でEJUの指定科目受験が必要。文・教育・法・経済は日本語、総合科目、数学コース1または2を要求。理系・医療系・工学系・農学系・水産学部は日本語に加えて学部指定の理科科目と数学コース2を要求。明示的な最低点は医学部医学科の英語基準のみで、TOEFL iBT 79点以上またはTOEIC L&R 750点以上。",
+      "ejuSubjects": [
+        "日本語",
+        "総合科目",
+        "数学（コース1またはコース2）",
+        "理科（物理・化学・生物から学部指定）",
+        "数学（コース2）※理系学部"
+      ],
+      "englishRequirement": "医学部医学科はTOEFL iBT（Home Edition可、Test Dateスコア）79点以上またはTOEIC L&R 750点以上が必須。理学部物理学科・化学科など一部学科は第2次選考でTOEFL、TOEIC L&R、国連英検、ケンブリッジ英検、実用英語技能検定試験、IELTS等の成績通知書提出を課す。",
+      "jlptRequirement": "2026-06-30確認時点で明示的なJLPT出願要件はなし。日本語能力はJLPTではなく日本留学試験（EJU）日本語科目で確認する方式。",
+      "timeline": [
+        {
+          "label": "インターネット出願登録・検定料支払い期間",
+          "value": "2026-09-07 10:00 - 2026-09-17 17:00"
+        },
+        {
+          "label": "出願期間（書類郵送必着）",
+          "value": "2026-09-14 - 2026-09-18 17:00"
+        },
+        {
+          "label": "第1次選考結果発表",
+          "value": "2026-10-27 16:00予定"
+        },
+        {
+          "label": "第2次選考試験日",
+          "value": "2026-11-15"
+        },
+        {
+          "label": "合格発表",
+          "value": "2026-12-08 16:00予定"
+        }
+      ],
+      "notes": "2026-05-29公表の2027年度公式PDF要項で確認。第2次選考の試験時間は第1次選考通過者に受験票で通知される。学部ごとにEJU指定科目と英語資料提出の有無が異なるため、志望学科の選抜方法欄を必ず再確認すること。"
     },
     "北海道教育大学": {
       "universityName": "北海道教育大学",
