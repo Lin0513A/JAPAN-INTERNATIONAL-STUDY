@@ -1,0 +1,423 @@
+{
+  "meta": {
+    "sourceType": "rednote_public_h5_profile_initial_state",
+    "sourceUrl": "https://xhslink.com/m/3UynAqkvSYm",
+    "resolvedProfileUrl": "",
+    "fetchedAt": "2026-07-01T00:21:10.242Z",
+    "extractedAtJst": "2026-07-01T09:21:10+09:00",
+    "visibleNoteCount": 7,
+    "limitations": [
+      "Only data embedded in the public H5 profile initial state was extracted.",
+      "Rednote may hide additional posts behind app/login/pagination; those are not included.",
+      "Cover images may contain score tables, but image OCR/manual verification is a separate step.",
+      "This is community/social-media reference data, not official university admissions data.",
+      "Do not republish full note contents or images without permission; use as pointers for manual verification."
+    ],
+    "extractionBoundary": "Public Rednote/Xiaohongshu H5 profile initial state plus publicly downloadable cover images only. Detail pages redirected to login/verification, so multi-image note bodies were not extracted.",
+    "legalUseNote": "Use as community reference metadata only. Do not republish full notes/images; verify admissions claims against university official 募集要項.",
+    "visibleMetricNote": "The user mentioned 4419 likes+saves, but the public H5 snapshot exposes likeAndCollect as 1k+ and no literal 4419 value was found in the page source."
+  },
+  "profile": {
+    "nickname": "EJU日本升学辅导出愿规划",
+    "redId": "129677565",
+    "userId": "129677565",
+    "descriptionLines": [
+      "📚 日本大学升学规划｜EJU日语・文综辅导",
+      "🎯 擅长 EJU 低分高录｜志望理由书润色修改",
+      "🧭 按分数匹配合适大学 & 专业【主页案例】",
+      "📝 线上｜线下｜东北育才｜课外辅导咨询"
+    ],
+    "follows": "-",
+    "fans": "10+",
+    "likeAndCollect": "1k+",
+    "ipLocation": "辽宁",
+    "officialVerify": {
+      "redOfficialFullName": "沈阳市沈北新区晴王日语留考留学咨询工作室",
+      "redOfficialVerifyType": 2,
+      "redOfficialVerifyContent": "语言留学",
+      "redOfficialVerifyShowIcon": false
+    },
+    "tabs": [
+      {
+        "id": "note",
+        "name": "笔记",
+        "public": true,
+        "visible": true
+      },
+      {
+        "id": "collect",
+        "name": "收藏",
+        "public": true,
+        "visible": true
+      }
+    ],
+    "collections": [
+      {
+        "name": "大学学部出愿，合格分数，面试问题汇总",
+        "icon": "https://picasso-static.xiaohongshu.com/fe-platform/1847ae7c1e5c1a3233c0252a7c0325c94ea8080e.png"
+      }
+    ]
+  },
+  "notes": [
+    {
+      "index": 1,
+      "noteId": "28414e24bf04426c95eedd0b157de00f",
+      "title": "早稻田大学各学部合格分数2026含最新",
+      "type": "normal",
+      "sticky": true,
+      "likes": 28,
+      "collects": 29,
+      "comments": 6,
+      "university": "早稲田大学",
+      "topic": "score_reference",
+      "claimsFromTitle": [
+        {
+          "type": "year_mentioned_in_title",
+          "value": 2026
+        }
+      ],
+      "cover": {
+        "url": "https://sns-na-i6.xhscdn.com/e81db614-e386-e469-abad-1ef8d766b206?imageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&sign=a007b3d1746bd8cd761c5ba3c4de6d23&t=6a445d3c",
+        "width": 912,
+        "height": 1184,
+        "localPath": "tmp/rednote-covers/01-28414e24bf04426c95eedd0b157de00f.jpg"
+      },
+      "detailFetchStatus": {
+        "attempted": true,
+        "result": "blocked_by_public_web_login_or_verification",
+        "note": "Direct public explore URL redirected to website-login/error; no bypass attempted."
+      },
+      "coverExtraction": {
+        "coverOcrStatus": "cover_title_only",
+        "coverText": [
+          "早稻田大学 各学部 合格分数统计",
+          "2026年度（含最新）",
+          "数据报告"
+        ],
+        "usableClaimsFromCover": [],
+        "confidence": "low"
+      }
+    },
+    {
+      "index": 2,
+      "noteId": "f7b9998eb3da48099d7f52b8dd64db91",
+      "title": "2026立命馆大学eju日语最低分数线282分文科",
+      "type": "normal",
+      "sticky": false,
+      "likes": 10,
+      "collects": 11,
+      "comments": 1,
+      "university": "立命館大学",
+      "topic": "score_reference",
+      "claimsFromTitle": [
+        {
+          "type": "score_mentioned_in_title",
+          "value": 282
+        },
+        {
+          "type": "exam_mentioned_in_title",
+          "value": "EJU"
+        },
+        {
+          "type": "subject_mentioned_in_title",
+          "value": "EJU日本語"
+        },
+        {
+          "type": "field_mentioned_in_title",
+          "value": "文科"
+        },
+        {
+          "type": "year_mentioned_in_title",
+          "value": 2026
+        }
+      ],
+      "cover": {
+        "url": "https://sns-na-i6.xhscdn.com/99c3f960-4502-56b8-dd50-00012e65e35d?imageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&sign=20fa2b2159affd8f5a7e2cc69945620d&t=6a445d3c",
+        "width": 1086,
+        "height": 1448,
+        "localPath": "tmp/rednote-covers/02-f7b9998eb3da48099d7f52b8dd64db91.jpg"
+      },
+      "detailFetchStatus": {
+        "attempted": true,
+        "result": "blocked_by_public_web_login_or_verification",
+        "note": "Direct public explore URL redirected to website-login/error; no bypass attempted."
+      },
+      "coverExtraction": {
+        "coverOcrStatus": "cover_title_only",
+        "coverText": [
+          "立命馆大学 各学部 合格分数统计（含最新2026年）",
+          "数据汇总 / 院系对比 / 参考必备"
+        ],
+        "usableClaimsFromCover": [],
+        "confidence": "low"
+      }
+    },
+    {
+      "index": 3,
+      "noteId": "86541c61c75d433f8768d03ff6d9b836",
+      "title": "日本考学部限时免费解答｜主页有分数和案例",
+      "type": "normal",
+      "sticky": false,
+      "likes": 0,
+      "collects": 0,
+      "comments": 0,
+      "university": "",
+      "topic": "consultation",
+      "claimsFromTitle": [],
+      "cover": {
+        "url": "https://sns-na-i6.xhscdn.com/39969e64-bd60-e774-ff8b-03a61e8140aa?imageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&sign=d9df7e9707874db8b86de199d7fe050e&t=6a445d3c",
+        "width": 1200,
+        "height": 1600,
+        "localPath": "tmp/rednote-covers/03-86541c61c75d433f8768d03ff6d9b836.jpg"
+      },
+      "detailFetchStatus": {
+        "attempted": true,
+        "result": "blocked_by_public_web_login_or_verification",
+        "note": "Direct public explore URL redirected to website-login/error; no bypass attempted."
+      },
+      "coverExtraction": {
+        "coverOcrStatus": "cover_general_tip",
+        "coverText": [
+          "日本考学部随便问",
+          "限时干货",
+          "eju成绩出分之前有效"
+        ],
+        "usableClaimsFromCover": [],
+        "confidence": "low"
+      }
+    },
+    {
+      "index": 4,
+      "noteId": "aacbe9930a1f4837815f286066043746",
+      "title": "上智大学出愿合格分数【含最新2026年度】",
+      "type": "normal",
+      "sticky": false,
+      "likes": 3,
+      "collects": 0,
+      "comments": 1,
+      "university": "上智大学",
+      "topic": "score_reference",
+      "claimsFromTitle": [
+        {
+          "type": "year_mentioned_in_title",
+          "value": 2026
+        }
+      ],
+      "cover": {
+        "url": "https://sns-na-i6.xhscdn.com/cc33a45f-81ac-22da-1008-412c6d514851?imageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&sign=8327a4a9aca50f657ff6a4f0ab9bfaf9&t=6a445d3c",
+        "width": 1086,
+        "height": 1448,
+        "localPath": "tmp/rednote-covers/04-aacbe9930a1f4837815f286066043746.jpg"
+      },
+      "detailFetchStatus": {
+        "attempted": true,
+        "result": "blocked_by_public_web_login_or_verification",
+        "note": "Direct public explore URL redirected to website-login/error; no bypass attempted."
+      },
+      "coverExtraction": {
+        "coverOcrStatus": "cover_title_only",
+        "coverText": [
+          "上智大学 各学部 合格分数统计【含最新2026年】"
+        ],
+        "usableClaimsFromCover": [],
+        "confidence": "low"
+      }
+    },
+    {
+      "index": 5,
+      "noteId": "7f23060417d945608e7109509e6fe9e6",
+      "title": "早稻田大学面试问题汇总2026年度",
+      "type": "normal",
+      "sticky": false,
+      "likes": 8,
+      "collects": 7,
+      "comments": 0,
+      "university": "早稲田大学",
+      "topic": "interview_questions",
+      "claimsFromTitle": [
+        {
+          "type": "year_mentioned_in_title",
+          "value": 2026
+        }
+      ],
+      "cover": {
+        "url": "https://sns-na-i6.xhscdn.com/f2ed6a1a-daef-8670-e588-43b2a4f70d90?imageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&sign=773b295ded0f3224943f72fddbdb4e37&t=6a445d3c",
+        "width": 1086,
+        "height": 1448,
+        "localPath": "tmp/rednote-covers/05-7f23060417d945608e7109509e6fe9e6.jpg"
+      },
+      "detailFetchStatus": {
+        "attempted": true,
+        "result": "blocked_by_public_web_login_or_verification",
+        "note": "Direct public explore URL redirected to website-login/error; no bypass attempted."
+      },
+      "coverExtraction": {
+        "coverOcrStatus": "cover_title_only",
+        "coverText": [
+          "早稻田大学 各学部 面试问题汇总",
+          "2026年度最新",
+          "真题整理 / 高频问题 / 回答思路 / 面试技巧"
+        ],
+        "usableClaimsFromCover": [],
+        "confidence": "low"
+      }
+    },
+    {
+      "index": 6,
+      "noteId": "81d9a6ee665645638a1ef9bda3a10657",
+      "title": "注意】上智大学2027学部出愿日期官网有变动",
+      "type": "normal",
+      "sticky": false,
+      "likes": 12,
+      "collects": 11,
+      "comments": 2,
+      "university": "上智大学",
+      "topic": "deadline_update",
+      "claimsFromTitle": [
+        {
+          "type": "year_mentioned_in_title",
+          "value": 2027
+        }
+      ],
+      "cover": {
+        "url": "https://sns-na-i6.xhscdn.com/228c2e1e-90af-c403-ca35-574e1a95c8c5?imageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&sign=22b328b2f07817ca67944ba983cafd9f&t=6a445d3c",
+        "width": 1570,
+        "height": 1366,
+        "localPath": "tmp/rednote-covers/06-81d9a6ee665645638a1ef9bda3a10657.jpg"
+      },
+      "detailFetchStatus": {
+        "attempted": true,
+        "result": "blocked_by_public_web_login_or_verification",
+        "note": "Direct public explore URL redirected to website-login/error; no bypass attempted."
+      },
+      "coverExtraction": {
+        "coverOcrStatus": "cover_has_deadline_claim",
+        "coverText": [
+          "2027年度 上智大学 入学試験要項 外国人入学試験",
+          "2026年5月22日付 / 2026年5月25日修正",
+          "Web出願期間および入学検定料の納入: 2026年7月15日(水)10:00-7月29日(月)23:59(日本時間)",
+          "出願書類の郵送: 2026年7月30日(火)締切日消印有効(簡易書留・速達)"
+        ],
+        "usableClaimsFromCover": [
+          {
+            "type": "application_period_claim",
+            "university": "上智大学",
+            "year": 2027,
+            "webApplicationStart": "2026-07-15 10:00 JST",
+            "webApplicationEnd": "2026-07-29 23:59 JST",
+            "mailingDeadline": "2026-07-30",
+            "sourceReliability": "social_media_cover_image_of_apparent_official_guideline",
+            "verificationRequired": true
+          }
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "index": 7,
+      "noteId": "906c197cc8dd40519e84e41fd52622e9",
+      "title": "立命馆大学到底好不好考？看完数据直接说",
+      "type": "normal",
+      "sticky": false,
+      "likes": 6,
+      "collects": 8,
+      "comments": 0,
+      "university": "立命館大学",
+      "topic": "difficulty_review",
+      "claimsFromTitle": [],
+      "cover": {
+        "url": "https://sns-na-i6.xhscdn.com/44e550c8-4b14-2d6c-fcb3-91a871fdf690?imageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&sign=88f2ae818631b18c4baacdb4e6739bd6&t=6a445d3c",
+        "width": 2048,
+        "height": 2731,
+        "localPath": "tmp/rednote-covers/07-906c197cc8dd40519e84e41fd52622e9.jpg"
+      },
+      "detailFetchStatus": {
+        "attempted": true,
+        "result": "blocked_by_public_web_login_or_verification",
+        "note": "Direct public explore URL redirected to website-login/error; no bypass attempted."
+      },
+      "coverExtraction": {
+        "coverOcrStatus": "cover_title_with_chart_snippets",
+        "coverText": [
+          "立命馆大学 2026报录比",
+          "学部报录比趋势分析",
+          "文学部 13.3%",
+          "理工学部 2.00%",
+          "前期・后期 建议收藏"
+        ],
+        "usableClaimsFromCover": [
+          {
+            "type": "admission_ratio_claim",
+            "university": "立命館大学",
+            "year": 2026,
+            "items": [
+              {
+                "faculty": "文学部",
+                "ratio": "13.3%"
+              },
+              {
+                "faculty": "理工学部",
+                "ratio": "2.00%"
+              }
+            ],
+            "sourceReliability": "social_media_cover_chart",
+            "verificationRequired": true
+          }
+        ],
+        "confidence": "low"
+      }
+    }
+  ],
+  "derived": {
+    "universitiesMentioned": [
+      "早稲田大学",
+      "立命館大学",
+      "上智大学"
+    ],
+    "topics": {
+      "score_reference": 3,
+      "consultation": 1,
+      "interview_questions": 1,
+      "deadline_update": 1,
+      "difficulty_review": 1
+    },
+    "engagementTotals": {
+      "likes": 67,
+      "collects": 66,
+      "comments": 10
+    },
+    "coverExtractedClaims": [
+      {
+        "type": "application_period_claim",
+        "university": "上智大学",
+        "year": 2027,
+        "webApplicationStart": "2026-07-15 10:00 JST",
+        "webApplicationEnd": "2026-07-29 23:59 JST",
+        "mailingDeadline": "2026-07-30",
+        "sourceReliability": "social_media_cover_image_of_apparent_official_guideline",
+        "verificationRequired": true,
+        "noteId": "81d9a6ee665645638a1ef9bda3a10657",
+        "title": "注意】上智大学2027学部出愿日期官网有变动"
+      },
+      {
+        "type": "admission_ratio_claim",
+        "university": "立命館大学",
+        "year": 2026,
+        "items": [
+          {
+            "faculty": "文学部",
+            "ratio": "13.3%"
+          },
+          {
+            "faculty": "理工学部",
+            "ratio": "2.00%"
+          }
+        ],
+        "sourceReliability": "social_media_cover_chart",
+        "verificationRequired": true,
+        "noteId": "906c197cc8dd40519e84e41fd52622e9",
+        "title": "立命馆大学到底好不好考？看完数据直接说"
+      }
+    ]
+  }
+}
