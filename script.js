@@ -41,6 +41,277 @@ const tabData = {
   },
 };
 
+const languageLabels = {
+  zh: {
+    htmlLang: "zh-Hans",
+    ariaHome: "ISJ 首页",
+    navAria: "主要导航",
+    metaDescription:
+      "ISJ - International Study in Japan。面向中国学生的日本留学信息导航，涵盖学校类型、申请流程、EJU、JLPT、签证、奖学金与来日生活准备。",
+    selectors: {
+      ".nav-direct[href='#top']": "首页",
+      ".nav-direct[href='#eju-planner']": "EJU日程",
+      ".nav-direct[href='#universities']": "查大学",
+      ".nav-direct[href='#score-tool']": "成绩诊断",
+      ".nav-direct[href='#life']": "来日生活",
+      ".nav-direct[href='#announcements']": "公告栏",
+      ".nav-direct[href='#about']": "关于本站",
+      ".nav-menu summary": "全部菜单",
+      "#hero-title": "日本留学信息导航",
+      ".hero-lede": "EJU出願、候选大学、来日生活手续を一つの画面で確認。",
+      ".hero-actions a[href='#eju-planner']": "EJU出願管理",
+      ".hero-actions a[href='#score-tool']": "成绩看候选校",
+      ".hero-actions a[href='#exam-guide']": "JLPT报名入口",
+      ".hero-actions a[href='#life']": "来日生活工具",
+      ".site-search label": "站内快速搜索",
+      "#site-search-clear": "清空",
+      "#home-exam-title": "EJU / JLPT重要节点",
+      "#exam-entry-title": "报名入口",
+      ".exam-entry-more": "EJU时间割と流れマニュアルを見る",
+      "#intro-title": "快速入口",
+      "#announcements-title": "公告栏",
+      "#score-title": "预测成绩から候选大学を探す",
+      "#paths-title": "常见升学路径",
+      "#compare-title": "按目标快速比较",
+      "#universities-title": "大学资料・出愿参考带・官方链接",
+      "#contact-title": "整理你的个人申请路线",
+      "#about-title": "关于本站",
+      ".site-footer p:first-child": "ISJ · International Study in Japan © 2026",
+      ".site-footer p:last-child": "信息会随制度与学校募集要项变化，申请前请以官方与学校最新公告为准。",
+    },
+    placeholders: {
+      "#site-search-input": "例：JLPT报名 / 南山大学 / 银行开户 / 志望理由书",
+      "#university-search": "例：明治学院 / GMARCH / 関関同立 / 东京 / EJU",
+      "#report-university": "例：南山大学 / Meiji University",
+    },
+    labels: {
+      scoreForm: [
+        "目标方向",
+        "希望地区",
+        "学校类型",
+        "EJU日语（0-400）",
+        "EJU记述（0-50）",
+        "综合科目 / 理科（0-200）",
+        "数学（0-200）",
+        "英语分数（TOEFL iBT换算）",
+        "JLPT",
+        "志望理由书准备度",
+      ],
+      universityToolbar: ["搜索大学・地区・项目", "学校类型"],
+      planForm: ["目标", "目前日语水平", "希望入学时间"],
+    },
+    buttons: {
+      scoreSubmit: "候选大学を表示",
+      saveScore: "保存当前成绩",
+      saved: "已保存",
+      planSubmit: "生成准备清单",
+    },
+    search: {
+      noResult: "没有找到。可以试试：EJU、JLPT、明治、南山、GMARCH、银行、签证、奖学金。",
+      functionType: "功能",
+      universityType: "大学",
+    },
+  },
+  en: {
+    htmlLang: "en",
+    ariaHome: "ISJ Home",
+    navAria: "Main navigation",
+    metaDescription:
+      "ISJ - International Study in Japan. A practical guide for studying in Japan, covering EJU, JLPT, university search, applications, visas, scholarships and life in Japan.",
+    selectors: {
+      ".nav-direct[href='#top']": "Home",
+      ".nav-direct[href='#eju-planner']": "EJU Dates",
+      ".nav-direct[href='#universities']": "Universities",
+      ".nav-direct[href='#score-tool']": "Score Match",
+      ".nav-direct[href='#life']": "Life in Japan",
+      ".nav-direct[href='#announcements']": "Updates",
+      ".nav-direct[href='#about']": "About",
+      ".nav-menu summary": "All Menu",
+      "#hero-title": "Japan Study Information Guide",
+      ".hero-lede": "Check EJU applications, university choices, and life procedures in Japan from one screen.",
+      ".hero-actions a[href='#eju-planner']": "EJU Application Planner",
+      ".hero-actions a[href='#score-tool']": "Find Universities by Score",
+      ".hero-actions a[href='#exam-guide']": "JLPT Application Links",
+      ".hero-actions a[href='#life']": "Life Tools",
+      ".site-search label": "Quick Site Search",
+      "#site-search-clear": "Clear",
+      "#home-exam-title": "Key EJU / JLPT Dates",
+      "#exam-entry-title": "Official Application Links",
+      ".exam-entry-more": "View EJU timetable and step-by-step manual",
+      "#intro-title": "Quick Entry",
+      "#announcements-title": "Updates",
+      "#score-title": "Find Candidate Universities from Predicted Scores",
+      "#paths-title": "Common Study Routes",
+      "#compare-title": "Compare by Goal",
+      "#universities-title": "University Data, Application Ranges, Official Links",
+      "#contact-title": "Create Your Personal Application Plan",
+      "#about-title": "About This Site",
+      ".site-footer p:first-child": "ISJ · International Study in Japan © 2026",
+      ".site-footer p:last-child": "Information changes by system and university guidelines. Always confirm with official and university announcements before applying.",
+    },
+    placeholders: {
+      "#site-search-input": "Example: JLPT application / Nanzan University / bank account / statement of purpose",
+      "#university-search": "Example: Meiji Gakuin / GMARCH / Kankandoritsu / Tokyo / EJU",
+      "#report-university": "Example: Nanzan University / Meiji University",
+    },
+    labels: {
+      scoreForm: [
+        "Target Field",
+        "Preferred Region",
+        "School Type",
+        "EJU Japanese (0-400)",
+        "EJU Writing (0-50)",
+        "Japan and the World / Science (0-200)",
+        "Mathematics (0-200)",
+        "English Score (TOEFL iBT equivalent)",
+        "JLPT",
+        "Statement of Purpose Readiness",
+      ],
+      universityToolbar: ["Search by university, region, or program", "School Type"],
+      planForm: ["Goal", "Current Japanese Level", "Preferred Enrollment"],
+    },
+    buttons: {
+      scoreSubmit: "Show Candidate Universities",
+      saveScore: "Save Current Scores",
+      saved: "Saved",
+      planSubmit: "Generate Checklist",
+    },
+    search: {
+      noResult: "No results. Try: EJU, JLPT, Meiji, Nanzan, GMARCH, bank, visa, scholarship.",
+      functionType: "Tool",
+      universityType: "University",
+    },
+  },
+  ko: {
+    htmlLang: "ko",
+    ariaHome: "ISJ 홈",
+    navAria: "주요 내비게이션",
+    metaDescription:
+      "ISJ - International Study in Japan. 일본 유학 준비자를 위한 EJU, JLPT, 대학 검색, 출원, 비자, 장학금, 일본 생활 정보 안내.",
+    selectors: {
+      ".nav-direct[href='#top']": "홈",
+      ".nav-direct[href='#eju-planner']": "EJU 일정",
+      ".nav-direct[href='#universities']": "대학 찾기",
+      ".nav-direct[href='#score-tool']": "성적 진단",
+      ".nav-direct[href='#life']": "일본 생활",
+      ".nav-direct[href='#announcements']": "공지",
+      ".nav-direct[href='#about']": "사이트 소개",
+      ".nav-menu summary": "전체 메뉴",
+      "#hero-title": "일본 유학 정보 내비게이션",
+      ".hero-lede": "EJU 출원, 후보 대학, 일본 생활 절차를 한 화면에서 확인하세요.",
+      ".hero-actions a[href='#eju-planner']": "EJU 출원 관리",
+      ".hero-actions a[href='#score-tool']": "성적으로 대학 찾기",
+      ".hero-actions a[href='#exam-guide']": "JLPT 신청 링크",
+      ".hero-actions a[href='#life']": "생활 도구",
+      ".site-search label": "사이트 빠른 검색",
+      "#site-search-clear": "지우기",
+      "#home-exam-title": "EJU / JLPT 중요 일정",
+      "#exam-entry-title": "공식 신청 링크",
+      ".exam-entry-more": "EJU 시간표와 진행 매뉴얼 보기",
+      "#intro-title": "빠른 입구",
+      "#announcements-title": "공지",
+      "#score-title": "예상 성적으로 후보 대학 찾기",
+      "#paths-title": "주요 진학 경로",
+      "#compare-title": "목표별 비교",
+      "#universities-title": "대학 자료・출원 참고 범위・공식 링크",
+      "#contact-title": "개인 출원 계획 정리",
+      "#about-title": "사이트 소개",
+      ".site-footer p:first-child": "ISJ · International Study in Japan © 2026",
+      ".site-footer p:last-child": "제도와 대학 모집요강은 바뀔 수 있으므로, 출원 전 반드시 공식 및 대학 최신 공지를 확인하세요.",
+    },
+    placeholders: {
+      "#site-search-input": "예: JLPT 신청 / 난잔대학 / 은행 계좌 / 지원이유서",
+      "#university-search": "예: 메이지가쿠인 / GMARCH / 간칸도리쓰 / 도쿄 / EJU",
+      "#report-university": "예: 난잔대학 / Meiji University",
+    },
+    labels: {
+      scoreForm: [
+        "목표 분야",
+        "희망 지역",
+        "학교 유형",
+        "EJU 일본어 (0-400)",
+        "EJU 기술 (0-50)",
+        "종합과목 / 이과 (0-200)",
+        "수학 (0-200)",
+        "영어 점수 (TOEFL iBT 환산)",
+        "JLPT",
+        "지원이유서 준비도",
+      ],
+      universityToolbar: ["대학・지역・프로그램 검색", "학교 유형"],
+      planForm: ["목표", "현재 일본어 수준", "희망 입학 시기"],
+    },
+    buttons: {
+      scoreSubmit: "후보 대학 표시",
+      saveScore: "현재 성적 저장",
+      saved: "저장됨",
+      planSubmit: "준비 체크리스트 생성",
+    },
+    search: {
+      noResult: "검색 결과가 없습니다. EJU, JLPT, Meiji, Nanzan, GMARCH, 은행, 비자, 장학금을 시도해 보세요.",
+      functionType: "기능",
+      universityType: "대학",
+    },
+  },
+};
+
+let currentLanguage = localStorage.getItem("isj-language") || "zh";
+
+function getLanguagePack() {
+  return languageLabels[currentLanguage] || languageLabels.zh;
+}
+
+function setElementText(selector, text) {
+  document.querySelectorAll(selector).forEach((element) => {
+    element.textContent = text;
+  });
+}
+
+function setLeadingLabelText(label, text) {
+  const textNode = [...label.childNodes].find((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
+  if (textNode) {
+    textNode.textContent = `\n              ${text}\n              `;
+  }
+}
+
+function applyLanguage(lang = currentLanguage) {
+  currentLanguage = languageLabels[lang] ? lang : "zh";
+  localStorage.setItem("isj-language", currentLanguage);
+  const pack = getLanguagePack();
+  document.documentElement.lang = pack.htmlLang;
+  document.querySelector("meta[name='description']")?.setAttribute("content", pack.metaDescription);
+  document.querySelector(".brand")?.setAttribute("aria-label", pack.ariaHome);
+  document.querySelector(".site-nav")?.setAttribute("aria-label", pack.navAria);
+
+  Object.entries(pack.selectors).forEach(([selector, text]) => setElementText(selector, text));
+  Object.entries(pack.placeholders).forEach(([selector, text]) => {
+    document.querySelectorAll(selector).forEach((element) => {
+      element.setAttribute("placeholder", text);
+    });
+  });
+
+  document.querySelectorAll(".score-form label").forEach((label, index) => {
+    if (pack.labels.scoreForm[index]) setLeadingLabelText(label, pack.labels.scoreForm[index]);
+  });
+  document.querySelectorAll(".university-toolbar label").forEach((label, index) => {
+    if (pack.labels.universityToolbar[index]) setLeadingLabelText(label, pack.labels.universityToolbar[index]);
+  });
+  document.querySelectorAll(".contact-form label").forEach((label, index) => {
+    if (pack.labels.planForm[index]) setLeadingLabelText(label, pack.labels.planForm[index]);
+  });
+
+  document.querySelector(".score-form button[type='submit']") && (document.querySelector(".score-form button[type='submit']").textContent = pack.buttons.scoreSubmit);
+  document.querySelector("#save-score-profile") && (document.querySelector("#save-score-profile").textContent = pack.buttons.saveScore);
+  document.querySelector(".contact-form button[type='submit']") && (document.querySelector(".contact-form button[type='submit']").textContent = pack.buttons.planSubmit);
+
+  document.querySelectorAll("[data-lang-switch]").forEach((button) => {
+    const active = button.dataset.langSwitch === currentLanguage;
+    button.setAttribute("aria-pressed", String(active));
+    button.classList.toggle("is-active", active);
+  });
+
+  renderSiteSearch(document.querySelector("#site-search-input")?.value || "");
+}
+
 const featuredUniversities = [
   {
     name: "东京大学 PEAK / GSC",
@@ -2068,6 +2339,46 @@ document.querySelector("#clear-report-data")?.addEventListener("click", () => {
 
 const defaultAnnouncements = [
   {
+    id: "default-20260630-2222",
+    date: "2026-06-30 22:22 JST",
+    datetime: "2026-06-30T22:22:00+09:00",
+    category: "募集要項",
+    title: "APUの2027国際学生募集要項を反映",
+    body: "2026-06-30确认立命馆亚洲太平洋大学 APU 官方招生页与2027 handbook，补充出愿资格、英语/JLPT/EJU日本语条件，以及中国居住者4月・9月入学的出愿期与合格发表。官方链接：https://admissions.apu.ac.jp/admissions/application_eligibility/",
+  },
+  {
+    id: "default-20260630-1820",
+    date: "2026-06-30 18:20 JST",
+    datetime: "2026-06-30T18:20:26+09:00",
+    category: "募集要項",
+    title: "秋田大学の国際資源学部留学生入試を追記",
+    body: "2026-06-30确认秋田大学官方日文入试页与2027年度国際資源学部外国人留学生特別入試PDF，补充限定范围内的出愿资格、英语条件、8-9月出愿、11月13日线上面试与11月20日合格发表。官方链接：https://www.akita-u.ac.jp/honbu/exam/ex_kind.html",
+  },
+  {
+    id: "default-20260630-1808",
+    date: "2026-06-30 18:08 JST",
+    datetime: "2026-06-30T18:08:00+09:00",
+    category: "募集要項",
+    title: "武蔵野美術大学の留学生選抜を追記",
+    body: "2026-06-30确认武蔵野美術大学官方日文页，新增外国人留学生特別選抜的出愿资格、EJU/JLPT日本语条件、出愿期间、试验日与合格发表。官方链接：https://www.musabi.ac.jp/admission/undergraduate/foreign/",
+  },
+  {
+    id: "default-20260630-1420",
+    date: "2026-06-30 14:20 JST",
+    datetime: "2026-06-30T14:20:00+09:00",
+    category: "募集要項",
+    title: "早稲田大学の2027外国学生入試を反映",
+    body: "2026-06-30确认早稲田大学官方日文国际招生页与2027年度外国学生入试要项，补充出愿资格、EJU/JLPT与英语外部试验条件，以及学部别出愿期、试验期和合格发表范围。官方链接：https://www.waseda.jp/inst/admission/undergraduate/system/international/",
+  },
+  {
+    id: "default-20260630-1138",
+    date: "2026-06-30 11:38 JST",
+    datetime: "2026-06-30T11:38:00+09:00",
+    category: "募集要項",
+    title: "武蔵野大学の2027留学生入試を反映",
+    body: "2026-06-30确认武蔵野大学官方日文留学生入试页，补充出愿资格、EJU/JLPT/英语条件，以及I期・II期・III期出愿与合格发表信息。官方链接：https://www.musashino-u.ac.jp/admission/international_students/other_studies.html",
+  },
+  {
     id: "default-20260630-0945",
     date: "2026-06-30 09:45 JST",
     datetime: "2026-06-30T09:45:00+09:00",
@@ -2166,17 +2477,18 @@ const staticSearchItems = [
 ];
 
 function getSearchItems() {
+  const language = getLanguagePack();
   const universityItems = universityData.map((university) => ({
     title: getDisplayUniversityName(university),
     body: getUniversitySearchSummary(university),
     href: "#universities",
     query: getDisplayUniversityName(university),
-    type: "大学",
+    type: language.search.universityType,
     university,
   }));
 
   return [
-    ...staticSearchItems.map(([title, body, href]) => ({ title, body, href, type: "功能" })),
+    ...staticSearchItems.map(([title, body, href]) => ({ title, body, href, type: language.search.functionType })),
     ...universityItems,
   ];
 }
@@ -2210,7 +2522,7 @@ function renderSiteSearch(query) {
     .slice(0, 8);
 
   if (!results.length) {
-    output.innerHTML = `<p>没有找到。可以试试：EJU、JLPT、明治、南山、GMARCH、银行、签证、奖学金。</p>`;
+    output.innerHTML = `<p>${escapeHtml(getLanguagePack().search.noResult)}</p>`;
     return;
   }
 
@@ -3247,10 +3559,16 @@ document.querySelector("#save-score-profile")?.addEventListener("click", () => {
   ]);
   const button = document.querySelector("#save-score-profile");
   if (!button) return;
-  button.textContent = "已保存";
+  button.textContent = getLanguagePack().buttons.saved;
   window.setTimeout(() => {
-    button.textContent = "保存当前成绩";
+    button.textContent = getLanguagePack().buttons.saveScore;
   }, 1200);
+});
+
+document.querySelectorAll("[data-lang-switch]").forEach((button) => {
+  button.addEventListener("click", () => {
+    applyLanguage(button.dataset.langSwitch);
+  });
 });
 
 renderMatchResults();
@@ -3264,6 +3582,7 @@ renderFavoritePanel();
 renderAdmissionReportSummary();
 renderAnnouncements();
 renderApplicationPlan();
+applyLanguage(currentLanguage);
 syncVisibleSection();
 window.setTimeout(syncVisibleSection, 120);
 window.setInterval(renderExamCountdown, 60000);
