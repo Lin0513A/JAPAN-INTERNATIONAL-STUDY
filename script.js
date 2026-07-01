@@ -111,6 +111,7 @@ const languageLabels = {
       functionType: "功能",
       universityType: "大学",
     },
+    staticText: {},
   },
   en: {
     htmlLang: "en",
@@ -180,6 +181,65 @@ const languageLabels = {
       noResult: "No results. Try: EJU, JLPT, Meiji, Nanzan, GMARCH, bank, visa, scholarship.",
       functionType: "Tool",
       universityType: "University",
+    },
+    staticText: {
+      "申请入口总览": "Application Overview",
+      "考试": "Exams",
+      "选校": "School Search",
+      "出愿": "Application",
+      "来日": "Arrival",
+      "公式出願": "Official Application",
+      "EJU Online・日程・出願方法": "EJU Online, Schedule, Application Guide",
+      "确认报名入口、考试时间、成绩发表和自己的备考时间表。":
+        "Check the application portal, exam dates, score release, and your own study timetable.",
+      "学校筛选": "University Screening",
+      "预测成绩から候选大学を探す": "Find Candidate Universities from Predicted Scores",
+      "输入EJU、英语、JLPT和志望理由书准备度，查看合适的候选校。":
+        "Enter EJU, English, JLPT, and statement-of-purpose readiness to view suitable candidate universities.",
+      "JLPT备考": "JLPT Preparation",
+      "报名入口・问题例・N1/N2准备": "Application Links, Sample Questions, N1/N2 Prep",
+      "整理EJU、JLPT、文综和参考书/免费课程入口。":
+        "Organize EJU, JLPT, Japan and the World, reference books, and free course links.",
+      "来日后": "After Arrival",
+      "电话・银行卡・租房の办理顺序": "Phone, Bank Card, Housing Setup Order",
+      "来日后在留卡、住民票、国保、手机、银行和租房手续。":
+        "Check residence card, resident registration, national health insurance, phone, bank, and housing procedures.",
+      "第2回出願": "2nd Session Application",
+      "試験日": "Exam Date",
+      "成績公表": "Score Release",
+      "EJU第2回": "EJU 2nd Session",
+      "11/8試験": "Exam 11/8",
+      "出願締切": "Application Deadline",
+      "首页只放最近必须确认的时间点，点击即可进入官方日文入口。正式日期以官方公告为准。":
+        "The home page only shows the nearest dates you must check. Click to open the official Japanese pages. Official announcements take priority.",
+      "EJU和JLPT分开确认。日本国内、海外报名入口不同，不要只看一个链接。":
+        "Check EJU and JLPT separately. Domestic and overseas application portals differ, so do not rely on only one link.",
+      "出願・受験票・成績確認": "Application, Exam Voucher, Score Check",
+      "出願方法": "Application Method",
+      "国内17:00締切に注意": "Domestic deadline is 17:00 JST",
+      "JLPT 国内": "JLPT Japan",
+      "日本国内受験の申込": "Application for taking JLPT in Japan",
+      "JLPT 海外": "JLPT Overseas",
+      "海外実施機関": "Overseas Host Institutions",
+      "中国等は各実施機関を確認": "Check each local host institution, including China",
+      "EJU出願管理": "EJU Application Planner",
+      "出願入口、試験時間、重要日程、自分の時間割。":
+        "Application portal, exam times, key dates, and your own schedule.",
+      "成绩看候选校": "Find Schools by Score",
+      "EJU、英語、JLPT、志望理由書で候选大学を確認。":
+        "Check candidate universities using EJU, English, JLPT, and your statement of purpose.",
+      "EJU / JLPT备考指南": "EJU / JLPT Prep Guide",
+      "過去問、参考書、报名入口、N1/N2准备路线。":
+        "Past questions, reference books, application links, and N1/N2 prep routes.",
+      "来日生活工具": "Life Tools in Japan",
+      "在留、住民票、手机、银行、租房、水电煤。":
+        "Residence status, resident registration, phone, bank, housing, utilities.",
+      "网站更新、募集要項抽取进度、重要考试节点会集中放在这里。":
+        "Site updates, admissions guideline extraction progress, and important exam dates are collected here.",
+      "输入成绩后，系统会按照EJU、英语、JLPT和志望理由书准备度做初步匹配。":
+        "After entering your scores, the system makes an initial match using EJU, English, JLPT, and statement readiness.",
+      "成绩と大学データを照合中...": "Matching your scores with university data...",
+      "最高匹配度": "Highest Match",
     },
   },
   ko: {
@@ -251,6 +311,65 @@ const languageLabels = {
       functionType: "기능",
       universityType: "대학",
     },
+    staticText: {
+      "申请入口总览": "신청 입구 총정리",
+      "考试": "시험",
+      "选校": "대학 선택",
+      "出愿": "출원",
+      "来日": "일본 입국",
+      "公式出願": "공식 출원",
+      "EJU Online・日程・出願方法": "EJU Online・일정・출원 방법",
+      "确认报名入口、考试时间、成绩发表和自己的备考时间表。":
+        "신청 입구, 시험 시간, 성적 발표일, 나의 학습 시간표를 확인합니다.",
+      "学校筛选": "대학 선별",
+      "预测成绩から候选大学を探す": "예상 성적으로 후보 대학 찾기",
+      "输入EJU、英语、JLPT和志望理由书准备度，查看合适的候选校。":
+        "EJU, 영어, JLPT, 지원이유서 준비도를 입력해 맞는 후보 대학을 확인합니다.",
+      "JLPT备考": "JLPT 준비",
+      "报名入口・问题例・N1/N2准备": "신청 링크・문제 예시・N1/N2 준비",
+      "整理EJU、JLPT、文综和参考书/免费课程入口。":
+        "EJU, JLPT, 종합과목, 참고서와 무료 강의 링크를 정리합니다.",
+      "来日后": "입국 후",
+      "电话・银行卡・租房の办理顺序": "전화・은행카드・집 구하기 순서",
+      "来日后在留卡、住民票、国保、手机、银行和租房手续。":
+        "입국 후 재류카드, 주민표, 국민건강보험, 휴대폰, 은행, 집 관련 절차를 확인합니다.",
+      "第2回出願": "제2회 출원",
+      "試験日": "시험일",
+      "成績公表": "성적 발표",
+      "EJU第2回": "EJU 제2회",
+      "11/8試験": "11/8 시험",
+      "出願締切": "출원 마감",
+      "首页只放最近必须确认的时间点，点击即可进入官方日文入口。正式日期以官方公告为准。":
+        "홈에는 가까운 중요 일정만 표시합니다. 클릭하면 공식 일본어 페이지로 이동하며, 최종 날짜는 공식 공지를 기준으로 합니다.",
+      "EJU和JLPT分开确认。日本国内、海外报名入口不同，不要只看一个链接。":
+        "EJU와 JLPT는 따로 확인하세요. 일본 국내와 해외 신청 입구가 다르므로 링크 하나만 보지 마세요.",
+      "出願・受験票・成績確認": "출원・수험표・성적 확인",
+      "出願方法": "출원 방법",
+      "国内17:00締切に注意": "일본 국내 마감은 17:00 JST",
+      "JLPT 国内": "JLPT 일본 국내",
+      "日本国内受験の申込": "일본 국내 JLPT 신청",
+      "JLPT 海外": "JLPT 해외",
+      "海外実施機関": "해외 실시 기관",
+      "中国等は各実施機関を確認": "중국 등은 각 실시 기관 확인",
+      "EJU出願管理": "EJU 출원 관리",
+      "出願入口、試験時間、重要日程、自分の時間割。":
+        "출원 입구, 시험 시간, 중요 일정, 나의 시간표.",
+      "成绩看候选校": "성적으로 후보 대학 찾기",
+      "EJU、英語、JLPT、志望理由書で候选大学を確認。":
+        "EJU, 영어, JLPT, 지원이유서로 후보 대학을 확인합니다.",
+      "EJU / JLPT备考指南": "EJU / JLPT 준비 가이드",
+      "過去問、参考書、报名入口、N1/N2准备路线。":
+        "기출문제, 참고서, 신청 링크, N1/N2 준비 루트.",
+      "来日生活工具": "일본 생활 도구",
+      "在留、住民票、手机、银行、租房、水电煤。":
+        "재류, 주민표, 휴대폰, 은행, 집, 전기・가스・수도.",
+      "网站更新、募集要項抽取进度、重要考试节点会集中放在这里。":
+        "사이트 업데이트, 모집요강 추출 진행 상황, 중요 시험 일정은 여기에 모입니다.",
+      "输入成绩后，系统会按照EJU、英语、JLPT和志望理由书准备度做初步匹配。":
+        "성적을 입력하면 EJU, 영어, JLPT, 지원이유서 준비도를 바탕으로 1차 매칭합니다.",
+      "成绩と大学データを照合中...": "성적과 대학 데이터를 대조하는 중...",
+      "最高匹配度": "최고 매칭도",
+    },
   },
 };
 
@@ -271,6 +390,45 @@ function setLeadingLabelText(label, text) {
   if (textNode) {
     textNode.textContent = `\n              ${text}\n              `;
   }
+}
+
+function getStaticTextReverseMap() {
+  const reverse = new Map();
+  Object.values(languageLabels).forEach((pack) => {
+    Object.entries(pack.staticText || {}).forEach(([source, translated]) => {
+      reverse.set(translated, source);
+    });
+  });
+  return reverse;
+}
+
+function replaceTrimmedText(original, replacement) {
+  const prefix = original.match(/^\s*/)?.[0] || "";
+  const suffix = original.match(/\s*$/)?.[0] || "";
+  return `${prefix}${replacement}${suffix}`;
+}
+
+function applyStaticTextTranslations(pack) {
+  const reverse = getStaticTextReverseMap();
+  const sourceKeys = new Set([
+    ...Object.keys(languageLabels.en.staticText || {}),
+    ...Object.keys(languageLabels.ko.staticText || {}),
+  ]);
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+
+  nodes.forEach((node) => {
+    const parent = node.parentElement;
+    if (!parent || ["SCRIPT", "STYLE", "NOSCRIPT"].includes(parent.tagName)) return;
+    const trimmed = node.textContent.trim();
+    if (!trimmed) return;
+    const source = sourceKeys.has(trimmed) ? trimmed : reverse.get(trimmed);
+    if (!source) return;
+    const translated = currentLanguage === "zh" ? source : pack.staticText?.[source];
+    if (!translated || translated === trimmed) return;
+    node.textContent = replaceTrimmedText(node.textContent, translated);
+  });
 }
 
 function applyLanguage(lang = currentLanguage) {
@@ -302,6 +460,7 @@ function applyLanguage(lang = currentLanguage) {
   document.querySelector(".score-form button[type='submit']") && (document.querySelector(".score-form button[type='submit']").textContent = pack.buttons.scoreSubmit);
   document.querySelector("#save-score-profile") && (document.querySelector("#save-score-profile").textContent = pack.buttons.saveScore);
   document.querySelector(".contact-form button[type='submit']") && (document.querySelector(".contact-form button[type='submit']").textContent = pack.buttons.planSubmit);
+  applyStaticTextTranslations(pack);
 
   document.querySelectorAll("[data-lang-switch]").forEach((button) => {
     const active = button.dataset.langSwitch === currentLanguage;
