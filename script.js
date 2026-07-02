@@ -776,7 +776,7 @@ const privateUniversityProfiles = {
   "Doshisha University": ["同志社大学 Doshisha University", 82, 315, 160, 130, 78, 2, 4],
   "Kwansei Gakuin University": ["関西学院大学 Kwansei Gakuin University", 78, 300, 150, 120, 75, 2, 4],
   "Kansai University": ["関西大学 Kansai University", 76, 295, 148, 115, 70, 2, 4],
-  "Ritsumeikan University": ["立命館大学 Ritsumeikan University", 78, 300, 150, 120, 75, 2, 4],
+  "Ritsumeikan University": ["立命館大学 Ritsumeikan University", 78, 305, 145, 0, 0, 2, 4],
   "Kindai University": ["近畿大学 Kindai University", 68, 275, 138, 110, 60, 2, 3],
   "Ryukoku University": ["龍谷大学 Ryukoku University", 64, 265, 130, 100, 55, 2, 3],
   "Kyoto Sangyo University": ["京都産業大学 Kyoto Sangyo University", 64, 265, 130, 100, 55, 2, 3],
@@ -1624,7 +1624,7 @@ const japaneseOfficialOverrides = [
   ["法政", "https://www.hosei.ac.jp/admission/"],
   ["学習院", "https://www.univ.gakushuin.ac.jp/admissions/"],
   ["同志社", "https://www.doshisha.ac.jp/admissions/"],
-  ["立命館", "https://www.ritsumei.ac.jp/admission/"],
+  ["立命館", "https://admission.ritsumei.ac.jp/"],
   ["関西大学", "https://www.kansai-u.ac.jp/nyusi/"],
   ["关西大学", "https://www.kansai-u.ac.jp/nyusi/"],
   ["関西学院", "https://www.kwansei.ac.jp/admissions/"],
@@ -2431,7 +2431,7 @@ async function loadUniversityData() {
 
 async function loadAdmissionRequirements() {
   try {
-    const response = await fetch("data/admission-requirements.json?v=20260629-06", { cache: "no-store" });
+    const response = await fetch("data/admission-requirements.json?v=20260702-07", { cache: "no-store" });
     if (!response.ok) throw new Error("admission requirement data unavailable");
     const data = await response.json();
     admissionRequirementRecords = data.records ?? {};
@@ -2497,6 +2497,70 @@ document.querySelector("#clear-report-data")?.addEventListener("click", () => {
 });
 
 const defaultAnnouncements = [
+  {
+    id: "default-20260702-1645",
+    date: "2026-07-02 16:45 JST",
+    datetime: "2026-07-02T16:45:00+09:00",
+    category: "募集要項",
+    title: "立命館大学の2027留学生入試と2026合格データを反映",
+    body: "2026-07-02确认立命馆大学官方2027年度外国人留学生入试要项PDF，补充出愿资格、EJU必須科目、前期・后期出愿日程，以及2026年度志愿者数、合格者数、EJU合格者最低点。官方链接：https://admission.ritsumei.ac.jp/admission/international/guidelines.html",
+  },
+  {
+    id: "default-20260702-1526",
+    date: "2026-07-02 15:26 JST",
+    datetime: "2026-07-02T15:26:00+09:00",
+    category: "募集要項",
+    title: "京都大学 Kyoto iUP の2027要項を反映",
+    body: "2026-07-02确认京都大学官方日文留学导线与 Kyoto iUP 2027年10月入学官方PDF，补充出愿资格、英语条件、无EJU/JLPT必须条件、11月出愿、3月线上面试与4月6日合格发表。官方链接：https://www.kyoto-u.ac.jp/ja/international/students1/study1/undergraduate",
+  },
+  {
+    id: "default-20260702-1041",
+    date: "2026-07-02 10:41 JST",
+    datetime: "2026-07-02T10:41:00+09:00",
+    category: "募集要項",
+    title: "関西学院大学の2027留学生入試を反映",
+    body: "2026-07-02确认关西学院大学官方外国人留学生入试页与2027年度要项PDF，补充出愿资格、EJU/英语条件、I期・II期出愿、试验日与合格发表。官方链接：https://www.kwansei.ac.jp/admissions/admissions-international/",
+  },
+  {
+    id: "default-20260702-1043",
+    date: "2026-07-02 10:43 JST",
+    datetime: "2026-07-02T10:43:00+09:00",
+    category: "募集要項",
+    title: "青森中央学院大学の留学生秋入試を反映",
+    body: "2026-07-02确认青森中央学院大学官方外国人留学生入试页与2026年度10月入学募集要项链接，补充出愿资格、JLPT N2条件、7月31日-8月17日出愿、8月29日试验与9月4日合格发表。官方链接：https://www.aomoricgu.ac.jp/international_exchange/foreignstudent/admission",
+  },
+  {
+    id: "default-20260702-1040",
+    date: "2026-07-02 10:40 JST",
+    datetime: "2026-07-02T10:40:00+09:00",
+    category: "募集要項",
+    title: "東北芸術工科大学の2027留学生入試を反映",
+    body: "2026-07-02确认东北艺术工科大学2027年度官方募集要项PDF，补充出愿资格、EJU/JLPT日本语条件、11月出愿、12月13日试验与12月23日合格发表。官方链接：https://www.tuad.ac.jp/adm/information/dept/",
+  },
+  {
+    id: "default-20260702-1022",
+    date: "2026-07-02 10:22 JST",
+    datetime: "2026-07-02T10:22:00+09:00",
+    category: "募集要項",
+    title: "東洋大学の2027留学生入試要項を反映",
+    body: "2026-07-02确认东洋大学2027年度外国人留学生入试PDF，补充出愿资格、EJU/英语条件、9-10月与10-12月出愿・试验・合格发表。官方链接：https://www.toyo.ac.jp/nyushi/admission/admission-data/international-student/japan/",
+  },
+  {
+    id: "default-20260701-2333",
+    date: "2026-07-01 23:33 JST",
+    datetime: "2026-07-01T23:33:00+09:00",
+    category: "募集要項",
+    title: "東北工業大学の2027留学生入試概要を反映",
+    body: "2026-07-01确认东北工業大学官方日文入试页，补充外国人留学生特別選抜的出愿资格、EJU日本语/JLPT条件、10月・2月出愿期、11月・3月试验日与12月・3月合格发表。官方链接：https://www.tohtech.ac.jp/admission/outline/foreigner/",
+  },
+  {
+    id: "default-20260701-1208",
+    date: "2026-07-01 12:08 JST",
+    datetime: "2026-07-01T12:08:00+09:00",
+    category: "募集要項",
+    title: "東北学院大学の2027留学生入試を反映",
+    body: "2026-07-01确认东北学院大学官方日文入试页与外国人留学生特別選抜PDF，补充出愿资格、EJU学科别条件、11月出愿、12月12日试验与12月18日合格发表。官方链接：https://www.tohoku-gakuin.ac.jp/admission/admissions/",
+  },
   {
     id: "default-20260630-2222",
     date: "2026-06-30 22:22 JST",
