@@ -2431,7 +2431,7 @@ async function loadUniversityData() {
 
 async function loadAdmissionRequirements() {
   try {
-    const response = await fetch("data/admission-requirements.json?v=20260702-08", { cache: "no-store" });
+    const response = await fetch("data/admission-requirements.json?v=20260702-09", { cache: "no-store" });
     if (!response.ok) throw new Error("admission requirement data unavailable");
     const data = await response.json();
     admissionRequirementRecords = data.records ?? {};
@@ -2497,6 +2497,14 @@ document.querySelector("#clear-report-data")?.addEventListener("click", () => {
 });
 
 const defaultAnnouncements = [
+  {
+    id: "default-20260702-1705",
+    date: "2026-07-02 17:05 JST",
+    datetime: "2026-07-02T17:05:00+09:00",
+    category: "募集要項",
+    title: "主要私大の公式入試データを追加",
+    body: "上智、慶應、駒澤、専修、日本、成蹊、京都産業、龍谷、甲南、近畿、明治学院の公式ページ・要項リンクを確認し、出願資格、EJU条件、日程、PDF入口を反映。上智と京都産業はEJU基準点まで抽出済み、未公開校は抽出待ちとして表示。",
+  },
   {
     id: "default-20260702-1650",
     date: "2026-07-02 16:50 JST",
