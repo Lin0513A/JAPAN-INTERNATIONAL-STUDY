@@ -2431,7 +2431,7 @@ async function loadUniversityData() {
 
 async function loadAdmissionRequirements() {
   try {
-    const response = await fetch("data/admission-requirements.json?v=20260702-07", { cache: "no-store" });
+    const response = await fetch("data/admission-requirements.json?v=20260702-08", { cache: "no-store" });
     if (!response.ok) throw new Error("admission requirement data unavailable");
     const data = await response.json();
     admissionRequirementRecords = data.records ?? {};
@@ -2497,6 +2497,14 @@ document.querySelector("#clear-report-data")?.addEventListener("click", () => {
 });
 
 const defaultAnnouncements = [
+  {
+    id: "default-20260702-1650",
+    date: "2026-07-02 16:50 JST",
+    datetime: "2026-07-02T16:50:00+09:00",
+    category: "募集要項",
+    title: "GMARCH・関関同立の公式データを追加確認",
+    body: "2026-07-02确认青山学院、学習院、中央、法政、立教、関西大学的官方入试页面/PDF导线并反映到大学资料。学習院は2027年度公式PDFからEJU/JLPT最低点なし、学部別科目、日程を抽取。同志社は公式サイトが403のため、非公式補完せず抽取待ちとして明記。",
+  },
   {
     id: "default-20260702-1645",
     date: "2026-07-02 16:45 JST",
