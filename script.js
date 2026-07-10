@@ -242,6 +242,135 @@ const languageLabels = {
       "最高匹配度": "Highest Match",
     },
   },
+  ja: {
+    htmlLang: "ja",
+    ariaHome: "ISJ ホーム",
+    navAria: "メインナビゲーション",
+    metaDescription:
+      "ISJ - International Study in Japan。日本留学を目指す人のための情報ナビ。EJU、JLPT、大学検索、出願、ビザ、奨学金、来日後の生活手続きを整理しています。",
+    selectors: {
+      ".nav-direct[href='#top']": "ホーム",
+      ".nav-direct[href='#eju-planner']": "EJU日程",
+      ".nav-direct[href='#universities']": "大学検索",
+      ".nav-direct[href='#score-tool']": "成績診断",
+      ".nav-direct[href='#life']": "来日生活",
+      ".nav-direct[href='#announcements']": "公告",
+      ".nav-direct[href='#about']": "このサイトについて",
+      ".nav-menu summary": "全メニュー",
+      "#hero-title": "日本留学情報ナビ",
+      ".hero-lede": "EJU出願、候補大学、来日後の手続きを一つの画面で確認できます。",
+      ".hero-actions a[href='#eju-planner']": "EJU出願管理",
+      ".hero-actions a[href='#score-tool']": "成績から候補校を探す",
+      ".hero-actions a[href='#exam-guide']": "JLPT申込入口",
+      ".hero-actions a[href='#life']": "来日生活ツール",
+      ".site-search label": "サイト内検索",
+      "#site-search-clear": "クリア",
+      "#home-exam-title": "EJU / JLPT 重要日程",
+      "#exam-entry-title": "公式申込入口",
+      ".exam-entry-more": "EJU時間割と流れマニュアルを見る",
+      "#intro-title": "クイック入口",
+      "#announcements-title": "公告",
+      "#score-title": "予測成績から候補大学を探す",
+      "#paths-title": "主な進学ルート",
+      "#compare-title": "目的別に比較",
+      "#universities-title": "大学資料・出願参考帯・公式リンク",
+      "#contact-title": "自分の出願ルートを整理",
+      "#about-title": "このサイトについて",
+      ".site-footer p:first-child": "ISJ · International Study in Japan © 2026",
+      ".site-footer p:last-child": "制度や各大学の募集要項は変更されます。出願前に必ず公式サイトと大学の最新公告を確認してください。",
+    },
+    placeholders: {
+      "#site-search-input": "例：JLPT申込 / 南山大学 / 銀行口座 / 志望理由書",
+      "#university-search": "例：明治学院 / GMARCH / 関関同立 / 東京 / EJU",
+      "#report-university": "例：南山大学 / 明治大学",
+    },
+    labels: {
+      scoreForm: [
+        "志望分野",
+        "希望地域",
+        "学校タイプ",
+        "EJU日本語（0-400）",
+        "EJU記述（0-50）",
+        "総合科目 / 理科（0-200）",
+        "数学（0-200）",
+        "英語スコア（TOEFL iBT換算）",
+        "JLPT",
+        "志望理由書の準備度",
+      ],
+      universityToolbar: ["大学・地域・項目を検索", "学校タイプ"],
+      planForm: ["目標", "現在の日本語レベル", "希望入学時期"],
+    },
+    buttons: {
+      scoreSubmit: "候補大学を表示",
+      saveScore: "現在の成績を保存",
+      saved: "保存しました",
+      planSubmit: "準備リストを作成",
+    },
+    search: {
+      noResult: "見つかりませんでした。EJU、JLPT、明治、南山、GMARCH、銀行、ビザ、奨学金などで検索できます。",
+      functionType: "機能",
+      universityType: "大学",
+    },
+    staticText: {
+      "申请入口总览": "申込入口一覧",
+      "考试": "試験",
+      "选校": "大学選び",
+      "出愿": "出願",
+      "来日": "来日",
+      "公式出願": "公式出願",
+      "EJU Online・日程・出願方法": "EJU Online・日程・出願方法",
+      "确认报名入口、考试时间、成绩发表和自己的备考时间表。":
+        "申込入口、試験時間、成績発表日、自分の学習スケジュールを確認できます。",
+      "学校筛选": "大学検索",
+      "预测成绩から候选大学を探す": "予測成績から候補大学を探す",
+      "输入EJU、英语、JLPT和志望理由书准备度，查看合适的候选校。":
+        "EJU、英語、JLPT、志望理由書の準備度を入力して、候補大学を確認します。",
+      "JLPT备考": "JLPT対策",
+      "报名入口・问题例・N1/N2准备": "申込入口・問題例・N1/N2対策",
+      "整理EJU、JLPT、文综和参考书/免费课程入口。":
+        "EJU、JLPT、総合科目、参考書、無料講座の入口を整理します。",
+      "来日后": "来日後",
+      "电话・银行卡・租房の办理顺序": "携帯・銀行カード・住まいの手続き順",
+      "来日后在留卡、住民票、国保、手机、银行和租房手续。":
+        "来日後の在留カード、住民票、国民健康保険、携帯、銀行、住まいの手続きを確認します。",
+      "第2回出願": "第2回出願",
+      "試験日": "試験日",
+      "成績公表": "成績公表",
+      "EJU第2回": "EJU第2回",
+      "11/8試験": "11/8試験",
+      "出願締切": "出願締切",
+      "首页只放最近必须确认的时间点，点击即可进入官方日文入口。正式日期以官方公告为准。":
+        "ホームには直近で確認すべき日程だけを表示します。クリックすると公式日本語ページを開きます。正式な日程は公式発表を優先してください。",
+      "EJU和JLPT分开确认。日本国内、海外报名入口不同，不要只看一个链接。":
+        "EJUとJLPTは別々に確認してください。日本国内受験と海外受験では申込入口が異なります。",
+      "出願・受験票・成績確認": "出願・受験票・成績確認",
+      "出願方法": "出願方法",
+      "国内17:00締切に注意": "国内出願は17:00締切に注意",
+      "JLPT 国内": "JLPT 国内",
+      "日本国内受験の申込": "日本国内受験の申込",
+      "JLPT 海外": "JLPT 海外",
+      "海外実施機関": "海外実施機関",
+      "中国等は各実施機関を確認": "中国などは各実施機関を確認",
+      "EJU出願管理": "EJU出願管理",
+      "出願入口、試験時間、重要日程、自分の時間割。":
+        "出願入口、試験時間、重要日程、自分の時間割を確認します。",
+      "成绩看候选校": "成績から候補校を探す",
+      "EJU、英語、JLPT、志望理由書で候选大学を確認。":
+        "EJU、英語、JLPT、志望理由書から候補大学を確認します。",
+      "EJU / JLPT备考指南": "EJU / JLPT対策ガイド",
+      "過去問、参考書、报名入口、N1/N2准备路线。":
+        "過去問、参考書、申込入口、N1/N2対策ルートを整理します。",
+      "来日生活工具": "来日生活ツール",
+      "在留、住民票、手机、银行、租房、水电煤。":
+        "在留、住民票、携帯、銀行、住まい、電気・ガス・水道を確認します。",
+      "网站更新、募集要項抽取进度、重要考试节点会集中放在这里。":
+        "サイト更新、募集要項の抽出状況、重要な試験日程をここにまとめます。",
+      "输入成绩后，系统会按照EJU、英语、JLPT和志望理由书准备度做初步匹配。":
+        "成績を入力すると、EJU、英語、JLPT、志望理由書の準備度をもとに初期マッチングします。",
+      "成绩と大学データを照合中...": "成績と大学データを照合中...",
+      "最高匹配度": "最高マッチ度",
+    },
+  },
   ko: {
     htmlLang: "ko",
     ariaHome: "ISJ 홈",
@@ -412,6 +541,7 @@ function applyStaticTextTranslations(pack) {
   const reverse = getStaticTextReverseMap();
   const sourceKeys = new Set([
     ...Object.keys(languageLabels.en.staticText || {}),
+    ...Object.keys(languageLabels.ja.staticText || {}),
     ...Object.keys(languageLabels.ko.staticText || {}),
   ]);
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
