@@ -73,6 +73,7 @@ const languageLabels = {
       "#score-title": "预测成绩から候选大学を探す",
       "#paths-title": "常见升学路径",
       "#compare-title": "按目标快速比较",
+      "#graduate-title": "大学院申请导航",
       "#universities-title": "大学资料・出愿参考带・官方链接",
       "#contact-title": "整理你的个人申请路线",
       "#about-title": "关于本站",
@@ -144,6 +145,7 @@ const languageLabels = {
       "#score-title": "Find Candidate Universities from Predicted Scores",
       "#paths-title": "Common Study Routes",
       "#compare-title": "Compare by Goal",
+      "#graduate-title": "Graduate School Guide",
       "#universities-title": "University Data, Application Ranges, Official Links",
       "#contact-title": "Create Your Personal Application Plan",
       "#about-title": "About This Site",
@@ -234,6 +236,23 @@ const languageLabels = {
       "来日生活工具": "Life Tools in Japan",
       "在留、住民票、手机、银行、租房、水电煤。":
         "Residence status, resident registration, phone, bank, housing, utilities.",
+      "大学院导航": "Graduate School",
+      "研究计划书、教授联系、院试": "Research plan, professor contact, entrance exam",
+      "大学院申请导航": "Graduate School Guide",
+      "研究计划书、导师匹配、教授邮件、院试与出愿确认。":
+        "Research plan, supervisor matching, professor emails, entrance exams, and application checks.",
+      "大学院和学部申请逻辑不一样。这里先按官方募集要項、研究科页面和导师研究室信息来整理，不把未经确认的经验帖当作录取保证。":
+        "Graduate admissions work differently from undergraduate admissions. This guide prioritizes official guidelines, graduate school pages, and lab information, not unverified anecdotes.",
+      "先做方向，再找学校": "Define your research direction first",
+      "大学院不是单纯看分数，而是看研究主题是否对得上。":
+        "Graduate admissions are not just about scores; research fit matters.",
+      "先确定研究领域、关键词、想解决的问题，再查研究科和教授。EJU通常不是主轴，更多学校会看研究计划书、语言成绩、专业基础、书类审查、笔试和口试。":
+        "Start with your field, keywords, and research question, then check graduate schools and faculty. EJU is usually not the main axis; many programs focus on research plans, language scores, academic background, document screening, written exams, and interviews.",
+      "最先确认的4件事": "Check These 4 Things First",
+      "研究计划书骨架": "Research Plan Structure",
+      "教授邮件不要写成套话": "Do Not Send Template-like Professor Emails",
+      "常见材料": "Common Materials",
+      "官方入口": "Official Links",
       "网站更新、募集要項抽取进度、重要考试节点会集中放在这里。":
         "Site updates, admissions guideline extraction progress, and important exam dates are collected here.",
       "输入成绩后，系统会按照EJU、英语、JLPT和志望理由书准备度做初步匹配。":
@@ -273,6 +292,7 @@ const languageLabels = {
       "#score-title": "予測成績から候補大学を探す",
       "#paths-title": "主な進学ルート",
       "#compare-title": "目的別に比較",
+      "#graduate-title": "大学院申請ナビ",
       "#universities-title": "大学資料・出願参考帯・公式リンク",
       "#contact-title": "自分の出願ルートを整理",
       "#about-title": "このサイトについて",
@@ -363,6 +383,23 @@ const languageLabels = {
       "来日生活工具": "来日生活ツール",
       "在留、住民票、手机、银行、租房、水电煤。":
         "在留、住民票、携帯、銀行、住まい、電気・ガス・水道を確認します。",
+      "大学院导航": "大学院",
+      "研究计划书、教授联系、院试": "研究計画書、教授連絡、院試",
+      "大学院申请导航": "大学院申請ナビ",
+      "研究计划书、导师匹配、教授邮件、院试与出愿确认。":
+        "研究計画書、指導教員との適合、教授へのメール、院試、出願確認を整理します。",
+      "大学院和学部申请逻辑不一样。这里先按官方募集要項、研究科页面和导师研究室信息来整理，不把未经确认的经验帖当作录取保证。":
+        "大学院入試は学部入試と考え方が異なります。ここでは公式募集要項、研究科ページ、研究室情報を優先し、未確認の体験談を合格保証として扱いません。",
+      "先做方向，再找学校": "先に研究方向を決める",
+      "大学院不是单纯看分数，而是看研究主题是否对得上。":
+        "大学院は点数だけではなく、研究テーマの適合が重要です。",
+      "先确定研究领域、关键词、想解决的问题，再查研究科和教授。EJU通常不是主轴，更多学校会看研究计划书、语言成绩、专业基础、书类审查、笔试和口试。":
+        "研究分野、キーワード、解きたい問いを先に決めてから研究科と教員を調べます。EJUが主軸ではない場合が多く、研究計画書、語学成績、専門基礎、書類審査、筆記試験、口述試験が重視されます。",
+      "最先确认的4件事": "最初に確認する4項目",
+      "研究计划书骨架": "研究計画書の骨組み",
+      "教授邮件不要写成套话": "教授メールは定型文にしない",
+      "常见材料": "よくある提出書類",
+      "官方入口": "公式入口",
       "网站更新、募集要項抽取进度、重要考试节点会集中放在这里。":
         "サイト更新、募集要項の抽出状況、重要な試験日程をここにまとめます。",
       "输入成绩后，系统会按照EJU、英语、JLPT和志望理由书准备度做初步匹配。":
@@ -402,6 +439,7 @@ const languageLabels = {
       "#score-title": "예상 성적으로 후보 대학 찾기",
       "#paths-title": "주요 진학 경로",
       "#compare-title": "목표별 비교",
+      "#graduate-title": "대학원 지원 가이드",
       "#universities-title": "대학 자료・출원 참고 범위・공식 링크",
       "#contact-title": "개인 출원 계획 정리",
       "#about-title": "사이트 소개",
@@ -492,6 +530,23 @@ const languageLabels = {
       "来日生活工具": "일본 생활 도구",
       "在留、住民票、手机、银行、租房、水电煤。":
         "재류, 주민표, 휴대폰, 은행, 집, 전기・가스・수도.",
+      "大学院导航": "대학원",
+      "研究计划书、教授联系、院试": "연구계획서, 교수 연락, 대학원 입시",
+      "大学院申请导航": "대학원 지원 가이드",
+      "研究计划书、导师匹配、教授邮件、院试与出愿确认。":
+        "연구계획서, 지도교수 매칭, 교수 메일, 대학원 입시와 출원 확인.",
+      "大学院和学部申请逻辑不一样。这里先按官方募集要項、研究科页面和导师研究室信息来整理，不把未经确认的经验帖当作录取保证。":
+        "대학원 지원은 학부 지원과 논리가 다릅니다. 공식 모집요강, 연구과 페이지, 연구실 정보를 우선하며 확인되지 않은 경험담을 합격 보장처럼 다루지 않습니다.",
+      "先做方向，再找学校": "먼저 연구 방향 정하기",
+      "大学院不是单纯看分数，而是看研究主题是否对得上。":
+        "대학원은 점수만이 아니라 연구 주제의 적합성이 중요합니다.",
+      "先确定研究领域、关键词、想解决的问题，再查研究科和教授。EJU通常不是主轴，更多学校会看研究计划书、语言成绩、专业基础、书类审查、笔试和口试。":
+        "연구 분야, 키워드, 풀고 싶은 질문을 정한 뒤 연구과와 교원을 확인합니다. EJU가 중심이 아닌 경우가 많고, 연구계획서, 어학 성적, 전공 기초, 서류 심사, 필기시험, 구술시험이 중요합니다.",
+      "最先确认的4件事": "먼저 확인할 4가지",
+      "研究计划书骨架": "연구계획서 구조",
+      "教授邮件不要写成套话": "교수 메일은 템플릿처럼 쓰지 않기",
+      "常见材料": "자주 필요한 서류",
+      "官方入口": "공식 링크",
       "网站更新、募集要項抽取进度、重要考试节点会集中放在这里。":
         "사이트 업데이트, 모집요강 추출 진행 상황, 중요 시험 일정은 여기에 모입니다.",
       "输入成绩后，系统会按照EJU、英语、JLPT和志望理由书准备度做初步匹配。":
@@ -2833,6 +2888,7 @@ const staticSearchItems = [
   ["成绩看候选校", "EJU 英语 JLPT 志望理由书 出愿参考带 候选大学", "#score-tool"],
   ["EJU / JLPT备考指南", "過去問 問題例 参考书 报名 N1 N2 文综 日语", "#exam-guide"],
   ["大学资料", "全国 私立 国公立 公式链接 JASSO EJU利用校", "#universities"],
+  ["大学院申请导航", "大学院 修士 博士 研究生 研究计划书 研究計画書 教授联系 教授連絡 导师 研究科 院试 口试 面试 募集要項", "#graduate"],
   [
     "来日生活工具・个人收藏网站",
     "在留卡 住民票 国民健康保险 银行开户 信用卡 证券账户 手机卡 网络 水电煤 租房 垃圾分类 搬家 个人收藏 常用网站 生活工具箱 电力 ガス 水道 softbank docomo ゆうちょ UFJ",
