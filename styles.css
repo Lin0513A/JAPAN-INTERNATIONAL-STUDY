@@ -1182,6 +1182,11 @@ h3 {
   background: #b45309;
 }
 
+.match-level.band-undetermined {
+  color: #405052;
+  background: #e5e7eb;
+}
+
 .recommendation-reason {
   padding: 9px 10px;
   color: #405052;

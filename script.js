@@ -1484,7 +1484,7 @@ function scoreUniversity(input, university) {
 function getUniversityFocus(university) {
   const text = `${university.name} ${university.route} ${university.requirement ?? ""}`.toLowerCase();
   if (
-    /理科|工業|工科|工学院|工学|電機|情報|science|technology|institute of technology|engineering/.test(
+    /医科|医学|医歯|歯学|歯科|薬科|薬学|看護|保健|畜産|獣医|農工|農業|農学|水産|海洋|理科|理工|工業|工科|工学院|工学|電機|情報|science|technology|institute of technology|engineering|medical|medicine|dentistry|pharmacy|agriculture|veterinary/.test(
       text,
     )
   ) {
@@ -1499,6 +1499,14 @@ function getUniversityFocus(university) {
   return "general";
 }
 
+function isFieldCompatible(input, university) {
+  if (input.field === "english") return true;
+  const focus = getUniversityFocus(university);
+  if (input.field === "humanities") return focus !== "science";
+  if (input.field === "science") return focus !== "humanities";
+  return university.fields?.includes(input.field);
+}
+
 function getGatePenalty(input, university) {
   const target = getUniversityTarget(university);
   const difficulty = getUniversityDifficulty(university);
@@ -1506,7 +1514,7 @@ function getGatePenalty(input, university) {
   const routeText = `${university.name} ${university.route}`.toLowerCase();
   let penalty = 0;
 
-  if (input.field === "humanities" && focus === "science") penalty += 34;
+  if (input.field === "humanities" && focus === "science") penalty += 60;
   if (input.field === "science" && focus === "humanities") penalty += 14;
   if (input.field !== "english" && (focus === "english" || /iup|g30|english-taught|英語项目/.test(routeText))) {
     penalty += target.english >= 80 ? 30 : 18;
@@ -1693,7 +1701,10 @@ function getRecommendationBand(input, university, score, rankScore) {
   const { gaps, coreGap, worstGap } = getScoreGapSummary(input, university);
   const reliableProfile = hasReliableScoreProfile(university);
   const selectiveHumanities = input.field === "humanities" && isSelectivePrivateHumanities(university);
-  const wrongField = !university.fields?.includes(input.field) || (input.field === "humanities" && focus === "science");
+  const wrongField =
+    !university.fields?.includes(input.field) ||
+    !isFieldCompatible(input, university) ||
+    (input.field === "humanities" && focus === "science");
   const englishProgramMismatch = focus === "english" && input.field !== "english";
   const hardShortfall =
     (gaps.japanese !== null && gaps.japanese < -45) ||
@@ -1713,7 +1724,10 @@ function getRecommendationBand(input, university, score, rankScore) {
   if (wrongField || englishProgramMismatch || score < 48 || rankScore < 28 || hardShortfall) {
     return "notRecommended";
   }
-  if (softShortfall || score < 68 || rankScore < 52 || difficulty > strength + 4 || !reliableProfile) {
+  if (!reliableProfile) {
+    return "undetermined";
+  }
+  if (softShortfall || score < 68 || rankScore < 52 || difficulty > strength + 4) {
     return "reach";
   }
   const safetyCore =
@@ -1739,6 +1753,7 @@ const recommendationBandLabels = {
   safety: "保底",
   recommended: "推荐",
   reach: "冲刺",
+  undetermined: "判定不可",
   notRecommended: "暂不建议",
 };
 
@@ -1746,6 +1761,7 @@ const recommendationBandNotes = {
   safety: "当前成绩高于本站参考带，适合作为稳妥/保底候选，但仍需确认学部募集要项和校内考。",
   recommended: "当前成绩与参考带较接近，适合作为主力候选。建议同时准备校内考、面试和志望理由书。",
   reach: "存在分数差、难度差或数据未抽取，适合少量冲刺。不要只靠这些学校组成出愿池。",
+  undetermined: "缺少学部・方式级募集要項或参考带，暂不做合格可能性判断。请先打开官方募集要項确认。",
   notRecommended: "当前条件与方向或参考带差距较大，暂不放入主要候选。",
 };
 
@@ -1754,6 +1770,7 @@ function getDisplayMatchScore(university) {
   if (university.recommendationBand === "safety") return Math.max(78, Math.min(96, blended));
   if (university.recommendationBand === "recommended") return Math.max(68, Math.min(88, blended));
   if (university.recommendationBand === "reach") return Math.max(52, Math.min(74, blended));
+  if (university.recommendationBand === "undetermined") return Math.max(0, Math.min(40, blended));
   return Math.max(0, Math.min(48, blended));
 }
 
@@ -2125,14 +2142,17 @@ function renderMatchResultsNow() {
 
   const input = getScoreInput();
   const matchingPool = universityData.filter((university) => {
-    const fieldMatch = university.fields?.includes(input.field);
+    const fieldMatch = university.fields?.includes(input.field) && isFieldCompatible(input, university);
     const regionMatch =
       input.region === "any" || university.region === input.region || university.region === "any";
     const typeMatch = input.candidateType === "all" || university.type === input.candidateType;
     return fieldMatch && regionMatch && typeMatch;
   });
   const typePool = universityData.filter(
-    (university) => input.candidateType === "all" || university.type === input.candidateType,
+    (university) =>
+      (input.candidateType === "all" || university.type === input.candidateType) &&
+      university.fields?.includes(input.field) &&
+      isFieldCompatible(input, university),
   );
   const source = matchingPool.length >= 4 ? matchingPool : typePool.length ? typePool : universityData;
   const ranked = source
@@ -2156,6 +2176,7 @@ function renderMatchResultsNow() {
     safety: ranked.filter((university) => university.recommendationBand === "safety"),
     recommended: ranked.filter((university) => university.recommendationBand === "recommended"),
     reach: ranked.filter((university) => university.recommendationBand === "reach"),
+    undetermined: ranked.filter((university) => university.recommendationBand === "undetermined"),
     notRecommended: ranked.filter((university) => university.recommendationBand === "notRecommended"),
   };
   const baseLimits = matchExpanded
@@ -2178,7 +2199,7 @@ function renderMatchResultsNow() {
   scoreNode.textContent = `${topScore}/100`;
   note.textContent =
     displayCandidates.length
-      ? `保底${grouped.safety.length} / 推荐${grouped.recommended.length} / 冲刺${grouped.reach.length}`
+      ? `保底${grouped.safety.length} / 推荐${grouped.recommended.length} / 冲刺${grouped.reach.length} / 判定不可${grouped.undetermined.length}`
       : "当前条件下没有进入主要候选的大学。建议先提高EJU日语、综合/理科、英语或放宽地区/学校类型。";
 
   const renderCandidateCard = (university) => {
@@ -2254,8 +2275,8 @@ function renderMatchResultsNow() {
   const expandCount = Math.min(hiddenCount, 15);
   const moreLabel = matchExpanded ? "候选を折りたたむ" : `さらに${expandCount}校を表示`;
   const moreText = hiddenCount > 0
-    ? `主要候选${grouped.safety.length + grouped.recommended.length + grouped.reach.length}校中、${displayCandidates.length}校を表示中。暂不建议${grouped.notRecommended.length}校は通常非表示です。`
-    : `主要候选${displayCandidates.length}校を表示中。暂不建议${grouped.notRecommended.length}校は通常非表示です。`;
+    ? `主要候选${grouped.safety.length + grouped.recommended.length + grouped.reach.length}校中、${displayCandidates.length}校を表示中。判定不可${grouped.undetermined.length}校、暂不建议${grouped.notRecommended.length}校は通常非表示です。`
+    : `主要候选${displayCandidates.length}校を表示中。判定不可${grouped.undetermined.length}校、暂不建议${grouped.notRecommended.length}校は通常非表示です。`;
 
   output.innerHTML = `
     <div class="match-priority-nav">
@@ -2865,6 +2886,7 @@ function renderAnnouncements() {
   });
 
   output.innerHTML = announcements
+    .slice(0, 3)
     .map(
       (item) => `
         <article class="announcement-card">
@@ -3068,8 +3090,8 @@ function getExamCountdownEvents(year) {
   const official2026 = year === 2026;
   const ejuFirstExamDay = official2026 ? 21 : nthSunday(year, 6, 3);
   const ejuSecondExamDay = official2026 ? 8 : nthSunday(year, 11, 2);
-  const jlptJulyDay = firstSunday(year, 7);
-  const jlptDecemberDay = firstSunday(year, 12);
+  const jlptJulyDate = official2026 ? "2026-07-05T12:30:00+09:00" : jstDateString(year, 7, firstSunday(year, 7), 12, 30);
+  const jlptDecemberDate = official2026 ? "2026-12-06T12:30:00+09:00" : jstDateString(year, 12, firstSunday(year, 12), 12, 30);
 
   return [
     {
@@ -3110,8 +3132,8 @@ function getExamCountdownEvents(year) {
     {
       type: "JLPT",
       title: `${year}年第1回 JLPT試験`,
-      date: jstDateString(year, 7, jlptJulyDay, 12, 30),
-      link: "https://www.jlpt.jp/application/domestic_index.html",
+      date: jlptJulyDate,
+      link: "https://www.jlpt.jp/",
       status: official2026 ? "公式確定" : "自動計算・要確認",
     },
     {
@@ -3124,8 +3146,8 @@ function getExamCountdownEvents(year) {
     {
       type: "JLPT",
       title: `${year}年第2回 JLPT試験`,
-      date: jstDateString(year, 12, jlptDecemberDay, 12, 30),
-      link: "https://www.jlpt.jp/application/domestic_index.html",
+      date: jlptDecemberDate,
+      link: "https://www.jlpt.jp/",
       status: official2026 ? "公式確定" : "自動計算・要確認",
     },
   ];
