@@ -69,6 +69,7 @@ const languageLabels = {
       "#exam-entry-title": "报名入口",
       ".exam-entry-more": "EJU时间割と流れマニュアルを見る",
       "#intro-title": "快速入口",
+      "#content-title": "经验文章・采访计划",
       "#announcements-title": "公告栏",
       "#score-title": "预测成绩から候选大学を探す",
       "#paths-title": "常见升学路径",
@@ -98,7 +99,18 @@ const languageLabels = {
         "JLPT",
         "志望理由书准备度",
       ],
-      universityToolbar: ["搜索大学・地区・项目", "学校类型", "方向", "数据状态", "排序"],
+      universityToolbar: [
+        "搜索大学・地区・项目",
+        "学校类型",
+        "地域",
+        "方向",
+        "EJU科目",
+        "JLPT",
+        "英语",
+        "締切",
+        "数据状态",
+        "排序",
+      ],
       planForm: ["目标", "目前日语水平", "希望入学时间"],
     },
     buttons: {
@@ -141,6 +153,7 @@ const languageLabels = {
       "#exam-entry-title": "Official Application Links",
       ".exam-entry-more": "View EJU timetable and step-by-step manual",
       "#intro-title": "Quick Entry",
+      "#content-title": "Experience Notes and Interview Plan",
       "#announcements-title": "Updates",
       "#score-title": "Find Candidate Universities from Predicted Scores",
       "#paths-title": "Common Study Routes",
@@ -170,7 +183,18 @@ const languageLabels = {
         "JLPT",
         "Statement of Purpose Readiness",
       ],
-      universityToolbar: ["Search by university, region, or program", "School Type", "Field", "Data Status", "Sort"],
+      universityToolbar: [
+        "Search by university, region, or program",
+        "School Type",
+        "Region",
+        "Field",
+        "EJU Subject",
+        "JLPT",
+        "English",
+        "Deadline",
+        "Data Status",
+        "Sort",
+      ],
       planForm: ["Goal", "Current Japanese Level", "Preferred Enrollment"],
     },
     buttons: {
@@ -288,6 +312,7 @@ const languageLabels = {
       "#exam-entry-title": "公式申込入口",
       ".exam-entry-more": "EJU時間割と流れマニュアルを見る",
       "#intro-title": "クイック入口",
+      "#content-title": "経験記事・インタビュー計画",
       "#announcements-title": "公告",
       "#score-title": "予測成績から候補大学を探す",
       "#paths-title": "主な進学ルート",
@@ -317,7 +342,18 @@ const languageLabels = {
         "JLPT",
         "志望理由書の準備度",
       ],
-      universityToolbar: ["大学・地域・項目を検索", "学校タイプ", "分野", "データ状態", "並び替え"],
+      universityToolbar: [
+        "大学・地域・項目を検索",
+        "学校タイプ",
+        "地域",
+        "分野",
+        "EJU科目",
+        "JLPT",
+        "英語",
+        "締切",
+        "データ状態",
+        "並び替え",
+      ],
       planForm: ["目標", "現在の日本語レベル", "希望入学時期"],
     },
     buttons: {
@@ -435,6 +471,7 @@ const languageLabels = {
       "#exam-entry-title": "공식 신청 링크",
       ".exam-entry-more": "EJU 시간표와 진행 매뉴얼 보기",
       "#intro-title": "빠른 입구",
+      "#content-title": "경험 글・인터뷰 계획",
       "#announcements-title": "공지",
       "#score-title": "예상 성적으로 후보 대학 찾기",
       "#paths-title": "주요 진학 경로",
@@ -464,7 +501,18 @@ const languageLabels = {
         "JLPT",
         "지원이유서 준비도",
       ],
-      universityToolbar: ["대학・지역・프로그램 검색", "학교 유형", "분야", "데이터 상태", "정렬"],
+      universityToolbar: [
+        "대학・지역・프로그램 검색",
+        "학교 유형",
+        "지역",
+        "분야",
+        "EJU 과목",
+        "JLPT",
+        "영어",
+        "마감",
+        "데이터 상태",
+        "정렬",
+      ],
       planForm: ["목표", "현재 일본어 수준", "희망 입학 시기"],
     },
     buttons: {
@@ -917,6 +965,7 @@ const fieldLabels = {
 let universityData = [...featuredUniversities];
 let admissionRequirementRecords = {};
 let admissionRequirementMeta = null;
+const universityDetailPages = window.__UNIVERSITY_DETAIL_PAGES__ || {};
 
 const privateFeaturedNames = new Set([
   "早稻田大学 国际招生",
@@ -1347,6 +1396,95 @@ function passesUniversityTypeFilter(university, type) {
 function passesUniversityFieldFilter(university, field) {
   if (!field || field === "all") return true;
   return university.fields?.includes(field) && isFieldCompatible({ field }, university);
+}
+
+function passesUniversityRegionFilter(university, region) {
+  if (!region || region === "all") return true;
+  return university.region === region || university.region === "any";
+}
+
+function getRequirementText(record) {
+  if (!record) return "";
+  return [
+    record.eligibility,
+    record.officialMinimumScore,
+    record.englishRequirement,
+    record.jlptRequirement,
+    record.notes,
+    ...(record.ejuSubjects ?? []),
+    ...(record.timeline ?? []).map((item) => `${item.label} ${item.value}`),
+  ]
+    .filter(Boolean)
+    .join(" ");
+}
+
+function passesEjuSubjectFilter(university, filter) {
+  if (!filter || filter === "all") return true;
+  const record = getAdmissionRequirementRecord(university);
+  const text = getRequirementText(record);
+  if (!text) return false;
+  const rules = {
+    japanese: /日本語|日语|Japanese/i,
+    comprehensive: /総合科目|综合科目|Japan and the World/i,
+    math: /数学|Math/i,
+    science: /理科|物理|化学|生物|Science/i,
+  };
+  return rules[filter]?.test(text) ?? true;
+}
+
+function hasExplicitNoRequirement(text) {
+  return /確認できない|未記載|明記されていない|未公開|なし|不要|not required/i.test(text);
+}
+
+function passesJlptFilter(university, filter) {
+  if (!filter || filter === "all") return true;
+  const record = getAdmissionRequirementRecord(university);
+  const text = record?.jlptRequirement || "";
+  if (filter === "required") return Boolean(text && !hasExplicitNoRequirement(text));
+  if (filter === "none") return !text || hasExplicitNoRequirement(text);
+  if (filter === "n1") return /N1|１級|1級/i.test(text);
+  if (filter === "n2") return /N2|２級|2級/i.test(text);
+  return true;
+}
+
+function passesEnglishFilter(university, filter) {
+  if (!filter || filter === "all") return true;
+  const record = getAdmissionRequirementRecord(university);
+  const text = record?.englishRequirement || "";
+  if (filter === "required") return Boolean(text && !hasExplicitNoRequirement(text));
+  if (filter === "none") return !text || hasExplicitNoRequirement(text);
+  return true;
+}
+
+function parseTimelineDate(value) {
+  const text = String(value || "");
+  const iso = text.match(/20\d{2}-\d{2}-\d{2}/)?.[0];
+  if (iso) return new Date(`${iso}T00:00:00+09:00`);
+  const japanese = text.match(/(20\d{2})年\s*(\d{1,2})月\s*(\d{1,2})日/);
+  if (japanese) {
+    const [, year, month, day] = japanese;
+    return new Date(`${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}T00:00:00+09:00`);
+  }
+  return null;
+}
+
+function getEarliestApplicationDeadline(university) {
+  const record = getAdmissionRequirementRecord(university);
+  const dates = (record?.timeline ?? [])
+    .filter((item) => /締切|出願|出愿|登録|提出/.test(`${item.label} ${item.value}`))
+    .map((item) => parseTimelineDate(item.value))
+    .filter((date) => date && !Number.isNaN(date.getTime()))
+    .sort((a, b) => a - b);
+  return dates[0] ?? null;
+}
+
+function passesDeadlineFilter(university, filter) {
+  if (!filter || filter === "all") return true;
+  const deadline = getEarliestApplicationDeadline(university);
+  if (filter === "has") return Boolean(deadline);
+  if (filter === "missing") return !deadline;
+  if (filter === "upcoming") return Boolean(deadline && deadline.getTime() >= Date.now() - 86400000);
+  return true;
 }
 
 function applyPrivateUniversityProfile(university) {
@@ -1932,6 +2070,22 @@ function getUniversityOfficialUrl(university) {
   return getJapaneseOfficialUrl(matched?.[1] ?? university.official);
 }
 
+function getUniversityDetailPageUrl(university) {
+  const candidates = [
+    getDisplayUniversityName(university),
+    university.name,
+    ...(university.aliases ?? []),
+  ].filter(Boolean);
+  const direct = candidates.map((name) => universityDetailPages[name]).find(Boolean);
+  if (direct) return direct;
+  const normalizedCandidates = candidates.map(normalizeUniversitySearch);
+  const matched = Object.entries(universityDetailPages).find(([name]) => {
+    const normalized = normalizeUniversitySearch(name);
+    return normalizedCandidates.some((candidate) => candidate && normalized && (candidate.includes(normalized) || normalized.includes(candidate)));
+  });
+  return matched?.[1] || "";
+}
+
 let matchRenderTimer;
 let matchExpanded = false;
 let universitySearchTimer;
@@ -2279,6 +2433,12 @@ function renderMatchResultsNow() {
     reach: grouped.reach.slice(0, baseLimits.reach),
   };
   const displayCandidates = [...displayGroups.safety, ...displayGroups.recommended, ...displayGroups.reach];
+  const displayCounts = {
+    safety: displayGroups.safety.length,
+    recommended: displayGroups.recommended.length,
+    reach: displayGroups.reach.length,
+  };
+  const availableCount = grouped.safety.length + grouped.recommended.length + grouped.reach.length;
   const hiddenCount = ["safety", "recommended", "reach"].reduce(
     (sum, band) => sum + Math.max(grouped[band].length - displayGroups[band].length, 0),
     0,
@@ -2290,7 +2450,7 @@ function renderMatchResultsNow() {
   scoreNode.textContent = `${topScore}/100`;
   note.textContent =
     displayCandidates.length
-      ? `保底${grouped.safety.length} / 推荐${grouped.recommended.length} / 冲刺${grouped.reach.length}。募集要項不足校は候选から分けています。`
+      ? `显示 保底${displayCounts.safety} / 推荐${displayCounts.recommended} / 冲刺${displayCounts.reach}。共${availableCount}校，募集要項不足校は候选から分けています。`
       : "当前条件下没有进入主要候选的大学。建议先提高EJU日语、综合/理科、英语或放宽地区/学校类型。";
 
   const renderCandidateCard = (university) => {
@@ -2348,7 +2508,7 @@ function renderMatchResultsNow() {
           <div class="match-band-head">
             <div>
               <span>${recommendationBandLabels[band]}</span>
-              <strong>${grouped[band].length}校</strong>
+              <strong>${items.length}校</strong>
             </div>
             <p>${recommendationBandNotes[band]}</p>
           </div>
@@ -2366,24 +2526,24 @@ function renderMatchResultsNow() {
   const expandCount = Math.min(hiddenCount, 15);
   const moreLabel = matchExpanded ? "候选を折りたたむ" : `さらに${expandCount}校を表示`;
   const moreText = hiddenCount > 0
-    ? `主要候选${grouped.safety.length + grouped.recommended.length + grouped.reach.length}校中、${displayCandidates.length}校を表示中。募集要項不足校と方向不一致校は候选から分けています。`
+    ? `主要候选${availableCount}校中、${displayCandidates.length}校を表示中。募集要項不足校と方向不一致校は候选から分けています。`
     : `主要候选${displayCandidates.length}校を表示中。募集要項不足校と方向不一致校は候选から分けています。`;
 
   output.innerHTML = `
     <div class="match-priority-nav">
       <a class="priority-card priority-safety" href="#match-band-safety">
         <span>保底</span>
-        <strong>${grouped.safety.length}</strong>
+        <strong>${displayCounts.safety}</strong>
         <em>优先确认出愿条件</em>
       </a>
       <a class="priority-card priority-recommended" href="#match-band-recommended">
         <span>推荐</span>
-        <strong>${grouped.recommended.length}</strong>
+        <strong>${displayCounts.recommended}</strong>
         <em>主力候选池</em>
       </a>
       <a class="priority-card priority-reach" href="#match-band-reach">
         <span>冲刺</span>
-        <strong>${grouped.reach.length}</strong>
+        <strong>${displayCounts.reach}</strong>
         <em>少量挑战</em>
       </a>
     </div>
@@ -2431,11 +2591,27 @@ function renderUniversityCards(query = "") {
   if (!grid) return;
   const status = document.querySelector("#university-search-status");
   const type = document.querySelector("#university-type")?.value ?? "all";
+  const region = document.querySelector("#university-region")?.value ?? "all";
   const field = document.querySelector("#university-field")?.value ?? "all";
+  const ejuSubject = document.querySelector("#university-eju-subject")?.value ?? "all";
+  const jlptFilter = document.querySelector("#university-jlpt-filter")?.value ?? "all";
+  const englishFilter = document.querySelector("#university-english-filter")?.value ?? "all";
+  const deadlineFilter = document.querySelector("#university-deadline-filter")?.value ?? "all";
   const dataStatus = document.querySelector("#university-data-status")?.value ?? "all";
   const sortMode = document.querySelector("#university-sort")?.value ?? "relevance";
   const trimmedQuery = query.trim();
-  const renderKey = `${type}::${field}::${dataStatus}::${sortMode}::${trimmedQuery}`;
+  const renderKey = [
+    type,
+    region,
+    field,
+    ejuSubject,
+    jlptFilter,
+    englishFilter,
+    deadlineFilter,
+    dataStatus,
+    sortMode,
+    trimmedQuery,
+  ].join("::");
   if (renderKey !== lastUniversityRenderKey) {
     universityVisibleCount = universityPageSize;
     lastUniversityRenderKey = renderKey;
@@ -2443,7 +2619,12 @@ function renderUniversityCards(query = "") {
   const typedMatches = universityData.filter(
     (university) =>
       passesUniversityTypeFilter(university, type) &&
+      passesUniversityRegionFilter(university, region) &&
       passesUniversityFieldFilter(university, field) &&
+      passesEjuSubjectFilter(university, ejuSubject) &&
+      passesJlptFilter(university, jlptFilter) &&
+      passesEnglishFilter(university, englishFilter) &&
+      passesDeadlineFilter(university, deadlineFilter) &&
       passesRequirementStatusFilter(university, dataStatus) &&
       matchesUniversityQuery(university, query),
   );
@@ -2456,10 +2637,11 @@ function renderUniversityCards(query = "") {
       ...university,
       searchRank: getUniversitySearchRank(university, query),
       dataWeight: getRequirementDataWeight(university),
+      deadline: getEarliestApplicationDeadline(university)?.getTime() ?? Infinity,
     }))
     .sort((a, b) => {
       if (sortMode === "name") return getDisplayUniversityName(a).localeCompare(getDisplayUniversityName(b));
-      if (sortMode === "deadline") return b.dataWeight - a.dataWeight || b.searchRank - a.searchRank || a.name.localeCompare(b.name);
+      if (sortMode === "deadline") return a.deadline - b.deadline || b.dataWeight - a.dataWeight || b.searchRank - a.searchRank || a.name.localeCompare(b.name);
       return b.searchRank - a.searchRank || b.dataWeight - a.dataWeight || a.name.localeCompare(b.name);
     });
   const visibleUniversities = filtered.slice(0, universityVisibleCount);
@@ -2494,6 +2676,8 @@ function renderUniversityCards(query = "") {
           const facts = getOfficialAdmissionFacts(university);
           const statusText = getUniversityCardStatus(university);
           const officialUrl = getUniversityOfficialUrl(university);
+          const detailUrl = getUniversityDetailPageUrl(university);
+          const deadline = getEarliestApplicationDeadline(university);
           return `
         <article class="university-card compact-university-card">
           <div class="university-card-head">
@@ -2509,6 +2693,7 @@ function renderUniversityCards(query = "") {
           <div class="university-quick-facts">
             <span>${escapeHtml(facts.extractionStatus.split(" / ")[0])}</span>
             <span>${hasJudgementReadyProfile(university) ? "诊断参考" : "判定不可"}</span>
+            ${deadline ? `<span>締切 ${deadline.toISOString().slice(0, 10)}</span>` : ""}
             <span>${escapeHtml(facts.reference).slice(0, 46)}</span>
           </div>
           <p>${university.requirement}</p>
@@ -2521,6 +2706,7 @@ function renderUniversityCards(query = "") {
             ${renderAdmissionDataBlock(university)}
           </details>
           <div class="card-links">
+            ${detailUrl ? `<a href="${escapeHtml(detailUrl)}">詳細ページ</a>` : ""}
             <a href="${officialUrl}" target="_blank" rel="noreferrer" data-track-event="official-link">大学公式サイト</a>
             ${facts.sourceUrl ? `<a href="${escapeHtml(facts.sourceUrl)}" target="_blank" rel="noreferrer" data-track-event="requirement-link">募集要項</a>` : ""}
             <button type="button" class="favorite-button ${isFavoriteUniversity(university.name) ? "is-favorite" : ""}" data-favorite="${encodeURIComponent(university.name)}">
@@ -2812,7 +2998,16 @@ document.querySelector("#university-type")?.addEventListener("change", () => {
   renderUniversityCardsWithAnimation(document.querySelector("#university-search")?.value ?? "");
 });
 
-["#university-field", "#university-data-status", "#university-sort"].forEach((selector) => {
+[
+  "#university-region",
+  "#university-field",
+  "#university-eju-subject",
+  "#university-jlpt-filter",
+  "#university-english-filter",
+  "#university-deadline-filter",
+  "#university-data-status",
+  "#university-sort",
+].forEach((selector) => {
   document.querySelector(selector)?.addEventListener("change", () => {
     renderUniversityCardsWithAnimation(document.querySelector("#university-search")?.value ?? "");
   });
@@ -3205,6 +3400,10 @@ const staticSearchItems = [
   ["成绩看候选校", "EJU 英语 JLPT 志望理由书 出愿参考带 候选大学", "#score-tool"],
   ["EJU / JLPT备考指南", "過去問 問題例 参考书 报名 N1 N2 文综 日语", "#exam-guide"],
   ["大学资料", "全国 私立 国公立 公式链接 JASSO EJU利用校", "#universities"],
+  ["经验文章", "站长经验 直考 出愿材料 志望理由书 募集要項 截止时间 留学生采访", "#content"],
+  ["站长直考经验", "什么都不知道 日本大学 出愿 EJU 来日手续", "articles/direct-exam-experience/"],
+  ["募集要項与材料确认", "志望理由书 EJU科目 JLPT 英语 截止时间", "articles/application-documents/"],
+  ["留学生采访计划", "采访募集 投稿 模板 真实故事", "interviews/"],
   ["大学院申请导航", "大学院 修士 博士 研究生 研究计划书 研究計画書 教授联系 教授連絡 导师 研究科 院试 口试 面试 募集要項", "#graduate"],
   [
     "来日生活工具・个人收藏网站",

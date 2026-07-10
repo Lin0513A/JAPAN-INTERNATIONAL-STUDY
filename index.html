@@ -77,6 +77,7 @@
               <a href="#sources"><span>官方来源</span><em>JASSO、JLPT、入管、外务省</em></a>
               <a href="#announcements"><span>公告栏</span><em>更新记录、募集要項抽取进度</em></a>
               <a href="#costs"><span>奖学金</span><em>MEXT、JASSO、学校减免</em></a>
+              <a href="#content"><span>经验文章</span><em>直考经验、材料清单、采访计划</em></a>
             </div>
             <div class="mega-column">
               <strong>来日后・本站</strong>
@@ -244,6 +245,31 @@
             <span class="number">05</span>
             <h3>大学院申请导航</h3>
             <p>研究计划书、导师匹配、教授邮件、院试与出愿确认。</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="section content-section detail-section" id="content" aria-labelledby="content-title">
+        <div class="section-heading">
+          <p class="eyebrow">Real Notes</p>
+          <h2 id="content-title">经验文章・采访计划</h2>
+          <p>功能可以帮你筛选，但真正能让人安心的是具体经验。这里会放站长自己的直考・来日经验，以及之后收集到的留学生采访。</p>
+        </div>
+        <div class="content-grid">
+          <a class="content-card" href="articles/direct-exam-experience/">
+            <span>站长经验</span>
+            <h3>从什么都不知道，到自己出愿日本大学</h3>
+            <p>整理查资料、EJU、出愿、来日后手续中最容易踩坑的地方。</p>
+          </a>
+          <a class="content-card" href="articles/application-documents/">
+            <span>材料准备</span>
+            <h3>志望理由书・募集要項・截止时间怎么读</h3>
+            <p>把出愿前最容易混乱的材料确认顺序写成清单。</p>
+          </a>
+          <a class="content-card" href="interviews/">
+            <span>采访募集</span>
+            <h3>留学生采访模板与投稿入口</h3>
+            <p>先不假装已经采访。这里放问题模板，之后收集真实故事。</p>
           </a>
         </div>
       </section>
@@ -567,12 +593,62 @@
             </select>
           </label>
           <label>
+            地域
+            <select id="university-region">
+              <option value="all">全国</option>
+              <option value="hokkaido">北海道</option>
+              <option value="tohoku">东北</option>
+              <option value="kanto">关东 / 东京圈</option>
+              <option value="chubu">中部</option>
+              <option value="kansai">关西</option>
+              <option value="chugoku_shikoku">中国・四国</option>
+              <option value="kyushu">九州・冲绳</option>
+            </select>
+          </label>
+          <label>
             方向
             <select id="university-field">
               <option value="all">全部</option>
               <option value="humanities">文科 / 社会科学</option>
               <option value="science">理科 / 工学</option>
               <option value="english">英语项目</option>
+            </select>
+          </label>
+          <label>
+            EJU科目
+            <select id="university-eju-subject">
+              <option value="all">全部</option>
+              <option value="japanese">日本語</option>
+              <option value="comprehensive">総合科目</option>
+              <option value="math">数学</option>
+              <option value="science">理科</option>
+            </select>
+          </label>
+          <label>
+            JLPT
+            <select id="university-jlpt-filter">
+              <option value="all">全部</option>
+              <option value="required">JLPT条件あり</option>
+              <option value="n1">N1相关</option>
+              <option value="n2">N2相关</option>
+              <option value="none">JLPT明記なし</option>
+            </select>
+          </label>
+          <label>
+            英語
+            <select id="university-english-filter">
+              <option value="all">全部</option>
+              <option value="required">英語条件あり</option>
+              <option value="none">英語条件明記なし</option>
+            </select>
+          </label>
+          <label>
+            締切
+            <select id="university-deadline-filter">
+              <option value="all">全部</option>
+              <option value="upcoming">これから締切</option>
+              <option value="has">日程あり</option>
+              <option value="missing">日程未抽取</option>
             </select>
           </label>
           <label>
@@ -1528,6 +1604,7 @@
     <script src="data/private-universities-data.js?v=20260630-03"></script>
     <script src="data/national-public-universities-data.js?v=20260630-03"></script>
     <script src="data/admission-requirements-data.js?v=20260710-02"></script>
-    <script src="script.js?v=20260710-p0"></script>
+    <script src="data/university-pages-data.js?v=20260710-pages"></script>
+    <script src="script.js?v=20260710-complete2"></script>
   </body>
 </html>
