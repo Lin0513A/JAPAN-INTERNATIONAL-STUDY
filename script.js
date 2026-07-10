@@ -98,7 +98,7 @@ const languageLabels = {
         "JLPT",
         "志望理由书准备度",
       ],
-      universityToolbar: ["搜索大学・地区・项目", "学校类型"],
+      universityToolbar: ["搜索大学・地区・项目", "学校类型", "方向", "数据状态", "排序"],
       planForm: ["目标", "目前日语水平", "希望入学时间"],
     },
     buttons: {
@@ -170,7 +170,7 @@ const languageLabels = {
         "JLPT",
         "Statement of Purpose Readiness",
       ],
-      universityToolbar: ["Search by university, region, or program", "School Type"],
+      universityToolbar: ["Search by university, region, or program", "School Type", "Field", "Data Status", "Sort"],
       planForm: ["Goal", "Current Japanese Level", "Preferred Enrollment"],
     },
     buttons: {
@@ -317,7 +317,7 @@ const languageLabels = {
         "JLPT",
         "志望理由書の準備度",
       ],
-      universityToolbar: ["大学・地域・項目を検索", "学校タイプ"],
+      universityToolbar: ["大学・地域・項目を検索", "学校タイプ", "分野", "データ状態", "並び替え"],
       planForm: ["目標", "現在の日本語レベル", "希望入学時期"],
     },
     buttons: {
@@ -464,7 +464,7 @@ const languageLabels = {
         "JLPT",
         "지원이유서 준비도",
       ],
-      universityToolbar: ["대학・지역・프로그램 검색", "학교 유형"],
+      universityToolbar: ["대학・지역・프로그램 검색", "학교 유형", "분야", "데이터 상태", "정렬"],
       planForm: ["목표", "현재 일본어 수준", "희망 입학 시기"],
     },
     buttons: {
@@ -557,7 +557,10 @@ const languageLabels = {
   },
 };
 
-let currentLanguage = localStorage.getItem("isj-language") || "zh";
+const initialUrlLanguage = new URLSearchParams(window.location.search).get("lang");
+let currentLanguage = languageLabels[initialUrlLanguage]
+  ? initialUrlLanguage
+  : localStorage.getItem("isj-language") || "zh";
 
 function getLanguagePack() {
   return languageLabels[currentLanguage] || languageLabels.zh;
@@ -1083,6 +1086,14 @@ function writeJson(key, value) {
   localStorage.setItem(storageKey(key), JSON.stringify(value));
 }
 
+function trackLocalEvent(name, detail = "") {
+  const events = readJson("local-analytics", {});
+  const key = detail ? `${name}:${detail}` : name;
+  events[key] = (events[key] || 0) + 1;
+  events.lastEventAt = new Date().toISOString();
+  writeJson("local-analytics", events);
+}
+
 function persistFields(key, selectors) {
   const values = {};
   selectors.forEach((selector) => {
@@ -1333,6 +1344,11 @@ function passesUniversityTypeFilter(university, type) {
   return true;
 }
 
+function passesUniversityFieldFilter(university, field) {
+  if (!field || field === "all") return true;
+  return university.fields?.includes(field) && isFieldCompatible({ field }, university);
+}
+
 function applyPrivateUniversityProfile(university) {
   const profile = getPrivateUniversityProfile(university);
   if (!profile) return university;
@@ -1426,6 +1442,10 @@ function getUniversityDifficulty(university) {
   const base = university.type === "private" ? 22 : 30;
 
   return Math.round(base + ejuDifficulty + englishDifficulty + jlptDifficulty + essayDifficulty);
+}
+
+function isGenericUniversityBucket(university) {
+  return /EJU利用校|国公立大学 EJU利用校|私立大学 EJU利用校/.test(university.name);
 }
 
 function scoreUniversity(input, university) {
@@ -1683,15 +1703,41 @@ function getScoreGapSummary(input, university) {
   };
 }
 
-function hasReliableScoreProfile(university) {
+function hasJudgementReadyProfile(university) {
   const record = getAdmissionRequirementRecord(university);
   return Boolean(
-    university.target ||
+    !isGenericUniversityBucket(university) &&
+      (university.target ||
       university.profiled ||
       record?.officialMinimumScore ||
-      record?.ejuSubjects?.length ||
-      getCommunityStats(university).count >= 3,
+      getCommunityStats(university).count >= 3),
   );
+}
+
+function hasOfficialRequirementExtraction(university) {
+  const record = getAdmissionRequirementRecord(university);
+  return ["official_extracted", "official_partial", "unavailable"].includes(record?.status);
+}
+
+function getRequirementDataWeight(university) {
+  const record = getAdmissionRequirementRecord(university);
+  if (hasJudgementReadyProfile(university)) return 5;
+  if (record?.status === "official_extracted") return 4;
+  if (record?.status === "official_partial") return 3;
+  if (record?.status === "unavailable") return 2;
+  if (record?.status === "pending_official_extraction") return 1;
+  return 0;
+}
+
+function passesRequirementStatusFilter(university, status) {
+  if (!status || status === "all") return true;
+  if (status === "ready") return hasJudgementReadyProfile(university);
+  if (status === "official") return hasOfficialRequirementExtraction(university);
+  if (status === "pending") {
+    const record = getAdmissionRequirementRecord(university);
+    return !record || record.status === "pending_official_extraction";
+  }
+  return true;
 }
 
 function getRecommendationBand(input, university, score, rankScore) {
@@ -1699,7 +1745,7 @@ function getRecommendationBand(input, university, score, rankScore) {
   const strength = getInputStrength(input);
   const focus = getUniversityFocus(university);
   const { gaps, coreGap, worstGap } = getScoreGapSummary(input, university);
-  const reliableProfile = hasReliableScoreProfile(university);
+  const reliableProfile = hasJudgementReadyProfile(university);
   const selectiveHumanities = input.field === "humanities" && isSelectivePrivateHumanities(university);
   const wrongField =
     !university.fields?.includes(input.field) ||
@@ -1908,6 +1954,7 @@ function isFavoriteUniversity(name) {
 }
 
 function toggleFavoriteUniversity(name) {
+  trackLocalEvent("favorite-university", name);
   const favorites = getFavoriteUniversities();
   if (favorites.includes(name)) {
     setFavoriteUniversities(favorites.filter((item) => item !== name));
@@ -2131,7 +2178,42 @@ function renderFavoritePanel() {
         )
         .join("")}
     </div>
+    <div class="favorite-compare">
+      <strong>3-5校比較</strong>
+      <div class="compare-table" role="table" aria-label="收藏大学比较">
+        <div role="row">
+          <span role="columnheader">大学</span>
+          <span role="columnheader">数据</span>
+          <span role="columnheader">方向</span>
+          <span role="columnheader">时间节点</span>
+        </div>
+        ${favorites
+          .slice(0, 5)
+          .map((university) => {
+            const facts = getOfficialAdmissionFacts(university);
+            return `
+              <div role="row">
+                <span role="cell">${escapeHtml(getDisplayUniversityName(university))}</span>
+                <span role="cell">${escapeHtml(facts.extractionStatus.split(" / ")[0])}</span>
+                <span role="cell">${escapeHtml(getDisplayFields(university) || "-")}</span>
+                <span role="cell">${escapeHtml(facts.timeline).slice(0, 80)}</span>
+              </div>
+            `;
+          })
+          .join("")}
+      </div>
+      <p>收藏后先比较最多5校。正式出愿前仍要打开各大学募集要項确认学部・方式・年度。</p>
+    </div>
   `;
+}
+
+function getUniversityCardStatus(university) {
+  if (hasJudgementReadyProfile(university)) return "本站参考带あり";
+  const record = getAdmissionRequirementRecord(university);
+  if (record?.status === "official_extracted") return "募集要項抽取済み";
+  if (record?.status === "official_partial") return "公式一部抽取";
+  if (record?.status === "unavailable") return "公式確認済み";
+  return "抽取待ち";
 }
 
 function renderMatchResultsNow() {
@@ -2142,6 +2224,7 @@ function renderMatchResultsNow() {
 
   const input = getScoreInput();
   const matchingPool = universityData.filter((university) => {
+    if (isGenericUniversityBucket(university)) return false;
     const fieldMatch = university.fields?.includes(input.field) && isFieldCompatible(input, university);
     const regionMatch =
       input.region === "any" || university.region === input.region || university.region === "any";
@@ -2150,12 +2233,13 @@ function renderMatchResultsNow() {
   });
   const typePool = universityData.filter(
     (university) =>
+      !isGenericUniversityBucket(university) &&
       (input.candidateType === "all" || university.type === input.candidateType) &&
       university.fields?.includes(input.field) &&
       isFieldCompatible(input, university),
   );
   const source = matchingPool.length >= 4 ? matchingPool : typePool.length ? typePool : universityData;
-  const ranked = source
+  const ranked = dedupeByDisplayName(source)
     .map((university) => ({
       ...university,
       score: scoreUniversity(input, university),
@@ -2172,12 +2256,19 @@ function renderMatchResultsNow() {
       displayScore: getDisplayMatchScore(university),
     }))
     .sort((a, b) => b.rankScore - a.rankScore || b.score - a.score || b.difficulty - a.difficulty);
-  const grouped = {
+  const rawGrouped = {
     safety: ranked.filter((university) => university.recommendationBand === "safety"),
     recommended: ranked.filter((university) => university.recommendationBand === "recommended"),
     reach: ranked.filter((university) => university.recommendationBand === "reach"),
     undetermined: ranked.filter((university) => university.recommendationBand === "undetermined"),
     notRecommended: ranked.filter((university) => university.recommendationBand === "notRecommended"),
+  };
+  const grouped = {
+    safety: rawGrouped.safety.slice(0, 12),
+    recommended: rawGrouped.recommended.slice(0, 12),
+    reach: rawGrouped.reach.slice(0, 10),
+    undetermined: rawGrouped.undetermined,
+    notRecommended: rawGrouped.notRecommended,
   };
   const baseLimits = matchExpanded
     ? { safety: 12, recommended: 14, reach: 12 }
@@ -2199,7 +2290,7 @@ function renderMatchResultsNow() {
   scoreNode.textContent = `${topScore}/100`;
   note.textContent =
     displayCandidates.length
-      ? `保底${grouped.safety.length} / 推荐${grouped.recommended.length} / 冲刺${grouped.reach.length} / 判定不可${grouped.undetermined.length}`
+      ? `保底${grouped.safety.length} / 推荐${grouped.recommended.length} / 冲刺${grouped.reach.length}。募集要項不足校は候选から分けています。`
       : "当前条件下没有进入主要候选的大学。建议先提高EJU日语、综合/理科、英语或放宽地区/学校类型。";
 
   const renderCandidateCard = (university) => {
@@ -2275,8 +2366,8 @@ function renderMatchResultsNow() {
   const expandCount = Math.min(hiddenCount, 15);
   const moreLabel = matchExpanded ? "候选を折りたたむ" : `さらに${expandCount}校を表示`;
   const moreText = hiddenCount > 0
-    ? `主要候选${grouped.safety.length + grouped.recommended.length + grouped.reach.length}校中、${displayCandidates.length}校を表示中。判定不可${grouped.undetermined.length}校、暂不建议${grouped.notRecommended.length}校は通常非表示です。`
-    : `主要候选${displayCandidates.length}校を表示中。判定不可${grouped.undetermined.length}校、暂不建议${grouped.notRecommended.length}校は通常非表示です。`;
+    ? `主要候选${grouped.safety.length + grouped.recommended.length + grouped.reach.length}校中、${displayCandidates.length}校を表示中。募集要項不足校と方向不一致校は候选から分けています。`
+    : `主要候选${displayCandidates.length}校を表示中。募集要項不足校と方向不一致校は候选から分けています。`;
 
   output.innerHTML = `
     <div class="match-priority-nav">
@@ -2340,14 +2431,21 @@ function renderUniversityCards(query = "") {
   if (!grid) return;
   const status = document.querySelector("#university-search-status");
   const type = document.querySelector("#university-type")?.value ?? "all";
+  const field = document.querySelector("#university-field")?.value ?? "all";
+  const dataStatus = document.querySelector("#university-data-status")?.value ?? "all";
+  const sortMode = document.querySelector("#university-sort")?.value ?? "relevance";
   const trimmedQuery = query.trim();
-  const renderKey = `${type}::${trimmedQuery}`;
+  const renderKey = `${type}::${field}::${dataStatus}::${sortMode}::${trimmedQuery}`;
   if (renderKey !== lastUniversityRenderKey) {
     universityVisibleCount = universityPageSize;
     lastUniversityRenderKey = renderKey;
   }
   const typedMatches = universityData.filter(
-    (university) => passesUniversityTypeFilter(university, type) && matchesUniversityQuery(university, query),
+    (university) =>
+      passesUniversityTypeFilter(university, type) &&
+      passesUniversityFieldFilter(university, field) &&
+      passesRequirementStatusFilter(university, dataStatus) &&
+      matchesUniversityQuery(university, query),
   );
   const relaxedMatches = trimmedQuery
     ? universityData.filter((university) => matchesUniversityQuery(university, query))
@@ -2357,8 +2455,13 @@ function renderUniversityCards(query = "") {
     .map((university) => ({
       ...university,
       searchRank: getUniversitySearchRank(university, query),
+      dataWeight: getRequirementDataWeight(university),
     }))
-    .sort((a, b) => b.searchRank - a.searchRank || a.name.localeCompare(b.name));
+    .sort((a, b) => {
+      if (sortMode === "name") return getDisplayUniversityName(a).localeCompare(getDisplayUniversityName(b));
+      if (sortMode === "deadline") return b.dataWeight - a.dataWeight || b.searchRank - a.searchRank || a.name.localeCompare(b.name);
+      return b.searchRank - a.searchRank || b.dataWeight - a.dataWeight || a.name.localeCompare(b.name);
+    });
   const visibleUniversities = filtered.slice(0, universityVisibleCount);
   const hiddenCount = Math.max(filtered.length - visibleUniversities.length, 0);
   const resultBanner = trimmedQuery
@@ -2387,33 +2490,47 @@ function renderUniversityCards(query = "") {
       ${resultBanner}
       ${visibleUniversities
       .map(
-        (university) => `
-        <article class="university-card">
-          <h3>${getDisplayUniversityName(university)}</h3>
+        (university) => {
+          const facts = getOfficialAdmissionFacts(university);
+          const statusText = getUniversityCardStatus(university);
+          const officialUrl = getUniversityOfficialUrl(university);
+          return `
+        <article class="university-card compact-university-card">
+          <div class="university-card-head">
+            <h3>${getDisplayUniversityName(university)}</h3>
+            <span class="data-status">${escapeHtml(statusText)}</span>
+          </div>
           <div class="meta-row">
             <span>${university.route}</span>
             <span>${regionLabels[university.region] ?? university.region}</span>
             ${university.prefecture ? `<span>${getDisplayPrefecture(university)}</span>` : ""}
             <span>${getDisplayFields(university)}</span>
           </div>
-          <div class="accuracy-tags">
-            ${getAccuracyTags(university).map((tag) => `<span>${tag}</span>`).join("")}
+          <div class="university-quick-facts">
+            <span>${escapeHtml(facts.extractionStatus.split(" / ")[0])}</span>
+            <span>${hasJudgementReadyProfile(university) ? "诊断参考" : "判定不可"}</span>
+            <span>${escapeHtml(facts.reference).slice(0, 46)}</span>
           </div>
           <p>${university.requirement}</p>
-          <div class="line-box">
-            <strong>出愿参考带 / 风险</strong>
-            ${university.line}
-          </div>
-          ${renderAdmissionDataBlock(university)}
+          <details class="university-detail-toggle">
+            <summary>查看出愿资格・最低成绩・时间节点</summary>
+            <div class="line-box">
+              <strong>出愿参考带 / 风险</strong>
+              ${university.line}
+            </div>
+            ${renderAdmissionDataBlock(university)}
+          </details>
           <div class="card-links">
-            <a href="${getUniversityOfficialUrl(university)}" target="_blank" rel="noreferrer">大学公式サイト</a>
+            <a href="${officialUrl}" target="_blank" rel="noreferrer" data-track-event="official-link">大学公式サイト</a>
+            ${facts.sourceUrl ? `<a href="${escapeHtml(facts.sourceUrl)}" target="_blank" rel="noreferrer" data-track-event="requirement-link">募集要項</a>` : ""}
             <button type="button" class="favorite-button ${isFavoriteUniversity(university.name) ? "is-favorite" : ""}" data-favorite="${encodeURIComponent(university.name)}">
               ${isFavoriteUniversity(university.name) ? "已收藏" : "收藏"}
             </button>
             ${university.source ? `<span>${university.source}</span>` : ""}
           </div>
         </article>
-      `,
+      `;
+        },
       )
       .join("")}
       ${
@@ -2577,6 +2694,16 @@ function dedupeUniversities(items) {
   });
 }
 
+function dedupeByDisplayName(items) {
+  const seen = new Set();
+  return items.filter((item) => {
+    const key = normalizeUniversitySearch(getDisplayUniversityName(item));
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
 function updateUniversitySuggestions() {
   // Native datalist becomes slow and visually intrusive with hundreds of universities.
 }
@@ -2653,6 +2780,7 @@ async function loadAdmissionRequirements() {
 
 document.querySelector("#score-form")?.addEventListener("submit", (event) => {
   event.preventDefault();
+  trackLocalEvent("score-diagnosis");
   renderMatchResults();
 });
 
@@ -2675,12 +2803,19 @@ document.querySelector("#university-search")?.addEventListener("input", (event) 
   const value = event.target.value;
   window.clearTimeout(universityInputTimer);
   universityInputTimer = window.setTimeout(() => {
+    if (value.trim()) trackLocalEvent("university-search");
     renderUniversityCardsWithAnimation(value);
   }, 260);
 });
 
 document.querySelector("#university-type")?.addEventListener("change", () => {
   renderUniversityCardsWithAnimation(document.querySelector("#university-search")?.value ?? "");
+});
+
+["#university-field", "#university-data-status", "#university-sort"].forEach((selector) => {
+  document.querySelector(selector)?.addEventListener("change", () => {
+    renderUniversityCardsWithAnimation(document.querySelector("#university-search")?.value ?? "");
+  });
 });
 
 document.querySelector("#admission-report-form")?.addEventListener("submit", (event) => {
@@ -3176,6 +3311,11 @@ document.querySelector("#site-search-results")?.addEventListener("click", (event
 });
 
 document.addEventListener("click", (event) => {
+  const trackedLink = event.target.closest("[data-track-event]");
+  if (trackedLink) {
+    trackLocalEvent(trackedLink.dataset.trackEvent || "link-click");
+  }
+
   const loadMoreUniversities = event.target.closest("#university-load-more");
   if (loadMoreUniversities) {
     universityVisibleCount += universityPageSize;

@@ -1390,11 +1390,22 @@ h3 {
 
 .university-toolbar {
   display: grid;
-  grid-template-columns: minmax(260px, 1fr) 180px auto auto;
+  grid-template-columns: minmax(260px, 1.2fr) repeat(4, minmax(132px, 0.6fr)) auto auto;
   gap: 12px;
   align-items: end;
   padding: 18px;
   margin-bottom: 18px;
+}
+
+.university-toolbar select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font: inherit;
 }
 
 .accuracy-panel {
@@ -1467,14 +1478,133 @@ h3 {
 .university-card {
   display: grid;
   align-content: start;
-  min-height: 330px;
+  min-height: 280px;
   padding: 20px;
   animation: resultFade 0.24s ease both;
 }
 
+.compact-university-card {
+  grid-template-rows: auto auto auto minmax(58px, auto) auto auto;
+  aspect-ratio: 1 / 1.02;
+  gap: 10px;
+  overflow: visible;
+}
+
+.compact-university-card > p {
+  display: -webkit-box;
+  min-height: 48px;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.compact-university-card:has(.university-detail-toggle[open]) {
+  aspect-ratio: auto;
+}
+
+.university-card-head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
 .university-card h3 {
+  margin: 0;
   font-size: 20px;
   line-height: 1.28;
+}
+
+.data-status {
+  flex: 0 0 auto;
+  padding: 5px 8px;
+  color: #0a4f45;
+  background: #e7f4ef;
+  border: 1px solid #bddbd0;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.university-quick-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.university-quick-facts span {
+  padding: 5px 7px;
+  color: #526062;
+  background: #f7f2e8;
+  border: 1px solid rgba(184, 145, 69, 0.28);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.university-detail-toggle {
+  margin-top: auto;
+}
+
+.university-detail-toggle summary {
+  min-height: 36px;
+  padding: 8px 10px;
+  color: var(--teal);
+  background: #f8fbfa;
+  border: 1px solid #cbdcd7;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.university-detail-toggle[open] {
+  grid-row: auto;
+}
+
+.university-detail-toggle[open] summary {
+  margin-bottom: 10px;
+}
+
+.favorite-compare {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.compare-table {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.compare-table > div {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.8fr) minmax(110px, 0.7fr) minmax(120px, 0.7fr) minmax(160px, 1.2fr);
+}
+
+.compare-table > div:first-child {
+  color: #fff;
+  background: var(--teal);
+  font-weight: 900;
+}
+
+.compare-table span {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.favorite-compare p {
+  margin: 0;
+  color: #526062;
+  font-size: 12px;
+  font-weight: 800;
 }
 
 .empty-result {
@@ -5207,5 +5337,99 @@ textarea {
     width: 28px;
     height: 28px;
     margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    gap: 8px;
+    padding: 10px 12px;
+  }
+
+  .language-switcher button {
+    min-width: 34px;
+    min-height: 26px;
+    padding: 4px 7px;
+    font-size: 10px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-block: 38px;
+  }
+
+  .section {
+    padding-block: 34px;
+  }
+
+  .section-heading {
+    margin-bottom: 18px;
+  }
+
+  .section-heading h2,
+  .hero h1 {
+    font-size: clamp(30px, 8vw, 40px);
+  }
+
+  .university-toolbar {
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .university-toolbar label,
+  .score-form label {
+    gap: 5px;
+    font-size: 12px;
+  }
+
+  .score-form input,
+  .score-form select,
+  .university-toolbar input,
+  .university-toolbar select {
+    min-height: 38px;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .compact-university-card {
+    aspect-ratio: auto;
+    min-height: 0;
+    padding: 14px;
+  }
+
+  .university-card h3 {
+    font-size: 17px;
+  }
+
+  .data-status,
+  .university-quick-facts span,
+  .accuracy-tags span {
+    font-size: 10px;
+  }
+
+  .match-priority-nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .priority-card {
+    min-height: 72px;
+    padding: 10px 8px;
+  }
+
+  .priority-card strong {
+    font-size: 24px;
+  }
+
+  .priority-card em {
+    display: none;
+  }
+
+  .compare-table {
+    overflow-x: auto;
+  }
+
+  .compare-table > div {
+    min-width: 620px;
   }
 }

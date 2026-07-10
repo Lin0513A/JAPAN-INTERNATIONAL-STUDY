@@ -8,7 +8,31 @@
       content="ISJ - International Study in Japan。面向中国学生的日本留学信息导航，涵盖学校类型、申请流程、EJU、JLPT、签证、奖学金与来日生活准备。"
     >
     <title>ISJ | International Study in Japan</title>
-    <link rel="stylesheet" href="styles.css?v=20260710-p0">
+    <link rel="canonical" href="https://lin0513a.github.io/JAPAN-INTERNATIONAL-STUDY/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lin0513a.github.io/JAPAN-INTERNATIONAL-STUDY/?lang=zh">
+    <link rel="alternate" hreflang="ja" href="https://lin0513a.github.io/JAPAN-INTERNATIONAL-STUDY/?lang=ja">
+    <link rel="alternate" hreflang="en" href="https://lin0513a.github.io/JAPAN-INTERNATIONAL-STUDY/?lang=en">
+    <link rel="alternate" hreflang="ko" href="https://lin0513a.github.io/JAPAN-INTERNATIONAL-STUDY/?lang=ko">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ISJ | International Study in Japan">
+    <meta
+      property="og:description"
+      content="面向中国学生的日本留学导航。EJU、JLPT、大学资料、募集要項、签证和来日生活入口集中整理。"
+    >
+    <meta property="og:url" content="https://lin0513a.github.io/JAPAN-INTERNATIONAL-STUDY/">
+    <meta property="og:image" content="https://lin0513a.github.io/JAPAN-INTERNATIONAL-STUDY/assets/hero-japan-photo.jpg">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "ISJ",
+        "alternateName": "International Study in Japan",
+        "url": "https://lin0513a.github.io/JAPAN-INTERNATIONAL-STUDY/",
+        "inLanguage": ["zh-Hans", "ja", "en", "ko"],
+        "description": "日本留学を目指す学生向けにEJU、JLPT、大学検索、募集要項、ビザ、生活手続きを整理する情報サイト。"
+      }
+    </script>
+    <link rel="stylesheet" href="styles.css?v=20260710-roadmap">
   </head>
   <body>
     <header class="site-header">
@@ -540,6 +564,32 @@
               <option value="national">国公立大学</option>
               <option value="private">私立大学</option>
               <option value="featured">重点样例</option>
+            </select>
+          </label>
+          <label>
+            方向
+            <select id="university-field">
+              <option value="all">全部</option>
+              <option value="humanities">文科 / 社会科学</option>
+              <option value="science">理科 / 工学</option>
+              <option value="english">英语项目</option>
+            </select>
+          </label>
+          <label>
+            数据状态
+            <select id="university-data-status">
+              <option value="all">全部</option>
+              <option value="ready">本站参考带あり</option>
+              <option value="official">募集要項抽取済み</option>
+              <option value="pending">抽取待ち</option>
+            </select>
+          </label>
+          <label>
+            排序
+            <select id="university-sort">
+              <option value="relevance">相关度 / 数据优先</option>
+              <option value="deadline">募集要項确认优先</option>
+              <option value="name">大学名</option>
             </select>
           </label>
           <a class="button secondary" href="https://www.jasso.go.jp/ryugaku/eju/examinee/use/uni_national.html" target="_blank" rel="noreferrer">JASSO国公立EJU利用校</a>
