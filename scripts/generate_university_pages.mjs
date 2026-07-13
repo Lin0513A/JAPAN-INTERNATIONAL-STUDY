@@ -251,7 +251,7 @@ for (const item of unique) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>${escapeHtml(item.title)} | ISJ大学资料</title>
     <meta name="description" content="${escapeHtml(item.title)}の外国人留学生入試、EJU、JLPT、英語、出願日程、公式募集要項リンクを整理。">
-    <link rel="canonical" href="https://lin0513a.github.io/JAPAN-INTERNATIONAL-STUDY/universities/${item.slug}/">
+    <link rel="canonical" href="https://www.isjguide.com/universities/${item.slug}/">
     <link rel="stylesheet" href="../../styles.css?v=20260710-roadmap">
   </head>
   <body class="detail-page">

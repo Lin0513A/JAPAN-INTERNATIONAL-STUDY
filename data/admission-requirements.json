@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-07-10T02:10:00.000Z",
+    "generatedAt": "2026-07-13T01:36:00.000Z",
     "purpose": "Official admissions requirement database. Each record should be replaced with data extracted from the university's latest official 募集要項.",
     "statuses": {
       "pending_official_extraction": "大学は登録済みだが、募集要項から未抽取",
@@ -9,9 +9,9 @@
       "unavailable": "募集要項ページを確認したが該当情報未公開"
     },
     "recordCount": 516,
-    "lastExtractionRunAt": "2026-07-10T02:10:00.000Z",
-    "partialCount": 8,
-    "extractedCount": 35
+    "lastExtractionRunAt": "2026-07-13T01:36:00.000Z",
+    "partialCount": 11,
+    "extractedCount": 38
   },
   "records": {
     "Ikueikan University": {
@@ -136,18 +136,43 @@
     },
     "Hokkai-Gakuen University": {
       "universityName": "Hokkai-Gakuen University",
-      "status": "pending_official_extraction",
-      "officialUrl": "https://www.hgu.jp/en/",
-      "admissionPageUrl": "",
-      "sourceTitle": "",
-      "sourceCheckedAt": "",
-      "eligibility": "",
-      "officialMinimumScore": "",
-      "ejuSubjects": [],
-      "englishRequirement": "",
-      "jlptRequirement": "",
-      "timeline": [],
-      "notes": "已登记为募集要項抽取对象。抽取完成前，只能显示JASSO利用有無、大学公式链接和本站参考带。"
+      "status": "official_partial",
+      "officialUrl": "https://www.hgu.jp/examination/",
+      "admissionPageUrl": "https://www.hgu.jp/examination/examination-notice.html / https://www.hgu.jp/examination/examination-schedule.html / https://www.hgu.jp/examination/pdf/examination-subjects_07.pdf",
+      "sourceTitle": "入学者選抜に関する予告 / 選抜日程 / 特別選抜（外国人留学生）選抜概要〈抜粋〉",
+      "sourceCheckedAt": "2026-07-11",
+      "eligibility": "2026-07-11確認時点で、北海学園大学公式の特別選抜（外国人留学生）選抜概要〈抜粋〉PDFでは、日本国籍を有しない者で、外国において学校教育における12年の課程を修了した者・修了見込みの者、文部科学大臣指定者、または本学の個別入学資格審査で同等以上の学力があると認められ2027年3月31日までに満18歳に達する者が対象。あわせて、日本学生支援機構実施のEJUを2025年度第1回・第2回または2026年度第1回のいずれかで受験し、日本語（読解・聴解及び聴読解の合計）200点以上を満たす必要がある。",
+      "officialMinimumScore": "2026-07-11確認時点で、公式予告ページと特別選抜概要PDFにはEJU日本語（読解・聴解及び聴読解の合計）200点以上の出願資格が明記されている。大学共通の合格最低点は確認できない。",
+      "ejuSubjects": [
+        "全学部共通: EJU日本語（読解・聴解及び聴読解の合計）200点以上",
+        "経済・経営・法・人文: 日本語 + 総合科目",
+        "工学部社会環境コース・電子情報工学科: 日本語 + 物理 + 数学コース2",
+        "工学部環境情報コース: 日本語 + 数学コース1または2",
+        "工学部建築学科: 日本語 + 数学コース2",
+        "工学部生命工学科: 日本語 + 数学コース1または2 + 理科2科目",
+        "対象回は2025年度第1回・第2回、2026年度第1回"
+      ],
+      "englishRequirement": "2026-07-11確認時点で、北海学園大学公式の予告ページ・選抜日程ページ・特別選抜概要PDFには、特別選抜（外国人留学生）の共通英語外部試験条件は明記されていない。",
+      "jlptRequirement": "2026-07-11確認時点で、北海学園大学公式の予告ページ・選抜日程ページ・特別選抜概要PDFには、JLPTの必須提出や級指定は明記されていない。",
+      "timeline": [
+        {
+          "label": "出願期間",
+          "value": "2026-11-01 - 2026-11-10 消印有効 / 2026-11-11 16:00窓口締切"
+        },
+        {
+          "label": "試験日",
+          "value": "2026-11-29"
+        },
+        {
+          "label": "合格発表",
+          "value": "2027-01-19"
+        },
+        {
+          "label": "入学手続期間",
+          "value": "2027-01-19 - 2027-02-02"
+        }
+      ],
+      "notes": "2026-07-11確認。前回まで導線未確認だったが、公式の『入学者選抜に関する予告』で出願資格変更・出願書類変更・EJU対象年度変更を確認し、『選抜日程』ページで出願期間・試験日・合格発表日を確認、さらに『選抜科目・配点』配下の特別選抜概要PDFで学部別EJU科目まで確認できた。入学者選抜要項ページでは、外国人留学生を含む詳細要項の掲載は2026年7月下旬頃予定と案内されているため、大学全体レコードは `official_partial` を維持する。"
     },
     "Health Sciences University of Hokkaido": {
       "universityName": "Health Sciences University of Hokkaido",
@@ -1332,24 +1357,39 @@
       "universityName": "Aoyama Gakuin University",
       "status": "official_extracted",
       "officialUrl": "https://www.aoyama.ac.jp/admission/undergraduate/examination/exam_foreign_student.html",
-      "admissionPageUrl": "https://www.aoyama.ac.jp/wp-content/uploads/2026/05/ad_exam2027_p170_p178_20260507_m1J2s.pdf",
-      "sourceTitle": "外国人留学生（2027年度） / 2027年度入学者選抜案内（抜粋P.170-P.178）",
-      "sourceCheckedAt": "2026-07-02",
-      "eligibility": "青山学院大学公式ページで2027年度外国人留学生入学者選抜ページと2027年度入学者選抜案内の抜粋PDFを確認。2026-07-02時点で、2027年度入学者選抜要項は7月中旬頃公表予定と案内されているため、学部別の最終出願資格・科目・提出書類は要項公開後に再確認が必要。",
-      "officialMinimumScore": "2026-07-02確認範囲では、公式ページ上に外国人留学生入試の合格最低点またはEJU最低点は掲載なし。過去の入学者選抜試験結果・参考データは公式の入試情報ページで別途確認する扱い。",
+      "admissionPageUrl": "https://www.aoyama.ac.jp/wp-content/uploads/2026/07/ad_2027_internationalstudent_20260709_e1Nf5.pdf",
+      "sourceTitle": "2027年度 外国人留学生入学者選抜要項",
+      "sourceCheckedAt": "2026-07-10",
+      "eligibility": "2027年度外国人留学生入学者選抜要項で、外国籍を有し、要項記載の学歴要件を満たす者が対象であることを確認。あわせて、原則として2027年4月30日までに在留資格「留学」を取得できることが必要で、在留資格「永住者」「永住者の配偶者等」「日本人の配偶者等」「定住者」等の者は対象外とされている。",
+      "officialMinimumScore": "大学全体の共通合格最低点は公表されていない。一方で、2027年度要項では学部・学科ごとにEJU、日本語能力試験、英語資格の出願要件が設定されている。例として、法学部はEJU日本語270点以上かつ総合科目（日本語出題）が必要で、国際政治経済学部はEJU日本語270点以上またはJLPT N1合格に加え、TOEIC L&R 590点以上、TOEFL iBT 61点以上、IELTS 5.0以上のいずれかが必要。",
       "ejuSubjects": [
-        "学部・学科別のEJU科目は2027年度入学者選抜要項で確認",
-        "2027年度入学者選抜案内の抜粋PDFあり"
+        "文学部・教育人間科学部: EJU日本語またはJLPT N1受験",
+        "経済学部: EJU日本語 + 総合科目",
+        "法学部: EJU日本語270点以上 + 総合科目（出題言語は日本語）",
+        "経営学部: EJU日本語 + 総合科目 + 数学コース1",
+        "社会情報学部: EJU日本語270点以上に加え、方式により総合科目または数学コース1/2"
       ],
-      "englishRequirement": "英語外部試験の要否・対象スコアは学部別要項で確認。2026-07-02時点では詳細要項が公表予定段階。",
-      "jlptRequirement": "公式ページ確認範囲でJLPT必須条件は未確認。EJU/JLPTの扱いは要項公開後に再確認。",
+      "englishRequirement": "国際政治経済学部、総合文化政策学部、理工学部、社会情報学部では英語資格・検定試験の提出が必要。例として国際政治経済学部は TOEIC L&R 590点以上、TOEFL iBT 61点以上、IELTS Academic 5.0以上のいずれかが必要で、社会情報学部も方式別に英語資格基準が設定されている。",
+      "jlptRequirement": "文学部、教育人間科学部、総合文化政策学部ではJLPT N1受験が要件として示され、国際政治経済学部と理工学部ではJLPT N1合格でも出願できる。学部によりEJU日本語で代替できる場合があるため、志望学科の表を要確認。",
       "timeline": [
         {
-          "label": "2027年度入学者選抜要項 公表予定",
-          "value": "2026年7月中旬頃"
+          "label": "理工学部以外 出願資格問い合わせ期限",
+          "value": "2026-07-21"
+        },
+        {
+          "label": "理工学部 問い合わせ期限",
+          "value": "2026-09-02"
+        },
+        {
+          "label": "理工学部 Web出願登録期間 / 書類提出期間",
+          "value": "2026-09-04 - 2026-09-18 / 2026-09-14 - 2026-09-18"
+        },
+        {
+          "label": "理工学部 試験日 / 合格発表期間",
+          "value": "2026-10-24 / 2026-11-16 13:00 - 2026-12-08 23:59"
         }
       ],
-      "notes": "青山学院大学は公式ページ・公式PDFに到達済みだが、2027年度の詳細要項は公表予定段階。サイト上では公式リンクと要項待ちを明示し、推奨判定は本站参考帯として扱う。"
+      "notes": "2026-07-10確認時点で、青山学院大学公式の外国人留学生ページから2027年度正式要項PDFに到達できる。文学部英米文学科は別要項扱いで、このレコードはそれ以外の学部・学科の要項を反映している。学部ごとに必要なEJU科目、日本語条件、英語資格、試験方式が分かれるため、志望学部の一覧表を必ず再確認すること。"
     },
     "Asia University": {
       "universityName": "Asia University",
@@ -1556,18 +1596,44 @@
     },
     "Kogakuin University": {
       "universityName": "Kogakuin University",
-      "status": "pending_official_extraction",
-      "officialUrl": "https://www.kogakuin.ac.jp/english/",
-      "admissionPageUrl": "",
-      "sourceTitle": "",
-      "sourceCheckedAt": "",
-      "eligibility": "",
-      "officialMinimumScore": "",
-      "ejuSubjects": [],
-      "englishRequirement": "",
-      "jlptRequirement": "",
-      "timeline": [],
-      "notes": "已登记为募集要項抽取对象。抽取完成前，只能显示JASSO利用有無、大学公式链接和本站参考带。"
+      "status": "official_extracted",
+      "officialUrl": "https://www.kogakuin.ac.jp/admissions/requirement/index.html",
+      "admissionPageUrl": "https://www.kogakuin.ac.jp/admissions/requirement/application.html / https://www.kogakuin.ac.jp/admissions/requirement/method/other/foreign.html",
+      "sourceTitle": "募集要項・出願書類 / 外国人留学生選抜",
+      "sourceCheckedAt": "2026-07-11",
+      "eligibility": "2026-07-11確認時点で、工学院大学公式の外国人留学生選抜ページでは、日本国内に居住し、在留資格「留学」を有する者で、日本国以外の国籍を持ち、外国における12年課程を修了した者または2027年3月までに修了見込みの者、その国で大学入学資格を有する者等が対象。2027年4月入学が前提で、日本の高校卒業者、日本国外居住者、在留資格「留学」以外の者、日本国籍を有する重国籍者は出願不可と明記されている。",
+      "officialMinimumScore": "2026-07-11確認時点で、工学院大学公式の外国人留学生選抜ページには、日本留学試験の日本語（読解・聴解・聴読解）300点以上かつ数学コース2 120点以上の共通基準が明記されている。大学共通の合格最低点は公表されていない。",
+      "ejuSubjects": [
+        "共通基準: 日本語（読解・聴解・聴読解）300点以上 + 数学コース2 120点以上",
+        "先進工学部・工学部・情報学部: 日本語 + 数学コース2 + 理科（物理・化学）",
+        "建築学部: 日本語 + 数学コース2",
+        "利用できる回は2025年度第1回・第2回、2026年度第1回"
+      ],
+      "englishRequirement": "2026-07-11確認時点で、工学院大学公式の外国人留学生選抜ページと入試情報ページには、学部外国人留学生選抜の共通英語外部試験要件は明記されていない。",
+      "jlptRequirement": "2026-07-11確認時点で、工学院大学公式の外国人留学生選抜ページと入試情報ページには、JLPTの必須提出や級指定は明記されていない。",
+      "timeline": [
+        {
+          "label": "募集要項公開状況",
+          "value": "2026-07-11確認時点で2027年度外国人留学生選抜の募集要項・出願書類は公開中"
+        },
+        {
+          "label": "出願期間",
+          "value": "2026-10-01 - 2026-10-14"
+        },
+        {
+          "label": "試験日",
+          "value": "2026-11-28"
+        },
+        {
+          "label": "合格発表",
+          "value": "2026-12-04 10:00"
+        },
+        {
+          "label": "入学手続締切",
+          "value": "2026-12-16"
+        }
+      ],
+      "notes": "2026-07-11確認。工学院大学公式入試サイトの「募集要項・出願書類」で2027年度外国人留学生選抜の公開中表示を確認し、専用ページ「外国人留学生選抜」で出願資格、EJU基準、対象学部、日程を確認した。中国の高校卒業者には CHSI 発行英文証明書の大学直送も求められる。"
     },
     "Kokugakuin University": {
       "universityName": "Kokugakuin University",
@@ -1586,18 +1652,40 @@
     },
     "International Christian University": {
       "universityName": "International Christian University",
-      "status": "pending_official_extraction",
-      "officialUrl": "https://www.icu.ac.jp/en/",
-      "admissionPageUrl": "",
-      "sourceTitle": "",
-      "sourceCheckedAt": "",
-      "eligibility": "",
-      "officialMinimumScore": "",
-      "ejuSubjects": [],
-      "englishRequirement": "",
-      "jlptRequirement": "",
-      "timeline": [],
-      "notes": "已登记为募集要項抽取对象。抽取完成前，只能显示JASSO利用有無、大学公式链接和本站参考带。"
+      "status": "official_partial",
+      "officialUrl": "https://www.icu.ac.jp/admissions/undergraduate/exam/",
+      "admissionPageUrl": "https://www.icu.ac.jp/admissions/undergraduate/exam/eju/ / https://www.icu.ac.jp/admissions/undergraduate/exam/engdoc/ / https://www.icu.ac.jp/en/admissions/undergraduate/engdoc/ / https://www.icu.ac.jp/en/admissions/undergraduate/engdoc/schedules/",
+      "sourceTitle": "ICUの入試について / 総合型選抜<4月/9月入学>EJU（日本留学試験）利用 / 総合型選抜<4月/9月入学>English Language Based Admissions / Application Schedule",
+      "sourceCheckedAt": "2026-07-12",
+      "eligibility": "2026-07-12確認時点で、ICU公式のEJU利用ページでは、国籍を問わず外国の教育制度のもとで高等学校最終学年から遡って継続して6年以上教育を受け、2027年3月31日または2027年8月31日までに12年課程修了・指定外国人学校修了・Abitur/Baccalaureate等の大学入学資格取得、または本学の個別入学審査で同等以上と認められる者が対象。英語版のEnglish Language Based Admissionsでは、大学レベルの授業を受けるのに十分な英語力を有する者を対象とし、Type A は SAT・ACT Plus Science and Writing・IB Diploma・GCE A Level のいずれか、Type B は書類選考に加えてオンライン面接で選抜すると案内されている。",
+      "officialMinimumScore": "2026-07-12確認時点で、ICU公式のEJU利用ページにはEJUの共通最低点・合格最低点は明記されていない。一方で、ELBA は IELTS 6.5 または TOEFL iBT 79点（2026-01-20以前受験）/ 4.5（2026-01-21以降受験）が最低要件。EJU利用でも IELTS または TOEFL 公式スコア提出が必要だが、ページ本文に共通最低点は明記されていない。",
+      "ejuSubjects": [
+        "EJU利用: 日本語 + 総合科目 + 数学（コース1または2）",
+        "または 日本語 + 数学（コース2） + 理科2科目（物理・化学・生物から2科目）",
+        "出題言語は日本語",
+        "利用可能な成績は2025年6月・11月、2026年6月・11月のいずれか1回"
+      ],
+      "englishRequirement": "EJU利用では IELTS または TOEFL の公式スコア提出が必要で、2025-01-01以降に受験した成績のみ有効。本文では共通最低点は示されていないが、IELTS 6.5以上またはTOEFL 79以上（2026-01-20以前受験）/ 4.5以上（2026-01-21以降受験）を提出した場合は必修語学科目としてJLPを選択可能。ELBA は IELTS 6.5 または TOEFL iBT 79 / 4.5 が最低要件で、TOEFL は MyBest Scores 不可。",
+      "jlptRequirement": "2026-07-12確認時点で、ICU公式のEJU利用ページ・English Language Based Admissions ページにはJLPTの必須提出や級指定は明記されていない。",
+      "timeline": [
+        {
+          "label": "EJU利用 出願期間 / 一次結果 / 面接 / 合格発表",
+          "value": "2026-12-01 10:00 - 2026-12-08 23:59 / 2027-02-12 / 2027-02-20 / 2027-02-26"
+        },
+        {
+          "label": "ELBA 2027年4月入学 出願期間 / Type B面接 / 合格発表",
+          "value": "2026-10-01 10:00 - 2026-10-08 23:59 / 2026-11-21（接続テスト 2026-11-16） / 2026-12-01"
+        },
+        {
+          "label": "ELBA 2027年9月入学 第1期 出願期間 / 合格発表",
+          "value": "2027-01-06 10:00 - 2027-01-14 23:59 / 2027-02-26"
+        },
+        {
+          "label": "ELBA 2027年9月入学 第2期 出願期間 / Type B面接 / 合格発表",
+          "value": "2027-02-15 10:00 - 2027-02-25 23:59 / 2027-04-02（接続テスト 2027-03-29） / 2027-04-16"
+        }
+      ],
+      "notes": "2026-07-12確認。ICU公式日本語の『ICUの入試について』から、2027年度の EJU 利用ページと English Language Based Admissions ページを確認し、英語版の Apply / Application Schedule で 2027 Admissions Guide と日程表を照合した。EJU利用は2028年度以降廃止予定で、2027年度の詳細な入学試験要項は9月下旬公開予定のため、このレコードは `official_partial` とした。"
     },
     "Kokushikan University": {
       "universityName": "Kokushikan University",
@@ -1619,13 +1707,13 @@
       "status": "official_partial",
       "officialUrl": "https://www.komazawa-u.ac.jp/exam/",
       "admissionPageUrl": "https://www.komazawa-u.ac.jp/exam/information/private-expense-forign-student.html / https://komazawa-u.backshelf.jp/bookview/?filseq=4811",
-      "sourceTitle": "駒澤大学 外国人留学生選抜 / 2026年度_外国人留学生選抜要項",
-      "sourceCheckedAt": "2026-07-10",
+      "sourceTitle": "駒澤大学 外国人留学生選抜 / 2027年度_外国人留学生選抜要項",
+      "sourceCheckedAt": "2026-07-11",
       "eligibility": "外国人留学生選抜の公式ページを確認。出願書類の事前確認を受けていないと出願できないと明記されており、詳細は選抜要項5〜6ページで確認する必要がある。",
-      "officialMinimumScore": "2026-07-10確認範囲でも、EJU合格最低点・EJU出願基準点は公式ページ本文では確認できない。合格ラインは未公表扱いとする。",
+      "officialMinimumScore": "2026-07-11確認範囲でも、EJU合格最低点・EJU出願基準点は公式ページ本文では確認できない。合格ラインは未公表扱いとする。",
       "ejuSubjects": [],
-      "englishRequirement": "2026-07-10確認範囲では、公式ページ本文に共通の英語外部試験基準は確認できない。学部・学科別条件は選抜要項で確認。",
-      "jlptRequirement": "2026-07-10確認範囲では、公式ページ本文に共通のJLPT基準は確認できない。学部・学科別条件は選抜要項で確認。",
+      "englishRequirement": "2026-07-11確認範囲では、公式ページ本文に共通の英語外部試験基準は確認できない。学部・学科別条件は選抜要項で確認。",
+      "jlptRequirement": "2026-07-11確認範囲では、公式ページ本文に共通のJLPT基準は確認できない。学部・学科別条件は選抜要項で確認。",
       "timeline": [
         {
           "label": "出願書類の事前確認",
@@ -1648,7 +1736,7 @@
           "value": "2026-11-20"
         }
       ],
-      "notes": "2026-07-10確認。2026年7月更新の公式ページで、出願日程に加えてKomaShelf上の『2026年度_外国人留学生選抜要項』リンク公開を確認。募集人員は学部により若干人のほか、経営学部10人、市場戦略学科6人、GMS学部3人と明記。GMS学部は英語による面接・口頭試問、医療健康科学部は英語試験を含むが、共通のEJU/JLPT/英語外部試験基準は今回確認範囲でも明記されていない。国外からの出願者はEMS・DHL等で出願期間内到着に注意。"
+      "notes": "2026-07-11確認。駒澤大学公式の外国人留学生選抜ページで、KomaShelf上の要項リンクが『2027年度_外国人留学生選抜要項』表記へ切り替わったことを確認。ページ本文で確認できる出願書類事前確認期間、出願期間、試験日、合格発表日、募集人員、GMS学部の英語面接・口頭試問、医療健康科学部の英語試験案内は前回確認値と整合し、共通のEJU/JLPT/英語外部試験基準は今回確認範囲でも明記されていない。国外からの出願者はEMS・DHL等で出願期間内到着に注意。"
     },
     "SANNO University": {
       "universityName": "SANNO University",
@@ -2948,14 +3036,14 @@
       "universityName": "Rikkyo University",
       "status": "official_partial",
       "officialUrl": "https://www.rikkyo.ac.jp/admissions/undergraduate/guidelines/",
-      "admissionPageUrl": "https://www.guide.52school.com/guidance/net-rikkyo-tokubetsu/gid",
-      "sourceTitle": "立教大学 特別入試 入試要項 / 2027年度特別入試",
-      "sourceCheckedAt": "2026-07-02",
-      "eligibility": "立教大学公式ページで、2027年度特別入試に外国人留学生入試が含まれ、入試要項は52schoolガイダンスで確認する形式であることを確認。入試結果ページでは外国人留学生入試の筆記・面接型、法学部国際ビジネス法学科グローバルコース、12学部書類選考型の合格発表導線を確認。",
+      "admissionPageUrl": "https://www.guide.52school.com/guidance/net-rikkyo-tokubetsu/gid / https://exam.52school.com/rikkyo/admissions/undergraduate/guidelines/H_guideline/ / https://exam.52school.com/rikkyo/admissions/undergraduate/guidelines/G_guideline/ / https://exam.52school.com/rikkyo/admissions/undergraduate/guidelines/G055_guideline/",
+      "sourceTitle": "立教大学 特別入試ガイダンス / 2027年度外国人留学生入試要項（筆記・面接 / 11学部書類選考 / 法学部国際ビジネス法学科グローバルコース書類選考）",
+      "sourceCheckedAt": "2026-07-12",
+      "eligibility": "2026-07-12確認時点で、立教大学公式の特別入試要項ページおよび52schoolガイダンスでは、外国人留学生入試が『筆記試験および面接による募集制度（異文化コミュニケーション学部）』『書類選考による募集制度 11学部（異文化コミュニケーション学部・法学部国際ビジネス法学科グローバルコースを除く）』『書類選考による募集制度 法学部国際ビジネス法学科グローバルコース』の3系統に分かれていることを確認。詳細な出願資格本文は各個別要項で確認する方式。",
       "officialMinimumScore": "公式HTML確認範囲で合格最低点・EJU最低点は未公開。詳細な出願資格、EJU科目、英語条件は2027年度特別入試要項で確認。",
       "ejuSubjects": [
-        "外国人留学生入試: 詳細は2027年度特別入試要項で確認",
-        "方式により筆記・面接型、書類選考型がある"
+        "外国人留学生入試: 詳細なEJU利用科目は各2027年度個別要項で確認",
+        "方式は筆記試験・面接型、11学部書類選考型、法学部国際ビジネス法学科グローバルコース書類選考型に分かれる"
       ],
       "englishRequirement": "法学部国際ビジネス法学科グローバルコース等、方式別に英語要件が異なる可能性があるため、公式要項で確認。",
       "jlptRequirement": "公式HTML確認範囲でJLPT共通必須条件は未確認。要項で方式別に確認。",
@@ -2969,11 +3057,11 @@
           "value": "2026-12-07 11:00"
         },
         {
-          "label": "12学部 書類選考型 合格発表",
+          "label": "11学部 書類選考型 合格発表",
           "value": "2027-01-18 11:00"
         }
       ],
-      "notes": "2026-07-02確認。公式の特別入試要項ページは冊子配布なし・Web要項確認方式。出願前に52schoolガイダンスの2027年度特別入試要項を必ず確認。"
+      "notes": "2026-07-12確認。公式の特別入試要項ページは冊子配布なし・Web要項確認方式。今回、52schoolガイダンス上で外国人留学生入試の個別要項導線が筆記・面接型、11学部書類選考型、法学部国際ビジネス法学科グローバルコース書類選考型の3本に分かれていることを再確認し、従来メモの『12学部書類選考型』表記を『11学部』へ修正した。EJU/JLPT/英語の具体条件本文は各個別要項で確認が必要なため、レコードは official_partial を維持する。"
     },
     "Rissho University": {
       "universityName": "Rissho University",
@@ -3675,18 +3763,38 @@
     },
     "Aichi University": {
       "universityName": "Aichi University",
-      "status": "pending_official_extraction",
+      "status": "official_extracted",
       "officialUrl": "https://www.aichi-u.ac.jp/english/",
-      "admissionPageUrl": "",
-      "sourceTitle": "",
-      "sourceCheckedAt": "",
-      "eligibility": "",
-      "officialMinimumScore": "",
-      "ejuSubjects": [],
-      "englishRequirement": "",
-      "jlptRequirement": "",
-      "timeline": [],
-      "notes": "已登记为募集要項抽取对象。抽取完成前，只能显示JASSO利用有無、大学公式链接和本站参考带。"
+      "admissionPageUrl": "https://www.aichi-u.ac.jp/exam/foreign / https://www.aichi-u.ac.jp/exam/foreign/generalinfo / https://www.aichi-u.ac.jp/exam/foreign/generalinfo/application / https://p1.ssl-dl.jp/dl/85881-154a3e24999f8b4addb7ac3130d572ee",
+      "sourceTitle": "外国人留学生入学試験 / 外国人留学生入学試験概要 / 募集要項・出願書類 / 2027年4月入学 外国人留学生入学試験 募集要項",
+      "sourceCheckedAt": "2026-07-13",
+      "eligibility": "2026-07-13確認時点で、愛知大学公式の2027年4月入学外国人留学生入学試験募集要項では、推薦・一般・渡日前の各方式で、外国籍を有し日本国籍との二重国籍ではない者で、外国における12年課程修了者または2027年3月31日までの修了見込み者、文部科学大臣指定者、または本学が同等以上の学力を認め2027年3月31日までに18歳に達する者が対象。推薦・一般・渡日前のいずれも、入学後に在留資格「留学」を取得できること、学費・生活費を確実に支弁できることが必要で、永住者・特別永住者は出願不可。推薦は国内の日本語教育施設在籍・修了見込みと専願が必要、一般は2025年度または2026年度のEJU日本語受験が必要、渡日前は日本国外在住で日本国外受験のEJU日本語・総合科目受験が必要。",
+      "officialMinimumScore": "推薦入学試験は、2025年6月以降受験のEJU日本語210点以上（記述除く）、またはJLPT N1総合90点以上、N2総合100点以上が必要。一般入学試験と渡日前入学試験について、公式要項に大学共通のEJU最低点は明記されていない。渡日前入学試験の国際コミュニケーション学部国際教養学科は、英語資格としてTOEFL iBT 48以上、TOEIC L&R 500以上、Duolingo English Test 85以上のいずれかが必要。",
+      "ejuSubjects": [
+        "推薦入学試験: EJU日本語 210点以上（記述除く）またはJLPT N1 90点以上 / N2 100点以上",
+        "一般入学試験: EJU日本語（読解・聴解及び聴読解・記述）を利用",
+        "渡日前入学試験: EJU日本語（読解・聴解及び聴読解・記述）+ 総合科目",
+        "推薦対象スコア: 2025年度第1回・第2回、2026年度第1回EJU または 2025年7月・12月、2026年7月JLPT",
+        "一般対象スコア: 2025年度第1回・第2回、2026年度第1回・第2回EJU",
+        "渡日前対象スコア: 2025年度・2026年度に日本国外で受験したEJU日本語・総合科目"
+      ],
+      "englishRequirement": "2026-07-13確認時点で、愛知大学公式要項では共通の英語外部試験提出義務はない。一般入学試験の国際コミュニケーション学部英語学科は面接の一部を英語で実施。渡日前入学試験の国際コミュニケーション学部国際教養学科のみ、TOEFL iBT 48以上、TOEIC L&R 500以上、Duolingo English Test 85以上のいずれか取得見込みが必要。",
+      "jlptRequirement": "推薦入学試験ではJLPT N1総合90点以上またはN2総合100点以上で出願可。一般入学試験と渡日前入学試験では、公式要項上JLPT提出は不可または出願条件に含まれず、EJU利用で判定する。",
+      "timeline": [
+        {
+          "label": "推薦 出願期間 / 試験日 / 合格発表",
+          "value": "2026-10-02 - 2026-10-08 必着 / 2026-10-24 / 2026-11-10"
+        },
+        {
+          "label": "一般 出願期間 / 試験日 / 合格発表",
+          "value": "2026-11-11 - 2026-11-17 必着 / 2027-01-09 / 2027-01-26"
+        },
+        {
+          "label": "渡日前 出願期間 / 日本語確認予定日 / 合格発表",
+          "value": "2026-11-11 - 2026-11-17 必着 / 2027-01-09 午後予定 / 2027-01-26"
+        }
+      ],
+      "notes": "2026-07-13確認。愛知大学公式の外国人留学生入学試験サイトで、2026-06-02公開の『2027年度愛知大学外国人留学生入学試験募集要項』案内、入学試験概要ページ、募集要項・出願書類ページ、58ページの公式PDF要項を確認した。推薦・一般・渡日前の3方式について、出願資格、EJU/JLPT条件、英語条件、出願期間、試験日、合格発表日まで要項本文で確認できるため、このレコードを `official_extracted` に更新する。"
     },
     "Aichi Gakuin University": {
       "universityName": "Aichi Gakuin University",
@@ -3855,18 +3963,41 @@
     },
     "Chukyo University": {
       "universityName": "Chukyo University",
-      "status": "pending_official_extraction",
-      "officialUrl": "https://www.chukyo-u.ac.jp/english/",
-      "admissionPageUrl": "",
-      "sourceTitle": "",
-      "sourceCheckedAt": "",
-      "eligibility": "",
-      "officialMinimumScore": "",
-      "ejuSubjects": [],
-      "englishRequirement": "",
-      "jlptRequirement": "",
-      "timeline": [],
-      "notes": "已登记为募集要項抽取对象。抽取完成前，只能显示JASSO利用有無、大学公式链接和本站参考带。"
+      "status": "official_partial",
+      "officialUrl": "https://nc.chukyo-u.ac.jp/nyushi/",
+      "admissionPageUrl": "https://nc.chukyo-u.ac.jp/conts/wp-content/uploads/gaikoku_nyugakuyoukou.pdf / https://www.chukyo-u.ac.jp/english/admissions/",
+      "sourceTitle": "外国人留学生入試 / 中京大学英語 Admissions ページ",
+      "sourceCheckedAt": "2026-07-11",
+      "eligibility": "2026-07-11確認時点で、中京大学公式 NetCampus の外国人留学生入試PDFでは、外国籍を有し、中京大学入学から卒業までの学費・生活費を確実に支弁でき、外国の中等教育機関に最終学年を含む3年在籍し、2027年3月31日までに外国における12年課程を修了した者またはこれに準ずる文部科学大臣指定者が対象。前期日程は在留資格「留学」を有する者または2027年3月31日までに取得できる者、後期日程は在留資格「留学」を有し日本国内在住の者が対象と明記されている。",
+      "officialMinimumScore": "2026-07-11確認時点で、中京大学公式PDFには共通条件として EJU 日本語（記述含む）220点以上、または JLPT N2以上が明記されている。大学共通の合格最低点は公表されていない。",
+      "ejuSubjects": [
+        "共通条件: EJU日本語（記述含む）220点以上。ただしJLPT N2以上取得者は日本語220点以上不要",
+        "総合政策学部: 総合科目 + 日本語",
+        "工学部: 理系の全科目（数学 + 理科）+ 日本語",
+        "その他の対象学部: 日本語を指定科目として利用",
+        "現代社会学部・スポーツ科学部・工学部は後期日程なし"
+      ],
+      "englishRequirement": "2026-07-11確認時点で、中京大学公式PDFには共通の英語外部試験提出要件は明記されていない。ただし現代社会学科国際文化専攻は面接（口頭試問）で英語を用いて質疑を行う場合があると注記されている。",
+      "jlptRequirement": "JLPT N2以上の合格が共通条件の一つとして明記されている。N2以上を取得していれば、EJU日本語220点以上を取得している必要はない。",
+      "timeline": [
+        {
+          "label": "前期 出願期間 / 試験日 / 合格発表",
+          "value": "2026-09-16 10:00 - 2026-09-24 15:00 / 2026-10-17 / 2026-11-01"
+        },
+        {
+          "label": "前期 入学手続締切",
+          "value": "2026-11-10 15:00"
+        },
+        {
+          "label": "後期 出願期間 / 試験日 / 合格発表",
+          "value": "2027-01-04 10:00 - 2027-01-08 15:00 / 2027-02-08 / 2027-02-20"
+        },
+        {
+          "label": "後期 入学手続締切",
+          "value": "2027-02-25 15:00"
+        }
+      ],
+      "notes": "2026-07-11確認。中京大学英語 Admissions ページから公式 NetCampus の「International Students (Undergraduate Schools)」導線を確認し、外国人留学生入試PDFで出願資格、EJU/JLPT条件、前期・後期日程を抽出した。学部・専攻ごとの選考科目や詳細条件はこの1ページPDFで概略確認できるが、本文でも「詳細は入学試験要項参照」とされるため、レコードは official_partial とした。"
     },
     "Chubu University": {
       "universityName": "Chubu University",
@@ -5913,18 +6044,39 @@
     },
     "Seinan Gakuin University": {
       "universityName": "Seinan Gakuin University",
-      "status": "pending_official_extraction",
-      "officialUrl": "https://www.seinan-gu.ac.jp/eng/",
-      "admissionPageUrl": "",
-      "sourceTitle": "",
-      "sourceCheckedAt": "",
-      "eligibility": "",
-      "officialMinimumScore": "",
-      "ejuSubjects": [],
-      "englishRequirement": "",
-      "jlptRequirement": "",
-      "timeline": [],
-      "notes": "已登记为募集要項抽取对象。抽取完成前，只能显示JASSO利用有無、大学公式链接和本站参考带。"
+      "status": "official_extracted",
+      "officialUrl": "https://www.seinan-gu.ac.jp/admissions/",
+      "admissionPageUrl": "https://www.seinan-gu.ac.jp/admissions/entrance_system/other_selection/foreigner.html / https://www.seinan-gu.ac.jp/admissions/entrance_system/other_selection/fo0flp0000004rqt-att/2027_410_gaikokujin.pdf",
+      "sourceTitle": "外国人入試 / 2027年度（国外版）外国人入学試験要項",
+      "sourceCheckedAt": "2026-07-13",
+      "eligibility": "日本国籍を有しない者で、日本における12年の学校教育に相当する教育課程を修了した者または修了見込みの者のうち、8年以上を外国の学校において修了していることが必要。加えて、2025年6月以降のEJU日本語を受験した者、または2025年7月以降のJLPTを受験してN1に合格した者が対象。入学後の講義は日本語で行われるため、相応の日本語能力が必要と明記されている。",
+      "officialMinimumScore": "大学共通の合格最低点は確認できない。出願資格としてはEJU日本語またはJLPT N1が必要で、神学部・経済学部がEJU資格で出願する場合はEJU日本語（記述含む）450点満点中240点以上が条件。2026年度第2回EJUは受験のみで出願可。",
+      "ejuSubjects": [
+        "日本留学試験（EJU）日本語",
+        "対象回は2025年6月以降の受験",
+        "神学部・経済学部はEJU日本語（記述含む）450点満点中240点以上"
+      ],
+      "englishRequirement": "2026-07-13確認時点で、公式の外国人入試ページおよび2027年度要項には英語外部試験の提出条件や最低点は明記されていない。",
+      "jlptRequirement": "2025年7月以降に受験したJLPTでN1合格者は出願可。EJU日本語で出願する方式との選択制。",
+      "timeline": [
+        {
+          "label": "インターネット出願期間",
+          "value": "2026-10-23 09:00 - 2026-10-30 23:00"
+        },
+        {
+          "label": "書類郵送期間",
+          "value": "2026-10-23 - 2026-11-13 必着"
+        },
+        {
+          "label": "試験日",
+          "value": "筆記 2026-12-02 / 面接 2026-12-05"
+        },
+        {
+          "label": "合格発表",
+          "value": "2027-01-06"
+        }
+      ],
+      "notes": "2026-07-13確認。西南学院大学公式の外国人入試ページで2027年度外国人入試の公開を確認し、公式PDF要項で出願資格、EJU/JLPT条件、出願期間、書類送付期間、筆記・面接日程、合格発表日を抽出した。試験は筆記・面接ともオンライン実施。"
     },
     "Seinan Jo Gakuin University": {
       "universityName": "Seinan Jo Gakuin University",
@@ -8407,9 +8559,9 @@
       "universityName": "宮崎公立大学",
       "status": "official_partial",
       "officialUrl": "https://www.miyazaki-mu.ac.jp/entrance/entrance-exam/special/iss.html",
-      "admissionPageUrl": "https://www.miyazaki-mu.ac.jp/entrance/entrance-exam/special/iss.html",
-      "sourceTitle": "宮崎公立大学 私費外国人留学生選抜",
-      "sourceCheckedAt": "2026-07-10",
+      "admissionPageUrl": "https://www.miyazaki-mu.ac.jp/entrance/entrance-exam/special/iss.html / https://www.miyazaki-mu.ac.jp/entrance/entrance-exam/document/request.html",
+      "sourceTitle": "宮崎公立大学 私費外国人留学生選抜 / 資料請求・WEB上で公表している資料",
+      "sourceCheckedAt": "2026-07-13",
       "eligibility": "外国籍を有し、日本学生支援機構実施の2025年度第1回・第2回または2026年度第1回EJUを日本語で受験した者で、外国における12年課程修了者または2027年3月修了見込みの者、もしくは国際バカロレア、アビトゥア、バカロレア、GCE Aレベル、国際Aレベル、欧州バカロレア資格取得者が対象。",
       "officialMinimumScore": "2026-07-03確認時点で、公式ページにEJUの最低点やJLPTの最低級は明記されていない。EJUは日本語・総合科目・数学（コース1または2）受験が必要で、EJU成績とJLPT成績は合否判定の参考資料として利用される。",
       "ejuSubjects": [
@@ -8420,6 +8572,10 @@
       "englishRequirement": "2026-07-03確認時点で、公式ページに英語外部試験の提出条件は明記されていない。",
       "jlptRequirement": "2025年度第1回・第2回または2026年度第1回JLPTの成績は合否判定の参考資料として利用されるが、公式ページ上で必須提出条件や級指定は確認できない。",
       "timeline": [
+        {
+          "label": "私費外国人留学生選抜 募集要項公表予定",
+          "value": "2026-09下旬目安"
+        },
         {
           "label": "出願期間",
           "value": "2026-11-01 - 2026-11-07"
@@ -8433,7 +8589,7 @@
           "value": "2026-12-09"
         }
       ],
-      "notes": "2026-07-10確認時点で、宮崎公立大学受験生サイトの私費外国人留学生選抜ページに、令和9年度入試（2026年度実施）の出願資格、EJU利用科目、選抜方法、出願期間、個別試験日、合格発表日が掲載済み。『学生募集要項・願書』欄は『学生募集要項はデータにて公表しています』へ更新され、学生募集要項等掲載ページへの公式導線が案内されていることを確認したが、この確認では要項本文PDF自体までは取得していないため、引き続き公式ページベースの一部抽出として扱う。"
+      "notes": "2026-07-13確認。宮崎公立大学受験生サイトの私費外国人留学生選抜ページで、令和9年度入試（2026年度実施）の出願資格、EJU利用科目、選抜方法、出願期間、個別試験日、合格発表日が引き続き掲載されていることを再確認した。あわせて、公式の『資料請求』ページで、特別選抜（帰国生・社会人・私費外国人留学生）の令和9年度学生募集要項は2026年9月下旬を目安に公表予定と明記されていることを確認したため、要項導線を追加した。要項本文PDFは未公開のため、レコードは引き続き `official_partial` とする。"
     },
     "沖縄県立芸術大学": {
       "universityName": "沖縄県立芸術大学",
@@ -8784,18 +8940,39 @@
     },
     "立命馆大学 English-medium Undergraduate": {
       "universityName": "立命馆大学 English-medium Undergraduate",
-      "status": "pending_official_extraction",
+      "status": "official_extracted",
       "officialUrl": "https://en.ritsumei.ac.jp/admissions/",
-      "admissionPageUrl": "",
-      "sourceTitle": "",
-      "sourceCheckedAt": "",
-      "eligibility": "",
-      "officialMinimumScore": "",
+      "admissionPageUrl": "https://en.ritsumei.ac.jp/e-ug/news/article.html/?id=310 / https://en.ritsumei.ac.jp/e-ug/apply/howto.html/?version=English / https://en.ritsumei.ac.jp/e-ug/apply/download/download.html/?version=English",
+      "sourceTitle": "Announcement: Admissions Information for 2027 Enrollment Now Available / How to Apply / Download Documents",
+      "sourceCheckedAt": "2026-07-11",
+      "eligibility": "2027年度の英語学位課程出願者は、入学日までに12年の標準課程修了者、国際認証校修了者、MEXT認定の外国人学校修了者、IB・Abitur・Baccalaureate・GCE A-Level・European Baccalaureate等の資格保有者、11年課程指定国の修了者、MEXT認定予備教育課程修了者、GED等の同等資格保有者、高卒認定試験合格者、または立命館大学の個別審査で同等以上と認められた者のいずれかに該当する必要がある。GLAのみ豪州国内学生は立命館経由で出願不可。",
+      "officialMinimumScore": "EJUやJLPTの必須提出は公開中の2027 Enrollment AO Admissions案内では確認できない。英語要件はプログラム別で、GLAはTOEFL iBT 81または新形式4.0、IELTS 6.5、PTE 64、Cambridge C1 Advanced 169。JD ProgramはTOEFL iBT 85または新形式4.0、IELTS 6.5、PTE 60、Cambridge 176、SAT EBRW 610、ACT English 25、Duolingo 120。GS MajorはTOEFL iBT 76または新形式4.0、IELTS 6.0、Duolingo 110。CRPS MajorとISSE CourseはTOEFL iBT 72または新形式4.0、IELTS 5.5、Duolingo 105で、ISSEはTOEIC L&R 730も可。",
       "ejuSubjects": [],
-      "englishRequirement": "",
-      "jlptRequirement": "",
-      "timeline": [],
-      "notes": "已登记为募集要項抽取对象。抽取完成前，只能显示JASSO利用有無、大学公式链接和本站参考带。"
+      "englishRequirement": "英語能力は各プログラムの最低基準を満たす外部試験成績の提出が必要。TOEFL iBT Home Edition、TOEFL Essentials、MyBest Scores、IELTS Online、IELTS One Skill Retake、TOEIC IP は不可。GLA・JD・GS/CRPS/ISSEで免除条件が別に定められており、英語のみで一定期間教育を受けた者などは代替書類で免除申請できる。",
+      "jlptRequirement": "2026-07-11確認時点で、公開中の2027 Enrollment AO Admissions（English Basis）案内ページではJLPTの必須提出や級指定は確認できない。",
+      "timeline": [
+        {
+          "label": "GLA 出願期間 / 合格発表",
+          "value": "2027年4月入学 2026-08-19 - 2026-09-08 / 2026-10-29、2027年9月入学 第1期 2026-10-14 - 2026-11-02 / 2026-12-24、第2期 2026-12-02 - 2027-01-12 / 2027-03-04、第3期 2027-02-17 - 2027-03-09 / 2027-04-30"
+        },
+        {
+          "label": "JD Program 出願期間 / 面接 / 合格発表",
+          "value": "2027年4月入学 第2期 2026-08-19 - 2026-09-08 / 2026-11-14 - 2026-11-15 / 2026-11-26"
+        },
+        {
+          "label": "GS Major 出願期間 / 面接要否通知・面接 / 合格発表",
+          "value": "2027年4月入学 2026-08-19 - 2026-09-08 / 2026-11-14 - 2026-11-15 / 2026-11-26、2027年9月入学 第1期 2026-12-02 - 2027-01-12 / 2027-03-13 - 2027-03-14 / 2027-03-25、第2期 2027-02-17 - 2027-03-09 / 2027-05-08 - 2027-05-09 / 2027-05-20"
+        },
+        {
+          "label": "CRPS Major 出願期間 / 面接 / 合格発表",
+          "value": "2027年9月入学 第1期 2026-12-02 - 2027-01-12 / 2027-03-13 - 2027-03-14 / 2027-03-25、第2期 2027-02-17 - 2027-03-09 / 2027-05-08 - 2027-05-09 / 2027-05-20"
+        },
+        {
+          "label": "ISSE Course 出願期間 / 面接 / 合格発表",
+          "value": "2027年4月入学 第2期 2026-08-19 - 2026-09-08 / 2026-11-14 - 2026-11-15 / 2026-11-26"
+        }
+      ],
+      "notes": "2026-07-11確認時点で、立命館大学 International Admissions Office の 2026-04-15 公告で 2027 Enrollment の AO Admissions (English Basis) 情報公開を確認。How to Apply と Download Documents に 2027年度向け Application Handbook・出願期間・合格発表日程が掲載されているため、英語学位課程5プログラム（GLA/JD/GS/CRPS/ISSE）の共通出願資格、英語条件、主要日程を反映した。"
     },
     "立命馆亚洲太平洋大学 APU": {
       "universityName": "立命馆亚洲太平洋大学 APU",

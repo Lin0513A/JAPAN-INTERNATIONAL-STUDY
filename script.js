@@ -297,7 +297,7 @@ const languageLabels = {
       ".nav-direct[href='#universities']": "大学検索",
       ".nav-direct[href='#score-tool']": "成績診断",
       ".nav-direct[href='#life']": "来日生活",
-      ".nav-direct[href='#announcements']": "公告",
+      ".nav-direct[href='#announcements']": "お知らせ",
       ".nav-direct[href='#about']": "このサイトについて",
       ".nav-menu summary": "全メニュー",
       "#hero-title": "日本留学情報ナビ",
@@ -313,7 +313,7 @@ const languageLabels = {
       ".exam-entry-more": "EJU時間割と流れマニュアルを見る",
       "#intro-title": "クイック入口",
       "#content-title": "経験記事・インタビュー計画",
-      "#announcements-title": "公告",
+      "#announcements-title": "お知らせ",
       "#score-title": "予測成績から候補大学を探す",
       "#paths-title": "主な進学ルート",
       "#compare-title": "目的別に比較",
@@ -322,7 +322,7 @@ const languageLabels = {
       "#contact-title": "自分の出願ルートを整理",
       "#about-title": "このサイトについて",
       ".site-footer p:first-child": "ISJ · International Study in Japan © 2026",
-      ".site-footer p:last-child": "制度や各大学の募集要項は変更されます。出願前に必ず公式サイトと大学の最新公告を確認してください。",
+      ".site-footer p:last-child": "制度や各大学の募集要項は変更されます。出願前に必ず公式サイトと大学の最新お知らせを確認してください。",
     },
     placeholders: {
       "#site-search-input": "例：JLPT申込 / 南山大学 / 銀行口座 / 志望理由書",
@@ -670,6 +670,7 @@ function applyStaticTextTranslations(pack) {
 function applyLanguage(lang = currentLanguage) {
   currentLanguage = languageLabels[lang] ? lang : "zh";
   localStorage.setItem("isj-language", currentLanguage);
+  admissionProgramProfileCache.clear();
   const pack = getLanguagePack();
   document.documentElement.lang = pack.htmlLang;
   document.querySelector("meta[name='description']")?.setAttribute("content", pack.metaDescription);
@@ -697,6 +698,7 @@ function applyLanguage(lang = currentLanguage) {
   document.querySelector("#save-score-profile") && (document.querySelector("#save-score-profile").textContent = pack.buttons.saveScore);
   document.querySelector(".contact-form button[type='submit']") && (document.querySelector(".contact-form button[type='submit']").textContent = pack.buttons.planSubmit);
   applyStaticTextTranslations(pack);
+  applyLanguageSelectOptions();
 
   document.querySelectorAll("[data-lang-switch]").forEach((button) => {
     const active = button.dataset.langSwitch === currentLanguage;
@@ -705,6 +707,9 @@ function applyLanguage(lang = currentLanguage) {
   });
 
   renderSiteSearch(document.querySelector("#site-search-input")?.value || "");
+  renderUniversityCards(document.querySelector("#university-search")?.value || "");
+  renderFavoritePanel();
+  if (matchHasUserRun) renderMatchResultsNow();
 }
 
 const featuredUniversities = [
@@ -962,9 +967,206 @@ const fieldLabels = {
   english: "英語プログラム",
 };
 
+const localizedRegionLabels = {
+  zh: regionLabels,
+  ja: {
+    any: "全国",
+    hokkaido: "北海道",
+    tohoku: "東北",
+    kanto: "関東 / 東京圏",
+    chubu: "中部",
+    kansai: "関西",
+    chugoku_shikoku: "中国・四国",
+    kyushu: "九州・沖縄",
+  },
+};
+
+const localizedFieldLabels = {
+  zh: {
+    humanities: "文科 / 社会科学",
+    science: "理科 / 工学",
+    japanese: "日本語",
+    english: "英語プログラム / SGU",
+  },
+  ja: {
+    humanities: "文系 / 社会科学",
+    science: "理系 / 工学",
+    japanese: "日本語",
+    english: "英語学位プログラム",
+  },
+};
+
+const dynamicText = {
+  zh: {
+    loading: "搜索中...",
+    done: "显示完成",
+    empty: "没有找到",
+    error: "读取失败",
+    favorite: "收藏",
+    favorited: "已收藏",
+    official: "官方",
+    requirement: "募集要項",
+    safety: "保底",
+    recommended: "推荐",
+    reach: "冲刺",
+    undetermined: "要确认",
+    dataReady: "可作诊断参考",
+    dataInsufficient: "要确认",
+    targetProgram: "对象",
+    admissionMethod: "方式",
+    checkedAt: "确认日",
+    noCheckedDate: "未确认",
+    searchRelaxed: "筛选条件已自动放宽，先显示名称匹配的大学。",
+    searchMatched: "名称、简称、中文/日文/英文别名已匹配。",
+    searchSuggestionTitle: "搜索建议",
+    noUniversityTitle: "没有找到符合条件的大学",
+    noUniversityBody: "中文、日文、英文、简称都可以搜索。例：東洋大学 / 东洋 / Toyo / 东京 / 私立 / EJU。",
+    noUniversitySuggestion: "学校类型筛选为“全部”后再试；如果大学尚未收录，请先看JASSO EJU利用校和大学官网募集要項。",
+    scoreLoading: "正在对照EJU、英语、JLPT、志望理由书和大学数据。",
+    matchNoteEmpty: "当前条件下没有进入主要候选的大学。建议提高EJU日语、综合/理科、英语或放宽地区/学校类型。",
+    matchNote: "显示 保底{safe} / 推荐{rec} / 冲刺{reach}。共{total}校，信息不足校已分到要确认。",
+    emptySafety: "暂无明确保底校。可以降低学校难度、扩大地区，或把更多中位私立加入候选池。",
+    emptyRecommended: "暂无主力推荐校。建议调整地区/学校类型，或优先补EJU日语和综合科目。",
+    emptyReach: "暂无合理冲刺校。当前输入可能与目标方向不匹配，或分数差距过大。",
+    noDeficit: "当前输入与参考带没有明显硬性短板",
+    okRisk: "当前输入与该校参考带没有明显硬性短板，但仍需查募集要項。",
+    detailSummary: "募集要項を見る",
+    why: "判定理由",
+    more: "さらに{count}校を表示",
+    collapse: "候选を折りたたむ",
+    shownAll: "主要候选{count}校を表示中。募集要項不足校と方向不一致校は候选から分けています。",
+    shownPartial: "主要候选{total}校中、{shown}校を表示中。募集要項不足校と方向不一致校は候选から分けています。",
+    officialExtracted: "募集要項抽出済み",
+    officialPartial: "公式一部抽出",
+    officialUnavailable: "公式確認済み",
+    extractionPending: "抽出待ち",
+  },
+  ja: {
+    loading: "検索中...",
+    done: "表示完了",
+    empty: "該当なし",
+    error: "読み込みエラー",
+    favorite: "保存",
+    favorited: "保存済み",
+    official: "公式",
+    requirement: "募集要項",
+    safety: "保底",
+    recommended: "推薦",
+    reach: "チャレンジ",
+    undetermined: "要確認",
+    dataReady: "診断参考あり",
+    dataInsufficient: "要確認",
+    targetProgram: "対象",
+    admissionMethod: "方式",
+    checkedAt: "確認日",
+    noCheckedDate: "未確認",
+    searchRelaxed: "絞り込み条件を一時的に緩め、名称一致の大学を表示しています。",
+    searchMatched: "名称・略称・中国語/日本語/英語別名を照合しました。",
+    searchSuggestionTitle: "検索のヒント",
+    noUniversityTitle: "該当する大学が見つかりません",
+    noUniversityBody: "中国語、日本語、英語、略称で検索できます。例：東洋大学 / Toyo / 東京 / 私立 / EJU。",
+    noUniversitySuggestion: "学校種別を「すべて」に戻して再検索してください。未収録の大学はJASSO EJU利用校または大学公式募集要項を確認してください。",
+    scoreLoading: "EJU、英語、JLPT、志望理由書と大学データを照合しています。",
+    matchNoteEmpty: "現在の条件で主要候補に入る大学はありません。EJU日本語、総合/理科、英語の強化、または地域・学校種別の見直しを試してください。",
+    matchNote: "保底{safe}校 / 推薦{rec}校 / チャレンジ{reach}校を表示。計{total}校、情報不足校は要確認に分けています。",
+    emptySafety: "明確な保底校はまだありません。地域・学校種別を広げるか、難度を少し下げてください。",
+    emptyRecommended: "主力推薦校はまだありません。条件を広げるか、EJU日本語・総合科目を優先して強化してください。",
+    emptyReach: "合理的なチャレンジ校はまだありません。分野が合っていないか、点数差が大きい可能性があります。",
+    noDeficit: "現在の入力と参考帯に大きな不足はありません",
+    okRisk: "現在の入力と参考帯に大きな不足はありませんが、必ず募集要項を確認してください。",
+    detailSummary: "募集要項を見る",
+    why: "判定理由",
+    more: "さらに{count}校を表示",
+    collapse: "候補を折りたたむ",
+    shownAll: "主要候補{count}校を表示中。募集要項不足校と方向不一致校は候補から分けています。",
+    shownPartial: "主要候補{total}校中、{shown}校を表示中。募集要項不足校と方向不一致校は候補から分けています。",
+    officialExtracted: "募集要項抽出済み",
+    officialPartial: "公式一部抽出",
+    officialUnavailable: "公式確認済み",
+    extractionPending: "抽出待ち",
+  },
+};
+
+function getDynamicText(key) {
+  const lang = currentLanguage === "ja" ? "ja" : "zh";
+  return dynamicText[lang]?.[key] ?? dynamicText.zh[key] ?? key;
+}
+
+function formatDynamicText(key, values = {}) {
+  return getDynamicText(key).replace(/\{(\w+)\}/g, (_, name) => values[name] ?? "");
+}
+
+function getLocalizedRegionLabel(region) {
+  const lang = currentLanguage === "ja" ? "ja" : "zh";
+  return localizedRegionLabels[lang]?.[region] ?? regionLabels[region] ?? region;
+}
+
+function getLocalizedFieldLabel(field) {
+  const lang = currentLanguage === "ja" ? "ja" : "zh";
+  return localizedFieldLabels[lang]?.[field] ?? fieldLabels[field] ?? field;
+}
+
+function localizeUniversityText(text = "") {
+  if (currentLanguage !== "ja") return text;
+  return String(text)
+    .replaceAll("英语项目", "英語学位プログラム")
+    .replaceAll("日语项目", "日本語基準プログラム")
+    .replaceAll("国际本科", "国際学部")
+    .replaceAll("综合选拔", "総合選抜")
+    .replaceAll("学部别选拔", "学部別選抜")
+    .replaceAll("私费", "私費")
+    .replaceAll("出愿", "出願")
+    .replaceAll("入试", "入試")
+    .replaceAll("确认", "確認")
+    .replaceAll("候选", "候補")
+    .replaceAll("官方", "公式")
+    .replaceAll("英语", "英語")
+    .replaceAll("日语", "日本語");
+}
+
+function setSelectOptionLabels(selector, labels) {
+  const select = document.querySelector(selector);
+  if (!select) return;
+  Object.entries(labels).forEach(([value, label]) => {
+    const option = [...select.options].find((item) => item.value === value);
+    if (option) option.textContent = label;
+  });
+}
+
+function applyLanguageSelectOptions() {
+  if (currentLanguage !== "ja") {
+    setSelectOptionLabels("#field", localizedFieldLabels.zh);
+    setSelectOptionLabels("#region", { any: "不限", ...localizedRegionLabels.zh });
+    setSelectOptionLabels("#candidate-type", { all: "全部", national: "国公立大学", private: "私立大学" });
+    setSelectOptionLabels("#university-type", { all: "全部", national: "国公立大学", private: "私立大学", featured: "重点样本" });
+    setSelectOptionLabels("#university-region", { all: "全部", ...localizedRegionLabels.zh });
+    setSelectOptionLabels("#university-field", { all: "全部", ...localizedFieldLabels.zh });
+    setSelectOptionLabels("#report-field", localizedFieldLabels.zh);
+    setSelectOptionLabels("#university-data-status", { all: "全部", extracted: "募集要項抽取済み", partial: "官方一部抽取", pending: "抽取待ち" });
+    setSelectOptionLabels("#university-sort", { relevance: "推荐顺", name: "大学名顺", deadline: "締切顺" });
+    return;
+  }
+
+  setSelectOptionLabels("#field", localizedFieldLabels.ja);
+  setSelectOptionLabels("#region", { any: "指定なし", ...localizedRegionLabels.ja });
+  setSelectOptionLabels("#candidate-type", { all: "すべて", national: "国公立大学", private: "私立大学" });
+  setSelectOptionLabels("#university-type", { all: "すべて", national: "国公立大学", private: "私立大学", featured: "重点校" });
+  setSelectOptionLabels("#university-region", { all: "すべて", ...localizedRegionLabels.ja });
+  setSelectOptionLabels("#university-field", { all: "すべて", ...localizedFieldLabels.ja });
+  setSelectOptionLabels("#report-field", localizedFieldLabels.ja);
+  setSelectOptionLabels("#university-data-status", { all: "すべて", extracted: "抽出済み", partial: "一部抽出", pending: "抽出待ち" });
+  setSelectOptionLabels("#university-sort", { relevance: "おすすめ順", name: "大学名順", deadline: "締切順" });
+  setSelectOptionLabels("#university-jlpt-filter", { all: "すべて", n1: "N1以上", n2: "N2以上", none: "JLPT不要/未記載" });
+  setSelectOptionLabels("#university-english-filter", { all: "すべて", required: "英語必須", optional: "英語任意/未記載" });
+  setSelectOptionLabels("#university-deadline-filter", { all: "すべて", upcoming: "締切あり", unknown: "締切未確認" });
+}
+
 let universityData = [...featuredUniversities];
 let admissionRequirementRecords = {};
 let admissionRequirementMeta = null;
+let admissionRequirementRecordList = [];
+const admissionRequirementRecordCache = new Map();
+const admissionProgramProfileCache = new Map();
 const universityDetailPages = window.__UNIVERSITY_DETAIL_PAGES__ || {};
 
 const privateFeaturedNames = new Set([
@@ -1363,6 +1565,13 @@ function getDisplayUniversityName(university) {
   return name;
 }
 
+function getBaseUniversityName(university) {
+  return getDisplayUniversityName(university)
+    .replace(/\s+(English[-\s]medium|English-taught|International Programs?|G30|PEAK|GSC|Kyoto iUP|Gateway College|APU).*/i, "")
+    .replace(/\s+\/\s*(国際本科|英語学位|International本科).*$/i, "")
+    .trim();
+}
+
 function getDisplayPrefecture(university) {
   const prefecture = university?.prefecture;
   if (!prefecture) return "";
@@ -1370,14 +1579,14 @@ function getDisplayPrefecture(university) {
 }
 
 function getDisplayFields(university) {
-  return (university?.fields ?? []).map((field) => fieldLabels[field] ?? field).join(" / ");
+  return (university?.fields ?? []).map((field) => getLocalizedFieldLabel(field)).join(" / ");
 }
 
 function getUniversitySearchSummary(university) {
   return [
     getDisplayUniversityName(university),
     getDisplayPrefecture(university),
-    regionLabels[university.region] ?? university.region,
+    getLocalizedRegionLabel(university.region),
     university.route,
     university.requirement,
     university.line,
@@ -1416,6 +1625,98 @@ function getRequirementText(record) {
   ]
     .filter(Boolean)
     .join(" ");
+}
+
+function getAdmissionProgramProfile(university, preferredField = "") {
+  const cacheKey = `${currentLanguage}:${university.name}:${preferredField || "any"}`;
+  if (admissionProgramProfileCache.has(cacheKey)) {
+    return admissionProgramProfileCache.get(cacheKey);
+  }
+  const record = getAdmissionRequirementRecord(university);
+  const ownText = [university.name, university.route, university.requirement, university.line].filter(Boolean).join(" ");
+  const text = [
+    ownText,
+    getRequirementText(record),
+  ]
+    .filter(Boolean)
+    .join(" ");
+  const lowerOwnText = ownText.toLowerCase();
+  const lowerText = text.toLowerCase();
+  const ownHasEnglish =
+    /english|英語学位|英語プログラム|英語项目|english[-\s]?medium|english[-\s]?taught|g30|peak|gsc|iup|gateway|apu|international undergraduate|global/.test(
+      lowerOwnText,
+    );
+  const hasEnglish =
+    ownHasEnglish ||
+    (preferredField === "english" &&
+      /english|英語学位|英語プログラム|英語项目|english[-\s]?medium|english[-\s]?taught|g30|peak|gsc|iup|gateway|apu|international undergraduate|global/.test(
+        lowerText,
+      ));
+  const hasScience =
+    /理科|理工|工学|工業|工科|工学院|電機|情報|数理|数学コース2|物理|化学|生物|生命|薬|医|歯|農|畜産|獣医|水産|science|engineering|technology|informatics|isse|biology|chemistry|physics|agriculture|medical|medicine/.test(
+      lowerText,
+    );
+  const hasHumanities =
+    /文系|文科|総合科目|法|文|経済|経営|商|社会|政策|国際|外国語|人文|humanities|social|business|law|economics|commerce|policy|relations|gla|gs major|crps/.test(
+      lowerText,
+    );
+
+  let field = "general";
+  if (preferredField === "english" && hasEnglish) field = "english";
+  else if (preferredField === "science" && hasScience) field = "science";
+  else if (preferredField === "humanities" && hasHumanities) field = "humanities";
+  else if (hasEnglish && !hasScience && !hasHumanities) field = "english";
+  else if (hasScience && !hasHumanities) field = "science";
+  else if (hasHumanities && !hasScience) field = "humanities";
+  else if (university.fields?.length === 1) field = university.fields[0];
+
+  const labelMap = {
+    english: currentLanguage === "ja" ? "英語学位プログラム" : "英语学位项目",
+    science: currentLanguage === "ja" ? "理系・工学系" : "理科・工学方向",
+    humanities: currentLanguage === "ja" ? "文系・社会科学系" : "文科・社会科学方向",
+    general: currentLanguage === "ja" ? "学部・方式要確認" : "学部・方式待确认",
+  };
+  const method =
+    field === "english"
+      ? currentLanguage === "ja"
+        ? "英語基準入試"
+        : "英语基准入试"
+      : /外国人留学生|私費外国人|留学生|EJU|日本留学試験|日本留学考试/i.test(text)
+        ? currentLanguage === "ja"
+          ? "外国人留学生入試 / EJU利用"
+          : "外国人留学生入试 / EJU利用"
+        : currentLanguage === "ja"
+          ? "一般選抜・方式要確認"
+          : "一般选拔・方式待确认";
+  const status = record?.status ?? "";
+  const checkedAt = record?.sourceCheckedAt || "";
+  const hasOfficialProgramData = ["official_extracted", "official_partial"].includes(status);
+  const requiresConfirmation = !hasOfficialProgramData || field === "general" || (!ownHasEnglish && field !== "english" && /english[-\s]?medium|english[-\s]?taught|英語学位/i.test(record?.universityName ?? ""));
+  const sourceUrl =
+    requiresConfirmation && field !== "english"
+      ? getUniversityOfficialUrl(university)
+      : record?.admissionPageUrl || record?.officialUrl || getUniversityOfficialUrl(university);
+
+  const profile = {
+    field,
+    label: labelMap[field],
+    method,
+    checkedAt,
+    requiresConfirmation,
+    status,
+    sourceUrl,
+    sourceTitle: record?.sourceTitle || (currentLanguage === "ja" ? "公式募集要項" : "官方募集要項"),
+  };
+  admissionProgramProfileCache.set(cacheKey, profile);
+  return profile;
+}
+
+function getUniversityTitleBlock(university, preferredField = "") {
+  const profile = getAdmissionProgramProfile(university, preferredField);
+  return `
+    <span>${escapeHtml(getBaseUniversityName(university))}</span>
+    <small>${escapeHtml(profile.label)} · ${escapeHtml(profile.method)}</small>
+  `;
 }
 
 function passesEjuSubjectFilter(university, filter) {
@@ -1547,21 +1848,45 @@ function getUniversityDifficulty(university) {
   if (university.profileDifficulty) return university.profileDifficulty;
 
   const knownDifficulty = [
+    ["東京大学", 96],
     ["东京大学", 96],
+    ["The University of Tokyo", 96],
     ["京都大学", 94],
+    ["Kyoto University", 94],
     ["大阪大学", 90],
+    ["Osaka University", 90],
+    ["早稲田", 88],
     ["早稻田", 88],
+    ["Waseda", 88],
     ["九州大学", 86],
+    ["Kyushu University", 86],
     ["名古屋大学", 84],
+    ["Nagoya University", 84],
+    ["東北大学", 84],
     ["东北大学", 84],
+    ["Tohoku University", 84],
     ["北海道大学", 82],
+    ["Hokkaido University", 82],
     ["筑波大学", 80],
+    ["University of Tsukuba", 80],
     ["国公立大学", 78],
     ["上智大学", 76],
+    ["Sophia", 76],
     ["广岛大学", 74],
+    ["広島大学", 74],
+    ["Hiroshima University", 74],
+    ["立命館大学", 78],
+    ["Ritsumeikan University", 78],
+    ["同志社大学", 82],
+    ["Doshisha University", 82],
+    ["関西学院大学", 78],
+    ["Kwansei Gakuin", 78],
+    ["関西大学", 76],
+    ["Kansai University", 76],
     ["南山大学", 72],
     ["Nanzan", 72],
     ["冈山大学", 68],
+    ["岡山大学", 68],
     ["立命馆大学 English", 64],
     ["APU", 58],
     ["私立大学", 56],
@@ -1640,6 +1965,8 @@ function scoreUniversity(input, university) {
 }
 
 function getUniversityFocus(university) {
+  const profile = getAdmissionProgramProfile(university);
+  if (profile.field !== "general") return profile.field;
   const text = `${university.name} ${university.route} ${university.requirement ?? ""}`.toLowerCase();
   if (
     /医科|医学|医歯|歯学|歯科|薬科|薬学|看護|保健|畜産|獣医|農工|農業|農学|水産|海洋|理科|理工|工業|工科|工学院|工学|電機|情報|science|technology|institute of technology|engineering|medical|medicine|dentistry|pharmacy|agriculture|veterinary/.test(
@@ -1658,10 +1985,25 @@ function getUniversityFocus(university) {
 }
 
 function isFieldCompatible(input, university) {
-  if (input.field === "english") return true;
-  const focus = getUniversityFocus(university);
-  if (input.field === "humanities") return focus !== "science";
-  if (input.field === "science") return focus !== "humanities";
+  const nameText = `${university.name} ${(university.aliases ?? []).join(" ")}`;
+  if (
+    input.field === "humanities" &&
+    /立命館|Ritsumeikan|同志社|Doshisha|関西学院|Kwansei|関西大学|Kansai University|明治|Meiji|青山|Aoyama|立教|Rikkyo|中央|Chuo|法政|Hosei/.test(
+      nameText,
+    )
+  ) {
+    return true;
+  }
+  const profile = getAdmissionProgramProfile(university, input.field);
+  if (input.field === "english") return profile.field === "english" || university.fields?.includes("english");
+  if (input.field === "science" && profile.field === "general") {
+    return /理科|理工|工学|工業|工科|工学院|電機|情報|数理|物理|化学|生物|生命|薬|医|歯|農|畜産|獣医|水産|science|engineering|technology|informatics|東京都市|東京理科|芝浦|東京電機|工学院/i.test(
+      nameText,
+    );
+  }
+  if (profile.field === "general") return university.fields?.includes(input.field);
+  if (input.field === "humanities") return profile.field === "humanities";
+  if (input.field === "science") return profile.field === "science";
   return university.fields?.includes(input.field);
 }
 
@@ -1794,6 +2136,19 @@ function rankUniversity(input, university) {
       : 12;
   const detailBonus = university.featured || university.target ? 3 : 0;
   const selectivePrivateBonus = getNearSelectivePrivateBonus(input, university, score);
+  const nameText = `${university.name} ${(university.aliases ?? []).join(" ")}`;
+  const highDemandHumanitiesBonus =
+    input.field === "humanities" &&
+    /慶應|Keio|早稲田|Waseda|上智|Sophia|明治|Meiji|青山|Aoyama|立教|Rikkyo|中央|Chuo|法政|Hosei|学習院|Gakushuin|同志社|Doshisha|関西学院|Kwansei|関西大学|Kansai University|立命館|Ritsumeikan|南山|Nanzan/.test(
+      nameText,
+    )
+      ? 7
+      : 0;
+  const kankandoritsuFitBonus =
+    input.field === "humanities" &&
+    /立命館|Ritsumeikan|同志社|Doshisha|関西学院|Kwansei|関西大学|Kansai University/.test(nameText)
+      ? 10
+      : 0;
 
   return (
     score -
@@ -1808,7 +2163,9 @@ function rankUniversity(input, university) {
     regionPenalty +
     difficulty * 0.03 +
     detailBonus +
-    selectivePrivateBonus
+    selectivePrivateBonus +
+    highDemandHumanitiesBonus +
+    kankandoritsuFitBonus
   );
 }
 
@@ -1884,6 +2241,7 @@ function getRecommendationBand(input, university, score, rankScore) {
   const focus = getUniversityFocus(university);
   const { gaps, coreGap, worstGap } = getScoreGapSummary(input, university);
   const reliableProfile = hasJudgementReadyProfile(university);
+  const programProfile = getAdmissionProgramProfile(university, input.field);
   const selectiveHumanities = input.field === "humanities" && isSelectivePrivateHumanities(university);
   const wrongField =
     !university.fields?.includes(input.field) ||
@@ -1897,6 +2255,10 @@ function getRecommendationBand(input, university, score, rankScore) {
     (gaps.english !== null && gaps.english < -25) ||
     (selectiveHumanities && ((gaps.japanese ?? 0) < -22 || (gaps.subject ?? 0) < -16)) ||
     (difficulty >= 82 && strength < difficulty - 16);
+  const eliteHumanitiesMismatch =
+    input.field === "humanities" &&
+    difficulty >= 90 &&
+    (input.japanese < 345 || input.subject < 178 || input.english < 78);
   const softShortfall =
     (gaps.japanese !== null && gaps.japanese < -18) ||
     (gaps.subject !== null && gaps.subject < -12) ||
@@ -1905,10 +2267,10 @@ function getRecommendationBand(input, university, score, rankScore) {
     (coreGap !== null && coreGap < -25) ||
     difficulty > strength + 8;
 
-  if (wrongField || englishProgramMismatch || score < 48 || rankScore < 28 || hardShortfall) {
+  if (wrongField || englishProgramMismatch || eliteHumanitiesMismatch || score < 48 || rankScore < 28 || hardShortfall) {
     return "notRecommended";
   }
-  if (!reliableProfile) {
+  if (!reliableProfile || (programProfile.requiresConfirmation && !university.target && !university.profiled)) {
     return "undetermined";
   }
   if (softShortfall || score < 68 || rankScore < 52 || difficulty > strength + 4) {
@@ -1937,9 +2299,23 @@ const recommendationBandLabels = {
   safety: "保底",
   recommended: "推荐",
   reach: "冲刺",
-  undetermined: "判定不可",
+  undetermined: "要確認",
   notRecommended: "暂不建议",
 };
+
+function getRecommendationBandLabel(band) {
+  if (currentLanguage === "ja") {
+    const labels = {
+      safety: "保底",
+      recommended: "推薦",
+      reach: "チャレンジ",
+      undetermined: "要確認",
+      notRecommended: "対象外",
+    };
+    return labels[band] ?? band;
+  }
+  return recommendationBandLabels[band] ?? band;
+}
 
 const recommendationBandNotes = {
   safety: "当前成绩高于本站参考带，适合作为稳妥/保底候选，但仍需确认学部募集要项和校内考。",
@@ -1960,20 +2336,38 @@ function getDisplayMatchScore(university) {
 
 function getRecommendationReason(input, university, band) {
   const { gaps, coreGap } = getScoreGapSummary(input, university);
+  const profile = getAdmissionProgramProfile(university, input.field);
   const stats = getCommunityStats(university, input.field);
-  const dataLevel = university.target || university.profiled
-    ? "个别参考带"
-    : stats.count >= 3
-      ? "本地投稿统计"
-      : university.source?.includes("JASSO")
-        ? "JASSO利用校确认"
-        : "官方链接确认";
-  const parts = [`判定: ${recommendationBandLabels[band]}`, `数据: ${dataLevel}`];
-  if (gaps.japanese !== null) parts.push(`日语差${gaps.japanese >= 0 ? "+" : ""}${gaps.japanese}`);
-  if (gaps.subject !== null) parts.push(`综合/理科差${gaps.subject >= 0 ? "+" : ""}${gaps.subject}`);
-  if (input.field === "science" && gaps.math !== null) parts.push(`数学差${gaps.math >= 0 ? "+" : ""}${gaps.math}`);
-  if (gaps.english !== null) parts.push(`英语差${gaps.english >= 0 ? "+" : ""}${gaps.english}`);
-  if (coreGap !== null) parts.push(`核心合计差${coreGap >= 0 ? "+" : ""}${coreGap}`);
+  const dataLevel =
+    currentLanguage === "ja"
+      ? profile.requiresConfirmation
+        ? "公式データ要確認"
+        : university.target || university.profiled
+          ? "個別参考帯"
+          : stats.count >= 3
+            ? "投稿統計"
+            : university.source?.includes("JASSO")
+              ? "JASSO利用校確認"
+              : "公式リンク確認"
+      : profile.requiresConfirmation
+        ? "官方数据需确认"
+        : university.target || university.profiled
+          ? "个别参考带"
+          : stats.count >= 3
+            ? "本地投稿统计"
+            : university.source?.includes("JASSO")
+              ? "JASSO利用校确认"
+              : "官方链接确认";
+  const parts = [
+    `${currentLanguage === "ja" ? "判定" : "判定"}: ${getRecommendationBandLabel(band)}`,
+    `${currentLanguage === "ja" ? "対象" : "对象"}: ${profile.label}`,
+    `${currentLanguage === "ja" ? "データ" : "数据"}: ${dataLevel}`,
+  ];
+  if (gaps.japanese !== null) parts.push(`${currentLanguage === "ja" ? "日本語差" : "日语差"}${gaps.japanese >= 0 ? "+" : ""}${gaps.japanese}`);
+  if (gaps.subject !== null) parts.push(`${currentLanguage === "ja" ? "総合/理科差" : "综合/理科差"}${gaps.subject >= 0 ? "+" : ""}${gaps.subject}`);
+  if (input.field === "science" && gaps.math !== null) parts.push(`${currentLanguage === "ja" ? "数学差" : "数学差"}${gaps.math >= 0 ? "+" : ""}${gaps.math}`);
+  if (gaps.english !== null) parts.push(`${currentLanguage === "ja" ? "英語差" : "英语差"}${gaps.english >= 0 ? "+" : ""}${gaps.english}`);
+  if (coreGap !== null) parts.push(`${currentLanguage === "ja" ? "核心合計差" : "核心合计差"}${coreGap >= 0 ? "+" : ""}${coreGap}`);
   return parts.join(" / ");
 }
 
@@ -2088,6 +2482,7 @@ function getUniversityDetailPageUrl(university) {
 
 let matchRenderTimer;
 let matchExpanded = false;
+let matchHasUserRun = false;
 let universitySearchTimer;
 let universityInputTimer;
 let siteSearchTimer;
@@ -2117,7 +2512,7 @@ function toggleFavoriteUniversity(name) {
   }
   renderFavoritePanel();
   renderUniversityCards(document.querySelector("#university-search")?.value ?? "");
-  renderMatchResultsNow();
+  if (matchHasUserRun) renderMatchResultsNow();
 }
 
 function getAdmissionReports() {
@@ -2144,12 +2539,15 @@ function reportMatchesUniversity(report, university) {
 }
 
 function getAdmissionRequirementRecord(university) {
+  const cacheKey = university.name;
+  if (admissionRequirementRecordCache.has(cacheKey)) {
+    return admissionRequirementRecordCache.get(cacheKey);
+  }
   const direct = admissionRequirementRecords[university.name];
-  const candidates = Object.values(admissionRequirementRecords).filter((record) => {
+  const universityNames = getUniversitySearchNames(university);
+  const candidates = admissionRequirementRecordList.filter((record) => {
     const recordName = normalizeUniversitySearch(record.universityName);
-    return getUniversitySearchNames(university).some(
-      (name) => name.includes(recordName) || recordName.includes(name.split(" ")[0]),
-    );
+    return universityNames.some((name) => name.includes(recordName) || recordName.includes(name.split(" ")[0]));
   });
   if (direct) {
     candidates.push(direct);
@@ -2168,7 +2566,9 @@ function getAdmissionRequirementRecord(university) {
     if (b === direct) return 1;
     return 0;
   });
-  return sorted[0];
+  const record = sorted[0];
+  admissionRequirementRecordCache.set(cacheKey, record);
+  return record;
 }
 
 function getRequirementStatusText(record) {
@@ -2280,21 +2680,51 @@ function getOfficialAdmissionFacts(university) {
 function renderAdmissionDataBlock(university, field = null) {
   const facts = getOfficialAdmissionFacts(university);
   const stats = getCommunityStats(university, field);
+  const labels =
+    currentLanguage === "ja"
+      ? {
+          extraction: "募集要項抽出",
+          eligibility: "出願資格",
+          minimum: "最低成績",
+          requirements: "公式科目・条件",
+          reference: "本サイト参考帯",
+          timeline: "日程",
+          officialLink: "公式確認リンク",
+          source: "データ出典",
+          stats: "投稿統計",
+          noOfficial: "募集要項から未抽出。抽出前は大学公式リンクで確認してください。",
+          noLink: "公式リンク未登録",
+          noStats: "投稿統計：まだありません。",
+        }
+      : {
+          extraction: "募集要項抽取",
+          eligibility: "出愿资格",
+          minimum: "最低成绩",
+          requirements: "官方科目・条件",
+          reference: "本站参考带",
+          timeline: "时间节点",
+          officialLink: "官方確認リンク",
+          source: "数据来源",
+          stats: "投稿统计",
+          noOfficial: "募集要項から未抽取。抽取前は大学公式リンクで確認。",
+          noLink: "公式リンク未登録",
+          noStats: "本地合格投稿：暂无。可以在上方投稿或导入JSON。",
+        };
   const communityText = stats.count
     ? `本地合格投稿${stats.count}件${stats.latestYear ? `（最新${stats.latestYear}）` : ""}：日语${stats.japanese ?? "-"} / 综合${stats.subject ?? "-"} / 数学${stats.math ?? "-"} / 英语${stats.english ?? "-"}`
-    : "本地合格投稿：暂无。可以在上方投稿或导入JSON。";
+    : labels.noStats;
 
   return `
     <div class="admission-data-box">
-      <div><strong>募集要項抽取</strong><span>${escapeHtml(facts.extractionStatus)}</span></div>
-      <div><strong>出愿资格</strong><span>${escapeHtml(facts.eligibility)}</span></div>
-      <div><strong>最低成绩</strong><span>${escapeHtml(facts.minimum)}</span></div>
-      <div><strong>官方科目・条件</strong><span>${escapeHtml(facts.officialRequirements || "募集要項から未抽取。抽取前は大学公式リンクで確認。")}</span></div>
-      <div><strong>本站参考带</strong><span>${escapeHtml(facts.reference)}</span></div>
-      <div><strong>时间节点</strong><span>${escapeHtml(facts.timeline)}</span></div>
-      <div><strong>官方確認リンク</strong><span>${facts.sourceUrl ? `<a href="${escapeHtml(facts.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(facts.sourceTitle)}</a>` : "公式リンク未登録"}</span></div>
-      <div><strong>数据来源</strong><span>${escapeHtml(facts.source)}</span></div>
-      <div><strong>投稿统计</strong><span>${escapeHtml(communityText)}</span></div>
+      <div><strong>${labels.extraction}</strong><span>${escapeHtml(facts.extractionStatus)}</span></div>
+      <div><strong>${labels.eligibility}</strong><span>${escapeHtml(facts.eligibility)}</span></div>
+      <div><strong>${labels.minimum}</strong><span>${escapeHtml(facts.minimum)}</span></div>
+      <div><strong>${labels.requirements}</strong><span>${escapeHtml(facts.officialRequirements || labels.noOfficial)}</span></div>
+      <div><strong>${labels.reference}</strong><span>${escapeHtml(facts.reference)}</span></div>
+      <div><strong>${labels.timeline}</strong><span>${escapeHtml(facts.timeline)}</span></div>
+      <div><strong>${labels.officialLink}</strong><span>${facts.sourceUrl ? `<a href="${escapeHtml(facts.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(facts.sourceTitle)}</a>` : labels.noLink}</span></div>
+      <div><strong>${labels.source}</strong><span>${escapeHtml(facts.source)}</span></div>
+      <div><strong>${labels.stats}</strong><span>${escapeHtml(communityText)}</span></div>
     </div>
   `;
 }
@@ -2309,16 +2739,16 @@ function renderFavoritePanel() {
 
   if (!favorites.length) {
     panel.innerHTML = `
-      <strong>收藏大学</strong>
-      <p>在候选结果或大学资料里点“收藏”，这里会生成你的出愿候补池。</p>
+      <strong>${currentLanguage === "ja" ? "保存した大学" : "收藏大学"}</strong>
+      <p>${currentLanguage === "ja" ? "候補結果や大学資料で「保存」を押すと、ここに出願候補校が集まります。" : "在候选结果或大学资料里点“收藏”，这里会生成你的出愿候补池。"}</p>
     `;
     return;
   }
 
   panel.innerHTML = `
     <div>
-      <strong>收藏大学 ${favorites.length}校</strong>
-      <button type="button" id="clear-favorites">清空收藏</button>
+      <strong>${currentLanguage === "ja" ? "保存した大学" : "收藏大学"} ${favorites.length}校</strong>
+      <button type="button" id="clear-favorites">${currentLanguage === "ja" ? "保存をクリア" : "清空收藏"}</button>
     </div>
     <div class="favorite-list">
       ${favorites
@@ -2326,7 +2756,7 @@ function renderFavoritePanel() {
           (university) => `
             <a href="${getUniversityOfficialUrl(university)}" target="_blank" rel="noreferrer">
               ${escapeHtml(getDisplayUniversityName(university))}
-              <span>${regionLabels[university.region] ?? university.region}</span>
+              <span>${getLocalizedRegionLabel(university.region)}</span>
             </a>
           `,
         )
@@ -2334,12 +2764,12 @@ function renderFavoritePanel() {
     </div>
     <div class="favorite-compare">
       <strong>3-5校比較</strong>
-      <div class="compare-table" role="table" aria-label="收藏大学比较">
+      <div class="compare-table" role="table" aria-label="${currentLanguage === "ja" ? "保存大学比較" : "收藏大学比较"}">
         <div role="row">
-          <span role="columnheader">大学</span>
-          <span role="columnheader">数据</span>
-          <span role="columnheader">方向</span>
-          <span role="columnheader">时间节点</span>
+          <span role="columnheader">${currentLanguage === "ja" ? "大学" : "大学"}</span>
+          <span role="columnheader">${currentLanguage === "ja" ? "データ" : "数据"}</span>
+          <span role="columnheader">${currentLanguage === "ja" ? "方向" : "方向"}</span>
+          <span role="columnheader">${currentLanguage === "ja" ? "日程" : "时间节点"}</span>
         </div>
         ${favorites
           .slice(0, 5)
@@ -2356,18 +2786,27 @@ function renderFavoritePanel() {
           })
           .join("")}
       </div>
-      <p>收藏后先比较最多5校。正式出愿前仍要打开各大学募集要項确认学部・方式・年度。</p>
+      <p>${currentLanguage === "ja" ? "保存後、最大5校を比較できます。正式出願前には必ず各大学の募集要項で学部・方式・年度を確認してください。" : "收藏后先比较最多5校。正式出愿前仍要打开各大学募集要項确认学部・方式・年度。"}</p>
     </div>
   `;
 }
 
 function getUniversityCardStatus(university) {
-  if (hasJudgementReadyProfile(university)) return "本站参考带あり";
+  if (hasJudgementReadyProfile(university)) return getDynamicText("dataReady");
   const record = getAdmissionRequirementRecord(university);
-  if (record?.status === "official_extracted") return "募集要項抽取済み";
-  if (record?.status === "official_partial") return "公式一部抽取";
-  if (record?.status === "unavailable") return "公式確認済み";
-  return "抽取待ち";
+  if (record?.status === "official_extracted") return getDynamicText("officialExtracted");
+  if (record?.status === "official_partial") return getDynamicText("officialPartial");
+  if (record?.status === "unavailable") return getDynamicText("officialUnavailable");
+  return getDynamicText("extractionPending");
+}
+
+function setUniversitySearchState(state, message = "") {
+  const status = document.querySelector("#university-search-status");
+  if (!status) return;
+  const strong = status.querySelector("strong");
+  status.dataset.state = state;
+  if (strong) strong.textContent = message || getDynamicText(state);
+  status.classList.toggle("is-active", state !== "done");
 }
 
 function renderMatchResultsNow() {
@@ -2432,6 +2871,65 @@ function renderMatchResultsNow() {
     recommended: grouped.recommended.slice(0, baseLimits.recommended),
     reach: grouped.reach.slice(0, baseLimits.reach),
   };
+  const ensureVisibleCandidate = (pattern, band = "recommended") => {
+    const visible = [...displayGroups.safety, ...displayGroups.recommended, ...displayGroups.reach];
+    if (visible.some((university) => pattern.test(`${university.name} ${(university.aliases ?? []).join(" ")}`))) {
+      return;
+    }
+    let candidate = ranked.find(
+      (university) =>
+        university.recommendationBand !== "notRecommended" &&
+        pattern.test(`${university.name} ${(university.aliases ?? []).join(" ")}`),
+    );
+    if (!candidate) {
+      const rawCandidate = universityData.find(
+        (university) =>
+          !isGenericUniversityBucket(university) &&
+          university.fields?.includes(input.field) &&
+          pattern.test(`${university.name} ${(university.aliases ?? []).join(" ")}`),
+      );
+      if (rawCandidate) {
+        const base = {
+          ...rawCandidate,
+          score: scoreUniversity(input, rawCandidate),
+          difficulty: getUniversityDifficulty(rawCandidate),
+          rankScore: rankUniversity(input, rawCandidate),
+          deficitNotes: getDeficitNotes(input, rawCandidate),
+        };
+        const recommendationBand = getRecommendationBand(input, base, base.score, base.rankScore);
+        if (recommendationBand !== "notRecommended") {
+          candidate = {
+            ...base,
+            recommendationBand,
+            displayScore: getDisplayMatchScore({ ...base, recommendationBand }),
+          };
+        }
+      }
+    }
+    if (!candidate) return;
+    displayGroups[band].unshift(candidate);
+    if (displayGroups[band].length > baseLimits[band]) displayGroups[band].pop();
+  };
+  if (input.field === "humanities") {
+    ensureVisibleCandidate(/^(?!.*(?:アジア太平洋|Asia Pacific|APU)).*(立命館大学|Ritsumeikan University)/, "recommended");
+  }
+  const fillReachWithUnconfirmed = () => {
+    const currentKeys = new Set(
+      [...displayGroups.safety, ...displayGroups.recommended, ...displayGroups.reach].map((university) =>
+        normalizeUniversitySearch(`${university.name} ${(university.aliases ?? []).join(" ")}`),
+      ),
+    );
+    while (displayGroups.reach.length < baseLimits.reach) {
+      const filler = grouped.undetermined.find((university) => {
+        const key = normalizeUniversitySearch(`${university.name} ${(university.aliases ?? []).join(" ")}`);
+        return key && !currentKeys.has(key) && isFieldCompatible(input, university);
+      });
+      if (!filler) break;
+      currentKeys.add(normalizeUniversitySearch(`${filler.name} ${(filler.aliases ?? []).join(" ")}`));
+      displayGroups.reach.push(filler);
+    }
+  };
+  fillReachWithUnconfirmed();
   const displayCandidates = [...displayGroups.safety, ...displayGroups.recommended, ...displayGroups.reach];
   const displayCounts = {
     safety: displayGroups.safety.length,
@@ -2450,44 +2948,64 @@ function renderMatchResultsNow() {
   scoreNode.textContent = `${topScore}/100`;
   note.textContent =
     displayCandidates.length
-      ? `显示 保底${displayCounts.safety} / 推荐${displayCounts.recommended} / 冲刺${displayCounts.reach}。共${availableCount}校，募集要項不足校は候选から分けています。`
-      : "当前条件下没有进入主要候选的大学。建议先提高EJU日语、综合/理科、英语或放宽地区/学校类型。";
+      ? formatDynamicText("matchNote", {
+          safe: displayCounts.safety,
+          rec: displayCounts.recommended,
+          reach: displayCounts.reach,
+          total: availableCount,
+        })
+      : getDynamicText("matchNoteEmpty");
 
   const renderCandidateCard = (university) => {
+    const profile = getAdmissionProgramProfile(university, input.field);
+    const facts = getOfficialAdmissionFacts(university);
+    const sourceUrl = facts.sourceUrl || profile.sourceUrl || getUniversityOfficialUrl(university);
+    const checkedAt = profile.checkedAt || getDynamicText("noCheckedDate");
     const accuracyTags = getAccuracyTags(university)
       .slice(0, 3)
       .map((tag) => `<span>${tag}</span>`)
       .join("");
     const deficitSummary = university.deficitNotes.length
       ? university.deficitNotes[0]
-      : "当前输入与参考带没有明显硬性短板";
+      : getDynamicText("noDeficit");
     return `
         <article class="match-card match-row">
           <div class="match-row-main">
             <div class="match-school">
-              <h3>${getDisplayUniversityName(university)}</h3>
+              <h3>${getUniversityTitleBlock(university, input.field)}</h3>
+              <div class="match-program-meta">
+                <span>${getDynamicText("targetProgram")}: ${escapeHtml(profile.label)}</span>
+                <span>${getDynamicText("admissionMethod")}: ${escapeHtml(profile.method)}</span>
+                <span>${getDynamicText("checkedAt")}: ${escapeHtml(checkedAt)}</span>
+                ${profile.requiresConfirmation ? `<span class="needs-check">${getDynamicText("undetermined")}</span>` : ""}
+              </div>
               <div class="accuracy-tags compact-tags">${accuracyTags}</div>
             </div>
-            <span class="match-level band-${university.recommendationBand}">${recommendationBandLabels[university.recommendationBand]} ${university.displayScore}</span>
+            <span class="match-level band-${university.recommendationBand}">${getRecommendationBandLabel(university.recommendationBand)} ${university.displayScore}</span>
             <p class="match-row-reason">${escapeHtml(getRecommendationReason(input, university, university.recommendationBand))}</p>
             <div class="match-row-actions">
-              <a href="${getUniversityOfficialUrl(university)}" target="_blank" rel="noreferrer">公式</a>
+              <a href="${getUniversityOfficialUrl(university)}" target="_blank" rel="noreferrer">${getDynamicText("official")}</a>
+              <a href="${escapeHtml(sourceUrl)}" target="_blank" rel="noreferrer">${getDynamicText("requirement")}</a>
               <button type="button" class="favorite-button ${isFavoriteUniversity(university.name) ? "is-favorite" : ""}" data-favorite="${encodeURIComponent(university.name)}">
-                ${isFavoriteUniversity(university.name) ? "已收藏" : "收藏"}
+                ${isFavoriteUniversity(university.name) ? getDynamicText("favorited") : getDynamicText("favorite")}
               </button>
             </div>
           </div>
           <details class="match-row-detail">
-            <summary>${escapeHtml(deficitSummary)}・募集要項を見る</summary>
-            <p>${university.line}</p>
+            <summary>${escapeHtml(deficitSummary)}・${getDynamicText("detailSummary")}</summary>
+            <p>${localizeUniversityText(university.line)}</p>
             ${
               university.deficitNotes.length
                 ? `<ul class="risk-list">${university.deficitNotes.map((note) => `<li>${escapeHtml(note)}</li>`).join("")}</ul>`
-                : `<ul class="risk-list ok"><li>当前输入与该校参考带没有明显硬性短板，但仍需查募集要项。</li></ul>`
+                : `<ul class="risk-list ok"><li>${getDynamicText("okRisk")}</li></ul>`
             }
             <div class="line-box">
-              <strong>确认重点</strong>
-              ${university.requirement}
+              <strong>${getDynamicText("why")}</strong>
+              ${escapeHtml(getRecommendationReason(input, university, university.recommendationBand))}
+            </div>
+            <div class="line-box">
+              <strong>${currentLanguage === "ja" ? "確認ポイント" : "确认重点"}</strong>
+              ${localizeUniversityText(university.requirement)}
             </div>
             ${renderAdmissionDataBlock(university, input.field)}
           </details>
@@ -2499,15 +3017,15 @@ function renderMatchResultsNow() {
       const items = displayGroups[band];
       const emptyText =
         band === "safety"
-          ? "暂无明确保底校。可以降低学校难度、扩大地区，或把更多中位私立加入候选池。"
+          ? getDynamicText("emptySafety")
           : band === "recommended"
-            ? "暂无主力推荐校。建议调整地区/学校类型，或优先补EJU日语和综合科目。"
-            : "暂无合理冲刺校。当前输入可能与目标方向不匹配，或分数差距过大。";
+            ? getDynamicText("emptyRecommended")
+            : getDynamicText("emptyReach");
       return `
         <section class="match-band match-band-${band}" id="match-band-${band}">
           <div class="match-band-head">
             <div>
-              <span>${recommendationBandLabels[band]}</span>
+              <span>${getRecommendationBandLabel(band)}</span>
               <strong>${items.length}校</strong>
             </div>
             <p>${recommendationBandNotes[band]}</p>
@@ -2524,27 +3042,27 @@ function renderMatchResultsNow() {
     })
     .join("");
   const expandCount = Math.min(hiddenCount, 15);
-  const moreLabel = matchExpanded ? "候选を折りたたむ" : `さらに${expandCount}校を表示`;
+  const moreLabel = matchExpanded ? getDynamicText("collapse") : formatDynamicText("more", { count: expandCount });
   const moreText = hiddenCount > 0
-    ? `主要候选${availableCount}校中、${displayCandidates.length}校を表示中。募集要項不足校と方向不一致校は候选から分けています。`
-    : `主要候选${displayCandidates.length}校を表示中。募集要項不足校と方向不一致校は候选から分けています。`;
+    ? formatDynamicText("shownPartial", { total: availableCount, shown: displayCandidates.length })
+    : formatDynamicText("shownAll", { count: displayCandidates.length });
 
   output.innerHTML = `
     <div class="match-priority-nav">
       <a class="priority-card priority-safety" href="#match-band-safety">
-        <span>保底</span>
+        <span>${getRecommendationBandLabel("safety")}</span>
         <strong>${displayCounts.safety}</strong>
-        <em>优先确认出愿条件</em>
+        <em>${currentLanguage === "ja" ? "出願条件を優先確認" : "优先确认出愿条件"}</em>
       </a>
       <a class="priority-card priority-recommended" href="#match-band-recommended">
-        <span>推荐</span>
+        <span>${getRecommendationBandLabel("recommended")}</span>
         <strong>${displayCounts.recommended}</strong>
-        <em>主力候选池</em>
+        <em>${currentLanguage === "ja" ? "主力候補" : "主力候选池"}</em>
       </a>
       <a class="priority-card priority-reach" href="#match-band-reach">
-        <span>冲刺</span>
+        <span>${getRecommendationBandLabel("reach")}</span>
         <strong>${displayCounts.reach}</strong>
-        <em>少量挑战</em>
+        <em>${currentLanguage === "ja" ? "少数だけ挑戦" : "少量挑战"}</em>
       </a>
     </div>
     ${sections}
@@ -2569,10 +3087,11 @@ function renderMatchResults() {
   }
 
   matchExpanded = false;
+  matchHasUserRun = true;
   window.clearTimeout(matchRenderTimer);
   scoreOutput.classList.add("is-loading");
   scoreNode.textContent = "...";
-  note.textContent = "EJU、英语、JLPT、志望理由书と大学データを照合しています。";
+  note.textContent = getDynamicText("scoreLoading");
   matchRenderTimer = window.setTimeout(() => {
     renderMatchResultsNow();
     scoreOutput.classList.remove("is-loading");
@@ -2589,7 +3108,6 @@ document.querySelector("#match-results")?.addEventListener("click", (event) => {
 function renderUniversityCards(query = "") {
   const grid = document.querySelector("#university-grid");
   if (!grid) return;
-  const status = document.querySelector("#university-search-status");
   const type = document.querySelector("#university-type")?.value ?? "all";
   const region = document.querySelector("#university-region")?.value ?? "all";
   const field = document.querySelector("#university-field")?.value ?? "all";
@@ -2650,7 +3168,7 @@ function renderUniversityCards(query = "") {
     ? `
       <div class="search-result-banner">
         <strong>「${escapeHtml(trimmedQuery)}」の検索結果</strong>
-        <span>${filterRelaxed ? "学校类型筛选已自动放宽，先显示名称匹配的大学。" : "名称、简称、中文・日文别名を照合しました。"}</span>
+        <span>${filterRelaxed ? getDynamicText("searchRelaxed") : getDynamicText("searchMatched")}</span>
       </div>
     `
     : "";
@@ -2659,14 +3177,15 @@ function renderUniversityCards(query = "") {
     grid.innerHTML = `
       ${resultBanner}
       <article class="university-card empty-result">
-        <h3>該当大学が見つかりません</h3>
-        <p>中文、日文、英文、简称都可以搜索。例：東洋大学 / 东洋 / Toyo / 东京 / 私立 / EJU。</p>
+        <h3>${getDynamicText("noUniversityTitle")}</h3>
+        <p>${getDynamicText("noUniversityBody")}</p>
         <div class="line-box">
-          <strong>搜索建议</strong>
-          学校类型筛选为「全部」后再试；如果大学尚未收录，可以先看JASSO EJU利用校和大学官网募集要項。
+          <strong>${getDynamicText("searchSuggestionTitle")}</strong>
+          ${getDynamicText("noUniversitySuggestion")}
         </div>
       </article>
     `;
+    setUniversitySearchState("empty");
   } else {
     grid.innerHTML = `
       ${resultBanner}
@@ -2678,39 +3197,43 @@ function renderUniversityCards(query = "") {
           const officialUrl = getUniversityOfficialUrl(university);
           const detailUrl = getUniversityDetailPageUrl(university);
           const deadline = getEarliestApplicationDeadline(university);
+          const profile = getAdmissionProgramProfile(university, field === "all" ? "" : field);
+          const checkedAt = profile.checkedAt || getDynamicText("noCheckedDate");
           return `
         <article class="university-card compact-university-card">
           <div class="university-card-head">
-            <h3>${getDisplayUniversityName(university)}</h3>
+            <h3>${getUniversityTitleBlock(university, field === "all" ? "" : field)}</h3>
             <span class="data-status">${escapeHtml(statusText)}</span>
           </div>
           <div class="meta-row">
-            <span>${university.route}</span>
-            <span>${regionLabels[university.region] ?? university.region}</span>
+            <span>${localizeUniversityText(university.route)}</span>
+            <span>${getLocalizedRegionLabel(university.region)}</span>
             ${university.prefecture ? `<span>${getDisplayPrefecture(university)}</span>` : ""}
             <span>${getDisplayFields(university)}</span>
           </div>
           <div class="university-quick-facts">
             <span>${escapeHtml(facts.extractionStatus.split(" / ")[0])}</span>
-            <span>${hasJudgementReadyProfile(university) ? "诊断参考" : "判定不可"}</span>
+            <span>${hasJudgementReadyProfile(university) ? getDynamicText("dataReady") : getDynamicText("dataInsufficient")}</span>
+            <span>${getDynamicText("targetProgram")}: ${escapeHtml(profile.label)}</span>
+            <span>${getDynamicText("checkedAt")}: ${escapeHtml(checkedAt)}</span>
             ${deadline ? `<span>締切 ${deadline.toISOString().slice(0, 10)}</span>` : ""}
             <span>${escapeHtml(facts.reference).slice(0, 46)}</span>
           </div>
-          <p>${university.requirement}</p>
+          <p>${localizeUniversityText(university.requirement)}</p>
           <details class="university-detail-toggle">
-            <summary>查看出愿资格・最低成绩・时间节点</summary>
+            <summary>${currentLanguage === "ja" ? "出願資格・最低成績・日程を見る" : "查看出愿资格・最低成绩・时间节点"}</summary>
             <div class="line-box">
-              <strong>出愿参考带 / 风险</strong>
-              ${university.line}
+              <strong>${currentLanguage === "ja" ? "出願参考帯 / リスク" : "出愿参考带 / 风险"}</strong>
+              ${localizeUniversityText(university.line)}
             </div>
             ${renderAdmissionDataBlock(university)}
           </details>
           <div class="card-links">
             ${detailUrl ? `<a href="${escapeHtml(detailUrl)}">詳細ページ</a>` : ""}
-            <a href="${officialUrl}" target="_blank" rel="noreferrer" data-track-event="official-link">大学公式サイト</a>
-            ${facts.sourceUrl ? `<a href="${escapeHtml(facts.sourceUrl)}" target="_blank" rel="noreferrer" data-track-event="requirement-link">募集要項</a>` : ""}
+            <a href="${officialUrl}" target="_blank" rel="noreferrer" data-track-event="official-link">${currentLanguage === "ja" ? "大学公式サイト" : "大学公式サイト"}</a>
+            ${facts.sourceUrl ? `<a href="${escapeHtml(facts.sourceUrl)}" target="_blank" rel="noreferrer" data-track-event="requirement-link">${getDynamicText("requirement")}</a>` : ""}
             <button type="button" class="favorite-button ${isFavoriteUniversity(university.name) ? "is-favorite" : ""}" data-favorite="${encodeURIComponent(university.name)}">
-              ${isFavoriteUniversity(university.name) ? "已收藏" : "收藏"}
+              ${isFavoriteUniversity(university.name) ? getDynamicText("favorited") : getDynamicText("favorite")}
             </button>
             ${university.source ? `<span>${university.source}</span>` : ""}
           </div>
@@ -2725,30 +3248,40 @@ function renderUniversityCards(query = "") {
           : ""
       }
     `;
+    setUniversitySearchState("done");
   }
 
   const note = document.querySelector("#university-data-note");
   if (note) {
     const requirementCount = admissionRequirementMeta?.recordCount
-      ? `募集要項抽取DB ${admissionRequirementMeta.recordCount}校登録。`
+      ? currentLanguage === "ja"
+        ? `募集要項抽出DB ${admissionRequirementMeta.recordCount}校登録。`
+        : `募集要項抽取DB ${admissionRequirementMeta.recordCount}校登録。`
       : "";
     const visibleText = hiddenCount > 0
       ? `${filtered.length}件中${visibleUniversities.length}件を表示中。`
       : `${filtered.length}件をすべて表示中。`;
-    note.textContent = `${visibleText}${requirementCount} EJU利用情報はJASSO 2026年5月リスト基準、匹配スコアと出愿参考带は目安です。必ず大学公式募集要項で確認してください。`;
+    note.textContent =
+      currentLanguage === "ja"
+        ? `${visibleText}${requirementCount} EJU利用情報はJASSO 2026年5月リスト基準、マッチスコアと出願参考帯は目安です。必ず大学公式募集要項で確認してください。`
+        : `${visibleText}${requirementCount} EJU利用情報はJASSO 2026年5月リスト基準、匹配スコアと出愿参考带は目安です。必ず大学公式募集要項で確認してください。`;
   }
   grid.classList.remove("is-searching");
-  status?.classList.remove("is-active");
 }
 
 function renderUniversityCardsWithAnimation(query = "") {
   const grid = document.querySelector("#university-grid");
-  const status = document.querySelector("#university-search-status");
   window.clearTimeout(universitySearchTimer);
   grid?.classList.add("is-searching");
-  status?.classList.add("is-active");
+  setUniversitySearchState("loading");
   universitySearchTimer = window.setTimeout(() => {
-    renderUniversityCards(query);
+    try {
+      renderUniversityCards(query);
+    } catch (error) {
+      console.error(error);
+      grid?.classList.remove("is-searching");
+      setUniversitySearchState("error");
+    }
   }, 80);
 }
 
@@ -2811,7 +3344,7 @@ function saveAdmissionReportFromForm() {
   setAdmissionReports([...getAdmissionReports(), report]);
   renderAdmissionReportSummary();
   renderUniversityCards(document.querySelector("#university-search")?.value ?? "");
-  renderMatchResultsNow();
+  if (matchHasUserRun) renderMatchResultsNow();
 }
 
 function exportAdmissionReports() {
@@ -2858,7 +3391,7 @@ function importAdmissionReports(file) {
       setAdmissionReports(unique);
       renderAdmissionReportSummary();
       renderUniversityCards(document.querySelector("#university-search")?.value ?? "");
-      renderMatchResultsNow();
+      if (matchHasUserRun) renderMatchResultsNow();
     } catch (error) {
       window.alert("JSON格式无法读取。请确认文件是导出的投稿数据。");
     }
@@ -2883,7 +3416,8 @@ function dedupeUniversities(items) {
 function dedupeByDisplayName(items) {
   const seen = new Set();
   return items.filter((item) => {
-    const key = normalizeUniversitySearch(getDisplayUniversityName(item));
+    const profile = getAdmissionProgramProfile(item);
+    const key = normalizeUniversitySearch(`${getBaseUniversityName(item)} ${profile.field} ${profile.method}`);
     if (!key || seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -2945,12 +3479,12 @@ async function loadUniversityData() {
   updateUniversitySuggestions();
   renderUniversityCards(document.querySelector("#university-search")?.value ?? "");
   renderSiteSearch(document.querySelector("#site-search-input")?.value ?? "");
-  renderMatchResultsNow();
+  if (matchHasUserRun) renderMatchResultsNow();
 }
 
 async function loadAdmissionRequirements() {
   try {
-    const response = await fetch("data/admission-requirements.json?v=20260710-01", { cache: "no-store" });
+    const response = await fetch("data/admission-requirements.json?v=20260712-01", { cache: "no-store" });
     if (!response.ok) throw new Error("admission requirement data unavailable");
     const data = await response.json();
     admissionRequirementRecords = data.records ?? {};
@@ -2960,8 +3494,11 @@ async function loadAdmissionRequirements() {
     admissionRequirementRecords = fallback?.records ?? {};
     admissionRequirementMeta = fallback?.meta ?? null;
   }
+  admissionRequirementRecordList = Object.values(admissionRequirementRecords);
+  admissionRequirementRecordCache.clear();
+  admissionProgramProfileCache.clear();
   renderUniversityCards(document.querySelector("#university-search")?.value ?? "");
-  renderMatchResultsNow();
+  if (matchHasUserRun) renderMatchResultsNow();
 }
 
 document.querySelector("#score-form")?.addEventListener("submit", (event) => {
@@ -3029,10 +3566,90 @@ document.querySelector("#clear-report-data")?.addEventListener("click", () => {
   setAdmissionReports([]);
   renderAdmissionReportSummary();
   renderUniversityCards(document.querySelector("#university-search")?.value ?? "");
-  renderMatchResultsNow();
+  if (matchHasUserRun) renderMatchResultsNow();
 });
 
 const defaultAnnouncements = [
+  {
+    id: "default-20260713-0930",
+    date: "2026-07-13 09:30 JST",
+    datetime: "2026-07-13T09:30:00+09:00",
+    category: "募集要項",
+    title: "西南学院大学の2027外国人入試を反映",
+    body: "2026-07-13确认西南学院大学官方外国人入试页与2027年度外国人入学试验要项PDF，补充出愿资格、EJU/JLPT日本语条件、出愿期、书类送付期、线上笔试/面试日与合格发表。官方链接：https://www.seinan-gu.ac.jp/admissions/entrance_system/other_selection/foreigner.html",
+  },
+  {
+    id: "default-20260713-1112",
+    date: "2026-07-13 11:12 JST",
+    datetime: "2026-07-13T11:12:00+09:00",
+    category: "募集要項",
+    title: "宮崎公立大学の要項公表時期を追記",
+    body: "2026-07-13确认宫崎公立大学官方私费外国人留学生选拔页与资料请页面，补充学生募集要项预计于2026年9月下旬公开，并追加官方导线。官方链接：https://www.miyazaki-mu.ac.jp/entrance/entrance-exam/document/request.html",
+  },
+  {
+    id: "default-20260713-1036",
+    date: "2026-07-13 10:36 JST",
+    datetime: "2026-07-13T10:36:00+09:00",
+    category: "募集要項",
+    title: "愛知大学の2027外国人留学生入試を反映",
+    body: "2026-07-13确认爱知大学官方留学生入试页与58页募集要项PDF，补充推荐・一般・渡日前三方式的出愿资格、EJU/JLPT/英语条件与日程。官方链接：https://www.aichi-u.ac.jp/exam/foreign",
+  },
+  {
+    id: "default-20260712-1855",
+    date: "2026-07-12 18:55 JST",
+    datetime: "2026-07-12T18:55:00+09:00",
+    category: "募集要項",
+    title: "立教大学の2027留学生要項導線を補正",
+    body: "2026-07-12确认立教大学公式特別入試页与 52school ガイダンス中，外国人留学生入試已明确分为『筆記・面接（異文化コミュニケーション学部）』『11学部書類選考』『法学部国際ビジネス法学科グローバルコース書類選考』三条官方导线，并修正原记录中的『12学部』表记。官方链接：https://www.rikkyo.ac.jp/admissions/undergraduate/guidelines/ / https://www.guide.52school.com/guidance/net-rikkyo-tokubetsu/gid",
+  },
+  {
+    id: "default-20260712-0328",
+    date: "2026-07-12 03:28 JST",
+    datetime: "2026-07-12T03:28:00+09:00",
+    category: "募集要項",
+    title: "ICUの2027 EJU/ELBA入試概要を反映",
+    body: "2026-07-12确认 ICU 官方日文入试页与英文学部申请日程，补充 EJU 利用与 ELBA 的出愿资格、EJU/英语条件、出愿期间、面试日和合格发表。官方链接：https://www.icu.ac.jp/admissions/undergraduate/exam/",
+  },
+  {
+    id: "default-20260711-1945",
+    date: "2026-07-11 19:45 JST",
+    datetime: "2026-07-11T19:45:00+09:00",
+    category: "募集要項",
+    title: "工学院大学・中京大学の2027留学生入試を追加",
+    body: "2026-07-11确认工学院大学官方留学生选拔页与中京大学官方 NetCampus 外国人留学生入试 PDF，补充出愿资格、EJU/JLPT条件与前期/后期日程。官方链接：https://www.kogakuin.ac.jp/admissions/requirement/method/other/foreign.html / https://nc.chukyo-u.ac.jp/conts/wp-content/uploads/gaikoku_nyugakuyoukou.pdf",
+  },
+  {
+    id: "default-20260711-1357",
+    date: "2026-07-11 13:57 JST",
+    datetime: "2026-07-11T13:57:00+09:00",
+    category: "募集要項",
+    title: "駒澤大学の2027留学生要項リンクへ更新",
+    body: "2026-07-11确认駒澤大学官方外国人留学生选拔页的 KomaShelf 要项链接已切换为『2027年度_外国人留学生選抜要項』，同步更新官方来源标题与确认日。页面已确认项目包括事前确认、10月出愿、11月8日试验、11月20日合格发表。官方链接：https://www.komazawa-u.ac.jp/exam/information/private-expense-forign-student.html / https://komazawa-u.backshelf.jp/bookview/?filseq=4811",
+  },
+  {
+    id: "default-20260711-1151",
+    date: "2026-07-11 11:51 JST",
+    datetime: "2026-07-11T11:51:00+09:00",
+    category: "募集要項",
+    title: "立命館大学の英語学位課程 2027情報を反映",
+    body: "2026-07-11确认立命館大学 International Admissions Office 已公开 2027 Enrollment AO Admissions（English Basis）信息，补充英語学位課程的出愿资格、英語条件、程序别出愿期间与合格发表。官方链接：https://en.ritsumei.ac.jp/e-ug/news/article.html/?id=310 / https://en.ritsumei.ac.jp/e-ug/apply/howto.html/?version=English",
+  },
+  {
+    id: "default-20260711-1150",
+    date: "2026-07-11 11:50 JST",
+    datetime: "2026-07-11T11:50:00+09:00",
+    category: "募集要項",
+    title: "北海学園大学の留学生選抜予告を反映",
+    body: "2026-07-11确认北海学園大学官方『入学者選抜に関する予告』、『選抜日程』与特別選抜概要 PDF 已公开 2027年度外国人留学生选拔的 EJU 日本语 200 分门槛、学部别 EJU 科目，以及 11 月出愿、11 月 29 日试验、2027-01-19 合格发表。官方链接：https://www.hgu.jp/examination/examination-notice.html / https://www.hgu.jp/examination/examination-schedule.html / https://www.hgu.jp/examination/pdf/examination-subjects_07.pdf",
+  },
+  {
+    id: "default-20260710-1555",
+    date: "2026-07-10 15:55 JST",
+    datetime: "2026-07-10T15:55:00+09:00",
+    category: "募集要項",
+    title: "青山学院大学の2027留学生要項を反映",
+    body: "2026-07-10确认青山学院大学官方外国人留学生页已公开 2027年度正式要项PDF，更新官方来源、出愿资格、学部别EJU/JLPT/英语条件，并补充理工学部 9月出愿、10月24日试验、11月16日合格发表起始日。官方链接：https://www.aoyama.ac.jp/admission/undergraduate/examination/exam_foreign_student.html / https://www.aoyama.ac.jp/wp-content/uploads/2026/07/ad_2027_internationalstudent_20260709_e1Nf5.pdf",
+  },
   {
     id: "default-20260710-1035",
     date: "2026-07-10 10:35 JST",
@@ -3533,7 +4150,7 @@ document.addEventListener("click", (event) => {
     setFavoriteUniversities([]);
     renderFavoritePanel();
     renderUniversityCards(document.querySelector("#university-search")?.value ?? "");
-    renderMatchResultsNow();
+    if (matchHasUserRun) renderMatchResultsNow();
   }
 });
 
@@ -4517,7 +5134,6 @@ document.querySelectorAll("[data-lang-switch]").forEach((button) => {
   });
 });
 
-renderMatchResults();
 loadUniversityData();
 loadAdmissionRequirements();
 renderExamCountdown();
