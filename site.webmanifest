@@ -9,7 +9,7 @@
   "theme_color": "#0b5cad",
   "icons": [
     {
-      "src": "/assets/isj-favicon.svg",
+      "src": "/assets/isj-favicon.svg?v=20260724-white",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
