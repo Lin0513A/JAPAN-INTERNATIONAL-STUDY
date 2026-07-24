@@ -3295,11 +3295,18 @@ body {
   width: 36px;
   height: 36px;
   color: #fff;
-  background: #0b5cad;
-  border-radius: 4px;
+  background: transparent;
+  border-radius: 9px;
   box-shadow: none;
   font-size: 12px;
   letter-spacing: 0;
+  overflow: hidden;
+}
+
+.brand-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .site-nav {
